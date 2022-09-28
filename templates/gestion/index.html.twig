@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GestionController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+{#<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/Users/silvere.yapo/Documents/Symfony_Projects/MFP_Gestion_Clients/src/Controller/GestionController.php'|file_link(0) }}">src/Controller/GestionController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/Users/silvere.yapo/Documents/Symfony_Projects/MFP_Gestion_Clients/templates/gestion/index.html.twig'|file_link(0) }}">templates/gestion/index.html.twig</a></code></li>
+    </ul>
+</div>
+#}
+
+                <div class="container-login100">
+                    <div class="wrap-login100 p-6">
+                        <form class="login100-form validate-form">
+                            <span class="login100-form-title pb-5">
+                                CRUC - Authentification
+                            </span>
+                            <div class="panel panel-primary">
+                               
+                                <div class="panel-body tabs-menu-body p-0 pt-5">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab5">
+                                            <div class="wrap-input100 validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">
+                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                    <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
+                                                </a>
+                                                <input class="input100 border-start-0 form-control ms-0" type="matricule" placeholder="Matricule">
+                                            </div>
+                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                    <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
+                                                </a>
+                                                <input class="input100 border-start-0 form-control ms-0" type="password" placeholder="Mot de passe">
+                                            </div>
+                                            <div class="text-end pt-4">
+                                                <p class="mb-0"><a href="#" class="text-primary ms-1">Mot de passe oubli&eacute; ?</a></p>
+                                            </div>
+                                            <div class="container-login100-form-btn">
+                                                <a href="index.html" class="login100-form-btn btn-green">
+                                                        Se connecter
+                                                </a>
+                                            </div>
+                                            <div class="text-center pt-3">
+                                                <p class="text-dark mb-0">Pas de compte?<a href="#" class="text-primary ms-1">S'inscrire</a></p>
+                                            </div>
+                                           
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+{% endblock %}
