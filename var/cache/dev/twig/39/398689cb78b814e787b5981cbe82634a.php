@@ -65,7 +65,7 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello GestionController!";
+        echo "CRUC – Centre de Relation des Usagers Clients";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -90,9 +90,16 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-";
-        // line 21
-        echo "
+                 <div class=\"col col-login mx-auto mt-7\">
+                    <div class=\"text-center\">
+                        <a href=\"#\"><img src=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/foncpubli.png"), "html", null, true);
+        echo "\" class=\"header-brand-img\" alt=\"Logo CRUC\"></a>
+                         
+                    </div>
+                </div>    
+
                 <div class=\"container-login100\">
                     <div class=\"wrap-login100 p-6\">
                         <form class=\"login100-form validate-form\">
@@ -120,7 +127,7 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
                                                 <p class=\"mb-0\"><a href=\"#\" class=\"text-primary ms-1\">Mot de passe oubli&eacute; ?</a></p>
                                             </div>
                                             <div class=\"container-login100-form-btn\">
-                                                <a href=\"index.html\" class=\"login100-form-btn btn-green\">
+                                                <a href=\"#\" class=\"login100-form-btn btn-green\">
                                                         Se connecter
                                                 </a>
                                             </div>
@@ -157,14 +164,14 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
 
     public function getDebugInfo()
     {
-        return array (  95 => 21,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello GestionController!{% endblock %}
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
 
 {% block body %}
 <style>
@@ -172,16 +179,12 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-{#<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"{{ 'C:/Users/silvere.yapo/Documents/Symfony_Projects/MFP_Gestion_Clients/src/Controller/GestionController.php'|file_link(0) }}\">src/Controller/GestionController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'C:/Users/silvere.yapo/Documents/Symfony_Projects/MFP_Gestion_Clients/templates/gestion/index.html.twig'|file_link(0) }}\">templates/gestion/index.html.twig</a></code></li>
-    </ul>
-</div>
-#}
+                 <div class=\"col col-login mx-auto mt-7\">
+                    <div class=\"text-center\">
+                        <a href=\"#\"><img src=\"{{ asset('images/foncpubli.png') }}\" class=\"header-brand-img\" alt=\"Logo CRUC\"></a>
+                         
+                    </div>
+                </div>    
 
                 <div class=\"container-login100\">
                     <div class=\"wrap-login100 p-6\">
@@ -210,7 +213,7 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
                                                 <p class=\"mb-0\"><a href=\"#\" class=\"text-primary ms-1\">Mot de passe oubli&eacute; ?</a></p>
                                             </div>
                                             <div class=\"container-login100-form-btn\">
-                                                <a href=\"index.html\" class=\"login100-form-btn btn-green\">
+                                                <a href=\"#\" class=\"login100-form-btn btn-green\">
                                                         Se connecter
                                                 </a>
                                             </div>
