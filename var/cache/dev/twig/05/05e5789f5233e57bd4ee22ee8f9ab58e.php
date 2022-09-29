@@ -174,10 +174,6 @@ class __TwigTemplate_40f153aab7b3b8c83160203752992526 extends Template
         {% endif %}
     </div>
 {% endblock %}
-<<<<<<< HEAD
 ", "@WebProfiler/Profiler/open.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\open.html.twig");
-=======
-", "@WebProfiler/Profiler/open.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\open.html.twig");
->>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

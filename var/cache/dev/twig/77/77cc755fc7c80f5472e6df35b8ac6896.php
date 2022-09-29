@@ -155,10 +155,6 @@ class __TwigTemplate_5158db4e2d3ea8cd10f52837f50e779c extends Template
 {% block panel %}
     {{ render(controller('web_profiler.controller.router::panelAction', { token: token })) }}
 {% endblock %}
-<<<<<<< HEAD
 ", "@WebProfiler/Collector/router.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\router.html.twig");
-=======
-", "@WebProfiler/Collector/router.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\router.html.twig");
->>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

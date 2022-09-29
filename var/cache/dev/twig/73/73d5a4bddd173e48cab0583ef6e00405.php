@@ -645,10 +645,6 @@ class __TwigTemplate_6eaa228f04d8b2add45e872bab97628b extends Template
         </div>
     {% endfor %}
 {% endblock %}
-<<<<<<< HEAD
 ", "@WebProfiler/Collector/notifier.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\notifier.html.twig");
-=======
-", "@WebProfiler/Collector/notifier.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\notifier.html.twig");
->>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }
