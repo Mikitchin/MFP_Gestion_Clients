@@ -825,6 +825,10 @@ class __TwigTemplate_dcc954efe30a2fbff0adbca2321731c1 extends Template
         </table>
     {% endif %}
 {% endblock %}
+<<<<<<< HEAD
 ", "@WebProfiler/Collector/config.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+=======
+", "@WebProfiler/Collector/config.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

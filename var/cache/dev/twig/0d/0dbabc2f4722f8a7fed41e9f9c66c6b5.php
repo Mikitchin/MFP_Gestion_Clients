@@ -3395,6 +3395,10 @@ body.outlook p {
         min-width: 0;
     }
 }
+<<<<<<< HEAD
 ", "@email/zurb_2/main.css", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\twig-bridge\\Resources\\views\\Email\\zurb_2\\main.css");
+=======
+", "@email/zurb_2/main.css", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\twig-bridge\\Resources\\views\\Email\\zurb_2\\main.css");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

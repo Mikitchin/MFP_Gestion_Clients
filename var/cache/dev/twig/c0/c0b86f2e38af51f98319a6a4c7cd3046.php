@@ -75,6 +75,10 @@ class __TwigTemplate_808e59d2b172be89945343e19d78c755 extends Template
     <polygon fill=\"#AAA\" points=\"18 8.5 24 8.5 24 15.5 19.5 15.5\" />
     <polygon fill=\"#AAA\" points=\"0 17 6.5 17 7.5 21 8.5 17 13 17 12 21 21 21 20 17 24 17 24 24 0 24\" />
 </svg>
+<<<<<<< HEAD
 ", "@DoctrineMigrations/Collector/icon.svg", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\doctrine\\doctrine-migrations-bundle\\Resources\\views\\Collector\\icon.svg");
+=======
+", "@DoctrineMigrations/Collector/icon.svg", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\doctrine\\doctrine-migrations-bundle\\Resources\\views\\Collector\\icon.svg");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

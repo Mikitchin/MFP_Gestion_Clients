@@ -194,6 +194,10 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         {% block body %}{% endblock %}
     </body>
 </html>
+<<<<<<< HEAD
 ", "base.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\templates\\base.html.twig");
+=======
+", "base.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\base.html.twig");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

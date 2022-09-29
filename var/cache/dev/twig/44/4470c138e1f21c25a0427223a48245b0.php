@@ -146,6 +146,10 @@ class __TwigTemplate_24993aca5a28f8e4d1852e951c486d05 extends Template
         </div>
     </div>
 {% endblock %}
+<<<<<<< HEAD
 ", "@WebProfiler/Profiler/toolbar_redirect.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_redirect.html.twig");
+=======
+", "@WebProfiler/Profiler/toolbar_redirect.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_redirect.html.twig");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

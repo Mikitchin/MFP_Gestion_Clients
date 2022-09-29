@@ -17,7 +17,11 @@ class AnnotationsConfig
     private $_usedProperties = [];
 
     /**
+<<<<<<< HEAD
      * @default false
+=======
+     * @default true
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
      * @param ParamConfigurator|bool $value
      * @return $this
      */

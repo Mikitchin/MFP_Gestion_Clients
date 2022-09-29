@@ -73,6 +73,10 @@ class __TwigTemplate_fa7a119eaad8f890c933bf98c5a79947 extends Template
   <path d=\"M18 20l3 -3l-3 -3\" />
   <line x1=\"21\" y1=\"7\" x2=\"3\" y2=\"7\" />
 </svg>
+<<<<<<< HEAD
 ", "@WebProfiler/Icon/serializer.svg", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\serializer.svg");
+=======
+", "@WebProfiler/Icon/serializer.svg", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\serializer.svg");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

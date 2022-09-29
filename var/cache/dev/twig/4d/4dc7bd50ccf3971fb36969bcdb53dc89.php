@@ -81,6 +81,10 @@ class __TwigTemplate_f72051c47b8c6ad3d003be29ad79cca7 extends Template
     public function getSourceContext()
     {
         return new Source("{% block panel '' %}
+<<<<<<< HEAD
 ", "@WebProfiler/Profiler/ajax_layout.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\ajax_layout.html.twig");
+=======
+", "@WebProfiler/Profiler/ajax_layout.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\ajax_layout.html.twig");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

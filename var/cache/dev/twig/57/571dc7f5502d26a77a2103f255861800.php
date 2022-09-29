@@ -1671,6 +1671,10 @@ class __TwigTemplate_b03c68ba24d44a272a24eb766a995ffa extends Template
         </tbody>
     </table>
 {% endmacro %}
+<<<<<<< HEAD
 ", "@Doctrine/Collector/db.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
+=======
+", "@Doctrine/Collector/db.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

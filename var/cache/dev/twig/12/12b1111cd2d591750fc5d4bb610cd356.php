@@ -171,6 +171,10 @@ class __TwigTemplate_f5b67bf4f85f91ccf34921ed558a9dbc extends Template
         {%- endfor -%}
     </pre>
 {% endif %}
+<<<<<<< HEAD
 ", "@Doctrine/Collector/explain.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\explain.html.twig");
+=======
+", "@Doctrine/Collector/explain.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\explain.html.twig");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

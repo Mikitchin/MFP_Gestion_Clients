@@ -843,6 +843,10 @@ class __TwigTemplate_2c3ae60f80994312a7a7d1181731fe25 extends Template
     </table>
     {% endfor %}
 {% endmacro %}
+<<<<<<< HEAD
 ", "@WebProfiler/Collector/messenger.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\messenger.html.twig");
+=======
+", "@WebProfiler/Collector/messenger.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\messenger.html.twig");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }

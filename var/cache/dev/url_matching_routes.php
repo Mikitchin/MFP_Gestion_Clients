@@ -14,6 +14,10 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+<<<<<<< HEAD
+=======
+        '/gestion' => [[['_route' => 'app_gestion', '_controller' => 'App\\Controller\\GestionController::index'], null, null, null, false, false, null]],
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     ],
     [ // $regexpList
         0 => '{^(?'

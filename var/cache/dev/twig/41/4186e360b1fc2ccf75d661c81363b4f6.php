@@ -299,6 +299,10 @@ class __TwigTemplate_50e1ff3c4713ae4b9158eeca08250423 extends Template
         {{- form_rest(form) -}}
     </table>
 {%- endblock form_widget_compound -%}
+<<<<<<< HEAD
 ", "form_table_layout.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\form_table_layout.html.twig");
+=======
+", "form_table_layout.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\form_table_layout.html.twig");
+>>>>>>> 03d98dec931f0f03298a3021fbe7dc3a21775b0a
     }
 }
