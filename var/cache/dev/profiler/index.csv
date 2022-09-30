@@ -181,3 +181,10 @@ dffa06,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/users/21.jpg,166446467
 d8eaba,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo-1.png,1664467533,,404
 2d14be,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo-2.png,1664467533,4be5f1,404
 4be5f1,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo-2.png,1664467533,,404
+d1cdff,127.0.0.1,GET,https://127.0.0.1:8000/,1664554749,,404
+8ccab9,127.0.0.1,GET,https://127.0.0.1:8000/login,1664554764,57d72c,500
+57d72c,127.0.0.1,GET,https://127.0.0.1:8000/login,1664554764,,500
+5c4d5d,127.0.0.1,GET,https://127.0.0.1:8000/login,1664554849,,200
+4273c1,127.0.0.1,POST,https://127.0.0.1:8000/login,1664554882,,302
+6ac111,127.0.0.1,GET,https://127.0.0.1:8000/login,1664554883,,200
+c990f1,127.0.0.1,GET,https://127.0.0.1:8000/register,1664554992,,200
