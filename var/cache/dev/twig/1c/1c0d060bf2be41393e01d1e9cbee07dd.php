@@ -68,11 +68,14 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         echo "    </head>
     <body>
         ";
+        // line 18
+        $this->loadTemplate("_partials/_navbar.html.twig", "base.html.twig", 18)->display($context);
         // line 19
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
         // line 20
         echo "        ";
+        $this->loadTemplate("_partials/_footer.html.twig", "base.html.twig", 20)->display($context);
         // line 21
         echo "
     </body>
@@ -174,9 +177,14 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  155 => 19,  142 => 14,  132 => 13,  119 => 10,  109 => 9,  90 => 5,  77 => 21,  75 => 20,  72 => 19,  68 => 16,  66 => 13,  63 => 12,  61 => 9,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  158 => 19,  145 => 14,  135 => 13,  122 => 10,  112 => 9,  93 => 5,  80 => 21,  77 => 20,  74 => 19,  72 => 18,  68 => 16,  66 => 13,  63 => 12,  61 => 9,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -198,9 +206,9 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         {% endblock %}
     </head>
     <body>
-        {# {% include \"_partial/_navbar.html.twig\" %} #}
+        {% include \"_partials/_navbar.html.twig\" %}
         {% block body %}{% endblock %}
-        {# {% include \"_partial/_footer.html.twig\" %} #}
+        {% include \"_partials/_footer.html.twig\" %}
 
     </body>
 </html>

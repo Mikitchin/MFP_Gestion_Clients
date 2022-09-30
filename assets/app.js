@@ -14,10 +14,10 @@ import './bootstrap';
 //import './js/custom1.js';
 //import './js/generate-otp.js';
 import './js/jquery.min.js';
-import './plugins/chart/Chart.bundle.js';
+/*import './plugins/chart/Chart.bundle.js';
 import './plugins/chart/rounded-barchart.js';
 import './plugins/chart/utils.js';
-/*import './plugins/flot/chart.flot.sampledata.js';
+import './plugins/flot/chart.flot.sampledata.js';
 import './plugins/flot/dashboard.sampledata.js';
 import './plugins/flot/jquery.flot.js';
 import './plugins/flot/jquery.flot.fillbetween.js';
@@ -75,6 +75,7 @@ import './js/widget.js';*/
 //import './js/sticky.js';
 //import './js/index1.js';
 //import './js/custom.js';
+import './js/script.js';
 
 
 
