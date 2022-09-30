@@ -11,10 +11,18 @@ import { Tooltip, Toast, Popover } from 'bootstrap';
 
 // start the Stimulus application
 import './bootstrap';
-//import './js/custom.js';
 //import './js/custom1.js';
 //import './js/generate-otp.js';
 import './js/jquery.min.js';
+import './plugins/chart/Chart.bundle.js';
+import './plugins/chart/rounded-barchart.js';
+import './plugins/chart/utils.js';
+/*import './plugins/flot/chart.flot.sampledata.js';
+import './plugins/flot/dashboard.sampledata.js';
+import './plugins/flot/jquery.flot.js';
+import './plugins/flot/jquery.flot.fillbetween.js';
+import './plugins/flot/jquery.flot.pie.js';
+import './plugins/flot/jquery.flot.resize.js';*/
 //import './js/show-password.min.js';
 //import './js/advancedform.js';
 import './js/apexcharts.js';
@@ -40,7 +48,6 @@ import './js/froala.js';
 import './js/fullcalendar.js';
 import './js/handlecounter.js';
 import './js/index.js';
-import './js/index1.js';
 import './js/jquery.sparkline.min.js';
 import './js/jvectormap.js';
 import './js/landing.js';
@@ -55,7 +62,7 @@ import './js/range.js';
 import './js/rangeslider.js';
 import './js/select2.js';
 import './js/slider.js';
-import './js/sticky.js';
+
 import './js/summernote.js';
 import './js/sweet-alert.js';
 import './js/table-data.js';
@@ -64,6 +71,10 @@ import './js/timline.js';
 import './js/tooltip&popover.js';
 import './js/typehead.js';
 import './js/widget.js';*/
+
+//import './js/sticky.js';
+//import './js/index1.js';
+//import './js/custom.js';
 
 
 

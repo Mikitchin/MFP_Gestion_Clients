@@ -14,5 +14,15 @@ class GestionController extends AbstractController
         return $this->render('gestion/index.html.twig', [
             'controller_name' => 'GestionController',
         ]);
+    } 
+    
+    #[Route('/home', name: 'app_home')]
+    public function home(): Response
+    {
+        return $this->render('gestion/home.html.twig', [
+            'controller_name' => 'GestionController',
+        ]);
     }
+
+
 }

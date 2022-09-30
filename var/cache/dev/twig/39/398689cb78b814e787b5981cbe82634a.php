@@ -127,7 +127,10 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
                                                 <p class=\"mb-0\"><a href=\"#\" class=\"text-primary ms-1\">Mot de passe oubli&eacute; ?</a></p>
                                             </div>
                                             <div class=\"container-login100-form-btn\">
-                                                <a href=\"#\" class=\"login100-form-btn btn-green\">
+                                                <a href=\"";
+        // line 45
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
+        echo "\" class=\"login100-form-btn btn-green\">
                                                         Se connecter
                                                 </a>
                                             </div>
@@ -164,7 +167,7 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
 
     public function getDebugInfo()
     {
-        return array (  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  132 => 45,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -213,7 +216,7 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
                                                 <p class=\"mb-0\"><a href=\"#\" class=\"text-primary ms-1\">Mot de passe oubli&eacute; ?</a></p>
                                             </div>
                                             <div class=\"container-login100-form-btn\">
-                                                <a href=\"#\" class=\"login100-form-btn btn-green\">
+                                                <a href=\"{{path('app_home')}}\" class=\"login100-form-btn btn-green\">
                                                         Se connecter
                                                 </a>
                                             </div>
