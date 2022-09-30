@@ -8,57 +8,69 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-                 <div class="col col-login mx-auto mt-7">
-                    <div class="text-center">
-                        <a href="#"><img src="{{ asset('images/foncpubli.png') }}" class="header-brand-img" alt="Logo CRUC"></a>
-                         
+    <div class="col col-login mx-auto mt-7">
+        <div class="text-center">
+            <a href="#"><img src="{{ asset('images/foncpubli.png') }}" class="header-brand-img" alt="Logo CRUC"></a>
+        </div>
+    </div>    
+
+    <div class="container-login100">
+        <div class="wrap-login100 p-6">
+            {# <form class="login100-form validate-form"> #}
+                <span class="login100-form-title pb-5">
+                    CRUC - Authentification
+                </span>
+
+            <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+                <div class="panel panel-primary">
+                                        
+                <div class="panel-body tabs-menu-body p-0 pt-5">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab5">
+
+                    <label for="inputEmail">Email</label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                    <label for="inputPassword">Password</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+                    <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                    >
+
+                    <div class="text-end pt-4">
+                        <p class="mb-0"><a href="#" class="text-primary ms-1">Mot de passe oubli&eacute; ?</a></p>
                     </div>
-                </div>    
-
-                <div class="container-login100">
-                    <div class="wrap-login100 p-6">
-                        {# <form class="login100-form validate-form"> #}
-                            <span class="login100-form-title pb-5">
-                                CRUC - Authentification
-                            </span>
-
-    <form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                {# <div class="container-login100-form-btn"> #}
+                                    {# <a href="#" class="login100-form-btn btn-green">
+                                                Se connecter
+                                            </a>
+                                    </div> #}
+                    <div class="container-login100-form-btn">
+                    <button class="btn btn-green btn-primary" type="submit">
+                        Se connecter
+                    </button> 
+                    </div> 
+                    <div class="text-center pt-3">
+                    <p class="text-dark mb-0">Pas de compte?<a href="{{ path('app_register') }}" class="text-primary ms-1">S'inscrire</a></p>
+                    </div>
+                   
+                </div>                                        
+            </div>
         </div>
-    {% endif %}
-
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-    
-    <div class="text-end pt-4">
-        <p class="mb-0"><a href="#" class="text-primary ms-1">Mot de passe oubli&eacute; ?</a></p>
     </div>
-                {# <div class="container-login100-form-btn"> #}
-                {# <a href="#" class="login100-form-btn btn-green">
-                            Se connecter
-                        </a>
-                </div> #}
-                <div class="container-login100-form-btn">
-                <button class="btn btn-lg btn-primary" type="submit">
-                    Se connecter
-                </button> 
-                </div> 
-        <div class="text-center pt-3">
-            <p class="text-dark mb-0">Pas de compte?<a href="#" class="text-primary ms-1">S'inscrire</a></p>
-        </div>
-</form>
+            </form>
+
+    </div>
+</div>
 
                             {# <div class="panel panel-primary">
                                
