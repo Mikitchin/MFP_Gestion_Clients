@@ -20002,21 +20002,21 @@ img {
     border-radius: 0px;
 }
 
-/* .landing-page { */
+.landing-page {
     /* Icons */
     /* Arrows */
     /* Dots */
-/* } */
+}
 
-/* @font-face {
+@font-face {
     .landing-page {
         font-family: feather;
-        src: url(fonts/feather-webfont.eot?t=1501841394106);
-        src: url(fonts/feather-webfont.eot?t=1501841394106#iefix) format("embedded-opentype"), url(fonts/feather-webfont.woff?t=1501841394106) format("woff"), url(fonts/feather-webfont.ttf?t=1501841394106) format("truetype"), url(fonts/feather-webfont.svg?t=1501841394106#feather) format("svg");
+        src: url(../iconfonts/feather/fonts/feather-webfont.eot?t=1501841394106);
+        src: url(../iconfonts/feather/fonts/feather-webfont.eot?t=1501841394106#iefix) format("embedded-opentype"), url(../iconfonts/feather/fonts/feather-webfont.woff?t=1501841394106) format("woff"), url(../iconfonts/feather/fonts/feather-webfont.ttf?t=1501841394106) format("truetype"), url(../iconfonts/feather/fonts/feather-webfont.svg?t=1501841394106#feather) format("svg");
     }
-} */
+}
 
-/* .landing-page .fe {
+.landing-page .fe {
     font-family: feather !important;
     speak: none;
     font-style: normal;
@@ -20026,7 +20026,7 @@ img {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-} */
+}
 
 .landing-page .slick-prev,
 .landing-page .slick-next {
@@ -25964,13 +25964,13 @@ svg {
 }
 
 /*-----Feather icons-----*/
-/* @font-face {
+@font-face {
     font-family: "feather";
-    src: url("../iconfonts/feather/fonts/feather-webfont.eot?t=1501841394106"); */
+    src: url("../iconfonts/feather/fonts/feather-webfont.eot?t=1501841394106");
     /* IE9*/
-    /* src: url("../iconfonts/feather/fonts/feather-webfont.eot?t=1501841394106#iefix") format("embedded-opentype"), url("../iconfonts/feather/fonts/feather-webfont.woff?t=1501841394106") format("woff"), url("../iconfonts/feather/fonts/feather-webfont.ttf?t=1501841394106") format("truetype"), url("../iconfonts/feather/fonts/feather-webfont.svg?t=1501841394106#feather") format("svg"); */
+    src: url("../iconfonts/feather/fonts/feather-webfont.eot?t=1501841394106#iefix") format("embedded-opentype"), url("../iconfonts/feather/fonts/feather-webfont.woff?t=1501841394106") format("woff"), url("../iconfonts/feather/fonts/feather-webfont.ttf?t=1501841394106") format("truetype"), url("../iconfonts/feather/fonts/feather-webfont.svg?t=1501841394106#feather") format("svg");
     /* iOS 4.1- */
-/* } */
+}
 
 .fe {
     font-family: "feather" !important;

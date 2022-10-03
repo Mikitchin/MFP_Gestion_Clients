@@ -50,4 +50,12 @@ class RegistrationController extends AbstractController
              'registrationForm' => $form->createView(),
          ]);
     }
+
+    #[Route('/sign', name: 'app_sign')]
+    public function sign(): Response
+    {
+        return $this->render('registration/sign_on.html.twig', [
+            'controller_name' => 'GestionController',
+        ]);
+    }  
 }

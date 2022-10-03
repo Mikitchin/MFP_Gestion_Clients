@@ -128,10 +128,10 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  padding-block-start: 72px;
+/* body {
+  padding-block-start: 72px; 
   background: var(--cultured);
-}
+}*/
 
 :focus-visible {
   outline: 2px solid var(--onyx);
@@ -1124,4 +1124,8 @@ body {
   .menu-deroulant:hover > .sous-menu {
 	animation: apparitionSousMenu 1s forwards;
   position: fixed;
+  }
+
+  .text-center {
+    text-align: center !important;
   }
