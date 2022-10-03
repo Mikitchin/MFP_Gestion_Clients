@@ -188,6 +188,7 @@ d1cdff,127.0.0.1,GET,https://127.0.0.1:8000/,1664554749,,404
 4273c1,127.0.0.1,POST,https://127.0.0.1:8000/login,1664554882,,302
 6ac111,127.0.0.1,GET,https://127.0.0.1:8000/login,1664554883,,200
 c990f1,127.0.0.1,GET,https://127.0.0.1:8000/register,1664554992,,200
+<<<<<<< HEAD
 0e825d,127.0.0.1,GET,https://127.0.0.1:8000/rgestion,1664561528,1a6cae,404
 1a6cae,127.0.0.1,GET,https://127.0.0.1:8000/rgestion,1664561528,,404
 2bed61,127.0.0.1,GET,https://127.0.0.1:8000/gestion,1664561531,,200
@@ -395,3 +396,19 @@ f0b558,127.0.0.1,GET,https://127.0.0.1:8000/sign?example-email=&sexe=br,16648038
 e31fea,127.0.0.1,GET,https://127.0.0.1:8000/sign,1664803860,,200
 fd38e9,127.0.0.1,GET,https://127.0.0.1:8000/sign,1664803866,,200
 e7bcb0,127.0.0.1,GET,https://127.0.0.1:8000/gestion,1664803875,,200
+=======
+b38bd8,127.0.0.1,GET,https://127.0.0.1:8000/,1664793023,,404
+244d4d,127.0.0.1,GET,https://127.0.0.1:8000/register,1664793392,,200
+d3af89,127.0.0.1,GET,https://127.0.0.1:8000/gestion,1664793465,,200
+3993c3,127.0.0.1,GET,https://127.0.0.1:8000/home,1664793497,,200
+6911ed,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo.png,1664793497,d99239,404
+d99239,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo.png,1664793497,,404
+83e044,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/foncpubli1.png,1664793498,e9c75e,404
+e9c75e,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/foncpubli1.png,1664793498,,404
+eba78a,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/users/21.jpg,1664793498,85af23,404
+85af23,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/users/21.jpg,1664793498,,404
+2cf49c,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo-1.png,1664793499,d2e6f1,404
+d2e6f1,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo-1.png,1664793499,,404
+fffdae,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo-2.png,1664793499,14daf8,404
+14daf8,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/brand/logo-2.png,1664793499,,404
+>>>>>>> feature/new_implementation_0310
