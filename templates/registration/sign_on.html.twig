@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Formulaire d'inscription{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+               
+ <div class="container-login100">
+                    <div class="text-center">
+                        <img src="{{ asset('images/foncpubli.png') }}" class="header-brand-img" alt="">
+                    </div>
+                </div>
+ <div class="container-login100">
+                    <div class="wrap-login100 p-6">
+                        <form class="login100-form validate-form">
+                           
+                            <div class="panel panel-primary">
+                               
+                                <div class="panel-body tabs-menu-body p-0 pt-5">
+                                    <div class="tab-content">           
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div class="card">
+                                                 <div class="card-header">
+                                                    <h4 class="card-title">CRUC - INSCRIPTION</h4>
+                                                </div>
+                                                    <div class="card-body">
+                                                        <form class="form-horizontal">
+                                                            <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Nom : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Saisir le profil">
+                                                                </div>
+                                                            </div>                                       
+                                                            <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Prénom(s) :</label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Saisir le profil">
+                                                                </div>
+                                                            </div>
+                                                            <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Sexe :</label>
+                                                                <div class="col-md-7">
+                                                                    <select name="sexe" class="form-control form-select" data-bs-placeholder="Selectionner le sexe">
+                                                                        <option value="br">Selectionner le sexe</option>
+                                                                        <option value="br">Masculin</option>
+                                                                        <option value="cz">Féminin</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Login :</label>
+                                                                <div class="col-md-7">                                                                    
+                                                                    <input type="password" class="form-control" value="password" autocomplete="new-password">
+                                               
+                                                                </div>
+                                                            </div>
+                                                            <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Mot de passe :</label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Numéro de pièce : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Numéro de pièce">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Adresse : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Adresse">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Structure : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Structure">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Fonction : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Fonction">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Téléphone : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Téléphone">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Mobile : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Mobile">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">E-mail : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="email" id="example-email" name="example-email" class="form-control" placeholder="Email">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Date de naissance : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="date" class="form-control" >
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Lieu de naissance : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Lieu de naissance">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Ville : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Ville">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Commune : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Commune">
+                                                                </div>
+                                                            </div>
+                                                             <div class=" row mb-4">
+                                                                <label class="col-md-5 form-label">Quartier : </label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Quartier">
+                                                                </div>
+                                                            </div>
+                                                                                
+                                                            <button class="btn btn-green mt-4 mb-0">S'inscrire</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>    
+                                        <!-- End Row -->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+</div>                        
+</body>
+</html>

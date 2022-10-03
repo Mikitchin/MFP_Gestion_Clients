@@ -43,8 +43,19 @@ class RegistrationController extends AbstractController
             );
         }
 
-        return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
-        ]);
+        //  return $this->render('registration/register.html.twig', [
+        //      'registrationForm' => $form->createView(),
+        // ]);
+         return $this->render('registration/login.html.twig', [
+             'registrationForm' => $form->createView(),
+         ]);
     }
+
+    #[Route('/sign', name: 'app_sign')]
+    public function sign(): Response
+    {
+        return $this->render('registration/sign_on.html.twig', [
+            'controller_name' => 'GestionController',
+        ]);
+    }  
 }
