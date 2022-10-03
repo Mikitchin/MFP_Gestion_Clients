@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Formulaire d'authentification{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+
+{# {% block title %}{% endblock %} #}
+
+
+
+ {# <div class="page">
+            <div class=""> #}
+
+                <!-- CONTAINER OPEN -->
+                 <div class="container-login100">
+                    <div class="text-center">
+                        <a href="index.html"><img src="{{ asset('images/foncpubli.png') }}" class="header-brand-img" alt=""></a>
+                    </div>
+                </div> 
+
+                <div class="container-login100">
+                    <div class="wrap-login100 p-6">
+                        <form class="login100-form validate-form">
+                            <span class="login100-form-title pb-5">
+                                CRUC - Authentification
+                            </span>
+                            <div class="panel panel-primary">
+                               
+                                <div class="panel-body tabs-menu-body p-0 pt-5">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab5">
+                                            Matricule
+                                            <div class="wrap-input100 validate-input input-group">
+                                                {# <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                    <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
+                                                </a> #}
+                                                
+                                                <input class="input100 border-start-1 form-control ms-0" type="texte" placeholder="">
+                                            </div>
+                                            Mot de passe
+                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                                                {# <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                    <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
+                                                </a> #}
+                                                <input class="input100 border-start-1 " type="password" placeholder="">
+                                            </div>
+                                            <div class="text-end pt-4">
+                                                <p class="mb-0"><a href="#" class="text-primary ms-1">Mot de passe oubli&eacute; ?</a></p>
+                                            </div>
+                                            <div class="container-login100-form-btn">
+                                                <a href="{{ path('app_gestion') }}" class="login100-form-btn btn-green">
+                                                        Se connecter
+                                                </a>
+                                            </div>
+                                            <div class="text-center pt-3">
+                                                <p class="text-dark mb-0">Pas de compte?<a href="{{ path('app_sign') }}" class="text-primary ms-1">S'inscrire</a></p>
+                                            </div>
+                                           
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <!-- CONTAINER CLOSED -->
+            {# </div>
+        </div> #}
+         </body>
+</html>
+        {# {% endblock %} #}
