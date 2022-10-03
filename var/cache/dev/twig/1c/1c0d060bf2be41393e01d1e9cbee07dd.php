@@ -67,8 +67,14 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
     <body>
         ";
         // line 17
-        $this->displayBlock('body', $context, $blocks);
+        $this->loadTemplate("_partials/_navbar.html.twig", "base.html.twig", 17)->display($context);
         // line 18
+        echo "        ";
+        $this->displayBlock('body', $context, $blocks);
+        // line 19
+        echo "        ";
+        $this->loadTemplate("_partials/_footer.html.twig", "base.html.twig", 19)->display($context);
+        // line 20
         echo "    </body>
 </html>
 ";
@@ -145,7 +151,7 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
 
     }
 
-    // line 17
+    // line 18
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -168,9 +174,14 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  149 => 17,  136 => 13,  126 => 12,  113 => 9,  103 => 8,  84 => 5,  72 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  155 => 18,  142 => 13,  132 => 12,  119 => 9,  109 => 8,  90 => 5,  78 => 20,  75 => 19,  72 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -191,7 +202,9 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         {% endblock %}
     </head>
     <body>
+        {% include \"_partials/_navbar.html.twig\" %}
         {% block body %}{% endblock %}
+        {% include \"_partials/_footer.html.twig\" %}
     </body>
 </html>
 ", "base.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\templates\\base.html.twig");
