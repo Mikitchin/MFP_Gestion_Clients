@@ -68,18 +68,6 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         echo "    </head>
     <body>
         ";
-<<<<<<< HEAD
-        // line 17
-        $this->loadTemplate("_partials/_navbar.html.twig", "base.html.twig", 17)->display($context);
-        // line 18
-        echo "        ";
-        $this->displayBlock('body', $context, $blocks);
-        // line 19
-        echo "        ";
-        $this->loadTemplate("_partials/_footer.html.twig", "base.html.twig", 19)->display($context);
-        // line 20
-        echo "    </body>
-=======
         // line 18
         $this->loadTemplate("_partials/_navbar.html.twig", "base.html.twig", 18)->display($context);
         // line 19
@@ -91,7 +79,6 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         // line 21
         echo "
     </body>
->>>>>>> cf1cef133841ec0eb72e6e909b4b54c226454068
 </html>
 ";
         
@@ -167,11 +154,7 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
 
     }
 
-<<<<<<< HEAD
-    // line 18
-=======
     // line 19
->>>>>>> cf1cef133841ec0eb72e6e909b4b54c226454068
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -201,11 +184,7 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
 
     public function getDebugInfo()
     {
-<<<<<<< HEAD
-        return array (  155 => 18,  142 => 13,  132 => 12,  119 => 9,  109 => 8,  90 => 5,  78 => 20,  75 => 19,  72 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
-=======
         return array (  158 => 19,  145 => 14,  135 => 13,  122 => 10,  112 => 9,  93 => 5,  80 => 21,  77 => 20,  74 => 19,  72 => 18,  68 => 16,  66 => 13,  63 => 12,  61 => 9,  58 => 8,  53 => 5,  47 => 1,);
->>>>>>> cf1cef133841ec0eb72e6e909b4b54c226454068
     }
 
     public function getSourceContext()
@@ -230,12 +209,9 @@ class __TwigTemplate_b76d3a8f5f855378122a8ecd4e5cef8e extends Template
         {% include \"_partials/_navbar.html.twig\" %}
         {% block body %}{% endblock %}
         {% include \"_partials/_footer.html.twig\" %}
-<<<<<<< HEAD
-=======
 
->>>>>>> cf1cef133841ec0eb72e6e909b4b54c226454068
     </body>
 </html>
-", "base.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\templates\\base.html.twig");
     }
 }

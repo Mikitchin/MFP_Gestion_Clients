@@ -19,6 +19,6 @@ return [
     'app_gestion' => [[], ['_controller' => 'App\\Controller\\GestionController::index'], [], [['text', '/gestion']], [], [], []],
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     'app_sign' => [[], ['_controller' => 'App\\Controller\\RegistrationController::sign'], [], [['text', '/sign']], [], [], []],
-    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::connexion'], [], [['text', '/connexion']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
 ];

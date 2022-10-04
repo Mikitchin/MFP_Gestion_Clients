@@ -14,8 +14,5 @@ class GestionController extends AbstractController
         return $this->render('gestion/index.html.twig', [
             'controller_name' => 'GestionController',
         ]);
-    }  
-    
-   
-
+    }
 }
