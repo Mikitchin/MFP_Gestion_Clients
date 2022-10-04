@@ -16,8 +16,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/register', name: 'app_register')]
-    public function register(
+    #[Route('/connexion', name: 'app_connexion')]
+    public function connexion(
         Request $request,
         UserPasswordHasherInterface $userPasswordHasher,
         UserAuthenticatorInterface $userAuthenticator,
@@ -51,16 +51,16 @@ class RegistrationController extends AbstractController
         //  return $this->render('registration/register.html.twig', [
         //      'registrationForm' => $form->createView(),
         // ]);
-         return $this->render('registration/login.html.twig', [
-             'registrationForm' => $form->createView(),
-         ]);
+        return $this->render('registration/login.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
     }
 
-    #[Route('/sign', name: 'app_sign')]
-    public function sign(): Response
+    #[Route('/inscription', name: 'app_inscription')]
+    public function inscription(): Response
     {
-        return $this->render('registration/sign_on.html.twig', [
+        return $this->render('registration/inscription.html.twig', [
             'controller_name' => 'GestionController',
         ]);
-    }  
+    }
 }
