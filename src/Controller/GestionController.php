@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GestionController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/gestionnaire', name: 'app_home')]
     public function index(): Response
     {
         return $this->render('gestion/index.html.twig', [
@@ -19,7 +19,7 @@ class GestionController extends AbstractController
     #[Route('/gestion', name: 'app_gestion')]
     public function gestion(): Response
     {
-        return $this->render('gestion/home-bkp.html.twig', [
+        return $this->render('registration/login.html.twig', [
             'controller_name' => 'GestionController',
         ]);
     }
