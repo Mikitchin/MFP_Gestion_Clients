@@ -36,6 +36,11 @@
                             <span class="login100-form-title pb-5">
                                 CRUC - Authentification
                             </span>
+
+                                                    {# include du formulaire de connexion #}
+                                                    
+                                                    {# Fin de l'include du formulaire de connexion #}
+
                             <div class="panel panel-primary">
                                
                                 <div class="panel-body tabs-menu-body p-0 pt-5">
@@ -60,12 +65,12 @@
                                                 <p class="mb-0"><a href="#" class="text-primary ms-1">Mot de passe oubli&eacute; ?</a></p>
                                             </div>
                                             <div class="container-login100-form-btn">
-                                                <a href="{{ path('app_gestion') }}" class="login100-form-btn btn-green">
+                                                <a href="{{ path('app_home') }}" class="login100-form-btn btn-green">
                                                         Se connecter
                                                 </a>
                                             </div>
                                             <div class="text-center pt-3">
-                                                <p class="text-dark mb-0">Pas de compte?<a href="{{ path('app_sign') }}" class="text-primary ms-1">S'inscrire</a></p>
+                                                <p class="text-dark mb-0">Pas de compte?<a href="{{ path('app_inscription') }}" class="text-primary ms-1">S'inscrire</a></p>
                                             </div>
                                            
                                         </div>                                        

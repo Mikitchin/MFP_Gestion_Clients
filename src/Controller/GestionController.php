@@ -8,14 +8,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GestionController extends AbstractController
 {
-    #[Route('/gestion', name: 'app_gestion')]
+    #[Route('/gestionnaire', name: 'app_home')]
     public function index(): Response
     {
         return $this->render('gestion/index.html.twig', [
             'controller_name' => 'GestionController',
         ]);
-    }  
-    
-   
+    }
 
+    #[Route('/gestion', name: 'app_gestion')]
+    public function gestion(): Response
+    {
+        return $this->render('registration/login.html.twig', [
+            'controller_name' => 'GestionController',
+        ]);
+    }
 }

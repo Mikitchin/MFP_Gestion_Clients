@@ -17,7 +17,11 @@ return [[
                 '/build/app.7cebdc91.js',
             ],
             'css' => [
+<<<<<<< HEAD
                 '/build/app.c8e978e6.css',
+=======
+                '/build/app.6fe26ac3.css',
+>>>>>>> eab8b3d2a4dd66d9d70bfc9530bf0b4fbf79d0cc
             ],
         ],
     ],
