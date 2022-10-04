@@ -113,7 +113,7 @@ class __TwigTemplate_bf407ad6db05c8303615a0831dea1a7b extends Template
 
                         ";
         // line 111
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("web_profiler.controller.profiler::searchBarAction", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new RuntimeError('Variable "request" does not exist.', 111, $this->source); })()), "query", [], "any", false, false, false, 111), "all", [], "any", false, false, false, 111)));
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("web_profiler.controller.profiler::searchBarAction", array(), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new RuntimeError('Variable "request" does not exist.', 111, $this->source); })()), "query", [], "any", false, false, false, 111), "all", [], "any", false, false, false, 111)));
         echo "
                     </div>
                 </div>
@@ -599,7 +599,7 @@ class __TwigTemplate_bf407ad6db05c8303615a0831dea1a7b extends Template
                             {{ source('@WebProfiler/Icon/search.svg') }} <span class=\"hidden-small\">Search</span>
                         </a>
 
-                        {{ render(controller('web_profiler.controller.profiler::searchBarAction', request.query.all)) }}
+                        {{ render(controller('web_profiler.controller.profiler::searchBarAction', query=request.query.all)) }}
                     </div>
                 </div>
 
@@ -642,6 +642,6 @@ class __TwigTemplate_bf407ad6db05c8303615a0831dea1a7b extends Template
         }());
     </script>
 {% endblock %}
-", "@WebProfiler/Profiler/layout.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\layout.html.twig");
+", "@WebProfiler/Profiler/layout.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\layout.html.twig");
     }
 }
