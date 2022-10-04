@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+
+<div class="form-container">
+    <div class="wrap-login100 p-6">
+        <form class="login100-form validate-form">                           
+            <div class="panel panel-primary">                               
+                <div class="panel-body tabs-menu-body p-0 pt-5">
+                    <div class="tab-content">           
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Créer un profil</h4>
+                                    </div>
+                                        <div class="card-body">
+                                            <form class="form-horizontal">
+                                                                <div class=" row mb-4">
+                                                                    <label class="col-md-5 form-label">Groupe :</label>
+                                                                    <div class="col-md-7">
+                                                                        <select name="groupe" class="form-control form-select" data-bs-placeholder="Selectionner un groupe...">
+                                                                            <option value="" selected>Selectionner un groupe...</option>
+                                                                            <option value="group1">Groupe 1</option>
+                                                                            <option value="group2">Groupe 2</option>
+                                                                            <option value="group3">Groupe 3</option>
+                                                                            <option value="group3">Groupe 4</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>                                       
+                                                                <div class=" row mb-4">
+                                                                    <label class="col-md-5 form-label">Nom du profil :</label>
+                                                                    <div class="col-md-7">
+                                                                        <input type="text" class="form-control" placeholder="Saisir le profil">
+                                                                    </div>
+                                                                </div>
+                                                                <div class=" row mb-4">
+                                                                    <label class="col-md-5 form-label">Description du profil :</label>
+                                                                    <div class="col-md-7">
+                                                                        <textarea class="form-control mb-4" placeholder="Saisir la description du profil" rows="4"></textarea>
+                                                                    </div>
+                                                                </div>                                                                
+                                                                <div class=" row mb-4">
+                                                                    <label class="col-md-5 form-label">Droits :</label>
+                                                                    <div class="col-md-7">                                                                    
+                                                                        <select id="multiple-checkboxes" multiple="multiple">
+                                                                            <option value="droit1">Droit 1</option>
+                                                                            <option value="droi2">Droit 2</option>
+                                                                            <option value="droit3">Droit 3</option>
+                                                                            <option value="droit4">Droit 4</option>
+                                                                            <option value="droit5">Droit 5</option>
+                                                                            <option value="droit6">Droit 6</option>
+                                                                        </select>                                                 
+                                                                    </div>
+                                                                </div>                                                 
+                                                                                    
+                                                                <button class="btn btn-green mt-4 mb-0">Enregistrer</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>                                            
+                            </div>    
+                                        <!-- End Row -->
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </form>
+     </div>
+</div>     
+
+
+{% endblock %}
