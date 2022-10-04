@@ -351,25 +351,6 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
                                                     </div>
                                                 </div>
                                             </div>
-<<<<<<< HEAD
-                                           
-                                        </div>                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                        </form> #}
-                    {# </div>
-                </div> #}
-{% endblock %}
-
-
-
-
-
-
-", "security/login.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\security\\login.html.twig");
-=======
                                                     </form>     
                                                     
                                 
@@ -380,7 +361,6 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
         </div> #}
          </body>
 </html>
-        ", "security/login.html.twig", "C:\\Users\\DELL\\Documents\\codes\\mfp_gestion_clients\\templates\\security\\login.html.twig");
->>>>>>> eab8b3d2a4dd66d9d70bfc9530bf0b4fbf79d0cc
+        ", "security/login.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\security\\login.html.twig");
     }
 }

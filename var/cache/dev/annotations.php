@@ -58,12 +58,12 @@ return [[
 '[C]App%5CController%5CGestionController' => 1,
 'App%5CController%5CGestionController%23index' => 0,
 '[C]App%5CController%5CGestionController%23index' => 1,
+'App%5CController%5CGestionController%23gestion' => 0,
+'[C]App%5CController%5CGestionController%23gestion' => 1,
 'App%5CController%5CRegistrationController' => 0,
 '[C]App%5CController%5CRegistrationController' => 1,
-'App%5CController%5CRegistrationController%23register' => 0,
-'[C]App%5CController%5CRegistrationController%23register' => 1,
-'App%5CController%5CRegistrationController%23sign' => 0,
-'[C]App%5CController%5CRegistrationController%23sign' => 1,
+'App%5CController%5CRegistrationController%23inscription' => 0,
+'[C]App%5CController%5CRegistrationController%23inscription' => 1,
 'App%5CController%5CSecurityController' => 0,
 '[C]App%5CController%5CSecurityController' => 1,
 'App%5CController%5CSecurityController%23connexion' => 0,
@@ -742,10 +742,6 @@ return [[
 ], [
 
 0 => [],
-<<<<<<< HEAD
-1 => 1664882145,
-=======
-1 => 1664861455,
->>>>>>> eab8b3d2a4dd66d9d70bfc9530bf0b4fbf79d0cc
+1 => 1664886903,
 
 ]];
