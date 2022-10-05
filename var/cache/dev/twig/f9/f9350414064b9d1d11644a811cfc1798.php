@@ -111,12 +111,12 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 45, $this->source); })()), "user", [], "any", false, false, false, 45)) {
             // line 46
             echo "                                                        <div class=\"mb-3\">
-                                                            You are logged in as ";
+                                                            Vous êtes connecté(e) comme ";
             // line 47
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 47, $this->source); })()), "user", [], "any", false, false, false, 47), "userIdentifier", [], "any", false, false, false, 47), "html", null, true);
             echo ", <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            echo "\">Logout</a>
+            echo "\">Se déconnecter</a>
                                                         </div>
                                                     ";
         }
@@ -132,7 +132,7 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
         // line 57
         echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 57, $this->source); })()), "html", null, true);
         echo "\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
-                                                            <label for=\"inputPassword\">Password</label>
+                                                            <label for=\"inputPassword\">Mot de passe</label>
                                                             <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
                                         
                                                             <input type=\"hidden\" name=\"_csrf_token\"
@@ -149,13 +149,14 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
         // line 69
         echo "                                                                            ";
         // line 73
-        echo "                                                            <div class=\"container-login100-form-btn\">
-                                                            <button class=\"btn btn-green\" type=\"submit\">
+        echo "                                                            ";
+        // line 74
+        echo "                                                            <button class=\"btn btn-green mt-3\" type=\"submit\">
                                                                 Se connecter
                                                             </button> 
-                                                            </div> 
+                                                             
                                                             <div class=\"text-center pt-3\">
-                                                            <p class=\"text-dark mb-0\">Pas de compte?<a href=\"";
+                                                            <p class=\"text-dark mb-0\">Pas de compte ?<a href=\"";
         // line 79
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_inscription");
         echo "\" class=\"text-primary ms-1\">S'inscrire</a></p>
@@ -261,7 +262,7 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
 
     public function getDebugInfo()
     {
-        return array (  240 => 14,  230 => 13,  217 => 10,  207 => 9,  188 => 5,  176 => 94,  160 => 79,  152 => 73,  150 => 69,  141 => 62,  133 => 57,  124 => 50,  116 => 47,  113 => 46,  111 => 45,  108 => 44,  102 => 42,  100 => 41,  96 => 39,  90 => 34,  81 => 27,  75 => 23,  72 => 20,  67 => 16,  65 => 13,  62 => 12,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
+        return array (  241 => 14,  231 => 13,  218 => 10,  208 => 9,  189 => 5,  177 => 94,  161 => 79,  154 => 74,  152 => 73,  150 => 69,  141 => 62,  133 => 57,  124 => 50,  116 => 47,  113 => 46,  111 => 45,  108 => 44,  102 => 42,  100 => 41,  96 => 39,  90 => 34,  81 => 27,  75 => 23,  72 => 20,  67 => 16,  65 => 13,  62 => 12,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -312,7 +313,7 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
                                         
                                                     {% if app.user %}
                                                         <div class=\"mb-3\">
-                                                            You are logged in as {{ app.user.userIdentifier }}, <a href=\"{{ path('app_logout') }}\">Logout</a>
+                                                            Vous êtes connecté(e) comme {{ app.user.userIdentifier }}, <a href=\"{{ path('app_logout') }}\">Se déconnecter</a>
                                                         </div>
                                                     {% endif %}
                                                         <div class=\"panel panel-primary\">
@@ -323,7 +324,7 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
                                         
                                                             <label for=\"inputEmail\">Email</label>
                                                             <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
-                                                            <label for=\"inputPassword\">Password</label>
+                                                            <label for=\"inputPassword\">Mot de passe</label>
                                                             <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
                                         
                                                             <input type=\"hidden\" name=\"_csrf_token\"
@@ -338,13 +339,13 @@ class __TwigTemplate_b7c0f4998a311cc2b2e3278b1c3d3edc extends Template
                                                                                         Se connecter
                                                                                     </a>
                                                                             </div> #}
-                                                            <div class=\"container-login100-form-btn\">
-                                                            <button class=\"btn btn-green\" type=\"submit\">
+                                                            {# <div class=\"container-login100-form-btn\"> #}
+                                                            <button class=\"btn btn-green mt-3\" type=\"submit\">
                                                                 Se connecter
                                                             </button> 
-                                                            </div> 
+                                                             
                                                             <div class=\"text-center pt-3\">
-                                                            <p class=\"text-dark mb-0\">Pas de compte?<a href=\"{{ path('app_inscription') }}\" class=\"text-primary ms-1\">S'inscrire</a></p>
+                                                            <p class=\"text-dark mb-0\">Pas de compte ?<a href=\"{{ path('app_inscription') }}\" class=\"text-primary ms-1\">S'inscrire</a></p>
                                                             </div>
                                                            
                                                         </div>                                        
