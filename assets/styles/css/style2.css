@@ -1129,3 +1129,28 @@ html {
   .text-center {
     text-align: center !important;
   }
+
+  .form-container {
+    align-items: center;
+    height: 100%;
+    padding: 105px;
+    position: sticky;
+  }
+
+  .container-fluid {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    position: sticky;
+    margin-top: 100px;
+  }
+
+  .container-fluidxd {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    position: sticky;
+    margin-top: 100px;
+  }
+  
+  .btn-position-left{float: left;}

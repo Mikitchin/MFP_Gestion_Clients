@@ -16,6 +16,22 @@ class GestionController extends AbstractController
         ]);
     }
 
+    #[Route('/creer_profil', name: 'app_ajoutprofil')]
+    public function aprofil(): Response
+    {
+        return $this->render('gestion/ajouter_profil.html.twig', [
+            'controller_name' => 'GestionController',
+        ]);
+    }
+
+    #[Route('/afficher_profil', name: 'app_profil')]
+    public function profil(): Response
+    {
+        return $this->render('gestion/afficher_profil.html.twig', [
+            'controller_name' => 'GestionController',
+        ]);
+    }
+
     #[Route('/gestion', name: 'app_gestion')]
     public function gestion(): Response
     {

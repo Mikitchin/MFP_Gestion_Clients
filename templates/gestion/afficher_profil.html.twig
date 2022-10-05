@@ -1,0 +1,156 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+ <!--app-content open-->
+            {# <div class="main-content app-content mt-0">
+                <div class="side-app"> #}
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluidxd">
+
+                       <!-- PAGE-HEADER -->
+                       <div class="page-header">
+                        <h1 class="page-title">LISTE DES PROFILS</h1>                            
+                       </div>
+                    <!-- PAGE-HEADER END -->
+
+                      <!-- Row -->
+                      <div class="row row-sm">
+                        <div class="col-lg-12">
+                            <div class="card">                                
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered text-nowrap border-bottom" id="responsive-datatable">
+                                            <thead>
+                                                <tr>
+                                                    <!--<th class="wd-15p border-bottom-0">N°</th>
+                                                    <th class="wd-70p border-bottom-0">Libellé</th>
+                                                    <th class="wd-15p border-bottom-0">Actions</th>-->
+                                                    <th width="9%">N°</th>
+                                                    <th width="80%">Libellé</th>
+                                                    <th width="11%">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                       1
+                                                    
+                                                    </td>
+                                                    <td><a href="#">Profil 1 </a></td>
+                                                    <td>
+                                                        <button id="bEdit" style="float: left" type="button" class="btn btn-sm btn-primary">
+                                                            <span class="fe fe-edit"> </span>
+                                                        </button>
+                                                        <button id="bDel" type="button" class="btn  btn-sm btn-danger">
+                                                            <span class="fe fe-trash-2"> </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        2
+                                                    
+                                                    
+                                                    </td>
+                                                    <td>Profil 2</td>
+                                                    <td>
+                                                        <button id="bEdit" type="button" class="btn btn-sm btn-primary">
+                                                            <span class="fe fe-edit"> </span>
+                                                        </button>
+                                                        <button id="bDel" type="button" class="btn  btn-sm btn-danger">
+                                                            <span class="fe fe-trash-2"> </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                       3
+                                                    
+                                                    </td>
+                                                    <td>Profil 3</td>
+                                                    <td>
+                                                        <button id="bEdit" type="button" class="btn btn-sm btn-primary">
+                                                            <span class="fe fe-edit"> </span>
+                                                        </button>
+                                                        <button id="bDel" type="button" class="btn  btn-sm btn-danger">
+                                                            <span class="fe fe-trash-2"> </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="custom-control custom-radio">
+                                                            <input type="radio" class="custom-control-input" name="profil4" value="">
+                                                            <span class="custom-control-label">4</span>
+                                                        </label>
+                                                    
+                                                    
+                                                    </td>
+                                                    <td>Profil 4 </td>
+                                                    <td>
+                                                        <button id="bEdit" type="button" class="btn btn-sm btn-primary">
+                                                            <span class="fe fe-edit"> </span>
+                                                        </button>
+                                                        <button id="bDel" type="button" class="btn  btn-sm btn-danger">
+                                                            <span class="fe fe-trash-2"> </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="custom-control custom-radio">
+                                                            <input type="radio" class="custom-control-input" name="profil5" value="">
+                                                            <span class="custom-control-label">5</span>
+                                                        </label>
+                                                    
+                                                    
+                                                    </td>
+                                                    <td>Profil 5</td>
+                                                    <td>
+                                                        <button id="bEdit" type="button" class="btn btn-sm btn-primary">
+                                                            <span class="fe fe-edit"> </span>
+                                                        </button>
+                                                        <button id="bDel" type="button" class="btn  btn-sm btn-danger">
+                                                            <span class="fe fe-trash-2"> </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>                                              
+                                               
+                                                
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class=" row mb-4">
+                                        <label class="col-md-12"><b> Droits rattachés au profil sélectionné :</b></label>
+                                        
+                                    </div>
+                                    <div class=" row mb-12">
+                                            <textarea class="form-control mb-4" rows="4">Action 1
+Action 2
+Action 3</textarea>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                
+                    
+                    </div>
+                    <!-- End Row -->                      
+                    </div>
+                    <!-- CONTAINER END -->
+                {# </div>
+            </div> #}
+            <!--app-content close-->
+
+
+ 
+
+{% endblock %}
