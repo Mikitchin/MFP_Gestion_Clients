@@ -33,6 +33,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\Column(type: 'json')]
+    private $roles = [];
+
     #[ORM\Column]
     private ?int $contact = null;
 
@@ -69,7 +72,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->matricule;
+        return (string) $this->email;
     }
 
     /**

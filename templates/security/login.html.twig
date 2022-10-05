@@ -44,7 +44,7 @@
                                         
                                                     {% if app.user %}
                                                         <div class="mb-3">
-                                                            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                                            Vous êtes connecté(e) comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
                                                         </div>
                                                     {% endif %}
                                                         <div class="panel panel-primary">
@@ -55,7 +55,7 @@
                                         
                                                             <label for="inputEmail">Email</label>
                                                             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                                                            <label for="inputPassword">Password</label>
+                                                            <label for="inputPassword">Mot de passe</label>
                                                             <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
                                         
                                                             <input type="hidden" name="_csrf_token"
@@ -70,13 +70,13 @@
                                                                                         Se connecter
                                                                                     </a>
                                                                             </div> #}
-                                                            <div class="container-login100-form-btn">
-                                                            <button class="btn btn-green" type="submit">
+                                                            {# <div class="container-login100-form-btn"> #}
+                                                            <button class="btn btn-green mt-3" type="submit">
                                                                 Se connecter
                                                             </button> 
-                                                            </div> 
+                                                             
                                                             <div class="text-center pt-3">
-                                                            <p class="text-dark mb-0">Pas de compte?<a href="{{ path('app_inscription') }}" class="text-primary ms-1">S'inscrire</a></p>
+                                                            <p class="text-dark mb-0">Pas de compte ?<a href="{{ path('app_inscription') }}" class="text-primary ms-1">S'inscrire</a></p>
                                                             </div>
                                                            
                                                         </div>                                        
