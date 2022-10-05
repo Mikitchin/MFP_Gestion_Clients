@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enregistrer{% endblock %}
+
+{% block body %}
+    {# <h1>Register</h1> #}
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+    <div class="col col-login mx-auto mt-7">
+        <div class="text-center">
+            <a href="#"><img src="{{ asset('images/foncpubli.png') }}" class="header-brand-img" alt="Logo CRUC"></a>
+        </div>
+    </div>    
+
+    <div class="container-login100">
+        <div class="wrap-login100 p-6">
+                <span class="login100-form-title pb-5">
+                    CRUC - S'inscrire
+                </span>
+         
+            <div class="panel panel-primary">
+                                    
+                <div class="panel-body tabs-menu-body p-0 pt-5">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab5">
+
+                            {{ form_start(registrationForm) }}
+                                                   
+                            {{ form_row(registrationForm.nom, {'label': 'Nom d\'utilisateur', 'attr':
+                            {'placeholder': 'Nom d\'utilisateur ...'}}) }}
+                            {{ form_row(registrationForm.prenom, {'label': 'Prenom d\'utilisateur', 'attr':
+                            {'placeholder': 'Prenom d\'utilisateur ...'}}) }}
+                        
+                            {{ form_row(registrationForm.matricule, {'label': 'Matricule', 'attr':
+                            {'placeholder': 'Entrer votre matricule'}})  }}
+                            {{ form_row(registrationForm.email, {'label': 'Adresse email', 'attr':
+                            {'placeholder': 'Adresse email ...'}})  }}
+                            {{ form_row(registrationForm.structure, {'label': 'Entrer votre structure', 'attr':
+                            {'placeholder': 'Structure ...'}})  }}
+                            {{ form_row(registrationForm.plainPassword,{'label': 'Mot de passe', 'attr':
+                            {'placeholder': 'Mot de passe ...'}}) }}
+                            {{ form_row(registrationForm.confirm_plainPassword, {'label': 'Confirmation du mot de passe', 'attr':
+                            {'placeholder': 'Répétez votre mot de passe ....'}}) }}
+                            {{ form_row(registrationForm.agreeTerms) }}
+                            <button type="submit" class="btn btn-success">Inscription</button>
+                            
+                            {{ form_end(form) }}
+                        </div>                                        
+                    </div>
+                </div>                                        
+            </div>
+        </div>
+    </div>
+{% endblock %}
