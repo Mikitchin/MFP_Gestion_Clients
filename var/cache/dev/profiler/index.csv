@@ -358,3 +358,6 @@ dc99d5,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1664972353,,200
 eb2adc,127.0.0.1,POST,https://127.0.0.1:8000/connexion,1664972355,,302
 fbd188,127.0.0.1,GET,https://127.0.0.1:8000/gestionnaire,1664972355,,200
 >>>>>>> Feature/creation+parametre
+af14aa,127.0.0.1,GET,https://127.0.0.1:8000/gestionnaire,1664973403,,200
+43ab44,127.0.0.1,GET,https://127.0.0.1:8000/creer_profil,1664973410,,200
+e739a9,127.0.0.1,GET,https://127.0.0.1:8000/afficher_profil,1664973468,,200
