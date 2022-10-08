@@ -1512,6 +1512,6 @@ class __TwigTemplate_0c71501d636492e6c008ad4aad2ce5f2 extends Template
   </main>
 
 {% endblock %}
-", "gestion/index.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\gestion\\index.html.twig");
+", "gestion/index.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\gestion\\index.html.twig");
     }
 }

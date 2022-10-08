@@ -40,9 +40,14 @@
                                                         {# <form class="form-horizontal"> #}
                                                             
                                                              {{ form_start(registrationForm) }}
-                                                            <fieldset class="mb-3">
+                                                            {# <fieldset class="mb-3">
                                                                 <legend>Mon identité</legend>
-                                                                
+                                                                 #}
+                                                                    <div class=" row mb-4">
+                                                                {{ form_row(registrationForm.structure, {'label': 'Structure', 'attr':
+                                                                {'placeholder': 'Structure'}}) }}
+                                                                </div>
+
                                                                 <div class=" row mb-4">
                                                                 {{ form_row(registrationForm.nom, {'label': 'Nom d\'utilisateur', 'attr':
                                                                 {'placeholder': 'Nom d\'utilisateur ...'}}) }}
@@ -58,9 +63,21 @@
                                                                 {# {{ form_row(registrationForm.structure, {'label': 'Entrer votre structure', 'attr':
                                                                 {'placeholder': 'Structure ...'}})  }} #}
                                                             </div>
-                                                             </fieldset>
-                                                             <fieldset class="mb-3">
-                                                             <legend>Mes coordonnées</legend>
+
+                                                            <div class=" row mb-4">
+                                                                {{ form_row(registrationForm.lieuNaissance, {'label': 'Lieu de naissance', 'attr':
+                                                                {'placeholder': 'Lieu de naissance'}}) }}
+                                                                </div>
+
+                                                                <div class=" row mb-4">
+                                                                {{ form_row(registrationForm.fonction, {'label': 'Fonction', 'attr':
+                                                                {'placeholder': 'Fonction'}}) }}
+                                                                </div>
+                                                                
+
+                                                             {# </fieldset> #}
+                                                             {# <fieldset class="mb-3"> #}
+                                                             {# <legend>Mes coordonnées</legend> #}
                                                             <div class=" row mb-4">
                                                             {{ form_row(registrationForm.matricule, {'label': 'Matricule', 'attr':
                                                             {'placeholder': 'Entrer votre matricule'}})  }}
@@ -74,7 +91,11 @@
                                                             {'placeholder': 'Adresse email ...'}})  }}
                                                         </div>
                                                         
-                                                            </fieldset>
+                                                        <div class=" row mb-4">
+                                                                {{ form_row(registrationForm.ville, {'label': 'Ville', 'attr':
+                                                                {'placeholder': 'Ville'}}) }}
+                                                                </div>
+                                                            {# </fieldset> #}
                                                             
                                                             <div class=" row mb-4">
                                                             {{ form_row(registrationForm.plainPassword,{'label': 'Mot de passe', 'attr':
