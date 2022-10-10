@@ -57,8 +57,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
+<<<<<<< HEAD
     //  #[ORM\ManyToOne(inversedBy: 'users')]
     //  private ?Structure $structure = null;
+=======
+    // #[ORM\ManyToOne(inversedBy: 'users')]
+    // private ?Structure $structure = null;
+>>>>>>> Feature/install_easy_admin
 
     public function getId(): ?int
     {
