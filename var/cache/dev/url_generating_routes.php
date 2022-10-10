@@ -16,6 +16,7 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
+    'admin' => [[], ['_controller' => 'App\\Controller\\Admin\\DashboardController::index'], [], [['text', '/admin']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\GestionController::index'], [], [['text', '/gestionnaire']], [], [], []],
     'app_ajoutprofil' => [[], ['_controller' => 'App\\Controller\\GestionController::aprofil'], [], [['text', '/creer_profil']], [], [], []],
     'app_profil' => [[], ['_controller' => 'App\\Controller\\GestionController::profil'], [], [['text', '/afficher_profil']], [], [], []],
