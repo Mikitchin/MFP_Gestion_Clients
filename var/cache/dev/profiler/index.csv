@@ -192,3 +192,11 @@ aa3ebe,127.0.0.1,GET,https://127.0.0.1:8000/gestion,1665403008,,200
 39c6f2,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1665403030,,200
 57b17e,127.0.0.1,POST,https://127.0.0.1:8000/connexion,1665403049,,302
 4e4f11,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1665403050,,200
+0c8e52,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CGroupeProfilCrudController&menuIndex=1&submenuIndex=-1,1665411150,,200
+90bdc7,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1665412508,,200
+ff10ac,127.0.0.1,POST,https://127.0.0.1:8000/connexion,1665412552,,302
+22e475,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1665412552,,200
+477bff,127.0.0.1,POST,https://127.0.0.1:8000/connexion,1665412565,,302
+40956b,127.0.0.1,GET,https://127.0.0.1:8000/gestionnaire,1665412565,,200
+1b2177,127.0.0.1,GET,https://127.0.0.1:8000/logout,1665417109,,302
+d871ed,127.0.0.1,GET,https://127.0.0.1:8000/gestion,1665417109,,200
