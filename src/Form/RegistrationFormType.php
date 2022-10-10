@@ -20,11 +20,11 @@ class RegistrationFormType extends AbstractType
     {
         $builder
 
-            ->add('structure', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
+            // ->add('structure', TextType::class, [
+            //     'attr' => [
+            //         'class' => 'form-control'
+            //     ]
+            // ])
 
             ->add('nom', TextType::class, [
                 'attr' => [
