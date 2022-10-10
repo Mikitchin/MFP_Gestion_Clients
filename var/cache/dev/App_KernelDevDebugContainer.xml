@@ -368,6 +368,22 @@
         <argument type="service" id=".service_locator.XmW3LYn.App\Controller\Admin\DashboardController"/>
       </call>
     </service>
+    <service id="App\Controller\Admin\GroupeProfilCrudController" class="App\Controller\Admin\GroupeProfilCrudController" public="true" autowire="true" autoconfigure="true">
+      <tag name="ea.crud_controller"/>
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.GymbEAg.App\Controller\Admin\GroupeProfilCrudController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\ProfilCrudController" class="App\Controller\Admin\ProfilCrudController" public="true" autowire="true" autoconfigure="true">
+      <tag name="ea.crud_controller"/>
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.GymbEAg.App\Controller\Admin\ProfilCrudController"/>
+      </call>
+    </service>
     <service id="App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" public="true" autowire="true" autoconfigure="true">
       <tag name="ea.crud_controller"/>
       <tag name="controller.service_arguments"/>
@@ -6563,6 +6579,14 @@
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\DashboardControllerInterface.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\GroupeProfilCrudController" class="App\Controller\Admin\GroupeProfilCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\GroupeProfilCrudController" class="App\Controller\Admin\GroupeProfilCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\GroupeProfilCrudController" class="App\Controller\Admin\GroupeProfilCrudController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\GroupeProfilCrudController" class="App\Controller\Admin\GroupeProfilCrudController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\ProfilCrudController" class="App\Controller\Admin\ProfilCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\ProfilCrudController" class="App\Controller\Admin\ProfilCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\ProfilCrudController" class="App\Controller\Admin\ProfilCrudController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\ProfilCrudController" class="App\Controller\Admin\ProfilCrudController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
@@ -7094,10 +7118,52 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.OdD8m1R" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.5mrYG_S" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\DashboardController::configureUserMenu" type="service_closure" id=".service_locator.st3ASTR"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::autocomplete" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::batchDelete" type="service_closure" id=".service_locator.esmk6IF"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::configureActions" type="service_closure" id=".service_locator.R8Qy2_."/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::configureAssets" type="service_closure" id=".service_locator.XdMPwIJ"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::configureCrud" type="service_closure" id=".service_locator.XpfeRo6"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::configureFilters" type="service_closure" id=".service_locator.OGjUKCt"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::configureResponseParameters" type="service_closure" id=".service_locator.W.c5h2_"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::createEditForm" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::createEditFormBuilder" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::createIndexQueryBuilder" type="service_closure" id=".service_locator.ENGuM7_"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::createNewForm" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::delete" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::deleteEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::detail" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::edit" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::index" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::new" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController::updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::autocomplete" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::batchDelete" type="service_closure" id=".service_locator.esmk6IF"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::configureActions" type="service_closure" id=".service_locator.R8Qy2_."/>
+        <argument key="App\Controller\Admin\ProfilCrudController::configureAssets" type="service_closure" id=".service_locator.XdMPwIJ"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::configureCrud" type="service_closure" id=".service_locator.XpfeRo6"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::configureFilters" type="service_closure" id=".service_locator.OGjUKCt"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::configureResponseParameters" type="service_closure" id=".service_locator.W.c5h2_"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::createEditForm" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::createEditFormBuilder" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::createIndexQueryBuilder" type="service_closure" id=".service_locator.ENGuM7_"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::createNewForm" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::delete" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::deleteEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::detail" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::edit" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::index" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::new" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController::updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\UserCrudController::autocomplete" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\UserCrudController::batchDelete" type="service_closure" id=".service_locator.esmk6IF"/>
         <argument key="App\Controller\Admin\UserCrudController::configureActions" type="service_closure" id=".service_locator.R8Qy2_."/>
@@ -7128,6 +7194,48 @@
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
         <argument key="App\Controller\Admin\DashboardController:configureUserMenu" type="service_closure" id=".service_locator.st3ASTR"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:autocomplete" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:batchDelete" type="service_closure" id=".service_locator.esmk6IF"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:configureActions" type="service_closure" id=".service_locator.R8Qy2_."/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:configureAssets" type="service_closure" id=".service_locator.XdMPwIJ"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:configureCrud" type="service_closure" id=".service_locator.XpfeRo6"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:configureFilters" type="service_closure" id=".service_locator.OGjUKCt"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:configureResponseParameters" type="service_closure" id=".service_locator.W.c5h2_"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:createEditForm" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:createEditFormBuilder" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:createIndexQueryBuilder" type="service_closure" id=".service_locator.ENGuM7_"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:createNewForm" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:delete" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:deleteEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:detail" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:edit" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:index" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:new" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\GroupeProfilCrudController:updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:autocomplete" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:batchDelete" type="service_closure" id=".service_locator.esmk6IF"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:configureActions" type="service_closure" id=".service_locator.R8Qy2_."/>
+        <argument key="App\Controller\Admin\ProfilCrudController:configureAssets" type="service_closure" id=".service_locator.XdMPwIJ"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:configureCrud" type="service_closure" id=".service_locator.XpfeRo6"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:configureFilters" type="service_closure" id=".service_locator.OGjUKCt"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:configureResponseParameters" type="service_closure" id=".service_locator.W.c5h2_"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:createEditForm" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:createEditFormBuilder" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:createIndexQueryBuilder" type="service_closure" id=".service_locator.ENGuM7_"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:createNewForm" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.riFbGaB"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:delete" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:deleteEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:detail" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:edit" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:index" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:new" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
+        <argument key="App\Controller\Admin\ProfilCrudController:updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\UserCrudController:autocomplete" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\UserCrudController:batchDelete" type="service_closure" id=".service_locator.esmk6IF"/>
         <argument key="App\Controller\Admin\UserCrudController:configureActions" type="service_closure" id=".service_locator.R8Qy2_."/>
@@ -7683,6 +7791,8 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Registry\CrudControllerRegistry" class="EasyCorp\Bundle\EasyAdminBundle\Registry\CrudControllerRegistry">
       <argument>%env(APP_SECRET)%</argument>
       <argument type="collection">
+        <argument>App\Controller\Admin\GroupeProfilCrudController</argument>
+        <argument>App\Controller\Admin\ProfilCrudController</argument>
         <argument>App\Controller\Admin\UserCrudController</argument>
       </argument>
     </service>
@@ -7751,6 +7861,18 @@
         <argument key="serializer" type="service_closure" id="debug.serializer" on-invalid="ignore"/>
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.GymbEAg.App\Controller\Admin\GroupeProfilCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\GroupeProfilCrudController"/>
+      <argument>App\Controller\Admin\GroupeProfilCrudController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.GymbEAg" method="withContext"/>
+    </service>
+    <service id=".service_locator.GymbEAg.App\Controller\Admin\ProfilCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\ProfilCrudController"/>
+      <argument>App\Controller\Admin\ProfilCrudController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.GymbEAg" method="withContext"/>
     </service>
     <service id=".service_locator.GymbEAg.App\Controller\Admin\UserCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\UserCrudController"/>
@@ -8061,12 +8183,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.OdD8m1R"/>
+      <argument type="service" id=".service_locator.5mrYG_S"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.OdD8m1R"/>
+      <argument type="service" id=".service_locator.5mrYG_S"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9059,7 +9181,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.OdD8m1R"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.5mrYG_S"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9086,7 +9208,7 @@
     <service id=".service_locator.hNls88j" alias=".service_locator.ENGuM7_"/>
     <service id=".service_locator.6rNHno." alias=".service_locator.riFbGaB"/>
     <service id=".service_locator.gwY_rIW" alias=".service_locator.qV1Yx19"/>
-    <service id=".service_locator.c1AlFUp" alias=".service_locator.OdD8m1R"/>
+    <service id=".service_locator.u3uMfU5" alias=".service_locator.5mrYG_S"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.zOEDDkY" alias=".service_locator.aF0VNrt"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>

@@ -2,7 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\GroupeProfil;
 use App\Entity\User;
+use App\Entity\Profil;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -44,6 +46,8 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Groupe de profil', 'fas fa-list', GroupeProfil::class);
+        yield MenuItem::linkToCrud('Profil', 'fas fa-list', Profil::class);
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', User::class);
     }
 }
