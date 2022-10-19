@@ -2,16 +2,17 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\GroupeProfil;
 use App\Entity\User;
 use App\Entity\Profil;
+use App\Entity\GroupeProfil;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Locale;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -40,7 +41,11 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Application Gestion Clients');
+            ->setTitle('CRUC: Gestion de rendez-vous')
+            ->setLocales([
+                // 'en', // locale without custom options
+                Locale::new('fr', 'france', 'far fa-language') // custom label and icon
+            ]);
     }
 
     public function configureMenuItems(): iterable
