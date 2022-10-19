@@ -33,9 +33,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    // #[ORM\Column(type: 'json')]
-    // private $roles = [];
-
     #[ORM\Column]
     private ?int $contact = null;
 
@@ -57,8 +54,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
-    //  #[ORM\ManyToOne(inversedBy: 'users')]
-    //  private ?Structure $structure = null;
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?Structure $structure = null;
 
     public function getId(): ?int
     {
@@ -226,15 +223,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    // public function getStructure(): ?Structure
-    // {
-    //     return $this->structure;
-    // }
+    public function getStructure(): ?Structure
+    {
+        return $this->structure;
+    }
 
-    // public function setStructure(?Structure $structure): self
-    // {
-    //     $this->structure = $structure;
+    public function setStructure(?Structure $structure): self
+    {
+        $this->structure = $structure;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 }

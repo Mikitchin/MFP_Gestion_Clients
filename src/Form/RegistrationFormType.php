@@ -3,16 +3,19 @@
 namespace App\Form;
 
 use App\Entity\User;
+use App\Entity\Structure;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -20,11 +23,13 @@ class RegistrationFormType extends AbstractType
     {
         $builder
 
-            // ->add('structure', TextType::class, [
-            //     'attr' => [
-            //         'class' => 'form-control'
-            //     ]
-            // ])
+            ->add('structure', EntityType::class, [
+                'class' => Structure::class,
+                'attr' => [
+                    'class' => 'form-control'
+
+                ]
+            ])
 
             ->add('nom', TextType::class, [
                 'attr' => [
@@ -46,7 +51,15 @@ class RegistrationFormType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('dateNaissance')
+            ->add('dateNaissance', DateType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr' => [
+                    'class' => 'form-control'
+
+                ]
+            ])
+
             // ->add('lieuNaissance')
             // ->add('sexe')
             // ->add('ville')
@@ -82,7 +95,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Acceptez-vous nos conditions ?.',
                     ]),
                 ],
             ])
@@ -100,7 +113,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit avoir au minimum {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
