@@ -40,8 +40,8 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "_partials/_navbar.html.twig"));
 
         // line 1
-        echo " <header class=\"header\" data-header>
-    <div class=\"container\">
+        echo " <header class=\"headerxd\" data-header>
+    <div class=\"containerxd\">
       <a href=\"#\" class=\"logo\" title=\"Accueil\"><img src=\"";
         // line 3
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/foncpubli1.png"), "html", null, true);
@@ -51,13 +51,13 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
         <span class=\"material-symbols-rounded  icon\">menu</span>
       </button>
 
-      <nav class=\"navbar\">
-        <div class=\"container\">
+      <nav class=\"navbarxd\">
+        <div class=\"containerxd\">
 
-          <ul class=\"navbar-list\">
+          <ul class=\"navbarxd-list\">
 
             <li>
-              <a href=\"#\" class=\"navbar-link active icon-box\">
+              <a href=\"#\" class=\"navbarxd-link active icon-box\">
                 <span class=\"material-symbols-rounded  icon\">grid_view</span>
 
                 <span>Accueil</span>
@@ -65,7 +65,7 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
             </li>           
 
             <li class=\"menu-deroulant\">
-              <a href=\"#\" class=\"navbar-link icon-box\">
+              <a href=\"#\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">settings</span>
 
                 <span>Paramêtres</span>
@@ -77,7 +77,7 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
             </li>
 
             <li class=\"menu-deroulant\">
-              <a href=\"#\" class=\"navbar-link icon-box\">
+              <a href=\"#\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">Rule</span>
 
                 <span>Profils</span>
@@ -95,7 +95,7 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
             </li>
 
             <li class=\"menu-deroulant\">
-              <a href=\"#\" class=\"navbar-link icon-box\">
+              <a href=\"#\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">Group</span>
 
                 <span>Utilisateurs</span>
@@ -135,7 +135,7 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
             // line 77
             echo "
             <li>
-              <a href=\"#\" class=\"header-profile\">
+              <a href=\"#\" class=\"headerxd-profile\">
 
                 <figure class=\"profile-avatar\">
                   <img src=\"";
@@ -151,19 +151,25 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
 
               </a>
             </li>
+            ";
+            // line 96
+            echo "
+          </ul>
 
-            <li class=\"nav-item\">
-                <a href=\"";
-            // line 94
+          <ul class=\"navbarxd-list\">
+            <li>
+              <a href=\"";
+            // line 101
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            echo "\" class=\"nav-link\">DECONNEXION</a>
+            echo "\" class=\"navbarxd-link activexd icon-box\">
+                <span class=\"material-symbols-rounded  icon\" title=\"Se déconnecter\">power_rounded</span>
+              </a>
             </li>
-
           </ul>
 
         ";
         }
-        // line 100
+        // line 108
         echo "        
       </div>
       </nav>
@@ -190,26 +196,26 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
 
     public function getDebugInfo()
     {
-        return array (  167 => 100,  158 => 94,  143 => 82,  136 => 77,  127 => 71,  123 => 69,  121 => 68,  92 => 42,  88 => 41,  47 => 3,  43 => 1,);
+        return array (  173 => 108,  163 => 101,  156 => 96,  143 => 82,  136 => 77,  127 => 71,  123 => 69,  121 => 68,  92 => 42,  88 => 41,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source(" <header class=\"header\" data-header>
-    <div class=\"container\">
+        return new Source(" <header class=\"headerxd\" data-header>
+    <div class=\"containerxd\">
       <a href=\"#\" class=\"logo\" title=\"Accueil\"><img src=\"{{ asset('images/foncpubli1.png') }}\" class=\"logo\" alt=\"logo\"></a>
 
         <button class=\"menu-toggle-btn icon-box\" data-menu-toggle-btn aria-label=\"Toggle Menu\">
         <span class=\"material-symbols-rounded  icon\">menu</span>
       </button>
 
-      <nav class=\"navbar\">
-        <div class=\"container\">
+      <nav class=\"navbarxd\">
+        <div class=\"containerxd\">
 
-          <ul class=\"navbar-list\">
+          <ul class=\"navbarxd-list\">
 
             <li>
-              <a href=\"#\" class=\"navbar-link active icon-box\">
+              <a href=\"#\" class=\"navbarxd-link active icon-box\">
                 <span class=\"material-symbols-rounded  icon\">grid_view</span>
 
                 <span>Accueil</span>
@@ -217,7 +223,7 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
             </li>           
 
             <li class=\"menu-deroulant\">
-              <a href=\"#\" class=\"navbar-link icon-box\">
+              <a href=\"#\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">settings</span>
 
                 <span>Paramêtres</span>
@@ -229,7 +235,7 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
             </li>
 
             <li class=\"menu-deroulant\">
-              <a href=\"#\" class=\"navbar-link icon-box\">
+              <a href=\"#\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">Rule</span>
 
                 <span>Profils</span>
@@ -241,7 +247,7 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
             </li>
 
             <li class=\"menu-deroulant\">
-              <a href=\"#\" class=\"navbar-link icon-box\">
+              <a href=\"#\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">Group</span>
 
                 <span>Utilisateurs</span>
@@ -273,7 +279,7 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
             {% else %}
 
             <li>
-              <a href=\"#\" class=\"header-profile\">
+              <a href=\"#\" class=\"headerxd-profile\">
 
                 <figure class=\"profile-avatar\">
                   <img src=\"{{ asset('images/avatar-1.jpg') }}\" alt=\"Elizabeth Foster\" width=\"32\" height=\"32\">
@@ -286,11 +292,19 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
 
               </a>
             </li>
-
+            {# 
             <li class=\"nav-item\">
                 <a href=\"{{ path('app_logout') }}\" class=\"nav-link\">DECONNEXION</a>
-            </li>
+            </li> #}
 
+          </ul>
+
+          <ul class=\"navbarxd-list\">
+            <li>
+              <a href=\"{{ path('app_logout') }}\" class=\"navbarxd-link activexd icon-box\">
+                <span class=\"material-symbols-rounded  icon\" title=\"Se déconnecter\">power_rounded</span>
+              </a>
+            </li>
           </ul>
 
         {% endif %}
