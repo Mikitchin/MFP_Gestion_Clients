@@ -67,7 +67,7 @@ class __TwigTemplate_34f7c9b697fae0a7b3dded546ffbccca extends Template
         echo "    </head>
     <body>
                
- <div class=\"container-login200\">
+ <div class=\"container-login100\">
                     <div class=\"text-center\">
                         <img src=\"";
         // line 21
@@ -331,7 +331,7 @@ class __TwigTemplate_34f7c9b697fae0a7b3dded546ffbccca extends Template
     </head>
     <body>
                
- <div class=\"container-login200\">
+ <div class=\"container-login100\">
                     <div class=\"text-center\">
                         <img src=\"{{ asset('images/foncpubli.png') }}\" class=\"header-brand-img\" alt=\"\">
                     </div>
