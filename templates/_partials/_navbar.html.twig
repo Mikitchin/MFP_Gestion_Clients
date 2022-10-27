@@ -1,18 +1,18 @@
- <header class="header" data-header>
-    <div class="container">
+ <header class="headerxd" data-header>
+    <div class="containerxd">
       <a href="#" class="logo" title="Accueil"><img src="{{ asset('images/foncpubli1.png') }}" class="logo" alt="logo"></a>
 
         <button class="menu-toggle-btn icon-box" data-menu-toggle-btn aria-label="Toggle Menu">
         <span class="material-symbols-rounded  icon">menu</span>
       </button>
 
-      <nav class="navbar">
-        <div class="container">
+      <nav class="navbarxd">
+        <div class="containerxd">
 
-          <ul class="navbar-list">
+          <ul class="navbarxd-list">
 
             <li>
-              <a href="#" class="navbar-link active icon-box">
+              <a href="#" class="navbarxd-link active icon-box">
                 <span class="material-symbols-rounded  icon">grid_view</span>
 
                 <span>Accueil</span>
@@ -20,7 +20,7 @@
             </li>           
 
             <li class="menu-deroulant">
-              <a href="#" class="navbar-link icon-box">
+              <a href="#" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded  icon">settings</span>
 
                 <span>Paramêtres</span>
@@ -32,7 +32,7 @@
             </li>
 
             <li class="menu-deroulant">
-              <a href="#" class="navbar-link icon-box">
+              <a href="#" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded  icon">Rule</span>
 
                 <span>Profils</span>
@@ -44,7 +44,7 @@
             </li>
 
             <li class="menu-deroulant">
-              <a href="#" class="navbar-link icon-box">
+              <a href="#" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded  icon">Group</span>
 
                 <span>Utilisateurs</span>
@@ -76,7 +76,7 @@
             {% else %}
 
             <li>
-              <a href="#" class="header-profile">
+              <a href="#" class="headerxd-profile">
 
                 <figure class="profile-avatar">
                   <img src="{{ asset('images/avatar-1.jpg') }}" alt="Elizabeth Foster" width="32" height="32">
@@ -89,11 +89,19 @@
 
               </a>
             </li>
-
+            {# 
             <li class="nav-item">
                 <a href="{{ path('app_logout') }}" class="nav-link">DECONNEXION</a>
-            </li>
+            </li> #}
 
+          </ul>
+
+          <ul class="navbarxd-list">
+            <li>
+              <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
+                <span class="material-symbols-rounded  icon" title="Se déconnecter">power_rounded</span>
+              </a>
+            </li>
           </ul>
 
         {% endif %}
