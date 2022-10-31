@@ -28,4 +28,7 @@ return [
     'app_inscription' => [[], ['_controller' => 'App\\Controller\\RegistrationController::inscription'], [], [['text', '/inscription']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::connexion'], [], [['text', '/connexion']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
+    'app_uhome' => [[], ['_controller' => 'App\\Controller\\UsagerController::homeu'], [], [['text', '/usager']], [], [], []],
+    'app_creatrdv' => [[], ['_controller' => 'App\\Controller\\UsagerController::prdv'], [], [['text', '/prendre_rdv']], [], [], []],
+    'app_listerdv' => [[], ['_controller' => 'App\\Controller\\UsagerController::lsrdv'], [], [['text', '/lister_rdv']], [], [], []],
 ];

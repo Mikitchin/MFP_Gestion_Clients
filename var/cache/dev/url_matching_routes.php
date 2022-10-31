@@ -26,6 +26,9 @@ return [
         '/inscription' => [[['_route' => 'app_inscription', '_controller' => 'App\\Controller\\RegistrationController::inscription'], null, null, null, false, false, null]],
         '/connexion' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::connexion'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
+        '/usager' => [[['_route' => 'app_uhome', '_controller' => 'App\\Controller\\UsagerController::homeu'], null, null, null, false, false, null]],
+        '/prendre_rdv' => [[['_route' => 'app_creatrdv', '_controller' => 'App\\Controller\\UsagerController::prdv'], null, null, null, false, false, null]],
+        '/lister_rdv' => [[['_route' => 'app_listerdv', '_controller' => 'App\\Controller\\UsagerController::lsrdv'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
