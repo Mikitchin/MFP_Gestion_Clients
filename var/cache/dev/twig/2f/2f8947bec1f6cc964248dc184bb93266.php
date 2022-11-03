@@ -256,6 +256,6 @@ class __TwigTemplate_741b06e225ff5f13d9aff16f8dff8833 extends Template
 </div>     
 
 
-{% endblock %}", "gestion/ajouter_profil.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\gestion\\ajouter_profil.html.twig");
+{% endblock %}", "gestion/ajouter_profil.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\gestion\\ajouter_profil.html.twig");
     }
 }

@@ -313,6 +313,6 @@ class __TwigTemplate_6093e16eb56c7896187eb7b202c72598 extends Template
       </nav>
 
     </div>
-  </header>", "_partials/_navbar.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\_partials\\_navbar.html.twig");
+  </header>", "_partials/_navbar.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\_partials\\_navbar.html.twig");
     }
 }
