@@ -656,6 +656,6 @@ class __TwigTemplate_4f9839931d64644450d367d09c4c5e69 extends Template
     </article>
   </main>
 
-{% endblock %}", "agent/index.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\agent\\index.html.twig");
+{% endblock %}", "agent/index.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\agent\\index.html.twig");
     }
 }

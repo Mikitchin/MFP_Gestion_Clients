@@ -658,6 +658,6 @@ class __TwigTemplate_0169d9c39c1a1cfb2cac258e13a032aa extends Template
   </main>
 
 
-{% endblock %}", "agent/stats.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\agent\\stats.html.twig");
+{% endblock %}", "agent/stats.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\agent\\stats.html.twig");
     }
 }
