@@ -14,6 +14,8 @@ import './bootstrap';
 import './js/jquery.min.js';
 import './js/apexcharts.js';
 import './js/script.js';
+import './js/feather.min.js';
+import './js/app.js';
 
 
 

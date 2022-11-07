@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class UsagerController extends AbstractController
+{
+    #[Route('/usager', name: 'app_uhome')]
+    public function homeu(): Response
+    {
+        return $this->render('usager/home_u.html.twig', [
+            'controller_name' => 'UsagerController',
+        ]);
+    }
+
+    #[Route('/prendre_rdv', name: 'app_creatrdv')]
+    public function prdv(): Response
+    {
+        return $this->render('usager/rdvu_form.html.twig', [
+            'controller_name' => 'UsagerController',
+        ]);
+    }
+    
+    #[Route('/lister_rdv', name: 'app_listerdv')]
+    public function lsrdv(): Response
+    {
+        return $this->render('usager/rdvulist.html.twig', [
+            'controller_name' => 'UsagerController',
+        ]);
+    }  
+   
+}
