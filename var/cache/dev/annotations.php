@@ -178,6 +178,18 @@ return [[
 '[C]App%5CController%5CSecurityController%23connexion' => 1,
 'App%5CController%5CSecurityController%23logout' => 0,
 '[C]App%5CController%5CSecurityController%23logout' => 1,
+'App%5CController%5CUsagerController' => 0,
+'[C]App%5CController%5CUsagerController' => 1,
+'App%5CController%5CUsagerController%23homeu' => 0,
+'[C]App%5CController%5CUsagerController%23homeu' => 1,
+'App%5CController%5CUsagerController%23prdv' => 0,
+'[C]App%5CController%5CUsagerController%23prdv' => 1,
+'App%5CController%5CUsagerController%23lsrdv' => 0,
+'[C]App%5CController%5CUsagerController%23lsrdv' => 1,
+'App%5CController%5CWelcomeController' => 0,
+'[C]App%5CController%5CWelcomeController' => 1,
+'App%5CController%5CWelcomeController%23accueil' => 0,
+'[C]App%5CController%5CWelcomeController%23accueil' => 1,
 'App%5CEntity%5CDemandeRdv' => 0,
 '[C]App%5CEntity%5CDemandeRdv' => 1,
 'App%5CEntity%5CDemandeRdv%23getId' => 0,
@@ -1016,6 +1028,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1667332967,
+1 => 1667816597,
 
 ]];

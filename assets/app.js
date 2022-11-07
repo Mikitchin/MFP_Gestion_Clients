@@ -16,7 +16,7 @@ import './js/apexcharts.js';
 import './js/script.js';
 import './js/feather.min.js';
 import './js/app.js';
-
+// import './js/bootstrap.bundle.min.js';
 
 
 
