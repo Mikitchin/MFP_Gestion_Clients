@@ -16,7 +16,7 @@ class GestionController extends AbstractController
     public function index(): Response
     {
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-            return $this->render('agent/rdv_form.html.twig', [
+            return $this->render('agent/index.html.twig', [
                 'controller_name' => 'GestionController',
             ]);
         }

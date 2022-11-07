@@ -23,7 +23,7 @@ class AgentController extends AbstractController
             'controller_name' => 'AgentController',
         ]);
     }
-    
+
     #[Route('/afficher_rdv', name: 'app_listrdv')]
     public function lrdv(): Response
     {
@@ -39,5 +39,4 @@ class AgentController extends AbstractController
             'controller_name' => 'AgentController',
         ]);
     }
-   
 }
