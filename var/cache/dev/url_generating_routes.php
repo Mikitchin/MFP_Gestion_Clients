@@ -31,4 +31,5 @@ return [
     'app_uhome' => [[], ['_controller' => 'App\\Controller\\UsagerController::homeu'], [], [['text', '/usager']], [], [], []],
     'app_creatrdv' => [[], ['_controller' => 'App\\Controller\\UsagerController::prdv'], [], [['text', '/prendre_rdv']], [], [], []],
     'app_listerdv' => [[], ['_controller' => 'App\\Controller\\UsagerController::lsrdv'], [], [['text', '/lister_rdv']], [], [], []],
+    'app_cruchome' => [[], ['_controller' => 'App\\Controller\\WelcomeController::accueil'], [], [['text', '/bienvenue']], [], [], []],
 ];
