@@ -420,6 +420,13 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\SecurityController"/>
       </call>
     </service>
+    <service id="App\Controller\SuperviseurController" class="App\Controller\SuperviseurController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\SuperviseurController"/>
+      </call>
+    </service>
     <service id="App\Controller\UsagerController" class="App\Controller\UsagerController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -6624,6 +6631,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SuperviseurController" class="App\Controller\SuperviseurController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SuperviseurController" class="App\Controller\SuperviseurController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SuperviseurController" class="App\Controller\SuperviseurController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UsagerController" class="App\Controller\UsagerController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UsagerController" class="App\Controller\UsagerController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UsagerController" class="App\Controller\UsagerController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7946,6 +7956,12 @@
     <service id=".service_locator.jIxfAsi.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\SuperviseurController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\SuperviseurController"/>
+      <argument>App\Controller\SuperviseurController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
