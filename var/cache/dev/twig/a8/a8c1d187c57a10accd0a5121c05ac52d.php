@@ -101,9 +101,14 @@ class __TwigTemplate_34f7c9b697fae0a7b3dded546ffbccca extends Template
         echo "
                                                             ";
         // line 46
-        echo "                                                                    ";
-        // line 50
+        echo "                                                                    <div class=\" row mb-4\">
+                                                                ";
+        // line 47
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 47, $this->source); })()), "structure", [], "any", false, false, false, 47), 'row', ["label" => "Structure", "attr" => ["placeholder" => "Structure"]]);
+        // line 48
         echo "
+                                                                </div>
+
                                                                 <div class=\" row mb-4\">
                                                                 ";
         // line 52
@@ -308,7 +313,7 @@ class __TwigTemplate_34f7c9b697fae0a7b3dded546ffbccca extends Template
 
     public function getDebugInfo()
     {
-        return array (  287 => 14,  277 => 13,  264 => 10,  254 => 9,  235 => 5,  221 => 124,  208 => 113,  199 => 107,  195 => 105,  192 => 102,  190 => 101,  186 => 99,  182 => 96,  180 => 95,  174 => 91,  172 => 90,  167 => 87,  165 => 86,  160 => 83,  158 => 82,  155 => 81,  153 => 80,  151 => 79,  145 => 74,  143 => 73,  137 => 69,  135 => 68,  130 => 65,  127 => 62,  125 => 61,  119 => 57,  117 => 56,  112 => 53,  110 => 52,  106 => 50,  104 => 46,  100 => 42,  97 => 41,  82 => 27,  74 => 21,  67 => 16,  65 => 13,  62 => 12,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
+        return array (  292 => 14,  282 => 13,  269 => 10,  259 => 9,  240 => 5,  226 => 124,  213 => 113,  204 => 107,  200 => 105,  197 => 102,  195 => 101,  191 => 99,  187 => 96,  185 => 95,  179 => 91,  177 => 90,  172 => 87,  170 => 86,  165 => 83,  163 => 82,  160 => 81,  158 => 80,  156 => 79,  150 => 74,  148 => 73,  142 => 69,  140 => 68,  135 => 65,  132 => 62,  130 => 61,  124 => 57,  122 => 56,  117 => 53,  115 => 52,  109 => 48,  107 => 47,  104 => 46,  100 => 42,  97 => 41,  82 => 27,  74 => 21,  67 => 16,  65 => 13,  62 => 12,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -358,10 +363,10 @@ class __TwigTemplate_34f7c9b697fae0a7b3dded546ffbccca extends Template
                                                             {# <fieldset class=\"mb-3\">
                                                                 <legend>Mon identité</legend>
                                                                  #}
-                                                                    {# <div class=\" row mb-4\">
+                                                                    <div class=\" row mb-4\">
                                                                 {{ form_row(registrationForm.structure, {'label': 'Structure', 'attr':
                                                                 {'placeholder': 'Structure'}}) }}
-                                                                </div> #}
+                                                                </div>
 
                                                                 <div class=\" row mb-4\">
                                                                 {{ form_row(registrationForm.nom, {'label': 'Nom d\\'utilisateur', 'attr':
@@ -440,6 +445,6 @@ class __TwigTemplate_34f7c9b697fae0a7b3dded546ffbccca extends Template
 </div>                        
 </body>
 </html>
-", "registration/register.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\registration\\register.html.twig");
+", "registration/register.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\registration\\register.html.twig");
     }
 }
