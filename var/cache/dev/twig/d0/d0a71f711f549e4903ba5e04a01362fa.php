@@ -212,6 +212,6 @@ class __TwigTemplate_53ab22f5bc84d13a401a8419075f6ab4 extends Template
 
     </body>
 </html>
-", "base.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\base.html.twig");
     }
 }

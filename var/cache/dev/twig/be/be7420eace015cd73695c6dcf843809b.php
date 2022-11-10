@@ -416,6 +416,6 @@ Action 3</textarea>
 
  
 
-{% endblock %}", "gestion/afficher_profil.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\gestion\\afficher_profil.html.twig");
+{% endblock %}", "gestion/afficher_profil.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\gestion\\afficher_profil.html.twig");
     }
 }

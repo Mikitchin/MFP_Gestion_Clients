@@ -326,6 +326,6 @@ class __TwigTemplate_c9ab856f114258054a072f05b6eacaa4 extends Template
         </div> #}
          </body>
 </html>
-        {# {% endblock %} #}", "registration/login.html.twig", "C:\\Users\\silvere.yapo\\Documents\\Symfony_Projects\\MFP_Gestion_Clients\\templates\\registration\\login.html.twig");
+        {# {% endblock %} #}", "registration/login.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\registration\\login.html.twig");
     }
 }
