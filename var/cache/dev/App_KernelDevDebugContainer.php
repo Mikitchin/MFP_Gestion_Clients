@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerVAXJipW\App_KernelDevDebugContainer([
     'container.build_hash' => 'VAXJipW',
-    'container.build_id' => 'a6630815',
-    'container.build_time' => 1667816594,
+    'container.build_id' => 'e40a0980',
+    'container.build_time' => 1667906257,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerVAXJipW');
