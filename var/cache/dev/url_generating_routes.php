@@ -32,6 +32,7 @@ return [
     'app_lstdem' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::lstdem'], [], [['text', '/superviseur_demandes']], [], [], []],
     'app_listtreat' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::listtreat'], [], [['text', '/superviseur_traitement']], [], [], []],
     'app_statsrdvsup' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], [], [['text', '/superviseur_statistiques']], [], [], []],
+    'app_inforecep' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::inforecep'], [], [['text', '/superviseur_inforecep']], [], [], []],
     'app_uhome' => [[], ['_controller' => 'App\\Controller\\UsagerController::homeu'], [], [['text', '/usager']], [], [], []],
     'app_creatrdv' => [[], ['_controller' => 'App\\Controller\\UsagerController::prdv'], [], [['text', '/prendre_rdv']], [], [], []],
     'app_listerdv' => [[], ['_controller' => 'App\\Controller\\UsagerController::lsrdv'], [], [['text', '/lister_rdv']], [], [], []],

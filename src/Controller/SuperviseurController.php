@@ -40,30 +40,12 @@ class SuperviseurController extends AbstractController
         ]);
     }
 
-    
-
-    // #[Route('/creer_rdv', name: 'app_createrdv')]
-    // public function ardv(): Response
-    // {
-    //     return $this->render('agent/rdv_form.html.twig', [
-    //         'controller_name' => 'AgentController',
-    //     ]);
-    // }
-    
-    // #[Route('/afficher_rdv', name: 'app_listrdv')]
-    // public function lrdv(): Response
-    // {
-    //     return $this->render('agent/rdvlist.html.twig', [
-    //         'controller_name' => 'AgentController',
-    //     ]);
-    // }
-
-    // #[Route('/stats_rdv', name: 'app_statsrdv')]
-    // public function srdv(): Response
-    // {
-    //     return $this->render('agent/stats.html.twig', [
-    //         'controller_name' => 'AgentController',
-    //     ]);
-    // }
+    #[Route('/superviseur_inforecep', name: 'app_inforecep')]
+    public function inforecep(): Response
+    {
+        return $this->render('superviseur/sup_info_recep.html.twig', [
+            'controller_name' => 'SuperviseurController',
+        ]);
+    }
    
 }
