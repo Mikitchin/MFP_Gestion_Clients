@@ -784,3 +784,4 @@ ff1eef,127.0.0.1,GET,https://127.0.0.1:8000/superviseur_inforecep,1668098408,,20
 685237,127.0.0.1,GET,https://127.0.0.1:8000/superviseur_inforecep,1668098660,,200
 c6ee5b,127.0.0.1,GET,https://127.0.0.1:8000/superviseur,1668098729,,200
 5f78de,127.0.0.1,GET,https://127.0.0.1:8000/superviseur_inforecep,1668098737,,200
+c16ca4,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1668176757,,200
