@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -56,6 +58,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Structure $structure = null;
+
+    #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
+    private Collection $privilege;
+
+    public function __construct()
+    {
+        $this->privilege = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -231,6 +241,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setStructure(?Structure $structure): self
     {
         $this->structure = $structure;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Roles>
+     */
+    public function getPrivilege(): Collection
+    {
+        return $this->privilege;
+    }
+
+    public function addPrivilege(Roles $privilege): self
+    {
+        if (!$this->privilege->contains($privilege)) {
+            $this->privilege->add($privilege);
+        }
+
+        return $this;
+    }
+
+    public function removePrivilege(Roles $privilege): self
+    {
+        $this->privilege->removeElement($privilege);
 
         return $this;
     }

@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* Admin/dashboard.html.twig */
+/* admin/dashboard.html.twig */
 class __TwigTemplate_7cf645dbeb5f5a7dce7df65fc8e8919c extends Template
 {
     private $source;
@@ -39,12 +39,12 @@ class __TwigTemplate_7cf645dbeb5f5a7dce7df65fc8e8919c extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "Admin/dashboard.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/dashboard.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "Admin/dashboard.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/dashboard.html.twig"));
 
-        $this->parent = $this->loadTemplate("@EasyAdmin/layout.html.twig", "Admin/dashboard.html.twig", 1);
+        $this->parent = $this->loadTemplate("@EasyAdmin/layout.html.twig", "admin/dashboard.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -83,7 +83,7 @@ class __TwigTemplate_7cf645dbeb5f5a7dce7df65fc8e8919c extends Template
 
     public function getTemplateName()
     {
-        return "Admin/dashboard.html.twig";
+        return "admin/dashboard.html.twig";
     }
 
     public function isTraitable()
@@ -108,6 +108,6 @@ class __TwigTemplate_7cf645dbeb5f5a7dce7df65fc8e8919c extends Template
 </div>
 
 
-{% endblock %}", "Admin/dashboard.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\Admin\\dashboard.html.twig");
+{% endblock %}", "admin/dashboard.html.twig", "C:\\Users\\DELL\\Documents\\CODES SYMFONY\\Mfp_gestion_clients\\templates\\Admin\\dashboard.html.twig");
     }
 }

@@ -238,7 +238,8 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
             cursor: pointer;
             padding: 5px 7px 5px 22px;
             position: relative;
-
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .tree .toggle-button {
             /* provide a bigger clickable area than just 10x10px */
@@ -358,7 +359,7 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
 
     }
 
-    // line 206
+    // line 207
     public function block_panel($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -368,38 +369,38 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "panel"));
 
-        // line 207
+        // line 208
         echo "    <h2>Forms</h2>
 
     ";
-        // line 209
-        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 209, $this->source); })()), "data", [], "any", false, false, false, 209), "forms", [], "any", false, false, false, 209))) {
-            // line 210
+        // line 210
+        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 210, $this->source); })()), "data", [], "any", false, false, false, 210), "forms", [], "any", false, false, false, 210))) {
+            // line 211
             echo "        <div id=\"tree-menu\" class=\"tree\">
             <ul>
             ";
-            // line 212
+            // line 213
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 212, $this->source); })()), "data", [], "any", false, false, false, 212), "forms", [], "any", false, false, false, 212));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 213, $this->source); })()), "data", [], "any", false, false, false, 213), "forms", [], "any", false, false, false, 213));
             foreach ($context['_seq'] as $context["formName"] => $context["formData"]) {
-                // line 213
+                // line 214
                 echo "                ";
-                echo twig_call_macro($macros["__internal_parse_1"], "macro_form_tree_entry", [$context["formName"], $context["formData"], true], 213, $context, $this->getSourceContext());
+                echo twig_call_macro($macros["__internal_parse_1"], "macro_form_tree_entry", [$context["formName"], $context["formData"], true], 214, $context, $this->getSourceContext());
                 echo "
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['formName'], $context['formData'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 215
+            // line 216
             echo "            </ul>
         </div>
 
         <div id=\"tree-details-container\">
             ";
-            // line 219
+            // line 220
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 219, $this->source); })()), "data", [], "any", false, false, false, 219), "forms", [], "any", false, false, false, 219));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 220, $this->source); })()), "data", [], "any", false, false, false, 220), "forms", [], "any", false, false, false, 220));
             $context['loop'] = [
               'parent' => $context['_parent'],
               'index0' => 0,
@@ -414,9 +415,9 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["formName"] => $context["formData"]) {
-                // line 220
+                // line 221
                 echo "                ";
-                echo twig_call_macro($macros["__internal_parse_1"], "macro_form_tree_details", [$context["formName"], $context["formData"], twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 220, $this->source); })()), "data", [], "any", false, false, false, 220), "forms_by_hash", [], "any", false, false, false, 220), twig_get_attribute($this->env, $this->source, $context["loop"], "first", [], "any", false, false, false, 220)], 220, $context, $this->getSourceContext());
+                echo twig_call_macro($macros["__internal_parse_1"], "macro_form_tree_details", [$context["formName"], $context["formData"], twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 221, $this->source); })()), "data", [], "any", false, false, false, 221), "forms_by_hash", [], "any", false, false, false, 221), twig_get_attribute($this->env, $this->source, $context["loop"], "first", [], "any", false, false, false, 221)], 221, $context, $this->getSourceContext());
                 echo "
             ";
                 ++$context['loop']['index0'];
@@ -431,17 +432,17 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['formName'], $context['formData'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 222
+            // line 223
             echo "        </div>
     ";
         } else {
-            // line 224
+            // line 225
             echo "        <div class=\"empty\">
             <p>No forms were submitted for this request.</p>
         </div>
     ";
         }
-        // line 228
+        // line 229
         echo "
     <script>
     function Toggler(storage) {
@@ -669,7 +670,7 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
 
     }
 
-    // line 448
+    // line 449
     public function macro_form_tree_entry($__name__ = null, $__data__ = null, $__is_root__ = null, ...$__varargs__)
     {
         $macros = $this->macros;
@@ -690,87 +691,89 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
             $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
             $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "form_tree_entry"));
 
-            // line 449
-            echo "    ";
-            $macros["tree"] = $this;
             // line 450
             echo "    ";
-            $context["has_error"] = (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "errors", [], "any", true, true, false, 450) && (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 450, $this->source); })()), "errors", [], "any", false, false, false, 450)) > 0));
+            $macros["tree"] = $this;
             // line 451
+            echo "    ";
+            $context["has_error"] = (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "errors", [], "any", true, true, false, 451) && (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 451, $this->source); })()), "errors", [], "any", false, false, false, 451)) > 0));
+            // line 452
             echo "    <li>
         <div class=\"tree-inner\" data-tab-target-id=\"";
-            // line 452
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 452, $this->source); })()), "id", [], "any", false, false, false, 452), "html", null, true);
-            echo "-details\">
-            ";
             // line 453
-            if ((isset($context["has_error"]) || array_key_exists("has_error", $context) ? $context["has_error"] : (function () { throw new RuntimeError('Variable "has_error" does not exist.', 453, $this->source); })())) {
-                // line 454
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 453, $this->source); })()), "id", [], "any", false, false, false, 453), "html", null, true);
+            echo "-details\" title=\"";
+            echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter((isset($context["name"]) || array_key_exists("name", $context) ? $context["name"] : (function () { throw new RuntimeError('Variable "name" does not exist.', 453, $this->source); })()), "(no name)")) : ("(no name)")), "html", null, true);
+            echo "\">
+            ";
+            // line 454
+            if ((isset($context["has_error"]) || array_key_exists("has_error", $context) ? $context["has_error"] : (function () { throw new RuntimeError('Variable "has_error" does not exist.', 454, $this->source); })())) {
+                // line 455
                 echo "                <div class=\"badge-error\">";
-                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 454, $this->source); })()), "errors", [], "any", false, false, false, 454)), "html", null, true);
+                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 455, $this->source); })()), "errors", [], "any", false, false, false, 455)), "html", null, true);
                 echo "</div>
             ";
             }
-            // line 456
+            // line 457
             echo "
             ";
-            // line 457
-            if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 457, $this->source); })()), "children", [], "any", false, false, false, 457))) {
-                // line 458
+            // line 458
+            if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 458, $this->source); })()), "children", [], "any", false, false, false, 458))) {
+                // line 459
                 echo "                <a class=\"toggle-button\" data-toggle-target-id=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 458, $this->source); })()), "id", [], "any", false, false, false, 458), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 459, $this->source); })()), "id", [], "any", false, false, false, 459), "html", null, true);
                 echo "-children\" href=\"#\"><span class=\"toggle-icon\"></span></a>
             ";
             } else {
-                // line 460
+                // line 461
                 echo "                <div class=\"toggle-icon empty\"></div>
             ";
             }
-            // line 462
+            // line 463
             echo "
             <span ";
-            // line 463
-            if (((isset($context["has_error"]) || array_key_exists("has_error", $context) ? $context["has_error"] : (function () { throw new RuntimeError('Variable "has_error" does not exist.', 463, $this->source); })()) || ((twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "has_children_error", [], "any", true, true, false, 463)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "has_children_error", [], "any", false, false, false, 463), false)) : (false)))) {
+            // line 464
+            if (((isset($context["has_error"]) || array_key_exists("has_error", $context) ? $context["has_error"] : (function () { throw new RuntimeError('Variable "has_error" does not exist.', 464, $this->source); })()) || ((twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "has_children_error", [], "any", true, true, false, 464)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "has_children_error", [], "any", false, false, false, 464), false)) : (false)))) {
                 echo "class=\"has-error\"";
             }
             echo ">
                 ";
-            // line 464
-            echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter((isset($context["name"]) || array_key_exists("name", $context) ? $context["name"] : (function () { throw new RuntimeError('Variable "name" does not exist.', 464, $this->source); })()), "(no name)")) : ("(no name)")), "html", null, true);
+            // line 465
+            echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter((isset($context["name"]) || array_key_exists("name", $context) ? $context["name"] : (function () { throw new RuntimeError('Variable "name" does not exist.', 465, $this->source); })()), "(no name)")) : ("(no name)")), "html", null, true);
             echo "
             </span>
         </div>
 
         ";
-            // line 468
-            if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 468, $this->source); })()), "children", [], "any", false, false, false, 468))) {
-                // line 469
+            // line 469
+            if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 469, $this->source); })()), "children", [], "any", false, false, false, 469))) {
+                // line 470
                 echo "            <ul id=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 469, $this->source); })()), "id", [], "any", false, false, false, 469), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 470, $this->source); })()), "id", [], "any", false, false, false, 470), "html", null, true);
                 echo "-children\" ";
-                if (( !(isset($context["is_root"]) || array_key_exists("is_root", $context) ? $context["is_root"] : (function () { throw new RuntimeError('Variable "is_root" does not exist.', 469, $this->source); })()) &&  !((twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "has_children_error", [], "any", true, true, false, 469)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "has_children_error", [], "any", false, false, false, 469), false)) : (false)))) {
+                if (( !(isset($context["is_root"]) || array_key_exists("is_root", $context) ? $context["is_root"] : (function () { throw new RuntimeError('Variable "is_root" does not exist.', 470, $this->source); })()) &&  !((twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "has_children_error", [], "any", true, true, false, 470)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "has_children_error", [], "any", false, false, false, 470), false)) : (false)))) {
                     echo "class=\"hidden\"";
                 }
                 echo ">
                 ";
-                // line 470
+                // line 471
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 470, $this->source); })()), "children", [], "any", false, false, false, 470));
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 471, $this->source); })()), "children", [], "any", false, false, false, 471));
                 foreach ($context['_seq'] as $context["childName"] => $context["childData"]) {
-                    // line 471
+                    // line 472
                     echo "                    ";
-                    echo twig_call_macro($macros["tree"], "macro_form_tree_entry", [$context["childName"], $context["childData"], false], 471, $context, $this->getSourceContext());
+                    echo twig_call_macro($macros["tree"], "macro_form_tree_entry", [$context["childName"], $context["childData"], false], 472, $context, $this->getSourceContext());
                     echo "
                 ";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['childName'], $context['childData'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 473
+                // line 474
                 echo "            </ul>
         ";
             }
-            // line 475
+            // line 476
             echo "    </li>
 ";
             
@@ -786,7 +789,7 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
         }
     }
 
-    // line 478
+    // line 479
     public function macro_form_tree_details($__name__ = null, $__data__ = null, $__forms_by_hash__ = null, $__show__ = null, ...$__varargs__)
     {
         $macros = $this->macros;
@@ -808,53 +811,53 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
             $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
             $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "form_tree_details"));
 
-            // line 479
+            // line 480
             echo "    ";
             $macros["tree"] = $this;
-            // line 480
+            // line 481
             echo "    <div class=\"tree-details";
-            if ( !((array_key_exists("show", $context)) ? (_twig_default_filter((isset($context["show"]) || array_key_exists("show", $context) ? $context["show"] : (function () { throw new RuntimeError('Variable "show" does not exist.', 480, $this->source); })()), false)) : (false))) {
+            if ( !((array_key_exists("show", $context)) ? (_twig_default_filter((isset($context["show"]) || array_key_exists("show", $context) ? $context["show"] : (function () { throw new RuntimeError('Variable "show" does not exist.', 481, $this->source); })()), false)) : (false))) {
                 echo " hidden";
             }
             echo "\" ";
-            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "id", [], "any", true, true, false, 480)) {
+            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "id", [], "any", true, true, false, 481)) {
                 echo "id=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 480, $this->source); })()), "id", [], "any", false, false, false, 480), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 481, $this->source); })()), "id", [], "any", false, false, false, 481), "html", null, true);
                 echo "-details\"";
             }
             echo ">
         <h2>";
-            // line 481
-            echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter((isset($context["name"]) || array_key_exists("name", $context) ? $context["name"] : (function () { throw new RuntimeError('Variable "name" does not exist.', 481, $this->source); })()), "(no name)")) : ("(no name)")), "html", null, true);
+            // line 482
+            echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter((isset($context["name"]) || array_key_exists("name", $context) ? $context["name"] : (function () { throw new RuntimeError('Variable "name" does not exist.', 482, $this->source); })()), "(no name)")) : ("(no name)")), "html", null, true);
             echo "</h2>
         ";
-            // line 482
-            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "type_class", [], "any", true, true, false, 482)) {
-                // line 483
+            // line 483
+            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "type_class", [], "any", true, true, false, 483)) {
+                // line 484
                 echo "            <h3 class=\"dump-inline form-data-type\">";
-                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 483, $this->source); })()), "type_class", [], "any", false, false, false, 483));
+                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 484, $this->source); })()), "type_class", [], "any", false, false, false, 484));
                 echo "</h3>
         ";
             }
-            // line 485
+            // line 486
             echo "
         ";
-            // line 486
-            if ((twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "errors", [], "any", true, true, false, 486) && (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 486, $this->source); })()), "errors", [], "any", false, false, false, 486)) > 0))) {
-                // line 487
+            // line 487
+            if ((twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "errors", [], "any", true, true, false, 487) && (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 487, $this->source); })()), "errors", [], "any", false, false, false, 487)) > 0))) {
+                // line 488
                 echo "        <div class=\"errors\">
             <h3>
                 <a class=\"toggle-button\" data-toggle-target-id=\"";
-                // line 489
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 489, $this->source); })()), "id", [], "any", false, false, false, 489), "html", null, true);
+                // line 490
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 490, $this->source); })()), "id", [], "any", false, false, false, 490), "html", null, true);
                 echo "-errors\" href=\"#\">
                     Errors <span class=\"toggle-icon\"></span>
                 </a>
             </h3>
 
             <table id=\"";
-                // line 494
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 494, $this->source); })()), "id", [], "any", false, false, false, 494), "html", null, true);
+                // line 495
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 495, $this->source); })()), "id", [], "any", false, false, false, 495), "html", null, true);
                 echo "-errors\">
                 <thead>
                     <tr>
@@ -865,49 +868,49 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                 </thead>
                 <tbody>
                 ";
-                // line 503
+                // line 504
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 503, $this->source); })()), "errors", [], "any", false, false, false, 503));
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 504, $this->source); })()), "errors", [], "any", false, false, false, 504));
                 foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
-                    // line 504
+                    // line 505
                     echo "                <tr>
                     <td>";
-                    // line 505
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["error"], "message", [], "any", false, false, false, 505), "html", null, true);
+                    // line 506
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["error"], "message", [], "any", false, false, false, 506), "html", null, true);
                     echo "</td>
                     <td>
                         ";
-                    // line 507
-                    if (twig_test_empty(twig_get_attribute($this->env, $this->source, $context["error"], "origin", [], "any", false, false, false, 507))) {
-                        // line 508
+                    // line 508
+                    if (twig_test_empty(twig_get_attribute($this->env, $this->source, $context["error"], "origin", [], "any", false, false, false, 508))) {
+                        // line 509
                         echo "                            <em>This form.</em>
                         ";
-                    } elseif ( !twig_get_attribute($this->env, $this->source,                     // line 509
-($context["forms_by_hash"] ?? null), twig_get_attribute($this->env, $this->source, $context["error"], "origin", [], "any", false, false, false, 509), [], "array", true, true, false, 509)) {
-                        // line 510
+                    } elseif ( !twig_get_attribute($this->env, $this->source,                     // line 510
+($context["forms_by_hash"] ?? null), twig_get_attribute($this->env, $this->source, $context["error"], "origin", [], "any", false, false, false, 510), [], "array", true, true, false, 510)) {
+                        // line 511
                         echo "                            <em>Unknown.</em>
                         ";
                     } else {
-                        // line 512
+                        // line 513
                         echo "                            ";
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["forms_by_hash"]) || array_key_exists("forms_by_hash", $context) ? $context["forms_by_hash"] : (function () { throw new RuntimeError('Variable "forms_by_hash" does not exist.', 512, $this->source); })()), twig_get_attribute($this->env, $this->source, $context["error"], "origin", [], "any", false, false, false, 512), [], "array", false, false, false, 512), "name", [], "any", false, false, false, 512), "html", null, true);
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["forms_by_hash"]) || array_key_exists("forms_by_hash", $context) ? $context["forms_by_hash"] : (function () { throw new RuntimeError('Variable "forms_by_hash" does not exist.', 513, $this->source); })()), twig_get_attribute($this->env, $this->source, $context["error"], "origin", [], "any", false, false, false, 513), [], "array", false, false, false, 513), "name", [], "any", false, false, false, 513), "html", null, true);
                         echo "
                         ";
                     }
-                    // line 514
+                    // line 515
                     echo "                    </td>
                     <td>
                         ";
-                    // line 516
-                    if (twig_get_attribute($this->env, $this->source, $context["error"], "trace", [], "any", false, false, false, 516)) {
-                        // line 517
+                    // line 517
+                    if (twig_get_attribute($this->env, $this->source, $context["error"], "trace", [], "any", false, false, false, 517)) {
+                        // line 518
                         echo "                            <span class=\"newline\">Caused by:</span>
                             ";
-                        // line 518
+                        // line 519
                         $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["error"], "trace", [], "any", false, false, false, 518));
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["error"], "trace", [], "any", false, false, false, 519));
                         foreach ($context['_seq'] as $context["_key"] => $context["stacked"]) {
-                            // line 519
+                            // line 520
                             echo "                                ";
                             echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, $context["stacked"]);
                             echo "
@@ -916,14 +919,14 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                         $_parent = $context['_parent'];
                         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['stacked'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 521
+                        // line 522
                         echo "                        ";
                     } else {
-                        // line 522
+                        // line 523
                         echo "                            <em>Unknown.</em>
                         ";
                     }
-                    // line 524
+                    // line 525
                     echo "                    </td>
                 </tr>
                 ";
@@ -931,30 +934,30 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 527
+                // line 528
                 echo "                </tbody>
             </table>
         </div>
         ";
             }
-            // line 531
+            // line 532
             echo "
         ";
-            // line 532
-            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "default_data", [], "any", true, true, false, 532)) {
-                // line 533
+            // line 533
+            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "default_data", [], "any", true, true, false, 533)) {
+                // line 534
                 echo "        <h3>
             <a class=\"toggle-button\" data-toggle-target-id=\"";
-                // line 534
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 534, $this->source); })()), "id", [], "any", false, false, false, 534), "html", null, true);
+                // line 535
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 535, $this->source); })()), "id", [], "any", false, false, false, 535), "html", null, true);
                 echo "-default_data\" href=\"#\">
                 Default Data <span class=\"toggle-icon\"></span>
             </a>
         </h3>
 
         <div id=\"";
-                // line 539
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 539, $this->source); })()), "id", [], "any", false, false, false, 539), "html", null, true);
+                // line 540
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 540, $this->source); })()), "id", [], "any", false, false, false, 540), "html", null, true);
                 echo "-default_data\">
             <table>
                 <thead>
@@ -968,45 +971,45 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                         <th class=\"font-normal\" scope=\"row\">Model Format</th>
                         <td>
                             ";
-                // line 551
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "default_data", [], "any", false, true, false, 551), "model", [], "any", true, true, false, 551)) {
-                    // line 552
+                // line 552
+                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "default_data", [], "any", false, true, false, 552), "model", [], "any", true, true, false, 552)) {
+                    // line 553
                     echo "                                ";
-                    echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 552, $this->source); })()), "default_data", [], "any", false, false, false, 552), "seek", [0 => "model"], "method", false, false, false, 552));
+                    echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 553, $this->source); })()), "default_data", [], "any", false, false, false, 553), "seek", [0 => "model"], "method", false, false, false, 553));
                     echo "
                             ";
                 } else {
-                    // line 554
+                    // line 555
                     echo "                                <em class=\"font-normal text-muted\">same as normalized format</em>
                             ";
                 }
-                // line 556
+                // line 557
                 echo "                        </td>
                     </tr>
                     <tr>
                         <th class=\"font-normal\" scope=\"row\">Normalized Format</th>
                         <td>";
-                // line 560
-                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 560, $this->source); })()), "default_data", [], "any", false, false, false, 560), "seek", [0 => "norm"], "method", false, false, false, 560));
+                // line 561
+                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 561, $this->source); })()), "default_data", [], "any", false, false, false, 561), "seek", [0 => "norm"], "method", false, false, false, 561));
                 echo "</td>
                     </tr>
                     <tr>
                         <th class=\"font-normal\" scope=\"row\">View Format</th>
                         <td>
                             ";
-                // line 565
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "default_data", [], "any", false, true, false, 565), "view", [], "any", true, true, false, 565)) {
-                    // line 566
+                // line 566
+                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "default_data", [], "any", false, true, false, 566), "view", [], "any", true, true, false, 566)) {
+                    // line 567
                     echo "                                ";
-                    echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 566, $this->source); })()), "default_data", [], "any", false, false, false, 566), "seek", [0 => "view"], "method", false, false, false, 566));
+                    echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 567, $this->source); })()), "default_data", [], "any", false, false, false, 567), "seek", [0 => "view"], "method", false, false, false, 567));
                     echo "
                             ";
                 } else {
-                    // line 568
+                    // line 569
                     echo "                                <em class=\"font-normal text-muted\">same as normalized format</em>
                             ";
                 }
-                // line 570
+                // line 571
                 echo "                        </td>
                     </tr>
                 </tbody>
@@ -1014,29 +1017,29 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
         </div>
         ";
             }
-            // line 576
+            // line 577
             echo "
         ";
-            // line 577
-            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "submitted_data", [], "any", true, true, false, 577)) {
-                // line 578
+            // line 578
+            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "submitted_data", [], "any", true, true, false, 578)) {
+                // line 579
                 echo "        <h3>
             <a class=\"toggle-button\" data-toggle-target-id=\"";
-                // line 579
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 579, $this->source); })()), "id", [], "any", false, false, false, 579), "html", null, true);
+                // line 580
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 580, $this->source); })()), "id", [], "any", false, false, false, 580), "html", null, true);
                 echo "-submitted_data\" href=\"#\">
                 Submitted Data <span class=\"toggle-icon\"></span>
             </a>
         </h3>
 
         <div id=\"";
-                // line 584
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 584, $this->source); })()), "id", [], "any", false, false, false, 584), "html", null, true);
+                // line 585
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 585, $this->source); })()), "id", [], "any", false, false, false, 585), "html", null, true);
                 echo "-submitted_data\">
         ";
-                // line 585
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "submitted_data", [], "any", false, true, false, 585), "norm", [], "any", true, true, false, 585)) {
-                    // line 586
+                // line 586
+                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "submitted_data", [], "any", false, true, false, 586), "norm", [], "any", true, true, false, 586)) {
+                    // line 587
                     echo "            <table>
                 <thead>
                     <tr>
@@ -1049,84 +1052,84 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                         <th class=\"font-normal\" scope=\"row\">View Format</th>
                         <td>
                             ";
-                    // line 597
-                    if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "submitted_data", [], "any", false, true, false, 597), "view", [], "any", true, true, false, 597)) {
-                        // line 598
+                    // line 598
+                    if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "submitted_data", [], "any", false, true, false, 598), "view", [], "any", true, true, false, 598)) {
+                        // line 599
                         echo "                                ";
-                        echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 598, $this->source); })()), "submitted_data", [], "any", false, false, false, 598), "seek", [0 => "view"], "method", false, false, false, 598));
+                        echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 599, $this->source); })()), "submitted_data", [], "any", false, false, false, 599), "seek", [0 => "view"], "method", false, false, false, 599));
                         echo "
                             ";
                     } else {
-                        // line 600
+                        // line 601
                         echo "                                <em class=\"font-normal text-muted\">same as normalized format</em>
                             ";
                     }
-                    // line 602
+                    // line 603
                     echo "                        </td>
                     </tr>
                     <tr>
                         <th class=\"font-normal\" scope=\"row\">Normalized Format</th>
                         <td>";
-                    // line 606
-                    echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 606, $this->source); })()), "submitted_data", [], "any", false, false, false, 606), "seek", [0 => "norm"], "method", false, false, false, 606));
+                    // line 607
+                    echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 607, $this->source); })()), "submitted_data", [], "any", false, false, false, 607), "seek", [0 => "norm"], "method", false, false, false, 607));
                     echo "</td>
                     </tr>
                     <tr>
                         <th class=\"font-normal\" scope=\"row\">Model Format</th>
                         <td>
                             ";
-                    // line 611
-                    if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "submitted_data", [], "any", false, true, false, 611), "model", [], "any", true, true, false, 611)) {
-                        // line 612
+                    // line 612
+                    if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "submitted_data", [], "any", false, true, false, 612), "model", [], "any", true, true, false, 612)) {
+                        // line 613
                         echo "                                ";
-                        echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 612, $this->source); })()), "submitted_data", [], "any", false, false, false, 612), "seek", [0 => "model"], "method", false, false, false, 612));
+                        echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 613, $this->source); })()), "submitted_data", [], "any", false, false, false, 613), "seek", [0 => "model"], "method", false, false, false, 613));
                         echo "
                             ";
                     } else {
-                        // line 614
+                        // line 615
                         echo "                                <em class=\"font-normal text-muted\">same as normalized format</em>
                             ";
                     }
-                    // line 616
+                    // line 617
                     echo "                        </td>
                     </tr>
                 </tbody>
             </table>
         ";
                 } else {
-                    // line 621
+                    // line 622
                     echo "            <div class=\"empty\">
                 <p>This form was not submitted.</p>
             </div>
         ";
                 }
-                // line 625
+                // line 626
                 echo "        </div>
         ";
             }
-            // line 627
+            // line 628
             echo "
         ";
-            // line 628
-            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "passed_options", [], "any", true, true, false, 628)) {
-                // line 629
+            // line 629
+            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "passed_options", [], "any", true, true, false, 629)) {
+                // line 630
                 echo "        <h3>
             <a class=\"toggle-button\" data-toggle-target-id=\"";
-                // line 630
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 630, $this->source); })()), "id", [], "any", false, false, false, 630), "html", null, true);
+                // line 631
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 631, $this->source); })()), "id", [], "any", false, false, false, 631), "html", null, true);
                 echo "-passed_options\" href=\"#\">
                 Passed Options <span class=\"toggle-icon\"></span>
             </a>
         </h3>
 
         <div id=\"";
-                // line 635
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 635, $this->source); })()), "id", [], "any", false, false, false, 635), "html", null, true);
+                // line 636
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 636, $this->source); })()), "id", [], "any", false, false, false, 636), "html", null, true);
                 echo "-passed_options\">
             ";
-                // line 636
-                if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 636, $this->source); })()), "passed_options", [], "any", false, false, false, 636))) {
-                    // line 637
+                // line 637
+                if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 637, $this->source); })()), "passed_options", [], "any", false, false, false, 637))) {
+                    // line 638
                     echo "            <table>
                 <thead>
                     <tr>
@@ -1137,42 +1140,42 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                 </thead>
                 <tbody>
                 ";
-                    // line 646
+                    // line 647
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 646, $this->source); })()), "passed_options", [], "any", false, false, false, 646));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 647, $this->source); })()), "passed_options", [], "any", false, false, false, 647));
                     foreach ($context['_seq'] as $context["option"] => $context["value"]) {
-                        // line 647
+                        // line 648
                         echo "                <tr>
                     <th>";
-                        // line 648
+                        // line 649
                         echo twig_escape_filter($this->env, $context["option"], "html", null, true);
                         echo "</th>
                     <td>";
-                        // line 649
+                        // line 650
                         echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, $context["value"]);
                         echo "</td>
                     <td>
                         ";
-                        // line 652
-                        echo "                        ";
-                        $context["option_value"] = ((twig_get_attribute($this->env, $this->source, $context["value"], "value", [], "any", true, true, false, 652)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, $context["value"], "value", [], "any", false, false, false, 652), $context["value"])) : ($context["value"]));
                         // line 653
                         echo "                        ";
-                        $context["resolved_option_value"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "resolved_options", [], "any", false, true, false, 653), $context["option"], [], "array", false, true, false, 653), "value", [], "any", true, true, false, 653)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "resolved_options", [], "any", false, true, false, 653), $context["option"], [], "array", false, true, false, 653), "value", [], "any", false, false, false, 653), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 653, $this->source); })()), "resolved_options", [], "any", false, false, false, 653), $context["option"], [], "array", false, false, false, 653))) : (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 653, $this->source); })()), "resolved_options", [], "any", false, false, false, 653), $context["option"], [], "array", false, false, false, 653)));
+                        $context["option_value"] = ((twig_get_attribute($this->env, $this->source, $context["value"], "value", [], "any", true, true, false, 653)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, $context["value"], "value", [], "any", false, false, false, 653), $context["value"])) : ($context["value"]));
                         // line 654
                         echo "                        ";
-                        if (((isset($context["resolved_option_value"]) || array_key_exists("resolved_option_value", $context) ? $context["resolved_option_value"] : (function () { throw new RuntimeError('Variable "resolved_option_value" does not exist.', 654, $this->source); })()) == (isset($context["option_value"]) || array_key_exists("option_value", $context) ? $context["option_value"] : (function () { throw new RuntimeError('Variable "option_value" does not exist.', 654, $this->source); })()))) {
-                            // line 655
+                        $context["resolved_option_value"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "resolved_options", [], "any", false, true, false, 654), $context["option"], [], "array", false, true, false, 654), "value", [], "any", true, true, false, 654)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "resolved_options", [], "any", false, true, false, 654), $context["option"], [], "array", false, true, false, 654), "value", [], "any", false, false, false, 654), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 654, $this->source); })()), "resolved_options", [], "any", false, false, false, 654), $context["option"], [], "array", false, false, false, 654))) : (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 654, $this->source); })()), "resolved_options", [], "any", false, false, false, 654), $context["option"], [], "array", false, false, false, 654)));
+                        // line 655
+                        echo "                        ";
+                        if (((isset($context["resolved_option_value"]) || array_key_exists("resolved_option_value", $context) ? $context["resolved_option_value"] : (function () { throw new RuntimeError('Variable "resolved_option_value" does not exist.', 655, $this->source); })()) == (isset($context["option_value"]) || array_key_exists("option_value", $context) ? $context["option_value"] : (function () { throw new RuntimeError('Variable "option_value" does not exist.', 655, $this->source); })()))) {
+                            // line 656
                             echo "                            <em class=\"font-normal text-muted\">same as passed value</em>
                         ";
                         } else {
-                            // line 657
+                            // line 658
                             echo "                            ";
-                            echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 657, $this->source); })()), "resolved_options", [], "any", false, false, false, 657), "seek", [0 => $context["option"]], "method", false, false, false, 657));
+                            echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 658, $this->source); })()), "resolved_options", [], "any", false, false, false, 658), "seek", [0 => $context["option"]], "method", false, false, false, 658));
                             echo "
                         ";
                         }
-                        // line 659
+                        // line 660
                         echo "                    </td>
                 </tr>
                 ";
@@ -1180,39 +1183,39 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['option'], $context['value'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 662
+                    // line 663
                     echo "                </tbody>
             </table>
             ";
                 } else {
-                    // line 665
+                    // line 666
                     echo "                <div class=\"empty\">
                     <p>No options were passed when constructing this form.</p>
                 </div>
             ";
                 }
-                // line 669
+                // line 670
                 echo "        </div>
         ";
             }
-            // line 671
+            // line 672
             echo "
         ";
-            // line 672
-            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "resolved_options", [], "any", true, true, false, 672)) {
-                // line 673
+            // line 673
+            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "resolved_options", [], "any", true, true, false, 673)) {
+                // line 674
                 echo "        <h3>
             <a class=\"toggle-button\" data-toggle-target-id=\"";
-                // line 674
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 674, $this->source); })()), "id", [], "any", false, false, false, 674), "html", null, true);
+                // line 675
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 675, $this->source); })()), "id", [], "any", false, false, false, 675), "html", null, true);
                 echo "-resolved_options\" href=\"#\">
                 Resolved Options <span class=\"toggle-icon\"></span>
             </a>
         </h3>
 
         <div id=\"";
-                // line 679
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 679, $this->source); })()), "id", [], "any", false, false, false, 679), "html", null, true);
+                // line 680
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 680, $this->source); })()), "id", [], "any", false, false, false, 680), "html", null, true);
                 echo "-resolved_options\" class=\"hidden\">
             <table>
                 <thead>
@@ -1223,18 +1226,18 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                 </thead>
                 <tbody>
                 ";
-                // line 688
+                // line 689
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 688, $this->source); })()), "resolved_options", [], "any", false, false, false, 688));
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 689, $this->source); })()), "resolved_options", [], "any", false, false, false, 689));
                 foreach ($context['_seq'] as $context["option"] => $context["value"]) {
-                    // line 689
+                    // line 690
                     echo "                <tr>
                     <th scope=\"row\">";
-                    // line 690
+                    // line 691
                     echo twig_escape_filter($this->env, $context["option"], "html", null, true);
                     echo "</th>
                     <td>";
-                    // line 691
+                    // line 692
                     echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, $context["value"]);
                     echo "</td>
                 </tr>
@@ -1243,30 +1246,30 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['option'], $context['value'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 694
+                // line 695
                 echo "                </tbody>
             </table>
         </div>
         ";
             }
-            // line 698
+            // line 699
             echo "
         ";
-            // line 699
-            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "view_vars", [], "any", true, true, false, 699)) {
-                // line 700
+            // line 700
+            if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "view_vars", [], "any", true, true, false, 700)) {
+                // line 701
                 echo "        <h3>
             <a class=\"toggle-button\" data-toggle-target-id=\"";
-                // line 701
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 701, $this->source); })()), "id", [], "any", false, false, false, 701), "html", null, true);
+                // line 702
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 702, $this->source); })()), "id", [], "any", false, false, false, 702), "html", null, true);
                 echo "-view_vars\" href=\"#\">
                 View Variables <span class=\"toggle-icon\"></span>
             </a>
         </h3>
 
         <div id=\"";
-                // line 706
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 706, $this->source); })()), "id", [], "any", false, false, false, 706), "html", null, true);
+                // line 707
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 707, $this->source); })()), "id", [], "any", false, false, false, 707), "html", null, true);
                 echo "-view_vars\" class=\"hidden\">
             <table>
                 <thead>
@@ -1277,18 +1280,18 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                 </thead>
                 <tbody>
                 ";
-                // line 715
+                // line 716
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 715, $this->source); })()), "view_vars", [], "any", false, false, false, 715));
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 716, $this->source); })()), "view_vars", [], "any", false, false, false, 716));
                 foreach ($context['_seq'] as $context["variable"] => $context["value"]) {
-                    // line 716
+                    // line 717
                     echo "                <tr>
                     <th scope=\"row\">";
-                    // line 717
+                    // line 718
                     echo twig_escape_filter($this->env, $context["variable"], "html", null, true);
                     echo "</th>
                     <td>";
-                    // line 718
+                    // line 719
                     echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, $context["value"]);
                     echo "</td>
                 </tr>
@@ -1297,23 +1300,23 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['variable'], $context['value'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 721
+                // line 722
                 echo "                </tbody>
             </table>
         </div>
         ";
             }
-            // line 725
+            // line 726
             echo "    </div>
 
     ";
-            // line 727
+            // line 728
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 727, $this->source); })()), "children", [], "any", false, false, false, 727));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 728, $this->source); })()), "children", [], "any", false, false, false, 728));
             foreach ($context['_seq'] as $context["childName"] => $context["childData"]) {
-                // line 728
+                // line 729
                 echo "        ";
-                echo twig_call_macro($macros["tree"], "macro_form_tree_details", [$context["childName"], $context["childData"], (isset($context["forms_by_hash"]) || array_key_exists("forms_by_hash", $context) ? $context["forms_by_hash"] : (function () { throw new RuntimeError('Variable "forms_by_hash" does not exist.', 728, $this->source); })())], 728, $context, $this->getSourceContext());
+                echo twig_call_macro($macros["tree"], "macro_form_tree_details", [$context["childName"], $context["childData"], (isset($context["forms_by_hash"]) || array_key_exists("forms_by_hash", $context) ? $context["forms_by_hash"] : (function () { throw new RuntimeError('Variable "forms_by_hash" does not exist.', 729, $this->source); })())], 729, $context, $this->getSourceContext());
                 echo "
     ";
             }
@@ -1345,7 +1348,7 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
 
     public function getDebugInfo()
     {
-        return array (  1315 => 728,  1311 => 727,  1307 => 725,  1301 => 721,  1292 => 718,  1288 => 717,  1285 => 716,  1281 => 715,  1269 => 706,  1261 => 701,  1258 => 700,  1256 => 699,  1253 => 698,  1247 => 694,  1238 => 691,  1234 => 690,  1231 => 689,  1227 => 688,  1215 => 679,  1207 => 674,  1204 => 673,  1202 => 672,  1199 => 671,  1195 => 669,  1189 => 665,  1184 => 662,  1176 => 659,  1170 => 657,  1166 => 655,  1163 => 654,  1160 => 653,  1157 => 652,  1152 => 649,  1148 => 648,  1145 => 647,  1141 => 646,  1130 => 637,  1128 => 636,  1124 => 635,  1116 => 630,  1113 => 629,  1111 => 628,  1108 => 627,  1104 => 625,  1098 => 621,  1091 => 616,  1087 => 614,  1081 => 612,  1079 => 611,  1071 => 606,  1065 => 602,  1061 => 600,  1055 => 598,  1053 => 597,  1040 => 586,  1038 => 585,  1034 => 584,  1026 => 579,  1023 => 578,  1021 => 577,  1018 => 576,  1010 => 570,  1006 => 568,  1000 => 566,  998 => 565,  990 => 560,  984 => 556,  980 => 554,  974 => 552,  972 => 551,  957 => 539,  949 => 534,  946 => 533,  944 => 532,  941 => 531,  935 => 527,  927 => 524,  923 => 522,  920 => 521,  911 => 519,  907 => 518,  904 => 517,  902 => 516,  898 => 514,  892 => 512,  888 => 510,  886 => 509,  883 => 508,  881 => 507,  876 => 505,  873 => 504,  869 => 503,  857 => 494,  849 => 489,  845 => 487,  843 => 486,  840 => 485,  834 => 483,  832 => 482,  828 => 481,  815 => 480,  812 => 479,  790 => 478,  774 => 475,  770 => 473,  761 => 471,  757 => 470,  748 => 469,  746 => 468,  739 => 464,  733 => 463,  730 => 462,  726 => 460,  720 => 458,  718 => 457,  715 => 456,  709 => 454,  707 => 453,  703 => 452,  700 => 451,  697 => 450,  694 => 449,  673 => 448,  445 => 228,  439 => 224,  435 => 222,  418 => 220,  401 => 219,  395 => 215,  386 => 213,  382 => 212,  378 => 210,  376 => 209,  372 => 207,  362 => 206,  189 => 43,  179 => 42,  168 => 39,  162 => 36,  159 => 35,  157 => 34,  152 => 32,  145 => 31,  135 => 30,  122 => 26,  119 => 25,  111 => 22,  104 => 18,  100 => 16,  98 => 15,  95 => 14,  89 => 11,  83 => 9,  80 => 8,  77 => 7,  74 => 6,  64 => 5,  53 => 1,  51 => 3,  38 => 1,);
+        return array (  1318 => 729,  1314 => 728,  1310 => 726,  1304 => 722,  1295 => 719,  1291 => 718,  1288 => 717,  1284 => 716,  1272 => 707,  1264 => 702,  1261 => 701,  1259 => 700,  1256 => 699,  1250 => 695,  1241 => 692,  1237 => 691,  1234 => 690,  1230 => 689,  1218 => 680,  1210 => 675,  1207 => 674,  1205 => 673,  1202 => 672,  1198 => 670,  1192 => 666,  1187 => 663,  1179 => 660,  1173 => 658,  1169 => 656,  1166 => 655,  1163 => 654,  1160 => 653,  1155 => 650,  1151 => 649,  1148 => 648,  1144 => 647,  1133 => 638,  1131 => 637,  1127 => 636,  1119 => 631,  1116 => 630,  1114 => 629,  1111 => 628,  1107 => 626,  1101 => 622,  1094 => 617,  1090 => 615,  1084 => 613,  1082 => 612,  1074 => 607,  1068 => 603,  1064 => 601,  1058 => 599,  1056 => 598,  1043 => 587,  1041 => 586,  1037 => 585,  1029 => 580,  1026 => 579,  1024 => 578,  1021 => 577,  1013 => 571,  1009 => 569,  1003 => 567,  1001 => 566,  993 => 561,  987 => 557,  983 => 555,  977 => 553,  975 => 552,  960 => 540,  952 => 535,  949 => 534,  947 => 533,  944 => 532,  938 => 528,  930 => 525,  926 => 523,  923 => 522,  914 => 520,  910 => 519,  907 => 518,  905 => 517,  901 => 515,  895 => 513,  891 => 511,  889 => 510,  886 => 509,  884 => 508,  879 => 506,  876 => 505,  872 => 504,  860 => 495,  852 => 490,  848 => 488,  846 => 487,  843 => 486,  837 => 484,  835 => 483,  831 => 482,  818 => 481,  815 => 480,  793 => 479,  777 => 476,  773 => 474,  764 => 472,  760 => 471,  751 => 470,  749 => 469,  742 => 465,  736 => 464,  733 => 463,  729 => 461,  723 => 459,  721 => 458,  718 => 457,  712 => 455,  710 => 454,  704 => 453,  701 => 452,  698 => 451,  695 => 450,  674 => 449,  446 => 229,  440 => 225,  436 => 223,  419 => 221,  402 => 220,  396 => 216,  387 => 214,  383 => 213,  379 => 211,  377 => 210,  373 => 208,  363 => 207,  189 => 43,  179 => 42,  168 => 39,  162 => 36,  159 => 35,  157 => 34,  152 => 32,  145 => 31,  135 => 30,  122 => 26,  119 => 25,  111 => 22,  104 => 18,  100 => 16,  98 => 15,  95 => 14,  89 => 11,  83 => 9,  80 => 8,  77 => 7,  74 => 6,  64 => 5,  53 => 1,  51 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -1442,7 +1445,8 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
             cursor: pointer;
             padding: 5px 7px 5px 22px;
             position: relative;
-
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .tree .toggle-button {
             /* provide a bigger clickable area than just 10x10px */
@@ -1801,7 +1805,7 @@ class __TwigTemplate_738ee8c99979730df8de173af3eabbc4 extends Template
     {% import _self as tree %}
     {% set has_error = data.errors is defined and data.errors|length > 0 %}
     <li>
-        <div class=\"tree-inner\" data-tab-target-id=\"{{ data.id }}-details\">
+        <div class=\"tree-inner\" data-tab-target-id=\"{{ data.id }}-details\" title=\"{{ name|default('(no name)') }}\">
             {% if has_error %}
                 <div class=\"badge-error\">{{ data.errors|length }}</div>
             {% endif %}

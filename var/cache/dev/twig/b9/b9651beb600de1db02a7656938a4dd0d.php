@@ -25,7 +25,6 @@ class __TwigTemplate_034ccfda21c2dfa41dbaf94dded4a6c9 extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'toolbar' => [$this, 'block_toolbar'],
             'menu' => [$this, 'block_menu'],
             'panel' => [$this, 'block_panel'],
         ];
@@ -57,59 +56,6 @@ class __TwigTemplate_034ccfda21c2dfa41dbaf94dded4a6c9 extends Template
     }
 
     // line 3
-    public function block_toolbar($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "toolbar"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "toolbar"));
-
-        // line 4
-        echo "    ";
-        if (twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 4, $this->source); })()), "isEasyAdminRequest", [], "any", false, false, false, 4)) {
-            // line 5
-            echo "        ";
-            ob_start();
-            // line 6
-            echo "            ";
-            echo twig_include($this->env, $context, "@EasyAdmin/inspector/icon.svg.twig", ["fill_color" => "#AAA", "height" => "20"]);
-            echo "
-        ";
-            $context["icon"] = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
-            // line 8
-            echo "
-        ";
-            // line 9
-            ob_start();
-            // line 10
-            echo "            <div class=\"sf-toolbar-info-piece\">
-                <b>EasyAdmin version</b>
-                <span class=\"sf-toolbar-status\">";
-            // line 12
-            echo twig_escape_filter($this->env, twig_constant("EasyCorp\\Bundle\\EasyAdminBundle\\EasyAdminBundle::VERSION"), "html", null, true);
-            echo "</span>
-            </div>
-        ";
-            $context["text"] = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
-            // line 15
-            echo "
-        ";
-            // line 16
-            echo twig_include($this->env, $context, "@WebProfiler/Profiler/toolbar_item.html.twig", ["link" => true]);
-            echo "
-    ";
-        }
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 20
     public function block_menu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -119,13 +65,13 @@ class __TwigTemplate_034ccfda21c2dfa41dbaf94dded4a6c9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
 
-        // line 21
+        // line 4
         echo "    <span class=\"label ";
-        echo (( !twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 21, $this->source); })()), "isEasyAdminRequest", [], "any", false, false, false, 21)) ? ("disabled") : (""));
+        echo (( !twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 4, $this->source); })()), "isEasyAdminRequest", [], "any", false, false, false, 4)) ? ("disabled") : (""));
         echo "\">
         <span class=\"icon\">";
-        // line 22
-        echo twig_include($this->env, $context, "@EasyAdmin/inspector/icon.svg.twig");
+        // line 5
+        echo twig_include($this->env, $context, ((((isset($context["profiler_markup_version"]) || array_key_exists("profiler_markup_version", $context) ? $context["profiler_markup_version"] : (function () { throw new RuntimeError('Variable "profiler_markup_version" does not exist.', 5, $this->source); })()) >= 3)) ? ("@EasyAdmin/inspector/icon-v3.svg.twig") : ("@EasyAdmin/inspector/icon.svg.twig")));
         echo "</span>
         <strong>EasyAdmin</strong>
     </span>
@@ -138,7 +84,7 @@ class __TwigTemplate_034ccfda21c2dfa41dbaf94dded4a6c9 extends Template
 
     }
 
-    // line 27
+    // line 10
     public function block_panel($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -148,27 +94,27 @@ class __TwigTemplate_034ccfda21c2dfa41dbaf94dded4a6c9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "panel"));
 
-        // line 28
+        // line 11
         echo "    <h2>EasyAdmin <small>(";
         echo twig_escape_filter($this->env, twig_constant("EasyCorp\\Bundle\\EasyAdminBundle\\EasyAdminBundle::VERSION"), "html", null, true);
         echo ")</small></h2>
 
     ";
-        // line 30
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 30, $this->source); })()), "isEasyAdminRequest", [], "any", false, false, false, 30)) {
-            // line 31
+        // line 13
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 13, $this->source); })()), "isEasyAdminRequest", [], "any", false, false, false, 13)) {
+            // line 14
             echo "        <div class=\"empty\">
             <p>No information available because this route is not related to EasyAdmin.</p>
         </div>
     ";
         } else {
-            // line 35
+            // line 18
             echo "        ";
-            echo twig_include($this->env, $context, "@WebProfiler/Profiler/table.html.twig", ["data" => twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 35, $this->source); })()), "data", [], "any", false, false, false, 35)], false);
+            echo twig_include($this->env, $context, "@WebProfiler/Profiler/table.html.twig", ["data" => twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 18, $this->source); })()), "data", [], "any", false, false, false, 18)], false);
             echo "
     ";
         }
-        // line 37
+        // line 20
         echo "
     <h3>Additional Resources</h3>
 
@@ -198,33 +144,16 @@ class __TwigTemplate_034ccfda21c2dfa41dbaf94dded4a6c9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  172 => 37,  166 => 35,  160 => 31,  158 => 30,  152 => 28,  142 => 27,  128 => 22,  123 => 21,  113 => 20,  100 => 16,  97 => 15,  91 => 12,  87 => 10,  85 => 9,  82 => 8,  76 => 6,  73 => 5,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  118 => 20,  112 => 18,  106 => 14,  104 => 13,  98 => 11,  88 => 10,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends '@WebProfiler/Profiler/layout.html.twig' %}
 
-{% block toolbar %}
-    {% if collector.isEasyAdminRequest %}
-        {% set icon %}
-            {{ include('@EasyAdmin/inspector/icon.svg.twig', { fill_color: '#AAA', height: '20' }) }}
-        {% endset %}
-
-        {% set text %}
-            <div class=\"sf-toolbar-info-piece\">
-                <b>EasyAdmin version</b>
-                <span class=\"sf-toolbar-status\">{{ constant('EasyCorp\\\\Bundle\\\\EasyAdminBundle\\\\EasyAdminBundle::VERSION') }}</span>
-            </div>
-        {% endset %}
-
-        {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { 'link': true }) }}
-    {% endif %}
-{% endblock %}
-
 {% block menu %}
     <span class=\"label {{ not collector.isEasyAdminRequest ? 'disabled' }}\">
-        <span class=\"icon\">{{ include('@EasyAdmin/inspector/icon.svg.twig') }}</span>
+        <span class=\"icon\">{{ include(profiler_markup_version >= 3 ? '@EasyAdmin/inspector/icon-v3.svg.twig' : '@EasyAdmin/inspector/icon.svg.twig') }}</span>
         <strong>EasyAdmin</strong>
     </span>
 {% endblock %}

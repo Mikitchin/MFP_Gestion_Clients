@@ -28,9 +28,15 @@ class UserCrudController extends AbstractCrudController
             TextField::new('prenom'),
             EmailField::new('email', 'E-Mail')->setColumns(6),
             AssociationField::new('structure'),
+            // AssociationField::new('roles'),
+
             // TextField::new('password', 'Mot de Passe')->setFormType(PasswordType::class)->onlyWhenCreating()->setColumns(6),
             // TextEditorField::new('password', 'Passe')->onlyOnIndex()->setColumns(6),
-            ChoiceField::new('roles', 'Roles')->setChoices(['Admin' => 'ROLE_ADMIN', 'Gestionnaire' => 'ROLE_GEST', 'Agent_Accueil' => 'ROLE_AGENT_ACCUEIL', 'Superviseur' => "ROLE_SUPER", "Chef de service" => "ROLE_CHEF", 'Usager_Client' => 'ROLE_USAGER_CLIENT'])->allowMultipleChoices()->setColumns(6),
+            ChoiceField::new('roles', 'Roles')->setChoices([
+                'Admin' => 'ROLE_ADMIN', 'Gestionnaire' => 'ROLE_GEST',
+                'Agent_Accueil' => 'ROLE_AGENT_ACCUEIL', 'Superviseur' => "ROLE_SUPERVISEUR", "Chef de service" => "ROLE_CHEF",
+                'Usager_Client' => 'ROLE_USAGER_CLIENT'
+            ])->allowMultipleChoices()->setColumns(6),
 
         ];
     }

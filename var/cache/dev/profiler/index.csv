@@ -979,3 +979,23 @@ ff1eef,127.0.0.1,GET,https://127.0.0.1:8000/superviseur_inforecep,1668098408,,20
 c6ee5b,127.0.0.1,GET,https://127.0.0.1:8000/superviseur,1668098729,,200
 5f78de,127.0.0.1,GET,https://127.0.0.1:8000/superviseur_inforecep,1668098737,,200
 >>>>>>> 60e741c555b58807e952391623001177bbc7be91
+6e8cbc,127.0.0.1,GET,https://127.0.0.1:8000/admin,1668119971,,200
+89058c,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProfilCrudController&menuIndex=2&submenuIndex=-1,1668119987,,200
+0de4d5,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGroupeProfilCrudController&entityId=8&referrer=%2Fadmin%3FcrudAction%3Dindex%26crudControllerFqcn%3DApp%255CController%255CAdmin%255CProfilCrudController%26menuIndex%3D2%26submenuIndex%3D-1,1668120067,,200
+f38c96,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CGroupeProfilCrudController&menuIndex=1&submenuIndex=-1,1668120084,,200
+965332,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProfilCrudController&menuIndex=2&submenuIndex=-1,1668120102,,200
+dd9823,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=3&submenuIndex=-1,1668120106,,200
+cdad21,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=edit&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&entityId=19&menuIndex=3&referrer=https%3A%2F%2F127.0.0.1%3A8000%2Fadmin%3FcrudAction%3Dindex%26crudControllerFqcn%3DApp%255CController%255CAdmin%255CUserCrudController%26menuIndex%3D3%26submenuIndex%3D-1&submenuIndex=-1,1668120867,,200
+d8f5af,127.0.0.1,GET,https://127.0.0.1:8000/admin?menuIndex=0&submenuIndex=-1,1668123648,,200
+9fa3de,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CGroupeProfilCrudController&menuIndex=1&submenuIndex=-1,1668123650,,200
+5776a0,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProfilCrudController&menuIndex=2&submenuIndex=-1,1668123785,,200
+fb60a9,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=3&submenuIndex=-1,1668123792,,200
+a57c38,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=edit&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&entityId=19&menuIndex=3&referrer=https%3A%2F%2F127.0.0.1%3A8000%2Fadmin%3FcrudAction%3Dindex%26crudControllerFqcn%3DApp%255CController%255CAdmin%255CUserCrudController%26menuIndex%3D3%26submenuIndex%3D-1&submenuIndex=-1,1668123797,,200
+fffe4e,127.0.0.1,GET,https://127.0.0.1:8000/admin?menuIndex=0&submenuIndex=-1,1668124389,,200
+b8160d,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=3&submenuIndex=-1,1668124392,b81743,500
+b81743,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=3&submenuIndex=-1,1668124392,,500
+844b3b,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProfilCrudController&menuIndex=2&submenuIndex=-1,1668165932,,200
+558a69,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=3&submenuIndex=-1,1668165942,ff77ad,500
+ff77ad,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=3&submenuIndex=-1,1668165942,,500
+b339ab,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=3&submenuIndex=-1,1668165986,,200
+0ced57,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=edit&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&entityId=19&menuIndex=3&referrer=https%3A%2F%2F127.0.0.1%3A8000%2Fadmin%3FcrudAction%3Dindex%26crudControllerFqcn%3DApp%255CController%255CAdmin%255CUserCrudController%26menuIndex%3D3%26submenuIndex%3D-1&submenuIndex=-1,1668165993,,200
