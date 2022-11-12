@@ -74,7 +74,7 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
               <a href=\"";
         // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_createrdv");
-        echo "\" class=\"navbarxd-link activexd icon-box\">
+        echo "\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">today</span>
 
                 <span title=\"Prise de rendez-vous pour les usagers clients\">Prise de rendez-vous</span>
@@ -85,7 +85,7 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
               <a href=\"";
         // line 32
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_listrdv");
-        echo "\" class=\"navbarxd-link activexd icon-box\">
+        echo "\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">today</span>
 
                 <span title=\"Afficher la liste des demandes de rendez-vous\">Demande de RDV</span>
@@ -96,7 +96,7 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
               <a href=\"";
         // line 40
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_statsrdv");
-        echo "\" class=\"navbarxd-link activexd icon-box\">
+        echo "\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">Leaderboard</span>
 
                 <span title=\"Afficher les statistiques des demandes de rendez-vous\">Statistiques</span>
@@ -135,7 +135,10 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
 
           <ul class=\"navbarxd-list\">
             <li>
-              <a href=\"#\" class=\"navbarxd-link activexd icon-box\">
+              <a href=\"";
+        // line 76
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+        echo "\" class=\"navbarxd-link activexd icon-box\">
                 <span class=\"material-symbols-rounded  icon\" title=\"Se déconnecter\">power_rounded</span>
               </a>
             </li>
@@ -166,7 +169,7 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
 
     public function getDebugInfo()
     {
-        return array (  122 => 61,  98 => 40,  87 => 32,  76 => 24,  65 => 16,  47 => 3,  43 => 1,);
+        return array (  140 => 76,  122 => 61,  98 => 40,  87 => 32,  76 => 24,  65 => 16,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -194,7 +197,7 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
             </li>
             
             <li>
-              <a href=\"{{ path('app_createrdv') }}\" class=\"navbarxd-link activexd icon-box\">
+              <a href=\"{{ path('app_createrdv') }}\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">today</span>
 
                 <span title=\"Prise de rendez-vous pour les usagers clients\">Prise de rendez-vous</span>
@@ -202,7 +205,7 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
             </li>
 
             <li>
-              <a href=\"{{ path('app_listrdv') }}\" class=\"navbarxd-link activexd icon-box\">
+              <a href=\"{{ path('app_listrdv') }}\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">today</span>
 
                 <span title=\"Afficher la liste des demandes de rendez-vous\">Demande de RDV</span>
@@ -210,7 +213,7 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
             </li>
 
             <li>
-              <a href=\"{{ path('app_statsrdv') }}\" class=\"navbarxd-link activexd icon-box\">
+              <a href=\"{{ path('app_statsrdv') }}\" class=\"navbarxd-link icon-box\">
                 <span class=\"material-symbols-rounded  icon\">Leaderboard</span>
 
                 <span title=\"Afficher les statistiques des demandes de rendez-vous\">Statistiques</span>
@@ -246,7 +249,7 @@ class __TwigTemplate_409a6180b487ecea9f436ac132df7a41 extends Template
 
           <ul class=\"navbarxd-list\">
             <li>
-              <a href=\"#\" class=\"navbarxd-link activexd icon-box\">
+              <a href=\"{{ path('app_logout') }}\" class=\"navbarxd-link activexd icon-box\">
                 <span class=\"material-symbols-rounded  icon\" title=\"Se déconnecter\">power_rounded</span>
               </a>
             </li>

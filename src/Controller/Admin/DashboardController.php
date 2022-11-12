@@ -19,8 +19,11 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        return $this->render('admin/dashboard.html.twig');
+        // return $this->render('admin/dashboard.html.twig');
+        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
+        $url = $routeBuilder->setController(UserCrudController::class)->generateUrl();
 
+        return $this->redirect($url);
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
@@ -41,7 +44,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('CRUC: Gestion de rendez-vous')
+            ->setTitle('CRUC: Centre de Relation Usager-Client')
             ->setLocales([
                 // 'en', // locale without custom options
                 Locale::new('fr', 'france', 'far fa-language') // custom label and icon

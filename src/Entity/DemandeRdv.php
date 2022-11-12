@@ -23,6 +23,9 @@ class DemandeRdv
     #[ORM\Column]
     private ?\DateTimeImmutable $createAt = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $dateDemande = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class DemandeRdv
     public function setCreateAt(\DateTimeImmutable $createAt): self
     {
         $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    public function getDateDemande(): ?\DateTimeInterface
+    {
+        return $this->dateDemande;
+    }
+
+    public function setDateDemande(\DateTimeInterface $dateDemande): self
+    {
+        $this->dateDemande = $dateDemande;
 
         return $this;
     }
