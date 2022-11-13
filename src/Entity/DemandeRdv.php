@@ -21,7 +21,7 @@ class DemandeRdv
     private ?\DateTimeInterface $dateDde = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createAt = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateDemande = null;
