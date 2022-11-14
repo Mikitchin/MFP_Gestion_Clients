@@ -399,6 +399,13 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\AgentController"/>
       </call>
     </service>
+    <service id="App\Controller\CsController" class="App\Controller\CsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\CsController"/>
+      </call>
+    </service>
     <service id="App\Controller\GestionController" class="App\Controller\GestionController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -6622,6 +6629,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgentController" class="App\Controller\AgentController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgentController" class="App\Controller\AgentController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AgentController" class="App\Controller\AgentController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CsController" class="App\Controller\CsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CsController" class="App\Controller\CsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CsController" class="App\Controller\CsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GestionController" class="App\Controller\GestionController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GestionController" class="App\Controller\GestionController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GestionController" class="App\Controller\GestionController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7938,6 +7948,12 @@
     <service id=".service_locator.jIxfAsi.App\Controller\AgentController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\AgentController"/>
       <argument>App\Controller\AgentController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\CsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CsController"/>
+      <argument>App\Controller\CsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
