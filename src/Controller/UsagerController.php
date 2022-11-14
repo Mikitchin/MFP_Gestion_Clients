@@ -11,7 +11,7 @@ class UsagerController extends AbstractController
     #[Route('/usager', name: 'app_uhome')]
     public function homeu(): Response
     {
-        return $this->render('usager/home_u.html.twig', [
+        return $this->render('usager/home.html.twig', [
             'controller_name' => 'UsagerController',
         ]);
     }
@@ -23,13 +23,12 @@ class UsagerController extends AbstractController
             'controller_name' => 'UsagerController',
         ]);
     }
-    
+
     #[Route('/lister_rdv', name: 'app_listerdv')]
     public function lsrdv(): Response
     {
         return $this->render('usager/rdvulist.html.twig', [
             'controller_name' => 'UsagerController',
         ]);
-    }  
-   
+    }
 }

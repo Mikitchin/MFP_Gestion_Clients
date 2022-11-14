@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '2ee703f92df59d48cbde881146881938994d3419',
+        'reference' => '4a7d42956a2f87b9cacfe0d0e048463ea7249864',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '2ee703f92df59d48cbde881146881938994d3419',
+            'reference' => '4a7d42956a2f87b9cacfe0d0e048463ea7249864',
             'dev_requirement' => false,
         ),
         'doctrine/annotations' => array(
@@ -1347,6 +1347,15 @@
             'install_path' => __DIR__ . '/../twig/extra-bundle',
             'aliases' => array(),
             'reference' => '2e58256b0e9fe52f30149347c0547e4633304765',
+            'dev_requirement' => false,
+        ),
+        'twig/intl-extra' => array(
+            'pretty_version' => 'v3.4.2',
+            'version' => '3.4.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twig/intl-extra',
+            'aliases' => array(),
+            'reference' => '151e50fad9c7915bd56f0adf3f0cb3c47e6ed28a',
             'dev_requirement' => false,
         ),
         'twig/twig' => array(

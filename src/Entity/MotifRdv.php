@@ -22,6 +22,9 @@ class MotifRdv
     #[ORM\Column]
     private ?\DateTimeImmutable $createAt = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $libelleMotif = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class MotifRdv
     public function setCreateAt(\DateTimeImmutable $createAt): self
     {
         $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    public function getLibelleMotif(): ?string
+    {
+        return $this->libelleMotif;
+    }
+
+    public function setLibelleMotif(string $libelleMotif): self
+    {
+        $this->libelleMotif = $libelleMotif;
 
         return $this;
     }
