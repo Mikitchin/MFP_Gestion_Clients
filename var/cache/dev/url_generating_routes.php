@@ -21,15 +21,12 @@ return [
     'app_createrdv' => [[], ['_controller' => 'App\\Controller\\AgentController::ardv'], [], [['text', '/creer_rdv']], [], [], []],
     'app_listrdv' => [[], ['_controller' => 'App\\Controller\\AgentController::lrdv'], [], [['text', '/afficher_rdv']], [], [], []],
     'app_statsrdv' => [[], ['_controller' => 'App\\Controller\\AgentController::srdv'], [], [['text', '/stats_rdv']], [], [], []],
-<<<<<<< HEAD
-    'app_demande_rdv' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/demande']], [], [], []],
-=======
     'app_cshome' => [[], ['_controller' => 'App\\Controller\\CsController::index'], [], [['text', '/cs']], [], [], []],
     'app_csdem' => [[], ['_controller' => 'App\\Controller\\CsController::lstdem'], [], [['text', '/cs_demandes']], [], [], []],
     'app_cstreat' => [[], ['_controller' => 'App\\Controller\\CsController::listtreat'], [], [['text', '/cs_traitement']], [], [], []],
     'app_statsrdvcs' => [[], ['_controller' => 'App\\Controller\\CsController::statsrdvsup'], [], [['text', '/cs_statistiques']], [], [], []],
     'app_csinforecep' => [[], ['_controller' => 'App\\Controller\\CsController::inforecep'], [], [['text', '/cs_inforecep']], [], [], []],
->>>>>>> 6666b8ea91ededcc049ed49a3746a46c07ba5f05
+    'app_demande_rdv' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/demande']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\GestionController::index'], [], [['text', '/gestionnaire']], [], [], []],
     'app_ajoutprofil' => [[], ['_controller' => 'App\\Controller\\GestionController::aprofil'], [], [['text', '/creer_profil']], [], [], []],
     'app_profil' => [[], ['_controller' => 'App\\Controller\\GestionController::profil'], [], [['text', '/afficher_profil']], [], [], []],
