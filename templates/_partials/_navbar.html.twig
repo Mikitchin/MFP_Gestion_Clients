@@ -68,7 +68,46 @@
           </a>
         </li>
 
+<<<<<<< HEAD
       </ul>
+=======
+            <li class="nav-item">
+                <a href="{{ path('app_login') }}" class="nav-link">
+                    CONNEXION
+                </a>
+            </li>
+
+            {% else %}
+
+            <li>
+              <a href="#" class="headerxd-profile">
+
+                <figure class="profile-avatar">
+                  <img src="{{ asset('images/avatar-1.jpg') }}" alt="Elizabeth Foster" width="32" height="32">
+                </figure>
+
+                <div>
+                 <p class="profile-title">Gomé Cyrille</p>
+                  <p class="profile-subtitle">Super Admin</p>
+                </div>
+
+              </a>
+            </li>
+            {# 
+            <li class="nav-item">
+                <a href="{{ path('app_logout') }}" class="nav-link">DECONNEXION</a>
+            </li> #}
+
+          </ul>
+
+          <ul class="navbarxd-list">
+            <li>
+              <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
+                <span class="material-symbols-rounded  icon" title="Se déconnecter">Logout</span>
+              </a>
+            </li>
+          </ul>
+>>>>>>> 6666b8ea91ededcc049ed49a3746a46c07ba5f05
 
       <ul class="navbarxd-list">
         <li>

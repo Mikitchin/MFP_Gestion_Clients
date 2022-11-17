@@ -399,11 +399,19 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\AgentController"/>
       </call>
     </service>
+<<<<<<< HEAD
     <service id="App\Controller\DemandeRdvController" class="App\Controller\DemandeRdvController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\DemandeRdvController"/>
+=======
+    <service id="App\Controller\CsController" class="App\Controller\CsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\CsController"/>
+>>>>>>> 6666b8ea91ededcc049ed49a3746a46c07ba5f05
       </call>
     </service>
     <service id="App\Controller\GestionController" class="App\Controller\GestionController" public="true" autowire="true" autoconfigure="true">
@@ -6645,9 +6653,15 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgentController" class="App\Controller\AgentController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgentController" class="App\Controller\AgentController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AgentController" class="App\Controller\AgentController" autowire="true" autoconfigure="true" abstract="true"/>
+<<<<<<< HEAD
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DemandeRdvController" class="App\Controller\DemandeRdvController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DemandeRdvController" class="App\Controller\DemandeRdvController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DemandeRdvController" class="App\Controller\DemandeRdvController" autowire="true" autoconfigure="true" abstract="true"/>
+=======
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CsController" class="App\Controller\CsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CsController" class="App\Controller\CsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CsController" class="App\Controller\CsController" autowire="true" autoconfigure="true" abstract="true"/>
+>>>>>>> 6666b8ea91ededcc049ed49a3746a46c07ba5f05
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GestionController" class="App\Controller\GestionController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GestionController" class="App\Controller\GestionController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GestionController" class="App\Controller\GestionController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7982,9 +7996,15 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.jIxfAsi.App\Controller\DemandeRdvController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\DemandeRdvController"/>
       <argument>App\Controller\DemandeRdvController</argument>
+=======
+    <service id=".service_locator.jIxfAsi.App\Controller\CsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CsController"/>
+      <argument>App\Controller\CsController</argument>
+>>>>>>> 6666b8ea91ededcc049ed49a3746a46c07ba5f05
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
