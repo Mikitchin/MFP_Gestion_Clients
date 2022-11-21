@@ -67,29 +67,6 @@
 
           </a>
         </li>
-
-            <li class="nav-item">
-                <a href="{{ path('app_login') }}" class="nav-link">
-                    CONNEXION
-                </a>
-            </li>
-
-            {% else %}
-
-            <li>
-              <a href="#" class="headerxd-profile">
-
-                <figure class="profile-avatar">
-                  <img src="{{ asset('images/avatar-1.jpg') }}" alt="Elizabeth Foster" width="32" height="32">
-                </figure>
-
-                <div>
-                 <p class="profile-title">Gomé Cyrille</p>
-                  <p class="profile-subtitle">Super Admin</p>
-                </div>
-
-              </a>
-            </li>
             {# 
             <li class="nav-item">
                 <a href="{{ path('app_logout') }}" class="nav-link">DECONNEXION</a>
@@ -97,13 +74,7 @@
 
           </ul>
 
-          <ul class="navbarxd-list">
-            <li>
-              <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
-                <span class="material-symbols-rounded  icon" title="Se déconnecter">Logout</span>
-              </a>
-            </li>
-          </ul>
+        
 
       <ul class="navbarxd-list">
         <li>
@@ -168,7 +139,7 @@
   
         {% endif %}
 
-        {% if is_granted('ROLE_USAGER_CLIENT') %}
+        {% if is_granted('ROLE_USER') %}
 
         <li>
           <a href="{{ path('app_creatrdv') }}" class="navbarxd-link icon-box">
@@ -223,8 +194,74 @@
        
   
         {% endif %}
+
+
+                {% if is_granted('ROLE_CHEF_SERVICE') %}
+
+        <li>
+              <a href="{{ path('app_cshome') }}" class="navbarxd-link activexd icon-box">
+                <span class="material-symbols-rounded  icon">grid_view</span>
+
+                <span>Accueil</span>
+              </a>
+            </li>
+            
+            <li>
+              <a href="{{ path('app_csdem') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Affichage des demandes de rendez-vous">Demandes de RDV</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_cstreat') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Suivre le traitement des demandes de rendez-vous">Traitements des RDV</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_statsrdvcs') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">Leaderboard</span>
+
+                <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
+              </a>
+            </li> 
+
+          </ul>
+
+          <ul class="user-action-list">
+
+            <li>
+              <a href="#" class="notification icon-box">
+                <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="headerxd-profile">
+
+                <figure class="profile-avatar">
+                  <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
+                </figure>
+
+                <div>
+                 <p class="profile-title">{{ app.user.userIdentifier }}</p>
+                 <p class="profile-subtitle">Chef de Service</p>                
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
       
       </ul>
+
+              {% endif %}
+
         {% if not app.user %}
 
         <li class="nav-item">
@@ -258,6 +295,7 @@
       </ul>
 
       {% endif %}
+
     
     </div>
   </nav>
