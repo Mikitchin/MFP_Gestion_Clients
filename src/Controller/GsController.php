@@ -16,7 +16,7 @@ class GsController extends AbstractController
         ]);
     }
 
-    #[Route('/gestionnaire_demandes', name: 'app_ges_dem')]
+    #[Route('/gest_demandes', name: 'app_ges_dem')]
     public function ges_dem(): Response
     {
         return $this->render('gestionnaire/demandes.html.twig', [
@@ -24,7 +24,7 @@ class GsController extends AbstractController
         ]);
     }
 
-    #[Route('/gestionnaire_traitement', name: 'app_ges_treat')]
+    #[Route('/gest_traitement', name: 'app_ges_treat')]
     public function ges_treat(): Response
     {
         return $this->render('gestionnaire/traitements.html.twig', [
