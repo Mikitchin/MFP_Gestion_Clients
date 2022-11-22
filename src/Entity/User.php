@@ -59,8 +59,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Structure $structure = null;
 
-    #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
-    private Collection $privilege;
+    // #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
+    // private Collection $privilege;
 
     public function __construct()
     {
@@ -245,27 +245,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Roles>
-     */
-    public function getPrivilege(): Collection
-    {
-        return $this->privilege;
-    }
+    // /**
+    //  * @return Collection<int, Roles>
+    //  */
+    // public function getPrivilege(): Collection
+    // {
+    //     return $this->privilege;
+    // }
 
-    public function addPrivilege(Roles $privilege): self
-    {
-        if (!$this->privilege->contains($privilege)) {
-            $this->privilege->add($privilege);
-        }
+    // public function addPrivilege(Roles $privilege): self
+    // {
+    //     if (!$this->privilege->contains($privilege)) {
+    //         $this->privilege->add($privilege);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removePrivilege(Roles $privilege): self
-    {
-        $this->privilege->removeElement($privilege);
+    // public function removePrivilege(Roles $privilege): self
+    // {
+    //     $this->privilege->removeElement($privilege);
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }
