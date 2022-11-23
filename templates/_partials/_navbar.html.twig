@@ -125,53 +125,64 @@
   
         {% endif %}
 
-        {# {% if is_granted('ROLE_USAGER_CLIENT') %}
+         {% if is_granted('ROLE_GEST') %}
+            <li>
+              <a href="{{ path('app_ges_dem') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">live_help</span>
 
-          <li>
-            <a href="{{ path('app_creatrdv') }}" class="navbarxd-link icon-box">
+                <span title="Affichage des demandes de rendez-vous">Demandes de RDV</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_ges_treat') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">settings_suggest</span>
+
+                <span title="Suivre le traitement des demandes de rendez-vous">Traitements des RDV</span>
+              </a>
+            </li>
+
+             <li class="menu-deroulant">
+          <a href="{{ path('app_lst_dem_gest') }}" class="navbarxd-link icon-box">
             <span class="material-symbols-rounded  icon">today</span>
 
-            <span title="Prise de rendez-vous pour les usagers clients">Prendre rendez-vous</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ path('app_listerdv') }}" class="navbarxd-link icon-box">
-            <span class="material-symbols-rounded  icon">today</span>
-
-            <span title="Afficher la liste de mes demandes de rendez-vous">Mes demandes de rendez-vous</span>
-            </a>
-          </li>            
-
-      </ul>
-
-      <ul class="user-action-list">
-
-        <li>
-          <a href="#" class="notification icon-box">
-            <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
+            <span title="Gérer mes demandes de rendez-vous">Mes rendez-vous</span>
           </a>
-        </li>
+            <ul class="sous-menu">
+                <li><a href="{{ path('app_rdv_gest') }}">Prendre rendez-vous</a></li>
+                <li><a href="{{ path('app_lst_dem_gest') }}">Liste des rendez-vous</a></li>
+            </ul>
+        </li> 
 
-        <li>
-          <a href="#" class="headerxd-profile">
+          </ul>
 
-            <figure class="profile-avatar">
-              <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
-            </figure>
+          <ul class="user-action-list">
 
-            <div>
-             <p class="profile-title">{{ app.user.userIdentifier }}</p>
-             <p class="profile-subtitle">Usager Client</p>                
-            </div>
+            <li>
+              <a href="#" class="notification icon-box">
+                <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
+              </a>
+            </li>
 
-          </a>
-        </li>
+            <li>
+              <a href="#" class="headerxd-profile">
 
-      </ul>
-       
+                <figure class="profile-avatar">
+                  <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
+                </figure>
+
+                <div>
+                 <p class="profile-title">{{ app.user.userIdentifier }}</p>
+                 <p class="profile-subtitle">Gestionnaire</p>                
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
         {% endif %}
-       #}
+      
       <ul class="navbarxd-list">
         <li>
           <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">

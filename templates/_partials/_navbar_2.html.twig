@@ -1,0 +1,239 @@
+<header class="headerxd" data-header>
+    <div class="containerxd">
+      <a href="{{ path('app_ahome') }}" class="logo" title="Accueil"><img src="{{ asset('images/foncpubli1.png') }}" class="logo" alt="logo"></a>
+
+
+      <button class="menu-toggle-btn icon-box" data-menu-toggle-btn aria-label="Toggle Menu">
+        <span class="material-symbols-rounded  icon">menu</span>
+      </button>
+
+      <nav class="navbarxd">
+        <div class="containerxd">
+
+          <ul class="navbarxd-list">
+
+            <li>
+              <a href="#" class="navbarxd-link activexd icon-box">
+                <span class="material-symbols-rounded  icon">grid_view</span>
+
+                <span>Accueil</span>
+              </a>
+            </li>
+            {# Début traitement affichage dynamique des menu en fonction des rôles #}
+
+            {% if is_granted('ROLE_CHEF') %}
+            <li>
+              <a href="{{ path('app_csdem') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Affichage des demandes de rendez-vous">Demandes de RDV</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_cstreat') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Suivre le traitement des demandes de rendez-vous">Traitements des RDV</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_statsrdvcs') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">Leaderboard</span>
+
+                <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
+              </a>
+            </li> 
+
+          </ul>
+
+          <ul class="user-action-list">
+
+            <li>
+              <a href="#" class="notification icon-box">
+                <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="headerxd-profile">
+
+                <figure class="profile-avatar">
+                  <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
+                </figure>
+
+                <div>
+                 <p class="profile-title">{{ app.user.userIdentifier }}</p>
+                 <p class="profile-subtitle">Chef de Service</p>                
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+          {% endif %}
+          {% if is_granted('ROLE_AGENT_ACCUEIL') %}
+          <li>
+              <a href="{{ path('app_createrdv') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Prise de rendez-vous pour les usagers clients">Prise de rendez-vous</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_listrdv') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Afficher la liste des demandes de rendez-vous">Demande de RDV</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_statsrdv') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">Leaderboard</span>
+
+                <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
+              </a>
+            </li> 
+
+          </ul>
+
+          <ul class="user-action-list">
+
+            <li>
+              <a href="#" class="notification icon-box">
+                <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="headerxd-profile">
+
+                <figure class="profile-avatar">
+                  <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
+                </figure>
+
+                <div>
+                 <p class="profile-title">{{ app.user.userIdentifier }}</p>
+                 <p class="profile-subtitle">Agent d'accueil</p>                
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+          {% endif %}
+          {% if is_granted('ROLE_SUPERVISEUR') %}
+          <li>
+              <a href="{{ path('app_lstdem') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Affichage des demandes de rendez-vous">Demandes de RDV</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_listtreat') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Suivre le traitement des demandes de rendez-vous">Traitements des RDV</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_statsrdvsup') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">Leaderboard</span>
+
+                <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
+              </a>
+            </li> 
+
+          </ul>
+
+          <ul class="user-action-list">
+
+            <li>
+              <a href="#" class="notification icon-box">
+                <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="headerxd-profile">
+
+                <figure class="profile-avatar">
+                  <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
+                </figure>
+
+                <div>
+                 <p class="profile-title">{{ app.user.userIdentifier }}</p>
+                 <p class="profile-subtitle">Superviseur</p>                
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+          {% endif %}
+          {% if is_granted('ROLE_USER') %}
+           <li>
+              <a href="{{ path('app_creatrdv') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Prise de rendez-vous pour les usagers clients">Prendre rendez-vous</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_listerdv') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">today</span>
+
+                <span title="Afficher la liste de mes demandes de rendez-vous">Mes demandes de rendez-vous</span>
+              </a>
+            </li>            
+
+          </ul>
+
+          <ul class="user-action-list">
+
+            <li>
+              <a href="#" class="notification icon-box">
+                <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="headerxd-profile">
+
+                <figure class="profile-avatar">
+                  <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
+                </figure>
+
+                <div>
+                 <p class="profile-title">{{ app.user.userIdentifier }}</p>
+                 <p class="profile-subtitle">Usager Client</p>                
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+          {% endif %}
+          {% if is_granted('ROLE_GEST') %}
+          {% endif %}
+          {# Fin début traitement affichage dynamique des menu en fonction des rôles #}
+          <ul class="navbarxd-list">
+            <li>
+              <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
+                <span class="material-symbols-rounded  icon" title="Se déconnecter">Logout</span>
+              </a>
+            </li>
+          </ul>
+          
+        </div>
+      </nav>
+
+    </div>
+  </header>
