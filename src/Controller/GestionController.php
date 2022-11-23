@@ -43,6 +43,12 @@ class GestionController extends AbstractController
                 'controller_name' => 'GestionController',
             ]);
         }
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_CHEF_SERVICE')) {
+            return $this->render('chef_service/index.html.twig', [
+                'controller_name' => 'GestionController',
+            ]);
+        }
+        
     }
 
     #[Route('/creer_profil', name: 'app_ajoutprofil')]
