@@ -67,29 +67,8 @@
             </div>
             </a>
 
-<<<<<<< HEAD
           </li>
         </ul>
-=======
-          </a>
-        </li>
-            {# 
-            <li class="nav-item">
-                <a href="{{ path('app_logout') }}" class="nav-link">DECONNEXION</a>
-            </li> #}
-
-          </ul>
-
-        
-
-      <ul class="navbarxd-list">
-        <li>
-          <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
-            <span class="material-symbols-rounded  icon" title="Se déconnecter">power_rounded</span>
-          </a>
-        </li>
-      </ul>
->>>>>>> 1150d81ac335e00da50afb8dfebb0bdb8c2eb9f6
       
     {% endif %}
 
@@ -146,89 +125,34 @@
   
         {% endif %}
 
-<<<<<<< HEAD
-        {# {% if is_granted('ROLE_USAGER_CLIENT') %}
-=======
-        {# {% if is_granted('ROLE_USER') %}
->>>>>>> 1150d81ac335e00da50afb8dfebb0bdb8c2eb9f6
-
-          <li>
-            <a href="{{ path('app_creatrdv') }}" class="navbarxd-link icon-box">
-            <span class="material-symbols-rounded  icon">today</span>
-
-            <span title="Prise de rendez-vous pour les usagers clients">Prendre rendez-vous</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ path('app_listerdv') }}" class="navbarxd-link icon-box">
-            <span class="material-symbols-rounded  icon">today</span>
-
-            <span title="Afficher la liste de mes demandes de rendez-vous">Mes demandes de rendez-vous</span>
-            </a>
-          </li>            
-
-      </ul>
-
-      <ul class="user-action-list">
-
-        <li>
-          <a href="#" class="notification icon-box">
-            <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" class="headerxd-profile">
-
-            <figure class="profile-avatar">
-              <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
-            </figure>
-
-            <div>
-             <p class="profile-title">{{ app.user.userIdentifier }}</p>
-             <p class="profile-subtitle">Usager Client</p>                
-            </div>
-
-          </a>
-        </li>
-
-      </ul>
-       
-<<<<<<< HEAD
-        {% endif %}
-       #}
-=======
-  
-        {% endif %} #}
-
-
-        {% if is_granted('ROLE_CHEF') %}
-        
-                  
+         {% if is_granted('ROLE_GEST') %}
             <li>
-              <a href="{{ path('app_csdem') }}" class="navbarxd-link icon-box">
-                <span class="material-symbols-rounded  icon">today</span>
+              <a href="{{ path('app_ges_dem') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">live_help</span>
 
                 <span title="Affichage des demandes de rendez-vous">Demandes de RDV</span>
               </a>
             </li>
 
             <li>
-              <a href="{{ path('app_cstreat') }}" class="navbarxd-link icon-box">
-                <span class="material-symbols-rounded  icon">today</span>
+              <a href="{{ path('app_ges_treat') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">settings_suggest</span>
 
                 <span title="Suivre le traitement des demandes de rendez-vous">Traitements des RDV</span>
               </a>
             </li>
 
-            <li>
-              <a href="{{ path('app_statsrdvcs') }}" class="navbarxd-link icon-box">
-                <span class="material-symbols-rounded  icon">Leaderboard</span>
+             <li class="menu-deroulant">
+          <a href="{{ path('app_lst_dem_gest') }}" class="navbarxd-link icon-box">
+            <span class="material-symbols-rounded  icon">today</span>
 
-                <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
-              </a>
-            </li> 
+            <span title="Gérer mes demandes de rendez-vous">Mes rendez-vous</span>
+          </a>
+            <ul class="sous-menu">
+                <li><a href="{{ path('app_rdv_gest') }}">Prendre rendez-vous</a></li>
+                <li><a href="{{ path('app_lst_dem_gest') }}">Liste des rendez-vous</a></li>
+            </ul>
+        </li> 
 
           </ul>
 
@@ -249,7 +173,7 @@
 
                 <div>
                  <p class="profile-title">{{ app.user.userIdentifier }}</p>
-                 <p class="profile-subtitle">Chef de Service</p>                
+                 <p class="profile-subtitle">Gestionnaire</p>                
                 </div>
 
               </a>
@@ -257,57 +181,16 @@
 
           </ul>
 
-      <ul class="navbarxd-list">
-        <li>
-          <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
-            <span class="material-symbols-rounded  icon" title="Se déconnecter">power_rounded</span>
-          </a>
-        </li>
-      </ul>
-
-              {% endif %}
-
-        {% if not app.user %}
-
-        <li class="nav-item">
-            <a href="{{ path('app_login') }}" class="nav-link">
-                CONNEXION
-            </a>
-        </li>
-
-        <li>
-          <a href="#" class="headerxd-profile">
-
-            <figure class="profile-avatar">
-              <img src="{{ asset('images/avatar-1.jpg') }}" alt="YAPO Adoux" width="32" height="32">
-            </figure>
-
-            <div>
-             <p class="profile-title">YAPO Adoux</p>
-             {# <p class="profile-title">{{ app.user.userIdentifier }}</p> #}
-              <p class="profile-subtitle">Super Admin</p>
-            </div>
-
-          </a>
-        </li>
-        </ul>
-
->>>>>>> 1150d81ac335e00da50afb8dfebb0bdb8c2eb9f6
-      <ul class="navbarxd-list">
-        <li>
-          <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
-            <span class="material-symbols-rounded  icon" title="Se déconnecter">power_rounded</span>
-          </a>
-        </li>
-      </ul>
-<<<<<<< HEAD
+        {% endif %}
       
-=======
-
-      {% endif %}
-
-    
->>>>>>> 1150d81ac335e00da50afb8dfebb0bdb8c2eb9f6
+      <ul class="navbarxd-list">
+        <li>
+          <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
+            <span class="material-symbols-rounded  icon" title="Se déconnecter">power_rounded</span>
+          </a>
+        </li>
+      </ul>
+      
     </div>
   </nav>
 
