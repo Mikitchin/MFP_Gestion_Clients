@@ -25,6 +25,10 @@ class MotifRdv
     #[ORM\Column(length: 255)]
     private ?string $libelleMotif = null;
 
+    #[ORM\ManyToOne(inversedBy: 'motifRdvs')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?UniteAdmin $codeDir = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +78,18 @@ class MotifRdv
     public function setLibelleMotif(string $libelleMotif): self
     {
         $this->libelleMotif = $libelleMotif;
+
+        return $this;
+    }
+
+    public function getCodeDir(): ?UniteAdmin
+    {
+        return $this->codeDir;
+    }
+
+    public function setCodeDir(?UniteAdmin $codeDir): self
+    {
+        $this->codeDir = $codeDir;
 
         return $this;
     }

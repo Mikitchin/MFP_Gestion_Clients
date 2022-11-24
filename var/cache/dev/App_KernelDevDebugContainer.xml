@@ -501,6 +501,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\UniteAdminRepository" class="App\Repository\UniteAdminRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -4329,7 +4333,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.pgvwtwc"/>
+      <argument type="service" id=".service_locator.scdZ4MS"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -6716,6 +6720,8 @@
     <service id=".abstract.instanceof.App\Repository\RolesRepository" class="App\Repository\RolesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\StructureRepository" class="App\Repository\StructureRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\StructureRepository" class="App\Repository\StructureRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UniteAdminRepository" class="App\Repository\UniteAdminRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\UniteAdminRepository" class="App\Repository\UniteAdminRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Filter\FilterConfiguratorInterface.0.EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" abstract="true"/>
@@ -7643,7 +7649,7 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.pgvwtwc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.scdZ4MS" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AgentRepository" type="service_closure" id="App\Repository\AgentRepository"/>
@@ -7654,6 +7660,7 @@
         <argument key="App\Repository\ProfilRepository" type="service_closure" id="App\Repository\ProfilRepository"/>
         <argument key="App\Repository\RolesRepository" type="service_closure" id="App\Repository\RolesRepository"/>
         <argument key="App\Repository\StructureRepository" type="service_closure" id="App\Repository\StructureRepository"/>
+        <argument key="App\Repository\UniteAdminRepository" type="service_closure" id="App\Repository\UniteAdminRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>

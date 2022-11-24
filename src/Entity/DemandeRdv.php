@@ -26,6 +26,12 @@ class DemandeRdv
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateDemande = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateModifDde = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $etatDemande = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +81,30 @@ class DemandeRdv
     public function setDateDemande(\DateTimeInterface $dateDemande): self
     {
         $this->dateDemande = $dateDemande;
+
+        return $this;
+    }
+
+    public function getDateModifDde(): ?\DateTimeInterface
+    {
+        return $this->dateModifDde;
+    }
+
+    public function setDateModifDde(?\DateTimeInterface $dateModifDde): self
+    {
+        $this->dateModifDde = $dateModifDde;
+
+        return $this;
+    }
+
+    public function getEtatDemande(): ?int
+    {
+        return $this->etatDemande;
+    }
+
+    public function setEtatDemande(?int $etatDemande): self
+    {
+        $this->etatDemande = $etatDemande;
 
         return $this;
     }

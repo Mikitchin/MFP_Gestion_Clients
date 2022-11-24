@@ -1601,3 +1601,8 @@ a577c1,127.0.0.1,GET,https://127.0.0.1:8000/inscription,1669205038,,200
 1b225a,127.0.0.1,POST,https://127.0.0.1:8000/connexion,1669205093,,302
 4ffb4c,127.0.0.1,GET,https://127.0.0.1:8000/gestionnaire,1669205093,,200
 4cf4c5,127.0.0.1,GET,https://127.0.0.1:8000/gest_traitement,1669205100,,200
+0e25e8,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProfilCrudController&menuIndex=2&submenuIndex=-1,1669213473,,200
+dc0557,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=3&submenuIndex=-1,1669213475,,200
+9cab98,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProfilCrudController&menuIndex=2&submenuIndex=-1,1669213477,,200
+7d3b23,127.0.0.1,GET,https://127.0.0.1:8000/admin?menuIndex=0&submenuIndex=-1,1669213484,,302
+834374,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=0&submenuIndex=-1,1669213484,,200
