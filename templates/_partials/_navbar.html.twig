@@ -19,18 +19,8 @@
 
             <span>Accueil</span>
           </a>
-        </li>         
-
-        
-        <li>
-            <a href="{{ path('app_createrdv') }}" class="navbarxd-link icon-box">
-              <span class="material-symbols-rounded  icon">Today</span>
-
-              <span title="Prise de rendez-vous pour les usagers clients">Prise de rendez-vous</span>
-            </a>
         </li>
-
-            <li>
+        <li>
               <a href="{{ path('app_ges_treat') }}" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded  icon">settings_suggest</span>
 
@@ -187,7 +177,7 @@
           </ul>
 
         {% endif %}
-        {% if is_granted('ROLE_CHEF') %}
+        {% if is_granted('ROLE_CHEF_SERVICE') %}
 
         <li>
           <a href="{{ path('app_cshome') }}" class="navbarxd-link activexd icon-box">
@@ -252,7 +242,7 @@
       <ul class="navbarxd-list">
         <li>
           <a href="{{ path('app_logout') }}" class="navbarxd-link activexd icon-box">
-            <span class="material-symbols-rounded  icon" title="Se déconnecter">power_rounded</span>
+            <span class="material-symbols-rounded  icon" title="Se déconnecter">Logout</span>
           </a>
         </li>
       </ul>
