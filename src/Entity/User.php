@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -10,7 +12,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte qui utilise ce mail')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -33,9 +35,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    // #[ORM\Column(type: 'json')]
-    // private $roles = [];
-
     #[ORM\Column]
     private ?int $contact = null;
 
@@ -57,8 +56,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
-    //  #[ORM\ManyToOne(inversedBy: 'users')]
-    //  private ?Structure $structure = null;
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?Structure $structure = null;
+
+    // #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
+    // private Collection $privilege;
+
+    public function __construct()
+    {
+        $this->privilege = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -226,14 +233,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    // public function getStructure(): ?Structure
+    public function getStructure(): ?Structure
+    {
+        return $this->structure;
+    }
+
+    public function setStructure(?Structure $structure): self
+    {
+        $this->structure = $structure;
+
+        return $this;
+    }
+
+    // /**
+    //  * @return Collection<int, Roles>
+    //  */
+    // public function getPrivilege(): Collection
     // {
-    //     return $this->structure;
+    //     return $this->privilege;
     // }
 
-    // public function setStructure(?Structure $structure): self
+    // public function addPrivilege(Roles $privilege): self
     // {
-    //     $this->structure = $structure;
+    //     if (!$this->privilege->contains($privilege)) {
+    //         $this->privilege->add($privilege);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removePrivilege(Roles $privilege): self
+    // {
+    //     $this->privilege->removeElement($privilege);
 
     //     return $this;
     // }

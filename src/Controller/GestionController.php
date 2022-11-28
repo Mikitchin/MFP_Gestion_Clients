@@ -33,13 +33,19 @@ class GestionController extends AbstractController
             ]);
         }
 
-        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_USAGER_CLIENT')) {
-            return $this->render('usager/welcome.html.twig', [
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_AGENT_ACCUEIL')) {
+            return $this->render('agent/index.html.twig', [
                 'controller_name' => 'GestionController',
             ]);
         }
-        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_AGENT_ACCUEIL')) {
-            return $this->render('agent/index.html.twig', [
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_CHEF_SERVICE')) {
+            return $this->render('chef_service/index.html.twig', [
+                'controller_name' => 'GestionController',
+            ]);
+        }
+
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+            return $this->render('usager/home.html.twig', [
                 'controller_name' => 'GestionController',
             ]);
         }

@@ -1,0 +1,48 @@
+{% extends 'cs_base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+ <main>
+    <article class="containerxd article">
+      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
+      <p class="article-subtitle">ECRAN DE CONSULTATION DES STATISTIQUES DU TRAITEMENT DES DEMANDES DE RENDEZ-VOUS</p>
+      <div class="row">  
+                            <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Statistiques</h3>
+                                    </div>
+                                    <div class="card-body">
+                                            <div class="form-row">
+                                                <div class="col-xl-4 mb-3">
+                                                    <label>Terminé(s) :</label>
+                                                    <input type="text" class="form-control" id="" readonly value="90">
+                                                </div>
+                                                <div class="col-xl-4 mb-3">
+                                                    <label>Transféré(s) :</label>
+                                                    <input type="text" class="form-control" id="" readonly value="20">
+                                                </div>
+                                                <div class="col-xl-4 mb-3">
+                                                    <label>Nouveau(x) :</label>
+                                                    <input type="text" class="form-control" id="" readonly value="75">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-xl-3 mb-3">
+                                                    <label class="redcolor">Temps moyen d'un traitement (mn) :</label>
+                                                    <input type="text" class="form-control" id="" readonly value="15">
+                                                </div>
+                                               
+                                            </div>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>        
+      
+    </article>
+  </main>
+
+{% endblock %}
