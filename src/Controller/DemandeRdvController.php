@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DemandeRdvController extends AbstractController
 {
-    #[Route('/demande/{id}', name: 'app_demande_rdv')]
+    #[Route('/demande/{slug}', name: 'app_demande_rdv')]
     public function index(DemandeRdv $demande, DemandeRdvRepository $demandeRdvRepository): Response
     {
         return $this->render('demande_rdv/index.html.twig', [

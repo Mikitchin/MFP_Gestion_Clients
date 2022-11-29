@@ -16,7 +16,7 @@ class SuperviseurController extends AbstractController
         ]);
     }
 
-    #[Route('/superviseur_demandes', name: 'app_lstdem')]
+    #[Route('/demande-sup', name: 'app_lstdem')]
     public function lstdem(): Response
     {
         return $this->render('superviseur/demandes.html.twig', [
@@ -24,7 +24,7 @@ class SuperviseurController extends AbstractController
         ]);
     }
 
-    #[Route('/superviseur_traitement', name: 'app_listtreat')]
+    #[Route('/traitement-sup', name: 'app_listtreat')]
     public function listtreat(): Response
     {
         return $this->render('superviseur/traitements.html.twig', [
@@ -32,7 +32,7 @@ class SuperviseurController extends AbstractController
         ]);
     }
 
-    #[Route('/superviseur_statistiques', name: 'app_statsrdvsup')]
+    #[Route('/statistiques-sup', name: 'app_statsrdvsup')]
     public function statsrdvsup(): Response
     {
         return $this->render('superviseur/statsrdv_sup.html.twig', [
@@ -40,12 +40,11 @@ class SuperviseurController extends AbstractController
         ]);
     }
 
-    #[Route('/superviseur_inforecep', name: 'app_inforecep')]
+    #[Route('/info-recept-sup', name: 'app_inforecep')]
     public function inforecep(): Response
     {
         return $this->render('superviseur/sup_info_recep.html.twig', [
             'controller_name' => 'SuperviseurController',
         ]);
     }
-   
 }

@@ -16,7 +16,7 @@ class GsController extends AbstractController
         ]);
     }
 
-    #[Route('/gest_demandes', name: 'app_ges_dem')]
+    #[Route('/gest-demande', name: 'app_ges_dem')]
     public function ges_dem(): Response
     {
         return $this->render('gestionnaire/demandes.html.twig', [
@@ -24,7 +24,7 @@ class GsController extends AbstractController
         ]);
     }
 
-    #[Route('/gest_traitement', name: 'app_ges_treat')]
+    #[Route('/gest-traitement', name: 'app_ges_treat')]
     public function ges_treat(): Response
     {
         return $this->render('gestionnaire/traitements.html.twig', [
@@ -32,7 +32,7 @@ class GsController extends AbstractController
         ]);
     }
 
-    #[Route('/rdv_gestionnaire', name: 'app_rdv_gest')]
+    #[Route('/rdv-gestionnaire', name: 'app_rdv_gest')]
     public function rdv_gest(): Response
     {
         return $this->render('gestionnaire/rdv_gest.html.twig', [
@@ -40,12 +40,11 @@ class GsController extends AbstractController
         ]);
     }
 
-    #[Route('/list_demande_gestionnaire', name: 'app_lst_dem_gest')]
+    #[Route('/liste-demande', name: 'app_lst_dem_gest')]
     public function lst_dem_gest(): Response
     {
         return $this->render('gestionnaire/list_demande_gestionnaire.html.twig', [
             'controller_name' => 'GsController',
         ]);
     }
-   
 }

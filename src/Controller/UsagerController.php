@@ -16,7 +16,7 @@ class UsagerController extends AbstractController
         ]);
     }
 
-    #[Route('/prendre_rdv', name: 'app_creatrdv')]
+    #[Route('/prendre-rdv', name: 'app_creatrdv')]
     public function prdv(): Response
     {
         return $this->render('usager/rdvu_form.html.twig', [
@@ -24,7 +24,7 @@ class UsagerController extends AbstractController
         ]);
     }
 
-    #[Route('/lister_rdv', name: 'app_listerdv')]
+    #[Route('/liste-rdv', name: 'app_listerdv')]
     public function lsrdv(): Response
     {
         return $this->render('usager/rdvulist.html.twig', [

@@ -16,7 +16,7 @@ class CsController extends AbstractController
         ]);
     }
 
-    #[Route('/cs_demandes', name: 'app_csdem')]
+    #[Route('/cs-demandes', name: 'app_csdem')]
     public function lstdem(): Response
     {
         return $this->render('chef_service/cs_demandes.html.twig', [
@@ -24,7 +24,7 @@ class CsController extends AbstractController
         ]);
     }
 
-    #[Route('/cs_traitement', name: 'app_cstreat')]
+    #[Route('/cs-traitement', name: 'app_cstreat')]
     public function listtreat(): Response
     {
         return $this->render('chef_service/cs_traitement.html.twig', [
@@ -32,7 +32,7 @@ class CsController extends AbstractController
         ]);
     }
 
-    #[Route('/cs_statistiques', name: 'app_statsrdvcs')]
+    #[Route('/cs-statistiques', name: 'app_statsrdvcs')]
     public function statsrdvsup(): Response
     {
         return $this->render('chef_service/cs_statsrdv.html.twig', [
@@ -40,12 +40,11 @@ class CsController extends AbstractController
         ]);
     }
 
-    #[Route('/cs_inforecep', name: 'app_csinforecep')]
+    #[Route('/cs-info-recep', name: 'app_csinforecep')]
     public function inforecep(): Response
     {
         return $this->render('chef_service/cs_info_recep.html.twig', [
             'controller_name' => 'CsController',
         ]);
     }
-   
 }

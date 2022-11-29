@@ -16,7 +16,7 @@ class AgentController extends AbstractController
         ]);
     }
 
-    #[Route('/creer_rdv', name: 'app_createrdv')]
+    #[Route('/creer-rdv', name: 'app_createrdv')]
     public function ardv(): Response
     {
         return $this->render('agent/rdv_form.html.twig', [
@@ -24,7 +24,7 @@ class AgentController extends AbstractController
         ]);
     }
 
-    #[Route('/afficher_rdv', name: 'app_listrdv')]
+    #[Route('/afficher-rdv', name: 'app_listrdv')]
     public function lrdv(): Response
     {
         return $this->render('agent/rdvlist.html.twig', [
@@ -32,7 +32,7 @@ class AgentController extends AbstractController
         ]);
     }
 
-    #[Route('/stats_rdv', name: 'app_statsrdv')]
+    #[Route('/stats-rdv', name: 'app_statsrdv')]
     public function srdv(): Response
     {
         return $this->render('agent/stats.html.twig', [
