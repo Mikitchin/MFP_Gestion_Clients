@@ -22,7 +22,7 @@ class GestionController extends AbstractController
         }
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_GEST')) {
-            return $this->render('gestion/index.html.twig', [
+            return $this->render('gestionnaire/index.html.twig', [
                 'controller_name' => 'GestionController',
             ]);
         }
