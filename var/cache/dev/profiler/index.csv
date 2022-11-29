@@ -1845,3 +1845,10 @@ fc9e8e,127.0.0.1,GET,https://127.0.0.1:8000/cs_traitement,1669718954,,200
 394d0b,127.0.0.1,GET,https://127.0.0.1:8000/espace_chef_de_service,1669718965,,200
 f1cbbc,127.0.0.1,GET,https://127.0.0.1:8000/logout,1669718989,,302
 cdd9b8,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1669718989,,200
+e90267,127.0.0.1,GET,https://127.0.0.1:8000/bienvenue,1669719159,,200
+7905c2,127.0.0.1,GET,https://127.0.0.1:8000/css/bootstrap.min.css,1669719159,07e149,404
+07e149,127.0.0.1,GET,https://127.0.0.1:8000/css/bootstrap.min.css,1669719159,,404
+c498d5,127.0.0.1,GET,https://127.0.0.1:8000/css/style.css,1669719159,7805ef,404
+7805ef,127.0.0.1,GET,https://127.0.0.1:8000/css/style.css,1669719159,,404
+25f36a,127.0.0.1,GET,https://127.0.0.1:8000/images/favicon.ico,1669719161,79e402,404
+79e402,127.0.0.1,GET,https://127.0.0.1:8000/images/favicon.ico,1669719161,,404
