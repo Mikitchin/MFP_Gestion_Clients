@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CsController extends AbstractController
 {
-    #[Route('/cs', name: 'app_cshome')]
+    #[Route('/espace_chef_de_service', name: 'app_cshome')]
     public function index(): Response
     {
         return $this->render('chef_service/index.html.twig', [
