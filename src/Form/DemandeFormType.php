@@ -13,13 +13,13 @@ class DemandeFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('codeDde')
+            // ->add('codeDde')
             ->add('codeMotif')
-            ->add('descriptDde')
-            ->add('dateDde')
-            ->add('dateDemande')
-            ->add('dateModifDde')
-            ->add('etatDemande')
+            // ->add('descriptDde')
+            // ->add('dateDde')
+            // ->add('dateDemande')
+            // ->add('dateModifDde')
+            // ->add('etatDemande')
             ->add('slug')
             ->add('submit', SubmitType::class);
     }
