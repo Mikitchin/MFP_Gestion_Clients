@@ -2002,3 +2002,7 @@ e44219,127.0.0.1,GET,https://127.0.0.1:8000/visualisation-des-informations-sur-u
 774539,127.0.0.1,GET,https://127.0.0.1:8000/espace-gestionnaire,1669892692,,200
 e052ce,127.0.0.1,GET,https://127.0.0.1:8000/usager,1669892731,,200
 0bdc41,127.0.0.1,GET,https://127.0.0.1:8000/visualisation-des-statistiques-des-traitements,1669893146,,200
+c3cc2a,127.0.0.1,GET,https://127.0.0.1:8000/logout,1669906352,,302
+fea486,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1669906352,,200
+9cedfc,127.0.0.1,GET,https://127.0.0.1:8000/logout,1669906362,,302
+0441f4,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1669906362,,200
