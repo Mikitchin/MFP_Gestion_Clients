@@ -2,11 +2,15 @@
 
 namespace App\Form;
 
+use App\Entity\MotifRdv;
 use App\Entity\DemandeRdv;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class DemandeFormType extends AbstractType
 {
@@ -14,14 +18,36 @@ class DemandeFormType extends AbstractType
     {
         $builder
             // ->add('codeDde')
-            ->add('codeMotif')
-            // ->add('descriptDde')
+            ->add('codeMotif', EntityType::class, [
+                'class' => MotifRdv::class,
+                'attr' => [
+                    'class' => 'form-control'
+
+                ]
+            ])
+            ->add('descriptDde', TextareaType::class, [
+                'attr' => ['class' => 'tinymce'],
+            ])
             // ->add('dateDde')
-            // ->add('dateDemande')
-            // ->add('dateModifDde')
+            ->add('dateDemande', DateType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr' => [
+                    'class' => 'form-control'
+
+                ]
+            ])
+            ->add('dateModifDde', DateType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr' => [
+                    'class' => 'form-control'
+
+                ]
+            ])
             // ->add('etatDemande')
-            ->add('slug')
-            ->add('submit', SubmitType::class);
+            // ->add('slug')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
