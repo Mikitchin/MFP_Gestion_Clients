@@ -24,10 +24,10 @@ class UsagerController extends AbstractController
     //     ]);
     // }
 
-    #[Route('/liste-rdv', name: 'app_listerdv')]
+    #[Route('/liste-rdv', name: 'app_liste_rdv')]
     public function lsrdv(): Response
     {
-        return $this->render('usager/rdvulist.html.twig', [
+        return $this->render('usager/rdv_liste.html.twig', [
             'controller_name' => 'UsagerController',
         ]);
     }

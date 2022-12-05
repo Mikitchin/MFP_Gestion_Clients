@@ -469,7 +469,8 @@
     <service id="App\EntityListener\DemandeRdvEntityListener" class="App\EntityListener\DemandeRdvEntityListener" autowire="true" autoconfigure="true">
       <argument type="service" id="slugger"/>
     </service>
-    <service id="App\Form\DemandeFormType" class="App\Form\DemandeFormType" autowire="true" autoconfigure="true">
+    <service id="App\Form\DemandeFormType_old" class="App\Form\DemandeFormType_old" autowire="true" autoconfigure="true"/>
+    <service id="App\Form\DemandeRdvType" class="App\Form\DemandeRdvType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
@@ -1322,7 +1323,7 @@
         <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
-        <argument>App\Form\DemandeFormType</argument>
+        <argument>App\Form\DemandeRdvType</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -3432,7 +3433,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.HZTUJjU"/>
+      <argument type="service" id=".service_locator.fP5WdZW"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6709,8 +6710,8 @@
     <service id=".abstract.instanceof.App\Controller\WelcomeController" class="App\Controller\WelcomeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DemandeFormType" class="App\Form\DemandeFormType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\DemandeFormType" class="App\Form\DemandeFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DemandeRdvType" class="App\Form\DemandeRdvType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\DemandeRdvType" class="App\Form\DemandeRdvType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AgentRepository" class="App\Repository\AgentRepository" autowire="true" abstract="true"/>
@@ -7567,10 +7568,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.HZTUJjU" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.fP5WdZW" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Form\DemandeFormType" type="service_closure" id="App\Form\DemandeFormType"/>
+        <argument key="App\Form\DemandeRdvType" type="service_closure" id="App\Form\DemandeRdvType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudFormType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudFormType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType"/>
@@ -9380,7 +9381,7 @@
     <service id=".service_locator.gwY_rIW" alias=".service_locator.qV1Yx19"/>
     <service id=".service_locator.r1K75nA" alias=".service_locator.ZCYsodp"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
-    <service id=".service_locator.cNWul08" alias=".service_locator.HZTUJjU"/>
+    <service id=".service_locator.eBzBezJ" alias=".service_locator.fP5WdZW"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.Cw5qYVH" alias=".service_locator.XmW3LYn"/>

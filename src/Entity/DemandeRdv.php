@@ -5,9 +5,10 @@ namespace App\Entity;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\DemandeRdvRepository;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 #[ORM\Entity(repositoryClass: DemandeRdvRepository::class)]
@@ -24,9 +25,6 @@ class DemandeRdv
 
     // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     // private ?\DateTimeInterface $dateDde = null;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateDemande = null;
@@ -46,12 +44,20 @@ class DemandeRdv
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $descriptDde = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
+
     // public function computeSlug(SluggerInterface $slugger)
     // {
     //     if (!$this->slug || '-' === $this->slug) {
     //         $this->slug = (string) $slugger->slug((string) $this)->lower();
     //     }
     // }
+
+    public function __construct()
+    {
+        $this->createdAt = new \Datetime();
+    }
 
     public function getId(): ?int
     {
@@ -62,7 +68,7 @@ class DemandeRdv
     {
         return $this->codeDde;
         // Générer un code de la demande
-        $codeDde[] = 'Code_Num_1';
+
     }
 
     public function setCodeDde(string $codeDde): self
@@ -84,17 +90,6 @@ class DemandeRdv
     //     return $this;
     // }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
 
     public function getDateDemande(): ?\DateTimeInterface
     {
@@ -168,8 +163,20 @@ class DemandeRdv
         return $this;
     }
 
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt ?? new DateTime();
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
     public function __toString(): string
     {
-        return $this->getDescriptDde();
+        return $this->getId();
     }
 }

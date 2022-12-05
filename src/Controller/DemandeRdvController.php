@@ -25,12 +25,21 @@ class DemandeRdvController extends AbstractController
             $entityManager->persist($demande);
             $entityManager->flush();
 
-            // return $this->redirectToRoute('demande', ['slug' => $demande->getSlug()]);
+            return $this->redirectToRoute('app_liste_rdv');
         }
 
         return $this->render('usager/rdv_form.html.twig', [
             'demande_form' => $form->createView(),
 
+        ]);
+    }
+
+    #[Route('/show_demande/{id}', name: 'app_show_demande')]
+    public function demande(Request $request, EntityManagerInterface $entityManager, DemandeRdv $demande_rdv): Response
+    {
+
+        return $this->render('usager/show_demande.html.twig', [
+            'demande_rdv' => $demande_rdv
         ]);
     }
 }
