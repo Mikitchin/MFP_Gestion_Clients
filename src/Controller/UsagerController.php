@@ -16,18 +16,18 @@ class UsagerController extends AbstractController
         ]);
     }
 
-    #[Route('/prendre_rdv', name: 'app_creatrdv')]
-    public function prdv(): Response
-    {
-        return $this->render('usager/rdvu_form.html.twig', [
-            'controller_name' => 'UsagerController',
-        ]);
-    }
+    // #[Route('/prendre-rdv', name: 'app_creat_rdv')]
+    // public function prdv(): Response
+    // {
+    //     return $this->render('usager/rdv_form.html.twig', [
+    //         'controller_name' => 'UsagerController',
+    //     ]);
+    // }
 
-    #[Route('/lister_rdv', name: 'app_listerdv')]
+    #[Route('/liste-rdv', name: 'app_liste_rdv')]
     public function lsrdv(): Response
     {
-        return $this->render('usager/rdvulist.html.twig', [
+        return $this->render('usager/rdv_liste.html.twig', [
             'controller_name' => 'UsagerController',
         ]);
     }

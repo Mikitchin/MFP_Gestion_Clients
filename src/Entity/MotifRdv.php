@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MotifRdvRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MotifRdvRepository::class)]
@@ -20,10 +22,22 @@ class MotifRdv
     private ?string $motif = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createAt = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(length: 255)]
     private ?string $libelleMotif = null;
+
+    #[ORM\ManyToOne(inversedBy: 'motifRdvs')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?UniteAdmin $codeDir = null;
+
+    #[ORM\OneToMany(mappedBy: 'codeMotif', targetEntity: DemandeRdv::class)]
+    private Collection $descriptionDde;
+
+    public function __construct()
+    {
+        $this->descriptionDde = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -76,5 +90,52 @@ class MotifRdv
         $this->libelleMotif = $libelleMotif;
 
         return $this;
+    }
+
+    public function getCodeDir(): ?UniteAdmin
+    {
+        return $this->codeDir;
+    }
+
+    public function setCodeDir(?UniteAdmin $codeDir): self
+    {
+        $this->codeDir = $codeDir;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DemandeRdv>
+     */
+    public function getDescriptionDde(): Collection
+    {
+        return $this->descriptionDde;
+    }
+
+    public function addDescriptionDde(DemandeRdv $descriptionDde): self
+    {
+        if (!$this->descriptionDde->contains($descriptionDde)) {
+            $this->descriptionDde->add($descriptionDde);
+            $descriptionDde->setCodeMotif($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDescriptionDde(DemandeRdv $descriptionDde): self
+    {
+        if ($this->descriptionDde->removeElement($descriptionDde)) {
+            // set the owning side to null (unless already changed)
+            if ($descriptionDde->getCodeMotif() === $this) {
+                $descriptionDde->setCodeMotif(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getMotif();
     }
 }

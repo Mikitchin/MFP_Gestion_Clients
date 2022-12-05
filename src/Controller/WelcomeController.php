@@ -8,12 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class WelcomeController extends AbstractController
 {
-    #[Route('/bienvenue', name: 'app_cruchome')]
+    #[Route('/', name: 'app_cruchome')]
     public function accueil(): Response
     {
         return $this->render('welcome.html.twig', [
             'controller_name' => 'WelcomeController',
         ]);
-    }    
-   
+    }
 }
