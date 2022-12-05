@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AgentController extends AbstractController
 {
-    #[Route('/agent', name: 'app_ahome')]
+    #[Route('/espace_agent_d_accueil', name: 'app_ahome')]
     public function index(): Response
     {
         return $this->render('agent/index.html.twig', [
@@ -16,6 +16,7 @@ class AgentController extends AbstractController
         ]);
     }
 
+<<<<<<< HEAD
     #[Route('/creer-rdv', name: 'app_createrdv')]
     public function ardv(): Response
     {
@@ -25,6 +26,9 @@ class AgentController extends AbstractController
     }
 
     #[Route('/afficher-rdv', name: 'app_listrdv')]
+=======
+    #[Route('/afficher_la_liste_des_rdv', name: 'app_alistrdv')]
+>>>>>>> ba756c9a1fdb68e71fdd24f5f089064cc35e5d92
     public function lrdv(): Response
     {
         return $this->render('agent/rdvlist.html.twig', [
@@ -32,10 +36,31 @@ class AgentController extends AbstractController
         ]);
     }
 
+<<<<<<< HEAD
     #[Route('/stats-rdv', name: 'app_statsrdv')]
     public function srdv(): Response
+=======
+    #[Route('/afficher_les_statistiques_des_rdv', name: 'app_astatsrdv')]
+    public function astatrdv(): Response
+>>>>>>> ba756c9a1fdb68e71fdd24f5f089064cc35e5d92
     {
         return $this->render('agent/stats.html.twig', [
+            'controller_name' => 'AgentController',
+        ]);
+    }
+
+    #[Route('/prise_de_rdv_agent_d_accueil', name: 'app_rdv_agt')]
+    public function rdv_agt(): Response
+    {
+        return $this->render('agent/rdv_form.html.twig', [
+            'controller_name' => 'AgentController',
+        ]);
+    }
+
+    #[Route('/list_rdv_agent', name: 'app_lst_dem_agt')]
+    public function lst_dem_agt(): Response
+    {
+        return $this->render('agent/rdvlist.html.twig', [
             'controller_name' => 'AgentController',
         ]);
     }

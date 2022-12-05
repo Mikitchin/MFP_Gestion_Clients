@@ -14,29 +14,37 @@
       <ul class="navbarxd-list">
 
         <li>
-          <a href="#" class="navbarxd-link activexd icon-box">
+          <a href="{{ path('app_ahome') }}" class="navbarxd-link activexd icon-box">
             <span class="material-symbols-rounded  icon">grid_view</span>
 
             <span>Accueil</span>
           </a>
         </li>
         <li>
-              <a href="{{ path('app_ges_treat') }}" class="navbarxd-link icon-box">
-                <span class="material-symbols-rounded  icon">settings_suggest</span>
+              <a href="{{ path('app_alistrdv') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">filter_list</span>
 
-                <span title="Suivre le traitement des demandes de rendez-vous">Traitements des RDV</span>
+                <span title="Afficher la liste des demandes de rendez-vous">Liste des RDV</span>
               </a>
-            </li>
+        </li>
 
-             <li class="menu-deroulant">
-          <a href="{{ path('app_lst_dem_gest') }}" class="navbarxd-link icon-box">
+         <li>
+          <a href="{{ path('app_astatsrdv') }}" class="navbarxd-link icon-box">
+            <span class="material-symbols-rounded  icon">Leaderboard</span>
+
+            <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
+          </a>
+        </li> 
+
+        <li class="menu-deroulant">
+          <a href="{{ path('app_alistrdv') }}" class="navbarxd-link icon-box">
             <span class="material-symbols-rounded  icon">today</span>
 
             <span title="Gérer mes demandes de rendez-vous">Mes rendez-vous</span>
           </a>
             <ul class="sous-menu">
-                <li><a href="{{ path('app_rdv_gest') }}">Prendre rendez-vous</a></li>
-                <li><a href="{{ path('app_lst_dem_gest') }}">Liste des rendez-vous</a></li>
+                <li><a href="{{ path('app_rdv_agt') }}">Prendre rendez-vous</a></li>
+                <li><a href="{{ path('app_alistrdv') }}">Liste des rendez-vous</a></li>
             </ul>
         </li> 
      
@@ -138,9 +146,9 @@
         </li>  
             <li>
               <a href="{{ path('app_ges_dem') }}" class="navbarxd-link icon-box">
-                <span class="material-symbols-rounded  icon">live_help</span>
+                <span class="material-symbols-rounded  icon">filter_list</span>
 
-                <span title="Affichage des demandes de rendez-vous">Demandes de RDV</span>
+                <span title="Affichage des demandes de rendez-vous">Liste des RDV</span>
               </a>
             </li>
 
@@ -152,17 +160,13 @@
               </a>
             </li>
 
-             <li class="menu-deroulant">
-          <a href="{{ path('app_lst_dem_gest') }}" class="navbarxd-link icon-box">
-            <span class="material-symbols-rounded  icon">today</span>
+            <li>
+              <a href="{{ path('app_ges_stat') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded  icon">settings_suggest</span>
 
-            <span title="Gérer mes demandes de rendez-vous">Mes rendez-vous</span>
-          </a>
-            <ul class="sous-menu">
-                <li><a href="{{ path('app_rdv_gest') }}">Prendre rendez-vous</a></li>
-                <li><a href="{{ path('app_lst_dem_gest') }}">Liste des rendez-vous</a></li>
-            </ul>
-        </li> 
+                <span title="Afficher de traitement des demandes de rendez-vous">Statistiques</span>
+              </a>
+            </li>            
 
           </ul>
 
