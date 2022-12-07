@@ -84,7 +84,13 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Enregistrer</button>
+            <button type="submit" class="btn btn-success">
+        {% if editMode %}
+        Enregistrer les modifications
+        {% else %}
+        Enregistrer
+        {% endif %}
+    </button>
             <!-- Row -->
         {# </form>  #}
         {{ form_end(demande_form) }}
