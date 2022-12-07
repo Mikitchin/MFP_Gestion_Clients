@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DemandeRdvController extends AbstractController
 {
-    #[Route('/demande/new', name: 'app_demande_rdv')]
+    #[Route('/demande', name: 'app_demande_rdv')]
     #[Route('/demande/{id}/edit', name: 'edit_demande_rdv')]
 
     public function index(Request $request, DemandeRdv $demande, DemandeRdvRepository $demandeRdvRepository, EntityManagerInterface $entityManager): Response
