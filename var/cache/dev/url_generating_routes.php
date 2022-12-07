@@ -28,9 +28,9 @@ return [
     'app_cstreat' => [[], ['_controller' => 'App\\Controller\\CsController::listtreat'], [], [['text', '/cs-traitement']], [], [], []],
     'app_statsrdvcs' => [[], ['_controller' => 'App\\Controller\\CsController::statsrdvsup'], [], [['text', '/cs-statistiques']], [], [], []],
     'app_csinforecep' => [[], ['_controller' => 'App\\Controller\\CsController::inforecep'], [], [['text', '/cs-info-recep']], [], [], []],
-    'app_demande_rdv' => [[], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['text', '/demande/new']], [], [], []],
+    'app_demande_rdv' => [[], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['text', '/demande']], [], [], []],
     'edit_demande_rdv' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/demande']], [], [], []],
-    'app_show_demande' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::demande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/show_demande']], [], [], []],
+    'app_liste_rdv' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::demande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/demande']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\GestionController::index'], [], [['text', '/gestionnaire']], [], [], []],
     'app_ajoutprofil' => [[], ['_controller' => 'App\\Controller\\GestionController::aprofil'], [], [['text', '/creer_profil']], [], [], []],
     'app_profil' => [[], ['_controller' => 'App\\Controller\\GestionController::profil'], [], [['text', '/afficher_profil']], [], [], []],
@@ -49,6 +49,5 @@ return [
     'app_statsrdvsup' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], [], [['text', '/statistiques-sup']], [], [], []],
     'app_inforecep' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::inforecep'], [], [['text', '/info-recept-sup']], [], [], []],
     'app_uhome' => [[], ['_controller' => 'App\\Controller\\UsagerController::homeu'], [], [['text', '/usager']], [], [], []],
-    'app_liste_rdv' => [[], ['_controller' => 'App\\Controller\\UsagerController::lsrdv'], [], [['text', '/liste-rdv']], [], [], []],
     'app_cruchome' => [[], ['_controller' => 'App\\Controller\\WelcomeController::accueil'], [], [['text', '/']], [], [], []],
 ];

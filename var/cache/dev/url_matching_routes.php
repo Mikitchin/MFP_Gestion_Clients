@@ -26,7 +26,7 @@ return [
         '/cs-traitement' => [[['_route' => 'app_cstreat', '_controller' => 'App\\Controller\\CsController::listtreat'], null, null, null, false, false, null]],
         '/cs-statistiques' => [[['_route' => 'app_statsrdvcs', '_controller' => 'App\\Controller\\CsController::statsrdvsup'], null, null, null, false, false, null]],
         '/cs-info-recep' => [[['_route' => 'app_csinforecep', '_controller' => 'App\\Controller\\CsController::inforecep'], null, null, null, false, false, null]],
-        '/demande/new' => [[['_route' => 'app_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], null, null, null, false, false, null]],
+        '/demande' => [[['_route' => 'app_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], null, null, null, false, false, null]],
         '/gestionnaire' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\GestionController::index'], null, null, null, false, false, null]],
         '/creer_profil' => [[['_route' => 'app_ajoutprofil', '_controller' => 'App\\Controller\\GestionController::aprofil'], null, null, null, false, false, null]],
         '/afficher_profil' => [[['_route' => 'app_profil', '_controller' => 'App\\Controller\\GestionController::profil'], null, null, null, false, false, null]],
@@ -45,7 +45,6 @@ return [
         '/statistiques-sup' => [[['_route' => 'app_statsrdvsup', '_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], null, null, null, false, false, null]],
         '/info-recept-sup' => [[['_route' => 'app_inforecep', '_controller' => 'App\\Controller\\SuperviseurController::inforecep'], null, null, null, false, false, null]],
         '/usager' => [[['_route' => 'app_uhome', '_controller' => 'App\\Controller\\UsagerController::homeu'], null, null, null, false, false, null]],
-        '/liste-rdv' => [[['_route' => 'app_liste_rdv', '_controller' => 'App\\Controller\\UsagerController::lsrdv'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_cruchome', '_controller' => 'App\\Controller\\WelcomeController::accueil'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -65,8 +64,10 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/demande/([^/]++)/edit(*:191)'
-                .'|/show_demande/([^/]++)(*:221)'
+                .'|/demande/([^/]++)(?'
+                    .'|/edit(*:194)'
+                    .'|(*:202)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -77,9 +78,9 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        191 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, false, null]],
-        221 => [
-            [['_route' => 'app_show_demande', '_controller' => 'App\\Controller\\DemandeRdvController::demande'], ['id'], null, null, false, true, null],
+        194 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, false, null]],
+        202 => [
+            [['_route' => 'app_liste_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::demande'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

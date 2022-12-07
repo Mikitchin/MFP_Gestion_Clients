@@ -112,7 +112,7 @@
     <parameter key="kernel.http_method_override">false</parameter>
     <parameter key="kernel.trust_x_sendfile_type_header">false</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">fr</parameter>
     <parameter key="kernel.enabled_locales" type="collection"/>
     <parameter key="kernel.error_controller">error_controller</parameter>
     <parameter key="debug.file_link_format">%env(default::SYMFONY_IDE)%</parameter>
@@ -466,9 +466,6 @@
       <tag name="doctrine.fixture.orm"/>
       <argument type="service" id="security.user_password_hasher"/>
     </service>
-    <service id="App\EntityListener\DemandeRdvEntityListener" class="App\EntityListener\DemandeRdvEntityListener" autowire="true" autoconfigure="true">
-      <argument type="service" id="slugger"/>
-    </service>
     <service id="App\Form\DemandeFormType_old" class="App\Form\DemandeFormType_old" autowire="true" autoconfigure="true"/>
     <service id="App\Form\DemandeRdvType" class="App\Form\DemandeRdvType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -532,7 +529,7 @@
       <tag name="container.hot_path"/>
       <tag name="container.hot_path"/>
       <argument type="service" id="request_stack"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="service" id="router.default" on-invalid="ignore"/>
       <argument>false</argument>
       <argument type="collection"/>
@@ -760,7 +757,7 @@
     </service>
     <service id="slugger" class="Symfony\Component\String\Slugger\AsciiSlugger">
       <tag name="kernel.locale_aware"/>
-      <argument>en</argument>
+      <argument>fr</argument>
     </service>
     <service id="container.getenv" class="Closure">
       <tag name="routing.expression_language_function" function="env"/>
@@ -1231,7 +1228,7 @@
       <argument type="service" id="translation.writer"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument>C:\Users\DELL\Documents\CODES SYMFONY\Mfp_gestion_clients/translations</argument>
       <argument>C:\Users\DELL\Documents\CODES SYMFONY\Mfp_gestion_clients/templates</argument>
       <argument type="collection">
@@ -1268,7 +1265,7 @@
       <argument type="service" id="translation.provider_collection"/>
       <argument type="service" id="translation.writer"/>
       <argument type="service" id="translation.reader"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="collection"/>
       <argument type="collection"/>
       <call method="setName">
@@ -1736,7 +1733,7 @@
       <tag name="kernel.locale_aware"/>
       <argument type="service" id=".service_locator.yY.p4P7"/>
       <argument type="service" id="translator.formatter.default"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="collection">
         <argument key="translation.loader.php" type="collection">
           <argument>php</argument>
@@ -2143,7 +2140,7 @@
       </call>
       <call method="setFallbackLocales">
         <argument type="collection">
-          <argument>en</argument>
+          <argument>fr</argument>
         </argument>
       </call>
     </service>
@@ -2350,7 +2347,7 @@
     </service>
     <service id="translation.locale_switcher" class="Symfony\Component\Translation\LocaleSwitcher">
       <tag name="kernel.reset" method="reset"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="tagged_iterator" tag="kernel.locale_aware"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
     </service>
@@ -3069,7 +3066,7 @@
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="parameter_bag" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.router" on-invalid="ignore"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <call method="setConfigCacheFactory">
         <argument type="service" id="config_cache_factory"/>
       </call>
@@ -7219,19 +7216,19 @@
         <argument key="responseParameters" type="service_closure" id=".errored..service_locator.W.c5h2_.EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore"/>
       </argument>
     </service>
-    <service id=".service_locator.1k7f3W0" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.4RysUxN" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="demande" type="service_closure" id=".errored..service_locator.1k7f3W0.App\Entity\DemandeRdv"/>
         <argument key="demandeRdvRepository" type="service_closure" id="App\Repository\DemandeRdvRepository"/>
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.MDfyH2z" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.xzhyw8E" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="demande_rdv" type="service_closure" id=".errored..service_locator.MDfyH2z.App\Entity\DemandeRdv"/>
+        <argument key="demandeRdv" type="service_closure" id=".errored..service_locator.xzhyw8E.App\Entity\DemandeRdv"/>
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="repo" type="service_closure" id="App\Repository\DemandeRdvRepository"/>
       </argument>
     </service>
     <service id=".service_locator.qV1Yx19" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7249,7 +7246,7 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.JV21Jvx" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.9zAwdWq" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\DashboardController::configureUserMenu" type="service_closure" id=".service_locator.st3ASTR"/>
@@ -7316,8 +7313,8 @@
         <argument key="App\Controller\Admin\UserCrudController::persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\UserCrudController::renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\UserCrudController::updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
-        <argument key="App\Controller\DemandeRdvController::demande" type="service_closure" id=".service_locator.MDfyH2z"/>
-        <argument key="App\Controller\DemandeRdvController::index" type="service_closure" id=".service_locator.1k7f3W0"/>
+        <argument key="App\Controller\DemandeRdvController::demande" type="service_closure" id=".service_locator.xzhyw8E"/>
+        <argument key="App\Controller\DemandeRdvController::index" type="service_closure" id=".service_locator.4RysUxN"/>
         <argument key="App\Controller\RegistrationController::inscription" type="service_closure" id=".service_locator.qV1Yx19"/>
         <argument key="App\Controller\SecurityController::connexion" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -7390,8 +7387,8 @@
         <argument key="App\Controller\Admin\UserCrudController:persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\UserCrudController:renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\UserCrudController:updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
-        <argument key="App\Controller\DemandeRdvController:demande" type="service_closure" id=".service_locator.MDfyH2z"/>
-        <argument key="App\Controller\DemandeRdvController:index" type="service_closure" id=".service_locator.1k7f3W0"/>
+        <argument key="App\Controller\DemandeRdvController:demande" type="service_closure" id=".service_locator.xzhyw8E"/>
+        <argument key="App\Controller\DemandeRdvController:index" type="service_closure" id=".service_locator.4RysUxN"/>
         <argument key="App\Controller\RegistrationController:inscription" type="service_closure" id=".service_locator.qV1Yx19"/>
         <argument key="App\Controller\SecurityController:connexion" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -8364,12 +8361,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.JV21Jvx"/>
+      <argument type="service" id=".service_locator.9zAwdWq"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.JV21Jvx"/>
+      <argument type="service" id=".service_locator.9zAwdWq"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8414,8 +8411,7 @@
     <service id=".errored..service_locator.riFbGaB.EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto" class="EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto"/>
     <service id=".errored..service_locator.riFbGaB.EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore" class="EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore"/>
     <service id=".errored..service_locator.W.c5h2_.EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore" class="EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore"/>
-    <service id=".errored..service_locator.1k7f3W0.App\Entity\DemandeRdv" class="App\Entity\DemandeRdv"/>
-    <service id=".errored..service_locator.MDfyH2z.App\Entity\DemandeRdv" class="App\Entity\DemandeRdv"/>
+    <service id=".errored..service_locator.xzhyw8E.App\Entity\DemandeRdv" class="App\Entity\DemandeRdv"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -9364,7 +9360,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.JV21Jvx"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.9zAwdWq"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9390,9 +9386,8 @@
     <service id=".service_locator.nTL_G5r" alias=".service_locator.esmk6IF"/>
     <service id=".service_locator.hNls88j" alias=".service_locator.ENGuM7_"/>
     <service id=".service_locator.6rNHno." alias=".service_locator.riFbGaB"/>
-    <service id=".service_locator.IJ7LE6z" alias=".service_locator.MDfyH2z"/>
     <service id=".service_locator.gwY_rIW" alias=".service_locator.qV1Yx19"/>
-    <service id=".service_locator.b1BRwD1" alias=".service_locator.JV21Jvx"/>
+    <service id=".service_locator.EnnXVuo" alias=".service_locator.9zAwdWq"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.eBzBezJ" alias=".service_locator.fP5WdZW"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -9459,8 +9454,8 @@
     <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.UNSqNV2" alias=".service_locator.riFbGaB"/>
     <service id=".service_locator.YGHh.DA" alias=".service_locator.W.c5h2_"/>
-    <service id=".service_locator.81nxfw0" alias=".service_locator.1k7f3W0"/>
-    <service id=".service_locator.vS5t7fK" alias=".service_locator.MDfyH2z"/>
+    <service id=".service_locator.p7KfmL1" alias=".service_locator.4RysUxN"/>
+    <service id=".service_locator.kj5fp3B" alias=".service_locator.xzhyw8E"/>
     <service id=".service_locator.oQEaC2b" alias=".service_locator.qV1Yx19"/>
     <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>
     <service id=".service_locator.t0V3OFl" alias=".service_locator.XmW3LYn"/>
