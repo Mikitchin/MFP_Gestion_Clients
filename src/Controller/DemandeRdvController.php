@@ -25,13 +25,18 @@ class DemandeRdvController extends AbstractController
         if (!$demande) {
             $demande = new DemandeRdv();
         }
+
         $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
         $lastId = $id_rdv->getId();
-        $j = new \Datetime();
-        $result = $j->format('d-m-Y');
-        $b = "RDV_" . $result . "_" . $lastId;
+        if (!$lastId) {
+            $lastId = 1;
+        }
 
-        // dd($b);
+        $j = new \Datetime();
+        $result = $j->format('dmY');
+        $b = "RDV_" . $result . "_" . $id_rdv;
+
+        // dd($lastId);
 
         $form = $this->createForm(DemandeFormType::class, $demande);
 
@@ -44,7 +49,7 @@ class DemandeRdvController extends AbstractController
             $demande->setCodeDde($b);
             $entityManager->persist($demande);
             $entityManager->flush();
-            $this->addFlash('success', 'Votre demande a été faite');
+            //   $this->addFlash('success', 'Votre demande a été faite');
 
             return $this->redirectToRoute('app_liste_rdv', ['id' => $demande->getId()]);
         }
