@@ -15,14 +15,24 @@ use Symfony\Component\Validator\Constraints\All;
 
 class DemandeRdvController extends AbstractController
 {
+
     #[Route('/demande', name: 'app_demande_rdv')]
     #[Route('/demande/{id}/edit', name: 'edit_demande_rdv')]
 
-    public function index(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $demandeRdvRepository, EntityManagerInterface $entityManager): Response
+    public function index(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $repo, EntityManagerInterface $entityManager): Response
     {
+
         if (!$demande) {
             $demande = new DemandeRdv();
         }
+        $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
+        $lastId = $id_rdv->getId();
+        $j = new \Datetime();
+        $result = $j->format('d-m-Y');
+        $b = "RDV_" . $result . "_" . $lastId;
+
+        // dd($b);
+
         $form = $this->createForm(DemandeFormType::class, $demande);
 
         $form->handleRequest($request);
@@ -31,7 +41,7 @@ class DemandeRdvController extends AbstractController
                 $demande->setCreatedAt = new \Datetime();
             }
 
-            $demande->setCodeDde('RDV_$id');
+            $demande->setCodeDde($b);
             $entityManager->persist($demande);
             $entityManager->flush();
             $this->addFlash('success', 'Votre demande a été faite');
