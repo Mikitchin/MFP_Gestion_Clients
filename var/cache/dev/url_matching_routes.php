@@ -16,14 +16,9 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
         '/espace_agent_d_accueil' => [[['_route' => 'app_ahome', '_controller' => 'App\\Controller\\AgentController::index'], null, null, null, false, false, null]],
-<<<<<<< HEAD
-        '/afficher_la_liste_des_rdv' => [[['_route' => 'app_alistrdv', '_controller' => 'App\\Controller\\AgentController::lrdv'], null, null, null, false, false, null]],
-        '/afficher_les_statistiques_des_rdv' => [[['_route' => 'app_astatsrdv', '_controller' => 'App\\Controller\\AgentController::astatrdv'], null, null, null, false, false, null]],
-=======
         '/creer-rdv' => [[['_route' => 'app_createrdv', '_controller' => 'App\\Controller\\AgentController::ardv'], null, null, null, false, false, null]],
         '/afficher-rdv' => [[['_route' => 'app_listrdv', '_controller' => 'App\\Controller\\AgentController::lrdv'], null, null, null, false, false, null]],
         '/stats-rdv' => [[['_route' => 'app_statsrdv', '_controller' => 'App\\Controller\\AgentController::srdv'], null, null, null, false, false, null]],
->>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
         '/prise_de_rdv_agent_d_accueil' => [[['_route' => 'app_rdv_agt', '_controller' => 'App\\Controller\\AgentController::rdv_agt'], null, null, null, false, false, null]],
         '/list_rdv_agent' => [[['_route' => 'app_lst_dem_agt', '_controller' => 'App\\Controller\\AgentController::lst_dem_agt'], null, null, null, false, false, null]],
         '/espace_chef_de_service' => [[['_route' => 'app_cshome', '_controller' => 'App\\Controller\\CsController::index'], null, null, null, false, false, null]],
@@ -50,10 +45,6 @@ return [
         '/statistiques-sup' => [[['_route' => 'app_statsrdvsup', '_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], null, null, null, false, false, null]],
         '/info-recept-sup' => [[['_route' => 'app_inforecep', '_controller' => 'App\\Controller\\SuperviseurController::inforecep'], null, null, null, false, false, null]],
         '/usager' => [[['_route' => 'app_uhome', '_controller' => 'App\\Controller\\UsagerController::homeu'], null, null, null, false, false, null]],
-<<<<<<< HEAD
-        '/liste-rdv' => [[['_route' => 'app_liste_rdv', '_controller' => 'App\\Controller\\UsagerController::lsrdv'], null, null, null, false, false, null]],
-=======
->>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
         '/' => [[['_route' => 'app_cruchome', '_controller' => 'App\\Controller\\WelcomeController::accueil'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -73,14 +64,10 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-<<<<<<< HEAD
-                .'|/show_demande/([^/]++)(*:191)'
-=======
                 .'|/demande/([^/]++)(?'
                     .'|/edit(*:194)'
                     .'|(*:202)'
                 .')'
->>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -91,14 +78,9 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-<<<<<<< HEAD
-        191 => [
-            [['_route' => 'app_show_demande', '_controller' => 'App\\Controller\\DemandeRdvController::demande'], ['id'], null, null, false, true, null],
-=======
         194 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, false, null]],
         202 => [
             [['_route' => 'app_liste_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::demande'], ['id'], null, null, false, true, null],
->>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
             [null, null, null, null, false, false, 0],
         ],
     ],
