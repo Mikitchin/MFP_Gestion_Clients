@@ -47,9 +47,4 @@ class GsController extends AbstractController
             'controller_name' => 'GsController',
         ]);
     }
-<<<<<<< HEAD
-   
-   
-=======
->>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
 }
