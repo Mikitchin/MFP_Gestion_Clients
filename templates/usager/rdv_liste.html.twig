@@ -8,10 +8,7 @@
     <article class="containerxd article">
 
       <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
-
-      <p class="article-subtitle">Bienvenue !</p>
-
-     
+ 
       <!-- 
         - #RDV
       -->
@@ -19,13 +16,13 @@
       <section class="tasks">
 
         <div class="section-title-wrapper">
-          <h2 class="section-title">Liste des demandes de rendez-vous</h2>
-
-          <button class="btn btn-link icon-box">
+          <h2 class="section-title">Mes demandes de rendez-vous</h2>
+            
+          {# <button class="btn btn-link icon-box">
             <span>Voir tout</span>
 
             <span class="material-symbols-rounded  icon" aria-hidden="true">arrow_forward</span>
-          </button>
+          </button> #}
         </div>
 
         <ul class="tasks-list">
@@ -34,12 +31,35 @@
             <div class="card task-card">
 
               <div class="card-input">
-                <label for="task-1" class="task-label">
+                {# <label for="task-1" class="task-label">
                   Motif 1 de la demande de rendez-vous
-                </label>
+
+                </label> #}
+
+                                  <table class = "table table-hover">
+                      <thead>
+                  <tr>
+                      <th scope = "col"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Code de la demande </font> </font> </th >
+                      <th scope = "col"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Motif de la demande </font> </font> </th >
+                      <th scope = "col"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Date du rendez-vous </font> </font> </th >
+                    
+                    </thead>
+
+                    <tbody>
+                    <tr class = "table-success">
+                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demande.codeDde }} </font> </font> </td>
+                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demande.codeMotif }} </font> </font> </td>
+                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demande.dateDemande | date('d/m/y') }} </font> </font> </td>
+                        
+                    </tr>
+                    </tbody>
+                
+                    </table>
+                    
+{# Entrons les données de la demande ici #}
               </div>
 
-              <div class="card-badge cyan radius-pill">Date et Heure</div>
+              {# <div class="card-badge cyan radius-pill">Date et Heure</div> #}
 
               <ul class="card-meta-list">
 
@@ -87,179 +107,7 @@
             </div>
           </li>
 
-          <li class="tasks-item">
-            <div class="card task-card">
-
-              <div class="card-input">
-                <label for="task-1" class="task-label">
-                  Motif 2 de la demande de rendez-vous
-                </label>
-              </div>
-
-              <div class="card-badge cyan radius-pill">Date et Heure</div>
-
-              <ul class="card-meta-list">
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Accepter" class="material-symbols-rounded  icon">done</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Transférer" class="material-symbols-rounded  icon">send</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
-                    </a>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-          </li>
-
-          <li class="tasks-item">
-            <div class="card task-card">
-
-              <div class="card-input">
-                <label for="task-1" class="task-label">
-                  Motif 3 de la demande de rendez-vous
-                </label>
-              </div>
-
-              <div class="card-badge cyan radius-pill">Date et Heure</div>
-
-              <ul class="card-meta-list">
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Accepter" class="material-symbols-rounded  icon">done</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Transférer" class="material-symbols-rounded  icon">send</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
-                    </a>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-          </li>
-
-          <li class="tasks-item">
-            <div class="card task-card">
-
-              <div class="card-input">
-                <label for="task-1" class="task-label">
-                  Motif 4 de la demande de rendez-vous
-                </label>
-              </div>
-
-              <div class="card-badge cyan radius-pill">Date et Heure</div>
-
-              <ul class="card-meta-list">
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Accepter" class="material-symbols-rounded  icon">done</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Transférer" class="material-symbols-rounded  icon">send</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
-                    </a>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-          </li>
-
           
-
         </ul>
 
         <button class="btn btn-primary" data-load-more>

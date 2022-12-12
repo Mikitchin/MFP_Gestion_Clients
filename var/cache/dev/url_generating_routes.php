@@ -18,8 +18,14 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'admin' => [[], ['_controller' => 'App\\Controller\\Admin\\DashboardController::index'], [], [['text', '/admin']], [], [], []],
     'app_ahome' => [[], ['_controller' => 'App\\Controller\\AgentController::index'], [], [['text', '/espace_agent_d_accueil']], [], [], []],
+<<<<<<< HEAD
     'app_alistrdv' => [[], ['_controller' => 'App\\Controller\\AgentController::lrdv'], [], [['text', '/afficher_la_liste_des_rdv']], [], [], []],
     'app_astatsrdv' => [[], ['_controller' => 'App\\Controller\\AgentController::astatrdv'], [], [['text', '/afficher_les_statistiques_des_rdv']], [], [], []],
+=======
+    'app_createrdv' => [[], ['_controller' => 'App\\Controller\\AgentController::ardv'], [], [['text', '/creer-rdv']], [], [], []],
+    'app_listrdv' => [[], ['_controller' => 'App\\Controller\\AgentController::lrdv'], [], [['text', '/afficher-rdv']], [], [], []],
+    'app_statsrdv' => [[], ['_controller' => 'App\\Controller\\AgentController::srdv'], [], [['text', '/stats-rdv']], [], [], []],
+>>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
     'app_rdv_agt' => [[], ['_controller' => 'App\\Controller\\AgentController::rdv_agt'], [], [['text', '/prise_de_rdv_agent_d_accueil']], [], [], []],
     'app_lst_dem_agt' => [[], ['_controller' => 'App\\Controller\\AgentController::lst_dem_agt'], [], [['text', '/list_rdv_agent']], [], [], []],
     'app_cshome' => [[], ['_controller' => 'App\\Controller\\CsController::index'], [], [['text', '/espace_chef_de_service']], [], [], []],
@@ -28,7 +34,12 @@ return [
     'app_statsrdvcs' => [[], ['_controller' => 'App\\Controller\\CsController::statsrdvsup'], [], [['text', '/cs-statistiques']], [], [], []],
     'app_csinforecep' => [[], ['_controller' => 'App\\Controller\\CsController::inforecep'], [], [['text', '/cs-info-recep']], [], [], []],
     'app_demande_rdv' => [[], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['text', '/demande']], [], [], []],
+<<<<<<< HEAD
     'app_show_demande' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::demande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/show_demande']], [], [], []],
+=======
+    'edit_demande_rdv' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/demande']], [], [], []],
+    'app_liste_rdv' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::demande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/demande']], [], [], []],
+>>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
     'app_home' => [[], ['_controller' => 'App\\Controller\\GestionController::index'], [], [['text', '/gestionnaire']], [], [], []],
     'app_ajoutprofil' => [[], ['_controller' => 'App\\Controller\\GestionController::aprofil'], [], [['text', '/creer_profil']], [], [], []],
     'app_profil' => [[], ['_controller' => 'App\\Controller\\GestionController::profil'], [], [['text', '/afficher_profil']], [], [], []],
@@ -47,6 +58,9 @@ return [
     'app_statsrdvsup' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], [], [['text', '/statistiques-sup']], [], [], []],
     'app_inforecep' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::inforecep'], [], [['text', '/info-recept-sup']], [], [], []],
     'app_uhome' => [[], ['_controller' => 'App\\Controller\\UsagerController::homeu'], [], [['text', '/usager']], [], [], []],
+<<<<<<< HEAD
     'app_liste_rdv' => [[], ['_controller' => 'App\\Controller\\UsagerController::lsrdv'], [], [['text', '/liste-rdv']], [], [], []],
+=======
+>>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
     'app_cruchome' => [[], ['_controller' => 'App\\Controller\\WelcomeController::accueil'], [], [['text', '/']], [], [], []],
 ];
