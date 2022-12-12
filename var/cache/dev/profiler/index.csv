@@ -179,3 +179,5 @@ cde4bc,127.0.0.1,GET,https://127.0.0.1:8000/demande,1670495909,,200
 3855e4,127.0.0.1,GET,https://127.0.0.1:8000/gestionnaire,1670505892,,200
 458f64,127.0.0.1,GET,https://127.0.0.1:8000/demande,1670506415,,200
 0a97c6,127.0.0.1,GET,https://127.0.0.1:8000/usager,1670506435,,200
+d5b752,127.0.0.1,GET,https://127.0.0.1:8000/demande,1670510417,,200
+f5b7d1,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGroupeProfilCrudController&entityId=8&referrer=%2Fadmin%3FcrudAction%3Dindex%26crudControllerFqcn%3DApp%255CController%255CAdmin%255CProfilCrudController%26menuIndex%3D2%26submenuIndex%3D-1,1670510558,,200
