@@ -30,7 +30,7 @@ return [
     'app_csinforecep' => [[], ['_controller' => 'App\\Controller\\CsController::inforecep'], [], [['text', '/cs-info-recep']], [], [], []],
     'app_demande_rdv' => [[], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['text', '/demande']], [], [], []],
     'edit_demande_rdv' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::index'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/demande']], [], [], []],
-    'app_liste_rdv' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::demande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/demande']], [], [], []],
+    'app_liste_rdv' => [[], ['_controller' => 'App\\Controller\\DemandeRdvController::demande'], [], [['text', '/liste-demande']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\GestionController::index'], [], [['text', '/gestionnaire']], [], [], []],
     'app_ajoutprofil' => [[], ['_controller' => 'App\\Controller\\GestionController::aprofil'], [], [['text', '/creer_profil']], [], [], []],
     'app_profil' => [[], ['_controller' => 'App\\Controller\\GestionController::profil'], [], [['text', '/afficher_profil']], [], [], []],

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Datetime;
+use App\Entity\User;
 use App\Entity\DemandeRdv;
 use App\Form\DemandeFormType;
 use App\Repository\DemandeRdvRepository;
@@ -10,8 +11,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Validator\Constraints\All;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DemandeRdvController extends AbstractController
 {
@@ -60,12 +61,19 @@ class DemandeRdvController extends AbstractController
         ]);
     }
 
-    #[Route('/demande/{id}', name: 'app_liste_rdv')]
-    public function demande(Request $request, DemandeRdv $demandeRdv, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
+    #[Route('/liste-demande', name: 'app_liste_rdv')]
+    public function demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
     {
-        // $demandeRdv = $repo->findAll();
+        $demande = new DemandeRdv();
+        $user = $this->getUser()->getId();
+        $demande = $repo->findBy(array('users' => $user));
+        // $demande = $repo->findAll();
+
+        // dd($demande);
+
         return $this->render('usager/rdv_liste.html.twig', [
-            'demande' => $demandeRdv
+            'demande' => $demande,
+            // 'user' => $user,
         ]);
     }
 }
