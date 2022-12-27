@@ -60,6 +60,7 @@ class DemandeRdv
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->users = $users();
     }
 
     public function getId(): ?int
@@ -178,11 +179,6 @@ class DemandeRdv
         return $this;
     }
 
-    public function __toString(): string
-    {
-        return $this->getId();
-    }
-
     public function getUsers(): ?User
     {
         return $this->users;
@@ -193,5 +189,10 @@ class DemandeRdv
         $this->users = $users;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getId();
     }
 }

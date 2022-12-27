@@ -39,18 +39,35 @@
                   <table class = "table table-hover">
                     <thead>
                     <tr>
-                      <th scope = "col"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Code de la demande </font> </font> </th >
-                      <th scope = "col"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Motif de la demande </font> </font> </th >
-                      <th scope = "col"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Date du rendez-vous </font> </font> </th >
+                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Code de la demande </font> </font> </th >
+                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Motif de la demande </font> </font> </th >
+                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Date du rendez-vous </font> </font> </th >
+                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Modifier </font> </font> </th >
+                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Annuler la demande </font> </font> </th >
+
                     </tr>
                     </thead>
                             {% for demandes in demande %}
                     <tbody>
                     <tr class = "table-success">
-                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demandes.codeDde }} </font> </font> </td>
+                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demandes.codeDde }}  </font> </font> </td>
                         <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demandes.codeMotif }} </font> </font> </td>
                         <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demandes.dateDemande | date('d/m/y') }} </font> </font> </td>
-                        
+                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> 
+                          
+                            <div class="meta-box icon-box">
+                            <a href="{{ path('edit_demande_rdv', {'id': demandes.id}) }}" class="navbarxd-link activexd icon-box">
+                              <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
+                            </a>
+                           </div>
+                           </font> </font> </td>
+                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> 
+                            <div class="meta-box icon-box">
+                            <a href="{{ path('delete_demande', {'id': demandes.id}) }}" class="navbar-link activexd icon-box">
+                            <span title="Annuler" class="material-symbols-rounded  icon">delete</span>
+                          </a>
+                        </div>
+                      </font> </font> </td>
                     </tr>
                     </tbody>
                             {% endfor %}
@@ -60,7 +77,7 @@
 
               {# <div class="card-badge cyan radius-pill">Date et Heure</div> #}
 
-              <ul class="card-meta-list">
+              {# <ul class="card-meta-list">
                 
                 <li>
                   <div class="meta-box icon-box">
@@ -79,7 +96,7 @@
                   </div>
                 </li>
 
-              </ul>
+              </ul> #}
 
             </div>
           </li>

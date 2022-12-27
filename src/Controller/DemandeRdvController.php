@@ -18,7 +18,7 @@ class DemandeRdvController extends AbstractController
 {
 
     #[Route('/demande', name: 'app_demande_rdv')]
-    #[Route('/demande/{id}/edit', name: 'edit_demande_rdv')]
+    #[Route('/demande/edit/{id}', name: 'edit_demande_rdv')]
 
     public function index(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $repo, EntityManagerInterface $entityManager): Response
     {
@@ -37,7 +37,9 @@ class DemandeRdvController extends AbstractController
         $result = $j->format('dmY');
         $b = "RDV_" . $result . "_" . $id_rdv;
 
-        // dd($lastId);
+        $user = $this->getUser()->getId();
+        // $demande_rs = $repo->findBy(array('users' => $user));
+        // dd($user);
 
         $form = $this->createForm(DemandeFormType::class, $demande);
 
@@ -48,11 +50,13 @@ class DemandeRdvController extends AbstractController
             }
 
             $demande->setCodeDde($b);
+            $demande->setUsers($user);
             $entityManager->persist($demande);
             $entityManager->flush();
             //   $this->addFlash('success', 'Votre demande a été faite');
 
-            return $this->redirectToRoute('app_liste_rdv', ['id' => $demande->getId()]);
+            // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+            return $this->redirectToRoute('demande_add');
         }
 
         return $this->render('usager/rdv_form.html.twig', [
@@ -62,7 +66,7 @@ class DemandeRdvController extends AbstractController
     }
 
     #[Route('/liste-demande', name: 'app_liste_rdv')]
-    public function demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
+    public function demande(Request $request, EntityManagerInterface $entityManager, User $user, DemandeRdvRepository $repo): Response
     {
         $demande = new DemandeRdv();
         $user = $this->getUser()->getId();
@@ -75,5 +79,20 @@ class DemandeRdvController extends AbstractController
             'demande' => $demande,
             // 'user' => $user,
         ]);
+    }
+
+    #[Route('/delete/{id}', name: 'delete_demande')]
+    public function delete_demande(DemandeRdv $demande, Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
+    {
+        $entityManager->remove($demande);
+        $entityManager->flush();
+        return $this->render('usager/demande_del.html.twig');
+    }
+
+    #[Route('/succes_add', name: 'demande_add')]
+    public function demande_add(): Response
+    {
+
+        return $this->render('usager/demande_add.html.twig');
     }
 }
