@@ -24,7 +24,7 @@ class AgentController extends AbstractController
         ]);
     }
 
-    #[Route('/afficher-rdv', name: 'app_listrdv')]
+    #[Route('/afficher-rdv', name: 'app_alistrdv')]
     public function lrdv(): Response
     {
         return $this->render('agent/rdvlist.html.twig', [
