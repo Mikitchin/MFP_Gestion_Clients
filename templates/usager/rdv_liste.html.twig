@@ -121,13 +121,14 @@
               <tr>
                 <th>CODE DE LA DEMANDE</th>
                 <th>MOTIF DE LA DEMANDE</th>
+                {# <th>DESCRIPTION DE LA DEMANDE</th> #}
                 <th>DATE DU RENDEZ-VOUS</th>
                 <th>HEURE DU RENDEZ-VOUS</th>
                 <th>ACTIONS</th>
               </tr>
               </thead>
               <tbody>
-              <tr class="table-default">
+              {#<tr class="table-default">
                 <td>1</td>
                 <td>Joan Powell</td>
                 <td>Associate Developer</td>
@@ -141,7 +142,7 @@
                 <td>$230,540</td>
                 <td>$230,540</td>
               </tr>
-              <tr class="table-secondary">
+               <tr class="table-secondary">
                 <td>2</td>
                 <td>Gavin Gibson</td>
                 <td>Account manager</td>
@@ -161,7 +162,17 @@
                 <td>Account manager</td>
                 <td>$230,540</td>
                 <td>$230,540</td>
+              </tr> #}
+              {% for demandes in demande %}
+              <tr class="table-info">
+                <td>{{ demandes.codeDde }} </td>
+                <td>{{ demandes.codeMotif }}</td>
+                {# <td>{{ demandes.descriptDde }} </td> #}
+                <td>{{ demandes.dateDemande | date('d/m/y') }}</td>
+                <td>$230,540</td>
+                <td>$230,540</td>
               </tr>
+              {% endfor %}              
               </tbody>
             </table>
           </div>
