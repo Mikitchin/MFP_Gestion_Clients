@@ -60,7 +60,6 @@ class DemandeRdv
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
-        $this->users = $users();
     }
 
     public function getId(): ?int

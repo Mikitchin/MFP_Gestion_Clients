@@ -37,7 +37,7 @@ class DemandeRdvController extends AbstractController
         $result = $j->format('dmY');
         $b = "RDV_" . $result . "_" . $id_rdv;
 
-        $user = $this->getUser()->getId();
+        $user_cnt = $this->getUser();
         // $demande_rs = $repo->findBy(array('users' => $user));
         // dd($user);
 
@@ -50,7 +50,7 @@ class DemandeRdvController extends AbstractController
             }
 
             $demande->setCodeDde($b);
-            $demande->setUsers($user);
+            $demande->setUsers($user_cnt);
             $entityManager->persist($demande);
             $entityManager->flush();
             //   $this->addFlash('success', 'Votre demande a été faite');
@@ -66,7 +66,7 @@ class DemandeRdvController extends AbstractController
     }
 
     #[Route('/liste-demande', name: 'app_liste_rdv')]
-    public function demande(Request $request, EntityManagerInterface $entityManager, User $user, DemandeRdvRepository $repo): Response
+    public function demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
     {
         $demande = new DemandeRdv();
         $user = $this->getUser()->getId();
