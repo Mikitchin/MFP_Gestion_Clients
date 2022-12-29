@@ -121,48 +121,13 @@
               <tr>
                 <th>CODE DE LA DEMANDE</th>
                 <th>MOTIF DE LA DEMANDE</th>
-                {# <th>DESCRIPTION DE LA DEMANDE</th> #}
-                <th>DATE DU RENDEZ-VOUS</th>
-                <th>HEURE DU RENDEZ-VOUS</th>
+                <th>DATE </th>
+                <th>HEURE</th>
                 <th>ACTIONS</th>
               </tr>
               </thead>
               <tbody>
-              {#<tr class="table-default">
-                <td>1</td>
-                <td>Joan Powell</td>
-                <td>Associate Developer</td>
-                <td>$450,870</td>
-                <td>$450,870</td>
-              </tr>
-              <tr class="table-primary">
-                <td>2</td>
-                <td>Gavin Gibson</td>
-                <td>Account manager</td>
-                <td>$230,540</td>
-                <td>$230,540</td>
-              </tr>
-               <tr class="table-secondary">
-                <td>2</td>
-                <td>Gavin Gibson</td>
-                <td>Account manager</td>
-                <td>$230,540</td>
-                <td>$230,540</td>
-              </tr>
-              <tr class="table-success">
-                <td>2</td>
-                <td>Gavin Gibson</td>
-                <td>Account manager</td>
-                <td>$230,540</td>
-                <td>$230,540</td>
-              </tr>
-              <tr class="table-danger">
-                <td>2</td>
-                <td>Gavin Gibson</td>
-                <td>Account manager</td>
-                <td>$230,540</td>
-                <td>$230,540</td>
-              </tr> #}
+              
               {% for demandes in demande %}
               <tr class="table-info">
                 <td>{{ demandes.codeDde }} </td>
@@ -170,7 +135,15 @@
                 {# <td>{{ demandes.descriptDde }} </td> #}
                 <td>{{ demandes.dateDemande | date('d/m/y') }}</td>
                 <td>$230,540</td>
-                <td>$230,540</td>
+                <td>
+                  <a href="{{ path('edit_demande_rdv', {'id': demandes.id}) }}" class="navbarxd-link activexd icon-box">
+                              <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
+                  </a>
+                  <a href="{{ path('delete_demande', {'id': demandes.id}) }}" class="navbar-link activexd icon-box">
+                            <span title="Annuler" class="material-symbols-rounded  icon">delete</span>
+                  </a>
+
+                </td>
               </tr>
               {% endfor %}              
               </tbody>
