@@ -38,7 +38,7 @@
                 <td>{{ demandes.codeDde }} </td>
                 <td>{{ demandes.codeMotif }}</td>
                 <td>{{ demandes.dateDemande | date('d/m/y') }}</td>
-                <td>09h00</td>
+                <td>{{ demandes.datemodifDde | date('d/m/y') }}</td>
                 <td>
                   <a href="{{ path('edit_demande_rdv', {'id': demandes.id}) }}" class="navbarxd-link activexd icon-box">
                               <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
