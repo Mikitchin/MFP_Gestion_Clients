@@ -1378,6 +1378,18 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
+<<<<<<< HEAD
+            "version": "v4.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
+                "reference": "0ad6e4070b62364b3afef0bc0cc881c45f2fa033"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/0ad6e4070b62364b3afef0bc0cc881c45f2fa033",
+                "reference": "0ad6e4070b62364b3afef0bc0cc881c45f2fa033",
+=======
             "version": "v4.4.4",
             "source": {
                 "type": "git",
@@ -1388,6 +1400,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/8d91efa1448b44b7ad0f7be0253daf87cd176c8b",
                 "reference": "8d91efa1448b44b7ad0f7be0253daf87cd176c8b",
+>>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
                 "shasum": ""
             },
             "require": {
@@ -1459,7 +1472,11 @@
             ],
             "support": {
                 "issues": "https://github.com/EasyCorp/EasyAdminBundle/issues",
+<<<<<<< HEAD
+                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v4.4.3"
+=======
                 "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v4.4.4"
+>>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
             },
             "funding": [
                 {
@@ -1467,7 +1484,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
+            "time": "2022-11-26T19:26:05+00:00"
+=======
             "time": "2022-11-29T19:44:16+00:00"
+>>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
         },
         {
             "name": "egulias/email-validator",
@@ -1953,6 +1974,18 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
+<<<<<<< HEAD
+            "version": "1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpdoc-parser.git",
+                "reference": "df1a79430e14e30cd192fe6c05842133d076e58d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/df1a79430e14e30cd192fe6c05842133d076e58d",
+                "reference": "df1a79430e14e30cd192fe6c05842133d076e58d",
+=======
             "version": "1.15.0",
             "source": {
                 "type": "git",
@@ -1963,6 +1996,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/6ff970a7101acfe99b3048e4bbfbc094e55c5b04",
                 "reference": "6ff970a7101acfe99b3048e4bbfbc094e55c5b04",
+>>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
                 "shasum": ""
             },
             "require": {
@@ -1992,9 +2026,15 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
+<<<<<<< HEAD
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.14.0"
+            },
+            "time": "2022-11-27T19:09:16+00:00"
+=======
                 "source": "https://github.com/phpstan/phpdoc-parser/tree/1.15.0"
             },
             "time": "2022-12-07T16:12:39+00:00"
+>>>>>>> 5336e098af208eafd56da49e5086e8708d147e4e
         },
         {
             "name": "psr/cache",

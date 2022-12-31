@@ -13,102 +13,48 @@
         - #RDV
       -->
 
-      <section class="tasks">
+      <section class="tasks">       
 
-        <div class="section-title-wrapper">
-          <h2 class="section-title">Mes demandes de rendez-vous</h2>
-            
-          {# <button class="btn btn-link icon-box">
-            <span>Voir tout</span>
-
-            <span class="material-symbols-rounded  icon" aria-hidden="true">arrow_forward</span>
-          </button> #}
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Mes demandes de rendez-vous</h3>
         </div>
-
-        <ul class="tasks-list">
-
-          <li class="tasks-item">
-            <div class="card task-card">
-
-              <div class="card-input">
-                {# <label for="task-1" class="task-label">
-                  Motif 1 de la demande de rendez-vous
-
-                </label> #}
-
-                  <table class = "table table-hover">
-                    <thead>
-                    <tr>
-                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Code de la demande </font> </font> </th >
-                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Motif de la demande </font> </font> </th >
-                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Date du rendez-vous </font> </font> </th >
-                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Modifier </font> </font> </th >
-                      <th scope = "col-3"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Annuler la demande </font> </font> </th >
-
-                    </tr>
-                    </thead>
-                            {% for demandes in demande %}
-                    <tbody>
-                    <tr class = "table-success">
-                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demandes.codeDde }}  </font> </font> </td>
-                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demandes.codeMotif }} </font> </font> </td>
-                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> {{ demandes.dateDemande | date('d/m/y') }} </font> </font> </td>
-                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> 
-                          
-                            <div class="meta-box icon-box">
-                            <a href="{{ path('edit_demande_rdv', {'id': demandes.id}) }}" class="navbarxd-link activexd icon-box">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table border text-nowrap text-md-nowrap mb-0">
+              <thead>
+              <tr>
+                <th>CODE DE LA DEMANDE</th>
+                <th>MOTIF DE LA DEMANDE</th>
+                <th>DATE </th>
+                <th>HEURE</th>
+                <th>ACTIONS</th>
+              </tr>
+              </thead>
+              <tbody>
+              
+              {% for demandes in demande %}
+              <tr class="table-info">
+                <td>{{ demandes.codeDde }} </td>
+                <td>{{ demandes.codeMotif }}</td>
+                <td>{{ demandes.dateDemande | date('d/m/y') }}</td>
+                <td>{{ demandes.datemodifDde | date('d/m/y') }}</td>
+                <td>
+                  <a href="{{ path('edit_demande_rdv', {'id': demandes.id}) }}" class="navbarxd-link activexd icon-box">
                               <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                            </a>
-                           </div>
-                           </font> </font> </td>
-                        <td> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> 
-                            <div class="meta-box icon-box">
-                            <a href="{{ path('delete_demande', {'id': demandes.id}) }}" class="navbar-link activexd icon-box">
+                  </a>
+                  <a href="{{ path('delete_demande', {'id': demandes.id}) }}" class="navbar-link activexd icon-box">
                             <span title="Annuler" class="material-symbols-rounded  icon">delete</span>
-                          </a>
-                        </div>
-                      </font> </font> </td>
-                    </tr>
-                    </tbody>
-                            {% endfor %}
-                    </table>
-                 
-              </div>
+                  </a>
 
-              {# <div class="card-badge cyan radius-pill">Date et Heure</div> #}
-
-              {# <ul class="card-meta-list">
-                
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                    </a>
-                  </div>
-                </li>
-
-                
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbar-link activexd icon-box">
-                      <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
-                    </a>
-                  </div>
-                </li>
-
-              </ul> #}
-
-            </div>
-          </li>
-
-          
-        </ul>
-
-        <button class="btn btn-primary" data-load-more>
-          <span class="spiner"></span>
-
-          <span>Charger plus</span>
-        </button>
+                </td>
+              </tr>
+              {% endfor %}              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
       </section>
 
