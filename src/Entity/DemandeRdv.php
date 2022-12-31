@@ -21,7 +21,7 @@ class DemandeRdv
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $codeDde = 'num_1';
+    private ?string $codeDde = null;
 
     // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     // private ?\DateTimeInterface $dateDde = null;

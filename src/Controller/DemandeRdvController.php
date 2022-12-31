@@ -5,7 +5,9 @@ namespace App\Controller;
 use Datetime;
 use App\Entity\User;
 use App\Entity\DemandeRdv;
+use App\Entity\DemandeSearch;
 use App\Form\DemandeFormType;
+use App\Form\DemandeSearchType;
 use App\Repository\DemandeRdvRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -77,7 +79,7 @@ class DemandeRdvController extends AbstractController
 
         return $this->render('usager/rdv_liste.html.twig', [
             'demande' => $demande,
-            // 'user' => $user,
+
         ]);
     }
 
@@ -92,7 +94,25 @@ class DemandeRdvController extends AbstractController
     #[Route('/succes_add', name: 'demande_add')]
     public function demande_add(): Response
     {
-
         return $this->render('usager/demande_add.html.twig');
+    }
+
+    #[Route('/recherche-demande', name: 'app_search')]
+    public function search_demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
+    {
+        $demandeSearch = new DemandeSearch();
+        $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+        $form->handleRequest($request);
+        $demande = [];
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $code = $demandeSearch->getCodeDde();
+            if ($code != "")
+                $demande = $repo->findBy(['codeDde' => $code]);
+        }
+
+        return $this->render('usager/demande_search.html.twig', [
+            'form' => $form->createView(), 'demande' => $demande
+        ]);
     }
 }
