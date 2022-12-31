@@ -21,7 +21,7 @@ class DemandeRdv
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $codeDde = 'num_1';
+    private ?string $codeDde = null;
 
     // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     // private ?\DateTimeInterface $dateDde = null;
@@ -47,6 +47,9 @@ class DemandeRdv
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
+    private ?User $users = null;
+
     // public function computeSlug(SluggerInterface $slugger)
     // {
     //     if (!$this->slug || '-' === $this->slug) {
@@ -56,7 +59,7 @@ class DemandeRdv
 
     public function __construct()
     {
-        $this->createdAt = new \Datetime();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -171,6 +174,18 @@ class DemandeRdv
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUsers(): ?User
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?User $users): self
+    {
+        $this->users = $users;
 
         return $this;
     }

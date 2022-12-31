@@ -27,22 +27,12 @@
                                     <div class="col-md-9">
 
                                     {{ form_widget(demande_form.codeMotif) }}
-                                        {# <select name="motif" class="form-control form-select" data-bs-placeholder="Sélectionner un motif">
-                                            <option value="" selected>Sélectionner un motif</option>
-                                            <option value="">Motif 1</option>
-                                            <option value="">Motif 2</option>
-                                            <option value="">Motif 3</option>                                        
-                                       </select> #}
+                                        
                                     </div>
                                 </div>
-                                {# <div class="row mb-4">
-                                <label class="col-md-3 form-label" for="example-email">Direction / Service demandé :</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="direction" value="">                                    
-                                </div> 
-                        </div> #}
+                               
                         <div class=" row mb-4">
-                            <label class="col-md-3 form-label">Autre motif :</label>
+                            <label class="col-md-3 form-label">Description du motif :</label>
                             <div class="col-md-9">
                                 {{ form_widget(demande_form.descriptDde) }}       
                         {# <textarea class="form-control mb-4" placeholder="" rows="2" name="autre_motif"></textarea> #}
@@ -84,7 +74,13 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Enregistrer</button>
+            <button type="submit" class="btn btn-success">
+        {% if editMode %}
+        Enregistrer les modifications
+        {% else %}
+        Enregistrer
+        {% endif %}
+    </button>
             <!-- Row -->
         {# </form>  #}
         {{ form_end(demande_form) }}

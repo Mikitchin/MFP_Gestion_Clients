@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte qui utilise ce mail')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -59,12 +60,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Structure $structure = null;
 
+    #[ORM\OneToMany(mappedBy: 'users', targetEntity: DemandeRdv::class)]
+    private Collection $demandeRdvs;
+
     // #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
     // private Collection $privilege;
 
     public function __construct()
     {
         $this->privilege = new ArrayCollection();
+        $this->demandeRdvs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -268,4 +273,34 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     //     return $this;
     // }
+
+    /**
+     * @return Collection<int, DemandeRdv>
+     */
+    public function getDemandeRdvs(): Collection
+    {
+        return $this->demandeRdvs;
+    }
+
+    public function addDemandeRdv(DemandeRdv $demandeRdv): self
+    {
+        if (!$this->demandeRdvs->contains($demandeRdv)) {
+            $this->demandeRdvs->add($demandeRdv);
+            $demandeRdv->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDemandeRdv(DemandeRdv $demandeRdv): self
+    {
+        if ($this->demandeRdvs->removeElement($demandeRdv)) {
+            // set the owning side to null (unless already changed)
+            if ($demandeRdv->getUsers() === $this) {
+                $demandeRdv->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
 }
