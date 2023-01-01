@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
 class SecurityController extends AbstractController
@@ -89,5 +90,52 @@ class SecurityController extends AbstractController
         return $this->render('security/reset_password_request.html.twig', [
             'requestPassForm' => $form->createView()
         ]);
+    }
+
+    #[Route('/oubli-pass/{token}', name: 'reset_pass')]
+    public function resetPass(
+        string $token,
+        Request $request,
+        UserRepository $userRepository,
+        EntityManagerInterface $entityManager,
+        UserPasswordHasherInterface $passwordHasher
+    ): Response {
+        // On vérifie si on a ce token dans la base
+        $user = $userRepository->findOneByResetToken($token);
+
+        // On vérifie si l'utilisateur existe
+
+        if ($user) {
+            $form = $this->createForm(ResetPasswordFormType::class);
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                // On efface le token
+                $user->setResetToken('');
+
+
+                // On enregistre le nouveau mot de passe en le hashant
+                $user->setPassword(
+                    $passwordHasher->hashPassword(
+                        $user,
+                        $form->get('password')->getData()
+                    )
+                );
+                $entityManager->persist($user);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Mot de passe changé avec succès');
+                return $this->redirectToRoute('app_login');
+            }
+
+            return $this->render('security/reset_password.html.twig', [
+                'passForm' => $form->createView()
+            ]);
+        }
+
+        // Si le token est invalide on redirige vers le login
+        $this->addFlash('danger', 'Jeton invalide');
+        return $this->redirectToRoute('app_login');
     }
 }
