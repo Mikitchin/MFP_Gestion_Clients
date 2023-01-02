@@ -25,13 +25,17 @@ class DemandeRdvType extends AbstractType
 
                 ]
             ])
-            ->add('dateModifDde', DateType::class, [
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-                'attr' => [
-                    'class' => 'form-control'
-
-                ]
+            ->add('heureRdv', ChoiceType::class, [
+                'choices' => array(
+                    '8h30' => '8h30',
+                    '9h30' => '9h30',
+                    '10h30' => '10h30',
+                    '11h30' => '11h30',
+                    '12h30' => '12h30',
+                    '14h00' => '14h00',
+                    '15h00' => '15h00',
+                    '16h00' => '16h00',
+                )
             ])
             ->add('descriptDde', TextareaType::class, [
                 'attr' => ['class' => 'tinymce'],

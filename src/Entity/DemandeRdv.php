@@ -50,6 +50,9 @@ class DemandeRdv
     #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
     private ?User $users = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $heureRdv = null;
+
     // public function computeSlug(SluggerInterface $slugger)
     // {
     //     if (!$this->slug || '-' === $this->slug) {
@@ -193,5 +196,17 @@ class DemandeRdv
     public function __toString(): string
     {
         return $this->getId();
+    }
+
+    public function getHeureRdv(): ?string
+    {
+        return $this->heureRdv;
+    }
+
+    public function setHeureRdv(?string $heureRdv): self
+    {
+        $this->heureRdv = $heureRdv;
+
+        return $this;
     }
 }
