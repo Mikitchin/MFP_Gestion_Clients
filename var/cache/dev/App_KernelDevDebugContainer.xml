@@ -147,9 +147,6 @@
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
     <parameter key="profiler.storage.dsn">file:C:\Users\DELL\Documents\CODES SYMFONY\Mfp_gestion_clients\var\cache\dev/profiler</parameter>
-    <parameter key="doctrine.dbal.logger.chain.class">Doctrine\DBAL\Logging\LoggerChain</parameter>
-    <parameter key="doctrine.dbal.logger.profiling.class">Doctrine\DBAL\Logging\DebugStack</parameter>
-    <parameter key="doctrine.dbal.logger.class">Symfony\Bridge\Doctrine\Logger\DbalLogger</parameter>
     <parameter key="doctrine.dbal.configuration.class">Doctrine\DBAL\Configuration</parameter>
     <parameter key="doctrine.data_collector.class">Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector</parameter>
     <parameter key="doctrine.dbal.connection.event_manager.class">Symfony\Bridge\Doctrine\ContainerAwareEventManager</parameter>
@@ -220,6 +217,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
+    <parameter key="doctrine.orm.enable_lazy_ghost_objects">false</parameter>
     <parameter key="doctrine.orm.proxy_dir">C:\Users\DELL\Documents\CODES SYMFONY\Mfp_gestion_clients\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
@@ -762,6 +760,7 @@
       <argument type="iterator">
         <argument type="service" id="slugger"/>
         <argument type="service" id="translator.default"/>
+        <argument type="service" id="translation.locale_switcher"/>
       </argument>
       <argument type="service" id="request_stack"/>
     </service>
@@ -2366,6 +2365,7 @@
     </service>
     <service id="translation.locale_switcher" class="Symfony\Component\Translation\LocaleSwitcher">
       <tag name="kernel.reset" method="reset"/>
+      <tag name="kernel.locale_aware"/>
       <argument>fr</argument>
       <argument type="tagged_iterator" tag="kernel.locale_aware"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
@@ -3160,7 +3160,7 @@
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
-        <argument type="service" id="annotations.dummy_registry"/>
+        <argument type="service" id="annotations.dummy_registry" on-invalid="ignore"/>
       </call>
     </service>
     <service id="annotations.dummy_registry" class="Doctrine\Common\Annotations\AnnotationRegistry">
@@ -4160,14 +4160,6 @@
         <argument type="service" id="mime_types"/>
       </call>
     </service>
-    <service id="doctrine.dbal.logger.chain" class="Doctrine\DBAL\Logging\LoggerChain" abstract="true"/>
-    <service id="doctrine.dbal.logger.profiling" class="Doctrine\DBAL\Logging\DebugStack" abstract="true"/>
-    <service id="doctrine.dbal.logger.backtrace" class="Doctrine\Bundle\DoctrineBundle\Dbal\Logging\BacktraceLogger" abstract="true"/>
-    <service id="doctrine.dbal.logger" class="Symfony\Bridge\Doctrine\Logger\DbalLogger">
-      <tag name="monolog.logger" channel="doctrine"/>
-      <argument>null</argument>
-      <argument type="service" id="debug.stopwatch" on-invalid="null"/>
-    </service>
     <service id="data_collector.doctrine" class="Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector">
       <tag name="data_collector" template="@Doctrine/Collector/db.html.twig" id="db" priority="250"/>
       <argument type="service" id="doctrine"/>
@@ -4402,7 +4394,7 @@
     <service id="doctrine.orm.command.entity_manager_provider" class="Doctrine\Bundle\DoctrineBundle\Orm\ManagerRegistryAwareEntityManagerProvider">
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="doctrine.cache_clear_metadata_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearMetadataCacheDoctrineCommand">
+    <service id="doctrine.cache_clear_metadata_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\MetadataCommand">
       <tag name="console.command" command="doctrine:cache:clear-metadata"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4410,7 +4402,7 @@
         <argument>doctrine:cache:clear-metadata</argument>
       </call>
     </service>
-    <service id="doctrine.cache_clear_query_cache_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearQueryCacheDoctrineCommand">
+    <service id="doctrine.cache_clear_query_cache_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\QueryCommand">
       <tag name="console.command" command="doctrine:cache:clear-query"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4418,7 +4410,7 @@
         <argument>doctrine:cache:clear-query</argument>
       </call>
     </service>
-    <service id="doctrine.cache_clear_result_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearResultCacheDoctrineCommand">
+    <service id="doctrine.cache_clear_result_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\ResultCommand">
       <tag name="console.command" command="doctrine:cache:clear-result"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4426,7 +4418,7 @@
         <argument>doctrine:cache:clear-result</argument>
       </call>
     </service>
-    <service id="doctrine.cache_collection_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\CollectionRegionDoctrineCommand">
+    <service id="doctrine.cache_collection_region_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\CollectionRegionCommand">
       <tag name="console.command" command="doctrine:cache:clear-collection-region"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4434,7 +4426,7 @@
         <argument>doctrine:cache:clear-collection-region</argument>
       </call>
     </service>
-    <service id="doctrine.mapping_convert_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ConvertMappingDoctrineCommand">
+    <service id="doctrine.mapping_convert_command" class="Doctrine\ORM\Tools\Console\Command\ConvertMappingCommand">
       <tag name="console.command" command="doctrine:mapping:convert"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4442,7 +4434,7 @@
         <argument>doctrine:mapping:convert</argument>
       </call>
     </service>
-    <service id="doctrine.schema_create_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\CreateSchemaDoctrineCommand">
+    <service id="doctrine.schema_create_command" class="Doctrine\ORM\Tools\Console\Command\SchemaTool\CreateCommand">
       <tag name="console.command" command="doctrine:schema:create"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4450,7 +4442,7 @@
         <argument>doctrine:schema:create</argument>
       </call>
     </service>
-    <service id="doctrine.schema_drop_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\DropSchemaDoctrineCommand">
+    <service id="doctrine.schema_drop_command" class="Doctrine\ORM\Tools\Console\Command\SchemaTool\DropCommand">
       <tag name="console.command" command="doctrine:schema:drop"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4458,7 +4450,7 @@
         <argument>doctrine:schema:drop</argument>
       </call>
     </service>
-    <service id="doctrine.ensure_production_settings_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\EnsureProductionSettingsDoctrineCommand">
+    <service id="doctrine.ensure_production_settings_command" class="Doctrine\ORM\Tools\Console\Command\EnsureProductionSettingsCommand">
       <tag name="console.command" command="doctrine:ensure-production-settings"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4466,7 +4458,7 @@
         <argument>doctrine:ensure-production-settings</argument>
       </call>
     </service>
-    <service id="doctrine.clear_entity_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\EntityRegionCacheDoctrineCommand">
+    <service id="doctrine.clear_entity_region_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\EntityRegionCommand">
       <tag name="console.command" command="doctrine:cache:clear-entity-region"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4474,7 +4466,7 @@
         <argument>doctrine:cache:clear-entity-region</argument>
       </call>
     </service>
-    <service id="doctrine.mapping_info_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\InfoDoctrineCommand">
+    <service id="doctrine.mapping_info_command" class="Doctrine\ORM\Tools\Console\Command\InfoCommand">
       <tag name="console.command" command="doctrine:mapping:info"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4482,7 +4474,7 @@
         <argument>doctrine:mapping:info</argument>
       </call>
     </service>
-    <service id="doctrine.clear_query_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\QueryRegionCacheDoctrineCommand">
+    <service id="doctrine.clear_query_region_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\QueryRegionCommand">
       <tag name="console.command" command="doctrine:cache:clear-query-region"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4490,7 +4482,7 @@
         <argument>doctrine:cache:clear-query-region</argument>
       </call>
     </service>
-    <service id="doctrine.query_dql_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\RunDqlDoctrineCommand">
+    <service id="doctrine.query_dql_command" class="Doctrine\ORM\Tools\Console\Command\RunDqlCommand">
       <tag name="console.command" command="doctrine:query:dql"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4498,7 +4490,7 @@
         <argument>doctrine:query:dql</argument>
       </call>
     </service>
-    <service id="doctrine.schema_update_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\UpdateSchemaDoctrineCommand">
+    <service id="doctrine.schema_update_command" class="Doctrine\ORM\Tools\Console\Command\SchemaTool\UpdateCommand">
       <tag name="console.command" command="doctrine:schema:update"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4506,7 +4498,7 @@
         <argument>doctrine:schema:update</argument>
       </call>
     </service>
-    <service id="doctrine.schema_validate_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ValidateSchemaCommand">
+    <service id="doctrine.schema_validate_command" class="Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand">
       <tag name="console.command" command="doctrine:schema:validate"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4568,6 +4560,9 @@
       </call>
       <call method="setEntityListenerResolver">
         <argument type="service" id="doctrine.orm.default_entity_listener_resolver"/>
+      </call>
+      <call method="setLazyGhostObjectEnabled">
+        <argument>false</argument>
       </call>
       <call method="setRepositoryFactory">
         <argument type="service" id="doctrine.orm.container_repository_factory"/>
@@ -6481,6 +6476,10 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Security\AuthorizationChecker"/>
       <argument type="service" id="security.logout_url_generator"/>
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
+      <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcher"/>
+    </service>
+    <service id="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcher" class="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcher">
+      <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider"/>
     </service>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Orm\EntityRepository" class="EasyCorp\Bundle\EasyAdminBundle\Orm\EntityRepository">
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider"/>
@@ -6535,6 +6534,7 @@
     </service>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\CommonConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\CommonConfigurator">
       <tag name="ea.filter_configurator" priority="9999"/>
+      <tag name="ea.filter_configurator"/>
     </service>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ComparisonConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ComparisonConfigurator">
       <tag name="ea.filter_configurator"/>
@@ -6598,12 +6598,15 @@
     </service>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Field\Configurator\CommonPostConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Field\Configurator\CommonPostConfigurator">
       <tag name="ea.field_configurator" priority="-9999"/>
+      <tag name="ea.field_configurator"/>
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider"/>
       <argument>UTF-8</argument>
     </service>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Field\Configurator\CommonPreConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Field\Configurator\CommonPreConfigurator">
       <tag name="ea.field_configurator" priority="9999"/>
+      <tag name="ea.field_configurator"/>
       <argument type="service" id="property_accessor"/>
+      <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Factory\EntityFactory"/>
     </service>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Field\Configurator\CountryConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Field\Configurator\CountryConfigurator">
       <tag name="ea.field_configurator"/>
@@ -8278,6 +8281,14 @@
     <service id="debug.validator.inner" class="Symfony\Component\Validator\Validator\ValidatorInterface">
       <factory service="validator.builder" method="getValidator"/>
     </service>
+    <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
+      <argument type="collection"/>
+      <argument>6</argument>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.http_client" on-invalid="ignore"/>
+      </call>
+      <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
+    </service>
     <service id="debug.event_dispatcher.inner" class="Symfony\Component\EventDispatcher\EventDispatcher"/>
     <service id="debug.controller_resolver.inner" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver">
       <argument type="service" id="service_container"/>
@@ -8435,14 +8446,6 @@
         <argument type="service" id="messenger.middleware.send_message"/>
         <argument type="service" id="messenger.bus.default.middleware.handle_message"/>
       </argument>
-    </service>
-    <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
-      <argument type="collection"/>
-      <argument>6</argument>
-      <call method="setLogger">
-        <argument type="service" id="monolog.logger.http_client" on-invalid="ignore"/>
-      </call>
-      <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -8963,7 +8966,7 @@
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
-      <argument type="service" id=".service_locator.kxlGkGV"/>
+      <argument type="service" id=".service_locator.1hlxqyZ"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -9072,7 +9075,7 @@
         <argument key="make:stimulus-controller">maker.auto_command.make_stimulus_controller</argument>
       </argument>
     </service>
-    <service id=".service_locator.kxlGkGV" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.1hlxqyZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service_closure" id=".console.command.about.lazy"/>
@@ -9455,6 +9458,7 @@
     <service id=".service_locator.MwlEl_B" alias=".service_locator.GymbEAg"/>
     <service id=".service_locator._eRAkJb" alias=".service_locator.jIxfAsi"/>
     <service id="validator" alias="debug.validator"/>
+    <service id="http_client" alias=".debug.http_client"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
     <service id="controller_resolver" alias="debug.controller_resolver"/>
     <service id="argument_resolver" alias="debug.argument_resolver"/>
@@ -9498,7 +9502,6 @@
     <service id="argument_resolver.variadic" alias="debug.argument_resolver.variadic"/>
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller"/>
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
-    <service id="http_client" alias=".debug.http_client"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
     <service id=".service_locator..Z_8zjg" alias=".service_locator.st3ASTR"/>
