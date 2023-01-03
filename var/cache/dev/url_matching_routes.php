@@ -30,7 +30,7 @@ return [
         '/liste-demande' => [[['_route' => 'app_liste_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::demande'], null, null, null, false, false, null]],
         '/succes_add' => [[['_route' => 'demande_add', '_controller' => 'App\\Controller\\DemandeRdvController::demande_add'], null, null, null, false, false, null]],
         '/recherche-demande' => [[['_route' => 'app_search', '_controller' => 'App\\Controller\\DemandeRdvController::search_demande'], null, null, null, false, false, null]],
-        '/gestionnaire' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\GestionController::index'], null, null, null, false, false, null]],
+        '/home-page' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\GestionController::index'], null, null, null, false, false, null]],
         '/creer_profil' => [[['_route' => 'app_ajoutprofil', '_controller' => 'App\\Controller\\GestionController::aprofil'], null, null, null, false, false, null]],
         '/afficher_profil' => [[['_route' => 'app_profil', '_controller' => 'App\\Controller\\GestionController::profil'], null, null, null, false, false, null]],
         '/gestion' => [[['_route' => 'app_gestion', '_controller' => 'App\\Controller\\GestionController::gestion'], null, null, null, false, false, null]],

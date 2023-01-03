@@ -34,7 +34,7 @@ return [
     'delete_demande' => [['id'], ['_controller' => 'App\\Controller\\DemandeRdvController::delete_demande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/delete']], [], [], []],
     'demande_add' => [[], ['_controller' => 'App\\Controller\\DemandeRdvController::demande_add'], [], [['text', '/succes_add']], [], [], []],
     'app_search' => [[], ['_controller' => 'App\\Controller\\DemandeRdvController::search_demande'], [], [['text', '/recherche-demande']], [], [], []],
-    'app_home' => [[], ['_controller' => 'App\\Controller\\GestionController::index'], [], [['text', '/gestionnaire']], [], [], []],
+    'app_home' => [[], ['_controller' => 'App\\Controller\\GestionController::index'], [], [['text', '/home-page']], [], [], []],
     'app_ajoutprofil' => [[], ['_controller' => 'App\\Controller\\GestionController::aprofil'], [], [['text', '/creer_profil']], [], [], []],
     'app_profil' => [[], ['_controller' => 'App\\Controller\\GestionController::profil'], [], [['text', '/afficher_profil']], [], [], []],
     'app_gestion' => [[], ['_controller' => 'App\\Controller\\GestionController::gestion'], [], [['text', '/gestion']], [], [], []],
