@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class GestionController extends AbstractController
 {
-    #[Route('/gestionnaire', name: 'app_home')]
+    #[Route('/home-page', name: 'app_home')]
     public function index(): Response
     {
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {

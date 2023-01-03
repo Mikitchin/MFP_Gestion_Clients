@@ -55,10 +55,11 @@ class DemandeRdvController extends AbstractController
             $demande->setUsers($user_cnt);
             $entityManager->persist($demande);
             $entityManager->flush();
-            //   $this->addFlash('success', 'Votre demande a été faite');
+
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
-            return $this->redirectToRoute('demande_add');
+            return $this->redirectToRoute('app_liste_rdv');
         }
 
         return $this->render('usager/rdv_form.html.twig', [

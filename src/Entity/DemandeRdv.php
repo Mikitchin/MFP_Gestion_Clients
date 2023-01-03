@@ -63,6 +63,7 @@ class DemandeRdv
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->dateModifDde = new \DateTimeImmutable();
     }
 
     public function getId(): ?int

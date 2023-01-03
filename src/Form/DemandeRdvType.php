@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class DemandeRdvType extends AbstractType
@@ -35,7 +36,11 @@ class DemandeRdvType extends AbstractType
                     '14h00' => '14h00',
                     '15h00' => '15h00',
                     '16h00' => '16h00',
-                )
+                ),
+                'attr' => [
+                    'class' => 'form-control'
+
+                ]
             ])
             ->add('descriptDde', TextareaType::class, [
                 'attr' => ['class' => 'tinymce'],
