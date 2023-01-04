@@ -63,8 +63,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'users', targetEntity: DemandeRdv::class)]
     private Collection $demandeRdvs;
 
-    #[ORM\Column(type: 'string', length: 100)]
-    private $resetToken;
+    // #[ORM\Column(type: 'string', length: 100)]
+    // private $resetToken;
     // #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
     // private Collection $privilege;
 
@@ -306,15 +306,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getResetToken(): ?string
-    {
-        return $this->resetToken;
-    }
+    // public function getResetToken(): ?string
+    // {
+    //     return $this->resetToken;
+    // }
 
-    public function setResetToken(?string $resetToken): self
-    {
-        $this->resetToken = $resetToken;
+    // public function setResetToken(?string $resetToken): self
+    // {
+    //     $this->resetToken = $resetToken;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

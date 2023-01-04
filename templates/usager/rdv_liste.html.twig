@@ -33,17 +33,17 @@
               </thead>
               <tbody>
               
-              {% for demandes in demande %}
+              {% for demande in demandes %}
               <tr class="table-info">
-                <td>{{ demandes.codeDde }} </td>
-                <td>{{ demandes.codeMotif }}</td>
-                <td>{{ demandes.dateDemande | date('d/m/y') }}</td>
-                <td>{{ demandes.heureRdv }}</td>
+                <td>{{ demande.codeDde }} </td>
+                <td>{{ demande.codeMotif }}</td>
+                <td>{{ demande.dateDemande | date('d/m/y') }}</td>
+                <td>{{ demande.heureRdv }}</td>
                 <td>
-                  <a href="{{ path('edit_demande_rdv', {'id': demandes.id}) }}" class="navbarxd-link activexd icon-box">
+                  <a href="{{ path('edit_demande_rdv', {'id': demande.id}) }}" class="navbarxd-link activexd icon-box">
                               <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
                   </a>
-                  <a href="{{ path('delete_demande', {'id': demandes.id}) }}" class="navbar-link activexd icon-box">
+                  <a href="{{ path('delete_demande', {'id': demande.id}) }}" class="navbar-link activexd icon-box">
                             <span title="Annuler" class="material-symbols-rounded  icon">delete</span>
                   </a>
 

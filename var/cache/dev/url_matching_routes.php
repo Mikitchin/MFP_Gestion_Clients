@@ -27,7 +27,6 @@ return [
         '/cs-statistiques' => [[['_route' => 'app_statsrdvcs', '_controller' => 'App\\Controller\\CsController::statsrdvsup'], null, null, null, false, false, null]],
         '/cs-info-recep' => [[['_route' => 'app_csinforecep', '_controller' => 'App\\Controller\\CsController::inforecep'], null, null, null, false, false, null]],
         '/demande' => [[['_route' => 'app_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], null, null, null, false, false, null]],
-        '/liste-demande' => [[['_route' => 'app_liste_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::demande'], null, null, null, false, false, null]],
         '/succes_add' => [[['_route' => 'demande_add', '_controller' => 'App\\Controller\\DemandeRdvController::demande_add'], null, null, null, false, false, null]],
         '/recherche-demande' => [[['_route' => 'app_search', '_controller' => 'App\\Controller\\DemandeRdvController::search_demande'], null, null, null, false, false, null]],
         '/home-page' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\GestionController::index'], null, null, null, false, false, null]],
@@ -48,7 +47,8 @@ return [
         '/traitement-sup' => [[['_route' => 'app_listtreat', '_controller' => 'App\\Controller\\SuperviseurController::listtreat'], null, null, null, false, false, null]],
         '/statistiques-sup' => [[['_route' => 'app_statsrdvsup', '_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], null, null, null, false, false, null]],
         '/info-recept-sup' => [[['_route' => 'app_inforecep', '_controller' => 'App\\Controller\\SuperviseurController::inforecep'], null, null, null, false, false, null]],
-        '/usager' => [[['_route' => 'app_uhome', '_controller' => 'App\\Controller\\UsagerController::homeu'], null, null, null, false, false, null]],
+        '/prendre-rdv' => [[['_route' => 'app_creat_rdv', '_controller' => 'App\\Controller\\UsagerController::prdv'], null, null, null, false, false, null]],
+        '/liste-rdv' => [[['_route' => 'app_liste_rdv', '_controller' => 'App\\Controller\\UsagerController::lsrdv'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_cruchome', '_controller' => 'App\\Controller\\WelcomeController::accueil'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

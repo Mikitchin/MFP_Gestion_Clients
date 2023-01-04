@@ -71,15 +71,15 @@ class DemandeRdvController extends AbstractController
     #[Route('/liste-demande', name: 'app_liste_rdv')]
     public function demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
     {
-        $demande = new DemandeRdv();
+        $demandes = new DemandeRdv();
         $user = $this->getUser()->getId();
-        $demande = $repo->findBy(array('users' => $user));
+        $demandes = $repo->findBy(array('users' => $user));
         // $demande = $repo->findAll();
 
-        // dd($demande);
+        dd($demandes);
 
         return $this->render('usager/rdv_liste.html.twig', [
-            'demande' => $demande,
+            'demandes' => $demandes,
 
         ]);
     }
