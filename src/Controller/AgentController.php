@@ -2,19 +2,40 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\DemandeRdv;
+use App\Entity\DemandeSearch;
+use App\Form\DemandeSearchType;
+use App\Repository\DemandeRdvRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AgentController extends AbstractController
 {
-    #[Route('/espace_agent_d_accueil', name: 'app_ahome')]
-    public function index(): Response
-    {
-        return $this->render('agent/index.html.twig', [
-            'controller_name' => 'AgentController',
-        ]);
-    }
+    // #[Route('/espace_agent', name: 'app_ahome')]
+    // public function index(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
+    // {
+
+    //     $demandeSearch = new DemandeSearch();
+    //     $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+    //     $form->handleRequest($request);
+    //     $demande = [];
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $code = $demandeSearch->getCodeDde();
+    //         if ($code != "")
+    //             $demande = $repo->findBy(['codeDde' => $code]);
+    //     }
+
+    //     // $demandes = new DemandeRdv();
+    //     // $demandes = $repo->findAll();
+
+    //     return $this->render('agent/index.html.twig', [
+    //         'formulaire' => $form->createView(), 'demande' => $demande,
+    //     ]);
+    // }
 
     #[Route('/creer-rdv', name: 'app_createrdv')]
     public function ardv(): Response

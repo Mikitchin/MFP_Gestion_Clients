@@ -76,7 +76,7 @@ class DemandeRdvController extends AbstractController
         $demandes = $repo->findBy(array('users' => $user));
         // $demande = $repo->findAll();
 
-        dd($demandes);
+        // dd($demandes);
 
         return $this->render('usager/rdv_liste.html.twig', [
             'demandes' => $demandes,

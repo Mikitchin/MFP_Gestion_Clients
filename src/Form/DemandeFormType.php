@@ -48,6 +48,10 @@ class DemandeFormType extends AbstractType
                     '14h00' => '14h00',
                     '15h00' => '15h00',
                     '16h00' => '16h00',
+                    'attr' => [
+                        'class' => 'form-control'
+
+                    ]
                 )
             ])
             // ->add('etatDemande')
