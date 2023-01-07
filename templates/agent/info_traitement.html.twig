@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+ <main>
+    <article class="containerxd article">
+      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
+      <p class="article-subtitle">ECRAN DE CONSULTATION DES INFORMATIONS SUR LE TRAITEMENT DE LA DEMANDE</p>
+      <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Traitement</h3>
+                                    </div>
+                                    <div class="card-body">
+                                            <div class="form-row">
+                                                <div class="col-xl-6 mb-3">
+                                                    <label>Motif de la visite :</label>
+                                                    <input type="text" class="form-control" id="" name="motif_visite" value="" readonly>
+                                                </div>
+                                                <div class="col-xl-6 mb-3">
+                                                    <label>Détails :</label>
+                                                    <textarea class="form-control mb-4" placeholder="" rows="2" name="details" readonly></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                {# <div class="col-xl-6 mb-3">
+                                                    <label class="redcolor">Traitement au poste</label>
+                                                    <input type="checkbox" value=""> 
+                                                </div> #}
+                                                <div class="col-xl-6 mb-3">
+                                                    <label>Observations :</label>
+                                                    <textarea class="form-control mb-4" placeholder="" rows="2" name="observation" readonly></textarea>
+                                                </div>
+                                            </div>  
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                            {# <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Imputation</h3>
+                                    </div>
+                                    <div class="card-body">
+                                    <div class=" row mb-4">
+                                        <label class="col-md-2 form-label">Direction / Service:</label>
+                                        <div class="col-md-4">
+                                            <select name="motif" class="form-control form-select" data-bs-placeholder="Sélectionner un motif">
+                                                <option value="" selected>Sélectionner une Direction / Service</option>
+                                                <option value="">Direction 1</option>
+                                                <option value="">Direction 2</option>
+                                                <option value="">Service 1</option>                                        
+                                            </select>
+                                        </div>
+                                    </div>
+                            </div> #}
+                                   
+                                </div>
+                            </div>
+                          
+                            {# <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Statut</h3>
+                                    </div>
+                                    <div class="card-body">
+                                            <div class="form-row">
+                                                <div class="col-xl-4 mb-3">
+                                                    <label>Début Traitement :</label>
+                                                    <input type="text" class="form-control" id="" readonly value="01/01/2022">
+                                                </div>
+                                                <div class="col-xl-4 mb-3">
+                                                    <label>Fin Traitement :</label>
+                                                    <input type="text" class="form-control" id="" readonly value="02/01/2022">
+                                                </div>
+                                                <div class="col-xl-4 mb-3">
+                                                    <label>Durée du Traitement:</label>
+                                                    <input type="text" class="form-control" id="" readonly value="02/01/2022">
+                                                </div>                                                
+                                            </div>
+                                            
+                                    </div>
+                                </div>
+                            </div> #}
+                        </div>   
+       
+    </div>
+</div>                
+      
+
+    </article>
+  </main>
+
+{% endblock %}

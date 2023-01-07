@@ -51,7 +51,8 @@ class GestionController extends AbstractController
                 if ($code != "")
                     $demande = $repo->findBy(['codeDde' => $code]);
 
-                else ($demande = $repo->findAll());
+                else
+                    $demande = $repo->findAll();
             }
 
             return $this->render('agent/index.html.twig', [

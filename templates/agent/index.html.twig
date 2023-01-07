@@ -23,7 +23,9 @@
                                                 <div class="col-xl-6 mb-3">
                                                     <label for="validationCustom01" class="redcolor">CODE RENDEZ VOUS</label>
                                                     {# <input type="text" class="form-control" id="validationCustom01" value=""> #}
-                                                    {{ form_widget(form.codeDde) }}
+                                                 {{ form_widget(form.codeDde, { 'attr':
+                                                 {'placeholder': 'Entrer le code de rendez-vous'}}) }}
+                                                
                                                 </div>
                                                 
                                             </div>
@@ -74,7 +76,7 @@
                                                             <ul class="online">
                                                                 <li>
                                                                 <div class="meta-box icon-box">
-                                                                    <a href="#" class="navbar-link active icon-box">
+                                                                    <a href="{{ path('app_ges_infotreat') }}" class="navbar-link active icon-box">
                                                                     <span title="Accepter" class="material-symbols-rounded  icon">done</span>
                                                                     </a>
                                                                 </div>
@@ -88,7 +90,7 @@
                                                                 </div>
                                                                 </li> #}
 
-                                                                <li>
+                                                                <li>    
                                                                 <div class="meta-box icon-box">
                                                                     <a href="{{ path('edit_demande_rdv', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                     <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
@@ -150,7 +152,7 @@
                                                         <ul class="online">
                                                             <li>
                                                             <div class="meta-box icon-box">
-                                                                <a href="#" class="navbar-link active icon-box">
+                                                                <a href="{{ path('app_ges_infotreat') }}" class="navbar-link active icon-box">
                                                                 <span title="Accepter" class="material-symbols-rounded  icon">done</span>
                                                                 </a>
                                                             </div>

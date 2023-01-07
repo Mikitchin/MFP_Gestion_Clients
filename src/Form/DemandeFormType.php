@@ -27,7 +27,7 @@ class DemandeFormType extends AbstractType
                 ]
             ])
             ->add('descriptDde', TextareaType::class, [
-                'attr' => ['class' => 'tinymce'],
+                'attr' => ['class' => 'form-control'],
             ])
             // ->add('dateDde')
             ->add('dateDemande', DateType::class, [
@@ -40,19 +40,20 @@ class DemandeFormType extends AbstractType
             ])
             ->add('heureRdv', ChoiceType::class, [
                 'choices' => array(
-                    '8h30' => '8h30',
-                    '9h30' => '9h30',
-                    '10h30' => '10h30',
-                    '11h30' => '11h30',
-                    '12h30' => '12h30',
+                    '8h00' => '8h00',
+                    '9h00' => '9h00',
+                    '10h00' => '10h00',
+                    '11h00' => '11h00',
+                    '12h00' => '12h00',
                     '14h00' => '14h00',
                     '15h00' => '15h00',
-                    '16h00' => '16h00',
-                    'attr' => [
-                        'class' => 'form-control'
+                    '16h00' => '16h00'
+                ),
+                'attr' => [
+                    'class' => 'form-control'
 
-                    ]
-                )
+                ]
+
             ])
             // ->add('etatDemande')
             // ->add('slug')

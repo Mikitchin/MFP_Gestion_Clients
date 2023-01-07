@@ -39,15 +39,15 @@ class GsController extends AbstractController
         ]);
     }
 
-    #[Route('/visualisation-des-informations-sur-un-traitement-RDV_30112022_001', name: 'app_ges_infotreat')]
-    public function ges_infotreat(): Response
-    {
-        return $this->render('gestionnaire/info_traitement.html.twig', [
-            'controller_name' => 'GsController',
-        ]);
-    }
+    // #[Route('/visualisation-des-informations-sur-un-traitement-RDV_30112022_001', name: 'app_ges_infotreat')]
+    // public function ges_infotreat(): Response
+    // {
+    //     return $this->render('gestionnaire/info_traitement.html.twig', [
+    //         'controller_name' => 'GsController',
+    //     ]);
+    // }
 
-    #[Route('/visualisation-des-statistiques-des-traitements', name: 'app_ges_stat')]
+    #[Route('/statistiques-des-traitements', name: 'app_ges_stat')]
     public function ges_stat(): Response
     {
         return $this->render('gestionnaire/statistiques.html.twig', [

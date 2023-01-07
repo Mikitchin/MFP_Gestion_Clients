@@ -6,6 +6,7 @@ use App\Entity\DemandeSearch;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class DemandeSearchType extends AbstractType
 {
@@ -14,6 +15,12 @@ class DemandeSearchType extends AbstractType
         $builder
             ->add(
                 'codeDde',
+                TextType::class,
+                [
+                    'attr' => [
+                        'class' => 'form-control'
+                    ]
+                ]
 
             );
     }
