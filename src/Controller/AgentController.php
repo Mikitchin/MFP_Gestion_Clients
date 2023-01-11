@@ -84,19 +84,19 @@ class AgentController extends AbstractController
         ]);
     }
 
-    #[Route('/traitement-demande-rdv', name: 'app_ges_infotreat')]
+    #[Route('/traitement-demande-rdv/{id}', name: 'app_ges_infotreat')]
 
-    public function ges_infotreat(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    public function ges_infotreat(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
-        $etatDemandes = $response->findOneBy(['id' => 2]);
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous honoré)
+        $etatDemandes = $response->findOneBy(['id' => 6]);
         // dd($etatDemandes);
         $form = $this->createForm(TraiteAcFormType::class, $demande);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            if (!$demande->getId()) {
-                $demande->setEtatDemandes($etatDemandes);
-            }
+
+            $demande->setEtatDemandes($etatDemandes);
 
             $entityManager->persist($demande);
             $entityManager->flush();
@@ -104,12 +104,31 @@ class AgentController extends AbstractController
             $this->addFlash('success', 'La demande a été traitée avec succès !');
 
             // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
-            return $this->redirectToRoute('');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('agent/info_traitement.html.twig', [
-            'demande_form' => $form->createView(),
+            'form' => $form->createView(),
+            'demande' => $demande,
 
         ]);
+    }
+
+    #[Route('/transferer-demande-rdv/{id}', name: 'app_ac_transfert')]
+
+    public function ac_transferer(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (état terminé)
+        $etatDemandes = $response->findOneBy(['id' => 2]);
+
+        $demande->setEtatDemandes($etatDemandes);
+
+        $entityManager->persist($demande);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'La demande a été transférée avec succès !');
+
+        // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+        return $this->redirectToRoute('app_home');
     }
 }

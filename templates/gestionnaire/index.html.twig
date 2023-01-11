@@ -18,114 +18,23 @@
                                         <h3 class="card-title">Recherche</h3>
                                     </div>
                                     <div class="card-body">
-                                        <form class="needs-validation" novalidate>
+                                    {{ form_start(form) }}
                                             <div class="form-row">
                                                 <div class="col-xl-6 mb-3">
-                                                    <label for="validationCustom01" class="redcolor">N°FICHE :</label>
-                                                    <input type="text" class="form-control" id="validationCustom01" value="">
-                                                </div>
-                                                <div class="col-xl-3 mb-3">
-                                                    <label for="validationCustom04">DE</label>
-                                                    <input type="date" class="form-control" id="validationCustom04">
-                                                </div>
-                                                <div class="col-xl-3 mb-3">
-                                                    <label for="validationCustom05">A</label>
-                                                    <input type="date" class="form-control" id="validationCustom04">
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="col-xl-6 mb-3">
-                                                    <label for="validationCustom03">DIRECTION / SERVICE</label>
-                                                    <input type="text" class="form-control" id="validationCustom03"
-                                                        required>
-                                                    <div class="invalid-feedback">Please provide a valid city.</div>
-                                                </div>
-                                                <div class="col-xl-3 mb-3">
-                                                    <label for="validationCustom04">TRAITEMENT</label>
-                                                    <select class="form-control form-select" id=""> 
-                                                        <option selected disabled value="">Sélectionner le traitement</option> 
-                                                        <option>Demande</option>
-                                                        <option>Réclamation</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xl-3 mb-3">
-                                                    <label>SERVICE TRAITANT</label>
-                                                    <select class="form-control form-select" id=""> 
-                                                        <option selected disabled value="">Sélectionner le service</option> 
-                                                        <option>Service 1</option>
-                                                        <option>Service 2</option>
-                                                    </select>
-                                                </div>
-                                            </div>   
-                                             <div class="form-row">
-                                                <div class="col-xl-6 mb-3">
-                                                    <label>GESTIONNAIRE</label>
-                                                    <select class="form-control form-select" id=""> 
-                                                        <option selected disabled value="">Sélectionner le gestionnaire</option> 
-                                                        <option>Gestionnaire 1</option>
-                                                        <option>Gestionnaire 2</option>
-                                                    </select>
-                                                </div>
+                                                    <label for="validationCustom01" class="redcolor">CODE RENDEZ VOUS</label>
+                                                    {# <input type="text" class="form-control" id="validationCustom01" value=""> #}
+                                                 {{ form_widget(form.codeDde, { 'attr':
+                                                 {'placeholder': 'Entrer le code de rendez-vous'}}) }}
                                                 
-                                            </div>   
-                                            <div class="form-row">
-                                                <div class="col-xl-6 mb-3">
-                                                    <label for="validationCustom03">Matricule</label>
-                                                    <input type="text" class="form-control" id="validationCustom03">
-                                                </div>
-                                                <div class="col-xl-6 mb-3">
-                                                    <label for="validationCustom04">Nom et prénom(s)</label>
-                                                    <input type="text" class="form-control" id="validationCustom03">
-                                                </div>                                                
+                                                </div>                                             
                                             </div>
-                                            <div class="form-row">
-                                                <div class="col-xl-6 mb-3">
-                                                    <label for="validationCustom03">Date de naissance</label>
-                                                    <input type="date" class="form-control" id="validationCustom03">
-                                                </div>
-                                                <div class="col-xl-6 mb-3">
-                                                    <label for="validationCustom04">Mobile</label>
-                                                    <input type="text" class="form-control" id="validationCustom03">
-                                                </div>                                                
-                                            </div>                                            
+                                                                                       
                                             <button class="btn btn-primary" type="submit">RECHERCHER</button>
-                                        </form>
+                                    {{ form_end(form) }}
                                     </div>
+                                    
                                 </div>
                             </div>
-
-                            <div class="col-lg-12 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Statistiques (TRAITEMENT)</h3>
-                                    </div>
-                                    <div class="card-body">
-                                            <div class="form-row">
-                                                <div class="col-xl-4 mb-3">
-                                                    <label>Terminé :</label>
-                                                    <input type="text" class="form-control" id="" readonly value="90">
-                                                </div>
-                                                <div class="col-xl-4 mb-3">
-                                                    <label>Transféré :</label>
-                                                    <input type="text" class="form-control" id="" readonly value="20">
-                                                </div>
-                                                <div class="col-xl-4 mb-3">
-                                                    <label>Nouveau :</label>
-                                                    <input type="text" class="form-control" id="" readonly value="75">
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="col-xl-4 mb-3">
-                                                    <label class="redcolor">Temps moyen d'un traitement (mn) :</label>
-                                                    <input type="text" class="form-control" id="" readonly value="10">
-                                                </div>
-                                            </div>
-                                            
-                                    </div>
-                                </div>
-                            </div>
-
-
                             <div class="col-lg-12 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -133,68 +42,69 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive" style="">
+                                        {% if demande %}
                                             <table class="table border text-nowrap text-md-nowrap mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>N°</th>
-                                                        <th>N°Fiche</th>
+                                                        {# <th>N°</th> #}
+                                                        <th>Code rendez-vous</th>
                                                         <th>Matricule</th>
                                                         <th>Nom <br>et prénom(s)</th>
-                                                        <th>Agent <br>d'Accueil</th>
-                                                        <th>Date</th>
-                                                        <th>Heure <br>d'arrivée</th>
-                                                        <th>Heure <br>de départ</th>
-                                                        <th><span class="redcolor">Etat</span></th>
-                                                        <th>Options</th>
+                                                        <th>Date rdv</th>
+                                                        <th>Heure </th>
+                                                        {# <th>Heure <br>de départ</th> #}
+                                                        {# <th><span class="redcolor">Etat</span></th> #}
+                                                        <th>Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                  {% for demande in demande %}
                                                     <tr class="table-default">
-                                                        <td>1</td>
-                                                        <td><a href="{{ path('app_ges_infotreat') }}">000000F</a></td>
-                                                        <td>000000A</td>
-                                                        <td>Associate Developer</td>
-                                                        <td>Agent d'accueil 1</td>
-                                                        <td>10/11/2022</td>
-                                                        <td>08H30</td>
-                                                        <td>09H00</td>
-                                                        <td>RDV pris</td>
+                                                        {# <td>1</td> #}
+                                                        <td>{{ demande.codeDde }}</td>
+                                                        <td>{{ demande.users.matricule }}</td>
+                                                        <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td>
+                                                        <td>{{ demande.dateDemande | date('d/m/y') }}</td>
+                                                        <td>{{ demande.heureRdv }}</td>
+                                                        {# <td>{{ demande.etat }}</td> #}
+                                                        {# <td>09H00</td>
+                                                        <td>RDV pris</td> #}
                                                         <td>
                                                             <ul class="online">
                                                                 <li>
                                                                 <div class="meta-box icon-box">
-                                                                    <a href="#" class="navbar-link active icon-box">
+                                                                    <a href="{{ path('app_ges_trait', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                     <span title="Accepter" class="material-symbols-rounded  icon">done</span>
                                                                     </a>
                                                                 </div>
                                                                 </li>
 
-                                                                <li>
+                                                                {# <li>
                                                                 <div class="meta-box icon-box">
                                                                     <a href="#" class="navbar-link active icon-box">
                                                                     <span title="Transférer" class="material-symbols-rounded  icon">send</span>
                                                                     </a>
                                                                 </div>
-                                                                </li>
+                                                                </li> #}
 
-                                                                <li>
+                                                                <li>    
                                                                 <div class="meta-box icon-box">
-                                                                    <a href="#" class="navbar-link active icon-box">
+                                                                    <a href="{{ path('edit_demande_rdv', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                     <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
                                                                     </a>
                                                                 </div>
                                                                 </li>
 
-                                                                <li>
+                                                                {# <li>
                                                                 <div class="meta-box icon-box">
                                                                     <a href="#" class="navbar-link active icon-box">
                                                                     <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
                                                                     </a>
                                                                 </div>
-                                                                </li>
+                                                                </li> #}
                                                                 <li>
                                                                 <div class="meta-box icon-box">
-                                                                    <a href="#" class="navbar-link active icon-box">
+                                                                    <a href="{{ path('delete_demande', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                     <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
                                                                     </a>
                                                                 </div>
@@ -202,107 +112,92 @@
                                                             </ul>
                                                         </td>
                                                     </tr>
-                                                    <tr class="table-primary">
-                                                        <td>2</td>
-                                                        <td><a href="{{ path('app_ges_infotreat') }}">000000F</a></td>
-                                                        <td>000000A</td>
-                                                        <td>Senior Javascript Developer</td>
-                                                        <td>Agent d'accuei 2</td>
-                                                        <td>20/10/2022</td>
-                                                        <td>16H30</td>
-                                                        <td>16H45</td>
-                                                        <td>RDV annulé</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="table-secondary">
-                                                        <td>3</td>
-                                                        <td><a href="{{ path('app_ges_infotreat') }}">000000F</a></td>
-                                                        <td>000000A</td>
-                                                        <td>Account manager</td>
-                                                        <td>Agent d'accuei 3</td>
-                                                        <td>08/11/2022</td>
-                                                        <td>10H10</td>
-                                                        <td>10H30</td>
-                                                        <td>RDV non tenu</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="table-success">
-                                                        <td>4</td>
-                                                        <td><a href="{{ path('app_ges_infotreat') }}">000000F</a></td>
-                                                        <td>000000A</td>
-                                                        <td>Senior Javascript Developer</td>
-                                                        <td>Agent d'accuei 4</td>
-                                                        <td>01/11/2022</td>
-                                                        <td>07H30</td>
-                                                        <td>07H45</td>
-                                                        <td>RDV pris</td>
-                                                        <td>
-                                                           <ul class="online">
+                                                    </tr>  
+                                                  {% endfor %}                                                 
+                                                </tbody>
+                                            </table>
 
+                                            {% else %}
+
+                                            <table class="table border text-nowrap text-md-nowrap mb-0">
+                                            <thead>
+                                                <tr>
+                                                    {# <th>N°</th> #}
+                                                    <th>Code rendez-vous</th>
+                                                    <th>Matricule</th>
+                                                    <th>Nom <br>et prénom(s)</th>
+                                                    <th>Date rdv</th>
+                                                    <th>Heure </th>
+                                                    {# <th>Heure <br>de départ</th> #}
+                                                    {# <th><span class="redcolor">Etat</span></th> #}
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                              {% for demande in demande %}
+                                                <tr class="table-default">
+                                                    {# <td>1</td> #}
+                                                    <td>{{ demande.codeDde }}</td>
+                                                    <td>{{ demande.users.matricule }}</td>
+                                                    <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td>
+                                                    <td>{{ demande.dateDemande | date('d/m/y') }}</td>
+                                                    <td>{{ demande.heureRdv }}</td>
+                                                    {# <td>{{ demande.etat }}</td> #}
+                                                    {# <td>09H00</td>
+                                                    <td>RDV pris</td> #}
+                                                    <td>
+                                                        <ul class="online">
                                                             <li>
                                                             <div class="meta-box icon-box">
-                                                                <a href="#" class="navbar-link active icon-box">
+                                                                <a href="{{ path('app_ges_trait', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                 <span title="Accepter" class="material-symbols-rounded  icon">done</span>
                                                                 </a>
                                                             </div>
                                                             </li>
 
-                                                            <li>
+                                                            {# <li>
                                                             <div class="meta-box icon-box">
                                                                 <a href="#" class="navbar-link active icon-box">
                                                                 <span title="Transférer" class="material-symbols-rounded  icon">send</span>
                                                                 </a>
                                                             </div>
-                                                            </li>
+                                                            </li> #}
 
                                                             <li>
                                                             <div class="meta-box icon-box">
-                                                                <a href="#" class="navbar-link active icon-box">
+                                                                <a href="{{ path('edit_demande_rdv', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                 <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
                                                                 </a>
                                                             </div>
                                                             </li>
 
                                                             <li>
-                                                            <div class="meta-box icon-box">
+                                                            {# <div class="meta-box icon-box">
                                                                 <a href="#" class="navbar-link active icon-box">
                                                                 <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
                                                                 </a>
-                                                            </div>
+                                                            </div> #}
                                                             </li>
                                                             <li>
                                                             <div class="meta-box icon-box">
-                                                                <a href="#" class="navbar-link active icon-box">
+                                                                <a href="{{ path('delete_demande', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                 <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
                                                                 </a>
                                                             </div>
                                                             </li>
-
                                                         </ul>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="table-danger">
-                                                        <td>5</td>
-                                                        <td><a href="{{ path('app_ges_infotreat') }}">000000F</a></td>
-                                                        <td>000000A</td>
-                                                        <td>Associate Developer</td>
-                                                        <td>Agent d'accueil 5</td>
-                                                        <td>02/11/2022</td>
-                                                        <td>09H45</td>
-                                                        <td>10H00</td>
-                                                        <td>RDV honoré</td>
-                                                        <td><a href="#">FICHE RDV</a></td>
-                                                    </tr>                                                   
-                                                </tbody>
-                                            </table>
+                                                    </td>
+                                                </tr>
+                                                </tr>  
+                                              {% endfor %}                                                 
+                                            </tbody>
+                                          {% endif %}
+                                        </table>
                                         </div>
                                     </div>
-                                    <div class="row text-center">
-                                        <label class="col-md-3 form-label" for="example-email">Total</label>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control" name="total" value="" disabled>                                    
-                                        </div>
-                                    </div>
+                                    {# {% for demande in demande %} #}
+                                    <div class="text-center"><a href="#">{{ demande | length }} demandes en attente de traitement !</a></div>
+                                {# {% endfor %}   #}
                                 </div>
                             </div>
                         </div>

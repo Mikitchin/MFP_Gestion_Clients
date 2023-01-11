@@ -50,7 +50,7 @@
                                                 <thead>
                                                     <tr>
                                                         {# <th>N°</th> #}
-                                                        <th>Code rendez-vous</th>
+                                                        {# <th>Code rendez-vous</th> #}
                                                         <th>Matricule</th>
                                                         <th>Nom <br>et prénom(s)</th>
                                                         <th>Date rdv</th>
@@ -64,7 +64,7 @@
                                                   {% for demande in demande %}
                                                     <tr class="table-default">
                                                         {# <td>1</td> #}
-                                                        <td>{{ demande.codeDde }}</td>
+                                                        {# <td>{{ demande.codeDde }}</td> #}
                                                         <td>{{ demande.users.matricule }}</td>
                                                         <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td>
                                                         <td>{{ demande.dateDemande | date('d/m/y') }}</td>
@@ -76,7 +76,7 @@
                                                             <ul class="online">
                                                                 <li>
                                                                 <div class="meta-box icon-box">
-                                                                    <a href="{{ path('app_ges_infotreat') }}" class="navbar-link active icon-box">
+                                                                    <a href="{{ path('app_ges_infotreat', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                     <span title="Accepter" class="material-symbols-rounded  icon">done</span>
                                                                     </a>
                                                                 </div>
@@ -92,7 +92,7 @@
 
                                                                 <li>    
                                                                 <div class="meta-box icon-box">
-                                                                    <a href="{{ path('edit_demande_rdv', {'id': demande.id}) }}" class="navbar-link active icon-box">
+                                                                    <a href="{{ path('app_data_form', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                     <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
                                                                     </a>
                                                                 </div>
@@ -126,7 +126,7 @@
                                             <thead>
                                                 <tr>
                                                     {# <th>N°</th> #}
-                                                    <th>Code rendez-vous</th>
+                                                    {# <th>Code rendez-vous</th> #}
                                                     <th>Matricule</th>
                                                     <th>Nom <br>et prénom(s)</th>
                                                     <th>Date rdv</th>
@@ -140,7 +140,7 @@
                                               {% for demande in demande %}
                                                 <tr class="table-default">
                                                     {# <td>1</td> #}
-                                                    <td>{{ demande.codeDde }}</td>
+                                                    {# <td>{{ demande.codeDde }}</td> #}
                                                     <td>{{ demande.users.matricule }}</td>
                                                     <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td>
                                                     <td>{{ demande.dateDemande | date('d/m/y') }}</td>
@@ -168,7 +168,7 @@
 
                                                             <li>
                                                             <div class="meta-box icon-box">
-                                                                <a href="{{ path('edit_demande_rdv', {'id': demande.id}) }}" class="navbar-link active icon-box">
+                                                                <a href="{{ path('app_data_form', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                 <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
                                                                 </a>
                                                             </div>
@@ -198,7 +198,7 @@
                                         </table>
                                         </div>
                                     </div>
-                                    <div class="text-center"><a href="#">Zone de pagination</a></div>
+                                    <div class="text-center"><a href="#">{{ demande | length }} demandes en attente de traitement !</a></div>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+ <main>
+    <article class="containerxd article">
+
+      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+
+      <p class="article-subtitle">Formulaire de contrôle du code rendez-vous avant modification.</p>
+
+     
+
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="col-xl-3 mb-3">
+                <label>Code rendez-vous :</label>
+            {{ form_widget(form.codeRdv) }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-xl-3 mb-3">
+            <button class="btn btn-primary" type="submit">Vérifier le code rendez-vous</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+       
+        {% if demande %}
+      <p class="article-subtitle">Vérification du code rendez-vous à modifier</p>
+        {% else %}
+      <p class="article-subtitle">Entrer un code valide</p>
+        {% endif %}
+
+    </article>
+  </main>
+{% endblock %}

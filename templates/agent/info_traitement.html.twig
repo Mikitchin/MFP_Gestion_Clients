@@ -15,14 +15,17 @@
                                         <h3 class="card-title">Traitement</h3>
                                     </div>
                                     <div class="card-body">
+                                    {{ form_start(form) }}
                                             <div class="form-row">
                                                 <div class="col-xl-6 mb-3">
                                                     <label>Motif de la visite :</label>
-                                                    <input type="text" class="form-control" id="" name="motif_visite" value="" readonly>
+                                                        {{ form_widget(form.codeMotif) }}
+                                                    {# <input type="text" class="form-control" id="" name="motif_visite" value="" readonly> #}
                                                 </div>
                                                 <div class="col-xl-6 mb-3">
-                                                    <label>Détails :</label>
-                                                    <textarea class="form-control mb-4" placeholder="" rows="2" name="details" readonly></textarea>
+                                                    <label>Date de la visite :</label>
+                                                        {{ form_widget(form.dateDemande) }}
+                                                    {# <textarea class="form-control mb-4" placeholder="" rows="2" name="details" readonly></textarea> #}
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -30,12 +33,33 @@
                                                     <label class="redcolor">Traitement au poste</label>
                                                     <input type="checkbox" value=""> 
                                                 </div> #}
-                                                <div class="col-xl-6 mb-3">
-                                                    <label>Observations :</label>
-                                                    <textarea class="form-control mb-4" placeholder="" rows="2" name="observation" readonly></textarea>
+                                                <div class="col-xl-6 mb-6">
+                                                    <label>Description :</label>
+                                                        {{ form_widget(form.descriptDde) }}
+                                                    {# <textarea class="form-control mb-4" placeholder="" rows="2" name="observation" readonly></textarea> #}
+                                                </div>
+                                                <div class="col-xl-6 mb-6">
+                                                    <label>Heure rendez-vous :</label>
+                                                        {{ form_widget(form.heureRdv) }}
+                                                    {# <textarea class="form-control mb-4" placeholder="" rows="2" name="observation" readonly></textarea> #}
                                                 </div>
                                             </div>  
-                                            
+                                            <div class="form-row">
+                                            <div class="col-xl-6 mb-5">
+                                                    <label>Observation de l'agent d'accueil :</label>
+                                                        {{ form_widget(form.observationAc) }}
+                                            </div> 
+                                        </div> 
+                                        <div class="form-row">
+                                        <div class="col-xl-3 mb-3">
+                                            <button type="submit" class="btn btn-primary">Valider</button>  
+                                        </div>
+                                        <div class="col-xl-3 mb-3">
+                                    {# <a class="btn btn-danger text-dark" href="#">Bloquer</a> #}
+                                <a class="btn btn-success text-white" href="{{ path('app_ac_transfert', {'id': demande.id}) }}">Transférer</a>  
+                                        </div>
+                                    </div>              
+                                    {{ form_end(form) }}        
                                     </div>
                                 </div>
                             </div>

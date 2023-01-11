@@ -22,19 +22,25 @@ class TraiteAcFormType extends AbstractType
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'readonly' => true
+                ],
 
-                ]
             ])
             ->add('codeMotif', EntityType::class, [
                 'class' => MotifRdv::class,
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'readonly' => true
+                ],
 
-                ]
             ])
             ->add('descriptDde', TextareaType::class, [
-                'attr' => ['class' => 'form-control'],
+                'attr' => [
+                    'class' => 'form-control',
+                    'readonly' => true
+                ],
+
             ])
             ->add('heureRdv', ChoiceType::class, [
                 'choices' => array(
@@ -48,13 +54,15 @@ class TraiteAcFormType extends AbstractType
                     '16h00' => '16h00'
                 ),
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
 
-                ]
+                ],
+
 
             ])
             ->add('observationAc', TextareaType::class, [
                 'attr' => ['class' => 'form-control'],
+
             ]);
     }
 

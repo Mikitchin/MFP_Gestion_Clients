@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\DemandeRdv;
+use App\Form\TraiteGestFormType;
 use App\Repository\DemandeRdvRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\EtatDemandeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,13 +41,34 @@ class GsController extends AbstractController
         ]);
     }
 
-    // #[Route('/visualisation-des-informations-sur-un-traitement-RDV_30112022_001', name: 'app_ges_infotreat')]
+    #[Route('/traitement-gestionnaire/{id}', name: 'app_ges_trait')]
     // public function ges_infotreat(): Response
-    // {
-    //     return $this->render('gestionnaire/info_traitement.html.twig', [
-    //         'controller_name' => 'GsController',
-    //     ]);
-    // }
+    public function ges_treat_demande(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous honoré)
+        $etatDemandes = $response->findOneBy(['id' => 6]);
+        // dd($etatDemandes);
+        $form = $this->createForm(TraiteGestFormType::class, $demande);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $demande->setEtatDemandes($etatDemandes);
+
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'La demande a été traitée avec succès !');
+
+            // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('gestionnaire/info_traitement_gs.html.twig', [
+            'form' => $form->createView(),
+
+        ]);
+    }
 
     #[Route('/statistiques-des-traitements', name: 'app_ges_stat')]
     public function ges_stat(): Response

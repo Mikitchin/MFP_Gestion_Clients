@@ -20,7 +20,6 @@ return [
         '/stats-rdv' => [[['_route' => 'app_statsrdv', '_controller' => 'App\\Controller\\AgentController::srdv'], null, null, null, false, false, null]],
         '/prise_de_rdv_agent_d_accueil' => [[['_route' => 'app_rdv_agt', '_controller' => 'App\\Controller\\AgentController::rdv_agt'], null, null, null, false, false, null]],
         '/list_rdv_agent' => [[['_route' => 'app_lst_dem_agt', '_controller' => 'App\\Controller\\AgentController::lst_dem_agt'], null, null, null, false, false, null]],
-        '/traitement-demande-rdv' => [[['_route' => 'app_ges_infotreat', '_controller' => 'App\\Controller\\AgentController::ges_infotreat'], null, null, null, false, false, null]],
         '/espace_chef_de_service' => [[['_route' => 'app_cshome', '_controller' => 'App\\Controller\\CsController::index'], null, null, null, false, false, null]],
         '/cs-demandes' => [[['_route' => 'app_csdem', '_controller' => 'App\\Controller\\CsController::lstdem'], null, null, null, false, false, null]],
         '/cs-traitement' => [[['_route' => 'app_cstreat', '_controller' => 'App\\Controller\\CsController::listtreat'], null, null, null, false, false, null]],
@@ -66,11 +65,24 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/de(?'
-                    .'|mande/edit/([^/]++)(*:194)'
-                    .'|lete/([^/]++)(*:215)'
+                .'|/tra(?'
+                    .'|itement\\-(?'
+                        .'|demande\\-rdv/([^/]++)(*:209)'
+                        .'|gestionnaire/([^/]++)(*:238)'
+                    .')'
+                    .'|nsferer\\-demande\\-rdv/([^/]++)(*:277)'
                 .')'
-                .'|/oubli\\-pass/([^/]++)(*:245)'
+                .'|/d(?'
+                    .'|e(?'
+                        .'|mande/edit/([^/]++)(*:314)'
+                        .'|lete/([^/]++)(*:335)'
+                    .')'
+                    .'|ata(?'
+                        .'|\\-modif/([^/]++)(*:366)'
+                        .'|/([^/]++)(*:383)'
+                    .')'
+                .')'
+                .'|/oubli\\-pass/([^/]++)(*:414)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -81,9 +93,14 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        194 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, true, null]],
-        215 => [[['_route' => 'delete_demande', '_controller' => 'App\\Controller\\DemandeRdvController::delete_demande'], ['id'], null, null, false, true, null]],
-        245 => [
+        209 => [[['_route' => 'app_ges_infotreat', '_controller' => 'App\\Controller\\AgentController::ges_infotreat'], ['id'], null, null, false, true, null]],
+        238 => [[['_route' => 'app_ges_trait', '_controller' => 'App\\Controller\\GsController::ges_treat_demande'], ['id'], null, null, false, true, null]],
+        277 => [[['_route' => 'app_ac_transfert', '_controller' => 'App\\Controller\\AgentController::ac_transferer'], ['id'], null, null, false, true, null]],
+        314 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, true, null]],
+        335 => [[['_route' => 'delete_demande', '_controller' => 'App\\Controller\\DemandeRdvController::delete_demande'], ['id'], null, null, false, true, null]],
+        366 => [[['_route' => 'app_data', '_controller' => 'App\\Controller\\DemandeRdvController::dataAction'], ['id'], null, null, false, true, null]],
+        383 => [[['_route' => 'app_data_form', '_controller' => 'App\\Controller\\DemandeRdvController::formAction'], ['id'], null, null, false, true, null]],
+        414 => [
             [['_route' => 'reset_pass', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

@@ -58,6 +58,9 @@ class DemandeRdv
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $observationAc = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $observationGest = null;
+
 
     // public function computeSlug(SluggerInterface $slugger)
     // {
@@ -188,11 +191,6 @@ class DemandeRdv
         return $this;
     }
 
-    public function __toString(): string
-    {
-        return $this->getId();
-    }
-
     public function getHeureRdv(): ?string
     {
         return $this->heureRdv;
@@ -227,5 +225,22 @@ class DemandeRdv
         $this->observationAc = $observationAc;
 
         return $this;
+    }
+
+    public function getObservationGest(): ?string
+    {
+        return $this->observationGest;
+    }
+
+    public function setObservationGest(?string $observationGest): self
+    {
+        $this->observationGest = $observationGest;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getCodeDde();
     }
 }

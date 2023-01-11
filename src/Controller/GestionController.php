@@ -28,6 +28,26 @@ class GestionController extends AbstractController
         }
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_GEST')) {
+
+
+            $demandeSearch = new DemandeSearch();
+            $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+            $form->handleRequest($request);
+            $demande = [];
+            // $demande = $repo->findAll();
+            // $code = $this->getCodeDde();
+            $demande = $repo->findOneByFieldGest();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $code = $demandeSearch->getCodeDde();
+                if ($code != "")
+                    $demande = $repo->findBy(['codeDde' => $code]);
+            }
+
+            return $this->render('gestionnaire/index.html.twig', [
+                'form' => $form->createView(),
+                'demande' => $demande,
+
+            ]);
             return $this->render('gestionnaire/index.html.twig', [
                 'controller_name' => 'GestionController',
             ]);
@@ -45,18 +65,17 @@ class GestionController extends AbstractController
             $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
             $form->handleRequest($request);
             $demande = [];
+            $demande = $repo->findOneByFieldAccueil();
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $code = $demandeSearch->getCodeDde();
                 if ($code != "")
                     $demande = $repo->findBy(['codeDde' => $code]);
-
-                else
-                    $demande = $repo->findAll();
             }
 
             return $this->render('agent/index.html.twig', [
-                'form' => $form->createView(), 'demande' => $demande,
+                'form' => $form->createView(),
+                'demande' => $demande,
 
             ]);
         }
@@ -67,12 +86,12 @@ class GestionController extends AbstractController
         }
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_USER')) {
-            $demandes = new DemandeRdv();
+            $demande = new DemandeRdv();
             $user = $this->getUser()->getId();
-            $demandes = $repo->findBy(array('users' => $user));
+            $demande = $repo->findBy(array('users' => $user));
 
             return $this->render('usager/home.html.twig',  [
-                'demandes' => $demandes,
+                'demande' => $demande,
             ]);
         }
     }

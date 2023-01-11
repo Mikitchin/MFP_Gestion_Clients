@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Datetime;
 use App\Entity\User;
+use App\Form\ControleCodeFormType;
 use App\Entity\DemandeRdv;
 use App\Entity\DemandeSearch;
 use App\Form\DemandeFormType;
@@ -29,6 +30,8 @@ class DemandeRdvController extends AbstractController
             $demande = new DemandeRdv();
         }
 
+        // Script de la nomenclature du code de rendez-vous !
+
         $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
         $lastId = $id_rdv->getId();
         if (!$lastId) {
@@ -40,8 +43,8 @@ class DemandeRdvController extends AbstractController
         $b = "RDV_" . $result . "_" . $id_rdv;
 
         $user_cnt = $this->getUser();
-        // $demande_rs = $repo->findBy(array('users' => $user));
-        // dd($user);
+
+        //Contrôle avant modification 
 
         $form = $this->createForm(DemandeFormType::class, $demande);
 
@@ -49,9 +52,9 @@ class DemandeRdvController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$demande->getId()) {
                 $demande->setCreatedAt = new \Datetime();
+                $demande->setCodeDde($b);
             }
 
-            $demande->setCodeDde($b);
             $demande->setUsers($user_cnt);
             $entityManager->persist($demande);
             $entityManager->flush();
@@ -71,15 +74,15 @@ class DemandeRdvController extends AbstractController
     #[Route('/liste-demande', name: 'app_liste_rdv')]
     public function demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
     {
-        $demandes = new DemandeRdv();
+        $demande = new DemandeRdv();
         $user = $this->getUser()->getId();
-        $demandes = $repo->findBy(array('users' => $user));
+        $demande = $repo->findBy(array('users' => $user));
         // $demande = $repo->findAll();
 
         // dd($demandes);
 
         return $this->render('usager/rdv_liste.html.twig', [
-            'demandes' => $demandes,
+            'demande' => $demande,
 
         ]);
     }
@@ -113,7 +116,72 @@ class DemandeRdvController extends AbstractController
         }
 
         return $this->render('usager/demande_search.html.twig', [
-            'form' => $form->createView(), 'demande' => $demande
+            'form' => $form->createView(),
+            'demande' => $demande
+        ]);
+    }
+
+
+    #[Route('/data-modif/{id}', name: 'app_data')]
+
+    public function dataAction(DemandeRdv $data = Null, Request $request, DemandeRdvRepository $repo, EntityManagerInterface $entityManager): Response
+    {
+        if (!$data) {
+            $data = new DemandeRdv();
+        }
+        // Vérifiez si le code est valide ici
+
+        // Récupérez les données de la base de données
+        $form = $this->createForm(DemandeFormType::class, $data);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$data->getId()) {
+                $data->setCreatedAt = new \Datetime();
+            }
+
+            $entityManager->persist($data);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
+
+            // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('agent/demande_modif_ac.html.twig', [
+            'demande_form' => $form->createView(),
+            // 'data' => $data,
+
+        ]);
+    }
+
+
+    #[Route('/data/{id}', name: 'app_data_form')]
+    // #[Route('/data/{code}', name: 'app_data')]
+
+    public function formAction(Request $request, DemandeRdv $demande = null, DemandeRdvRepository $repo, EntityManagerInterface $entityManager): Response
+    {
+
+
+        $form = $this->createForm(ControleCodeFormType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $code = $form->getData()['codeRdv'];
+
+            $demande = $repo->findBy(['codeDde' => $code]);
+            if ($demande) {
+                $table = $repo->findOneBy(['codeDde' => $code]);
+                $id = $table->getId();
+                return $this->redirectToRoute('app_data', ['id' => $id]);
+            }
+        }
+
+        return $this->render('agent/controle_code.html.twig', [
+            'form' => $form->createView(),
+            'demande' => $demande,
+
         ]);
     }
 }
