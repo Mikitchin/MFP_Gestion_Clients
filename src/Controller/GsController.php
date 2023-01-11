@@ -45,6 +45,12 @@ class GsController extends AbstractController
     // public function ges_infotreat(): Response
     public function ges_treat_demande(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+
+        $etat = $response->findOneBy(['id' => 5]);
+        $demande->setEtatDemandes($etat);
+
+        $entityManager->persist($demande);
+        $entityManager->flush();
         // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous honoré)
         $etatDemandes = $response->findOneBy(['id' => 6]);
         // dd($etatDemandes);

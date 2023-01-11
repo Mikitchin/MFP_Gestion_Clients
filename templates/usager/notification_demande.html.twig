@@ -1,0 +1,27 @@
+{% extends 'cs_base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+
+<main>
+    <article class="containerxd article">
+
+      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+             <p class="article-subtitle">RÉPONSE À VOTRE REQUÊTE </p>
+             {% for demande in demande %}
+
+             <div style="border: solid 1px black; width: 900px; height: 250px; padding: 40px; text-align: center;">
+
+            <p class="article-subtitle"> {{demande.observationAc}} </p>
+             
+            <p class="article-subtitle"> {{demande.observationGest}} </p>
+             </div>
+            {% endfor %} 
+        
+    </article>
+
+</main>
+
+{% endblock %}

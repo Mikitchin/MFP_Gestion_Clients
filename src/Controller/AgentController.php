@@ -88,9 +88,16 @@ class AgentController extends AbstractController
 
     public function ges_infotreat(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
-        // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous honoré)
-        $etatDemandes = $response->findOneBy(['id' => 6]);
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous en cours de traitement !)
+        // Mesure transitoire
+        $etat = $response->findOneBy(['id' => 5]);
+        $demande->setEtatDemandes($etat);
+
+        $entityManager->persist($demande);
+        $entityManager->flush();
         // dd($etatDemandes);
+
+        $etatDemandes = $response->findOneBy(['id' => 6]);
         $form = $this->createForm(TraiteAcFormType::class, $demande);
 
         $form->handleRequest($request);

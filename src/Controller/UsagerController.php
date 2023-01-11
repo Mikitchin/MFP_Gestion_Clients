@@ -12,21 +12,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UsagerController extends AbstractController
 {
-    // #[Route('/usager', name: 'app_uhome')]
-    // public function homeu(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
-    // {
-    // $demandeRdv = new DemandeRdv();
-    // $user = $this->getUser()->getId();
-    // $demandeRdv = $repo->findBy(array('users' => $user));
-    // $demande = $repo->findAll();
+    #[Route('/resultat-traitement', name: 'app_result-traite')]
+    public function homeu(Request $request, DemandeRdvRepository $repo): Response
+    {
+        $demandeRdv = new DemandeRdv();
+        $user = $this->getUser();
+        $demande = $repo->findBy(array('users' => $user));
+        // $demande = $repo->findAll();
 
-    // dd($demande);
+        return $this->render('usager/notification_demande.html.twig', [
+            'demande' => $demande,
 
-    // return $this->render('usager/home.html.twig', [
-    // 'demandeRdv' => $demandeRdv,
-
-    // ]);
-    // }
+        ]);
+    }
 
     // #[Route('/prendre-rdv', name: 'app_creat_rdv')]
     // public function prdv(): Response

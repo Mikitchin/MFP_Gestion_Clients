@@ -87,7 +87,7 @@ class GestionController extends AbstractController
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_USER')) {
             $demande = new DemandeRdv();
-            $user = $this->getUser()->getId();
+            $user = $this->getUser();
             $demande = $repo->findBy(array('users' => $user));
 
             return $this->render('usager/home.html.twig',  [

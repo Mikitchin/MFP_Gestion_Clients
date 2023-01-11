@@ -4,13 +4,14 @@ namespace App\Controller;
 
 use Datetime;
 use App\Entity\User;
-use App\Form\ControleCodeFormType;
 use App\Entity\DemandeRdv;
 use App\Entity\DemandeSearch;
 use App\Form\DemandeFormType;
 use App\Form\DemandeSearchType;
+use App\Form\ControleCodeFormType;
 use App\Repository\DemandeRdvRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\EtatDemandeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,26 +24,28 @@ class DemandeRdvController extends AbstractController
     #[Route('/demande', name: 'app_demande_rdv')]
     #[Route('/demande/edit/{id}', name: 'edit_demande_rdv')]
 
-    public function index(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $repo, EntityManagerInterface $entityManager): Response
+    public function index(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $reponse, EntityManagerInterface $entityManager): Response
     {
 
         if (!$demande) {
             $demande = new DemandeRdv();
+
+            // On met à jour l'état de la demande (Rendez-vous pris)
+            $etat = $reponse->findOneBy(['id' => 1]);
+
+            $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
+            $lastId = $id_rdv->getId();
+            if (!$lastId) {
+                $lastId = 1;
+            }
+
+            // Script de la nomenclature du code de rendez-vous !
+            $j = new \Datetime();
+            $result = $j->format('dmY');
+            $b = "RDV_" . $result . "_" . $lastId;
+
+            $user_cnt = $this->getUser();
         }
-
-        // Script de la nomenclature du code de rendez-vous !
-
-        $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
-        $lastId = $id_rdv->getId();
-        if (!$lastId) {
-            $lastId = 1;
-        }
-
-        $j = new \Datetime();
-        $result = $j->format('dmY');
-        $b = "RDV_" . $result . "_" . $id_rdv;
-
-        $user_cnt = $this->getUser();
 
         //Contrôle avant modification 
 
@@ -51,18 +54,19 @@ class DemandeRdvController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$demande->getId()) {
-                $demande->setCreatedAt = new \Datetime();
+                // $demande->setCreatedAt = new \Datetime();
                 $demande->setCodeDde($b);
             }
 
             $demande->setUsers($user_cnt);
+            $demande->setEtatDemandes($etat);
             $entityManager->persist($demande);
             $entityManager->flush();
 
             $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
-            return $this->redirectToRoute('app_liste_rdv');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('usager/rdv_form.html.twig', [
@@ -75,7 +79,7 @@ class DemandeRdvController extends AbstractController
     public function demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
     {
         $demande = new DemandeRdv();
-        $user = $this->getUser()->getId();
+        $user = $this->getUser();
         $demande = $repo->findBy(array('users' => $user));
         // $demande = $repo->findAll();
 
@@ -137,7 +141,7 @@ class DemandeRdvController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$data->getId()) {
-                $data->setCreatedAt = new \Datetime();
+                // $data->setCreatedAt = new \Datetime();
             }
 
             $entityManager->persist($data);
