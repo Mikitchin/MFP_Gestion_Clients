@@ -47,6 +47,7 @@ return [
         '/statistiques-sup' => [[['_route' => 'app_statsrdvsup', '_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], null, null, null, false, false, null]],
         '/info-recept-sup' => [[['_route' => 'app_inforecep', '_controller' => 'App\\Controller\\SuperviseurController::inforecep'], null, null, null, false, false, null]],
         '/resultat-traitement' => [[['_route' => 'app_result-traite', '_controller' => 'App\\Controller\\UsagerController::homeu'], null, null, null, false, false, null]],
+        '/evaluation' => [[['_route' => 'app_satisfaction', '_controller' => 'App\\Controller\\UsagerController::satisfaction_usager'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_cruchome', '_controller' => 'App\\Controller\\WelcomeController::accueil'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -73,17 +74,19 @@ return [
                     .')'
                     .'|nsferer\\-demande\\-rdv/([^/]++)(*:277)'
                 .')'
+                .'|/annule\\-demande/([^/]++)(*:311)'
                 .'|/d(?'
                     .'|e(?'
-                        .'|mande/edit/([^/]++)(*:314)'
-                        .'|lete/([^/]++)(*:335)'
+                        .'|mande/edit/([^/]++)(*:347)'
+                        .'|lete/([^/]++)(*:368)'
                     .')'
                     .'|ata(?'
-                        .'|\\-modif/([^/]++)(*:366)'
-                        .'|/([^/]++)(*:383)'
+                        .'|\\-modif/([^/]++)(*:399)'
+                        .'|/([^/]++)(*:416)'
                     .')'
                 .')'
-                .'|/oubli\\-pass/([^/]++)(*:414)'
+                .'|/cancel\\-demande/([^/]++)(*:451)'
+                .'|/oubli\\-pass/([^/]++)(*:480)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -97,11 +100,13 @@ return [
         209 => [[['_route' => 'app_ges_infotreat', '_controller' => 'App\\Controller\\AgentController::ges_infotreat'], ['id'], null, null, false, true, null]],
         238 => [[['_route' => 'app_ges_trait', '_controller' => 'App\\Controller\\GsController::ges_treat_demande'], ['id'], null, null, false, true, null]],
         277 => [[['_route' => 'app_ac_transfert', '_controller' => 'App\\Controller\\AgentController::ac_transferer'], ['id'], null, null, false, true, null]],
-        314 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, true, null]],
-        335 => [[['_route' => 'delete_demande', '_controller' => 'App\\Controller\\DemandeRdvController::delete_demande'], ['id'], null, null, false, true, null]],
-        366 => [[['_route' => 'app_data', '_controller' => 'App\\Controller\\DemandeRdvController::dataAction'], ['id'], null, null, false, true, null]],
-        383 => [[['_route' => 'app_data_form', '_controller' => 'App\\Controller\\DemandeRdvController::formAction'], ['id'], null, null, false, true, null]],
-        414 => [
+        311 => [[['_route' => 'app_annule_demande', '_controller' => 'App\\Controller\\AgentController::annule_demande_Ac'], ['id'], null, null, false, true, null]],
+        347 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, true, null]],
+        368 => [[['_route' => 'delete_demande', '_controller' => 'App\\Controller\\DemandeRdvController::delete_demande'], ['id'], null, null, false, true, null]],
+        399 => [[['_route' => 'app_data', '_controller' => 'App\\Controller\\DemandeRdvController::dataAction'], ['id'], null, null, false, true, null]],
+        416 => [[['_route' => 'app_data_form', '_controller' => 'App\\Controller\\DemandeRdvController::formAction'], ['id'], null, null, false, true, null]],
+        451 => [[['_route' => 'app_cancel_demande', '_controller' => 'App\\Controller\\GsController::annule_demande_gest'], ['id'], null, null, false, true, null]],
+        480 => [
             [['_route' => 'reset_pass', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

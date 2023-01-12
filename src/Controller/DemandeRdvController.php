@@ -56,10 +56,12 @@ class DemandeRdvController extends AbstractController
             if (!$demande->getId()) {
                 // $demande->setCreatedAt = new \Datetime();
                 $demande->setCodeDde($b);
+                $demande->setUsers($user_cnt);
+                $demande->setEtatDemandes($etat);
             }
 
-            $demande->setUsers($user_cnt);
-            $demande->setEtatDemandes($etat);
+
+
             $entityManager->persist($demande);
             $entityManager->flush();
 

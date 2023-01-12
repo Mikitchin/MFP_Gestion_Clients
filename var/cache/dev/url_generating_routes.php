@@ -24,6 +24,7 @@ return [
     'app_lst_dem_agt' => [[], ['_controller' => 'App\\Controller\\AgentController::lst_dem_agt'], [], [['text', '/list_rdv_agent']], [], [], []],
     'app_ges_infotreat' => [['id'], ['_controller' => 'App\\Controller\\AgentController::ges_infotreat'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/traitement-demande-rdv']], [], [], []],
     'app_ac_transfert' => [['id'], ['_controller' => 'App\\Controller\\AgentController::ac_transferer'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/transferer-demande-rdv']], [], [], []],
+    'app_annule_demande' => [['id'], ['_controller' => 'App\\Controller\\AgentController::annule_demande_Ac'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/annule-demande']], [], [], []],
     'app_cshome' => [[], ['_controller' => 'App\\Controller\\CsController::index'], [], [['text', '/espace_chef_de_service']], [], [], []],
     'app_csdem' => [[], ['_controller' => 'App\\Controller\\CsController::lstdem'], [], [['text', '/cs-demandes']], [], [], []],
     'app_cstreat' => [[], ['_controller' => 'App\\Controller\\CsController::listtreat'], [], [['text', '/cs-traitement']], [], [], []],
@@ -46,6 +47,7 @@ return [
     'app_ges_treat' => [[], ['_controller' => 'App\\Controller\\GsController::ges_treat'], [], [['text', '/visualisation-des-rdv-en-traitements']], [], [], []],
     'app_ges_trait' => [['id'], ['_controller' => 'App\\Controller\\GsController::ges_treat_demande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/traitement-gestionnaire']], [], [], []],
     'app_ges_stat' => [[], ['_controller' => 'App\\Controller\\GsController::ges_stat'], [], [['text', '/statistiques-des-traitements']], [], [], []],
+    'app_cancel_demande' => [['id'], ['_controller' => 'App\\Controller\\GsController::annule_demande_gest'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/cancel-demande']], [], [], []],
     'app_inscription' => [[], ['_controller' => 'App\\Controller\\RegistrationController::inscription'], [], [['text', '/inscription']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::connexion'], [], [['text', '/connexion']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
@@ -57,5 +59,6 @@ return [
     'app_statsrdvsup' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], [], [['text', '/statistiques-sup']], [], [], []],
     'app_inforecep' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::inforecep'], [], [['text', '/info-recept-sup']], [], [], []],
     'app_result-traite' => [[], ['_controller' => 'App\\Controller\\UsagerController::homeu'], [], [['text', '/resultat-traitement']], [], [], []],
+    'app_satisfaction' => [[], ['_controller' => 'App\\Controller\\UsagerController::satisfaction_usager'], [], [['text', '/evaluation']], [], [], []],
     'app_cruchome' => [[], ['_controller' => 'App\\Controller\\WelcomeController::accueil'], [], [['text', '/']], [], [], []],
 ];

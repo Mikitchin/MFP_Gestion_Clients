@@ -56,6 +56,10 @@
                                         <div class="col-xl-3 mb-3">
                                             <button type="submit" class="btn btn-primary">Valider</button>  
                                         </div>
+                                        <div class="col-xl-3 mb-3">
+                                           <a class="btn btn-danger text-dark d-flex align-items-center" href="{{ path('app_cancel_demande', {'id': demande.id}) }}">
+                                         <span class="mx-auto">Annuler</span></a>  
+                                        </div>
                                         {# <div class="col-xl-3 mb-3">
                                             <button type="submit" class="btn btn-primary">Transférer</button>  
                                         </div> #}

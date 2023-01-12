@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\DemandeRdv;
+use App\Entity\Evaluation;
+use App\Form\EvaluationFormType;
 use App\Repository\DemandeRdvRepository;
+use App\Repository\EvaluationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,19 +29,31 @@ class UsagerController extends AbstractController
         ]);
     }
 
-    // #[Route('/prendre-rdv', name: 'app_creat_rdv')]
-    // public function prdv(): Response
-    // {
-    //     return $this->render('usager/rdv_form.html.twig', [
-    //         'controller_name' => 'UsagerController',
-    //     ]);
-    // }
+    #[Route('/evaluation', name: 'app_satisfaction')]
 
-    // #[Route('/liste-rdv', name: 'app_liste_rdv')]
-    // public function lsrdv(): Response
-    // {
-    //     return $this->render('usager/rdv_liste.html.twig', [
-    //         'controller_name' => 'UsagerController',
-    //     ]);
-    // }
+    public function satisfaction_usager(Request $request, EvaluationRepository $repo, EntityManagerInterface $entityManager): Response
+    {
+        $demande = new Evaluation();
+        $form = $this->createForm(EvaluationFormType::class, $demande);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$demande->getId()) {
+                // $data->setCreatedAt = new \Datetime();
+            }
+
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Votre impression a été enregistrée avec succès');
+
+            // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('usager/satisfaction_form.html.twig', [
+            'form' => $form->createView(),
+            'demande' => $demande,
+        ]);
+    }
 }

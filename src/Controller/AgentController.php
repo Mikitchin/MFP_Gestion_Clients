@@ -138,4 +138,22 @@ class AgentController extends AbstractController
         // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
         return $this->redirectToRoute('app_home');
     }
+
+    #[Route('/annule-demande/{id}', name: 'app_annule_demande')]
+
+    public function annule_demande_Ac(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (état terminé)
+        $etatDemandes = $response->findOneBy(['id' => 1]);
+
+        $demande->setEtatDemandes($etatDemandes);
+
+        $entityManager->persist($demande);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'La demande a été transférée avec succès !');
+
+        // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+        return $this->redirectToRoute('app_home');
+    }
 }

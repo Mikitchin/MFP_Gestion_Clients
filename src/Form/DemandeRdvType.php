@@ -40,7 +40,7 @@ class DemandeRdvType extends AbstractType
 
             ])
             ->add('descriptDde', TextareaType::class, [
-                'attr' => ['class' => 'tinymce'],
+                'attr' => ['class' => 'form-control'],
             ])
             // ->add('createdAt')
             ->add('codeMotif', EntityType::class, [
