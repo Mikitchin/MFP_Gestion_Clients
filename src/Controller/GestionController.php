@@ -7,6 +7,7 @@ use App\Entity\DemandeSearch;
 use App\Form\DemandeSearchType;
 use App\Repository\DemandeRdvRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\EtatDemandeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +20,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class GestionController extends AbstractController
 {
     #[Route('/home-page', name: 'app_home')]
-    public function index(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo, EtatDemandeRepository $repo_etat): Response
     {
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->render('agent/index.html.twig', [
@@ -88,10 +89,12 @@ class GestionController extends AbstractController
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_USER')) {
             $demande = new DemandeRdv();
             $user = $this->getUser();
+            // $etat = $repo_etat->findOneBy(['id' => 6]);
             $demande = $repo->findBy(array('users' => $user));
-
+            // $etat = $demande->getId();
             return $this->render('usager/home.html.twig',  [
                 'demande' => $demande,
+                // 'etat' => $etat,
             ]);
         }
     }
