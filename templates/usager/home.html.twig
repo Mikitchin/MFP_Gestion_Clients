@@ -46,8 +46,9 @@
                                                         {# <td>09H00</td>
                                                         <td>RDV pris</td> #}
                                                         <td>
+                                                           
                                                         <a href="{{ path('app_result-traite') }}">{{ demande.etatDemandes }}
-                                                  
+                                                        {% if etat_termine == 6 %}
                                                       <span  style="color: red; animation: glowing 1s ease-in-out infinite;">Voir détails</span></a>
                                                       <style>
                                                         @keyframes glowing {
@@ -56,7 +57,7 @@
                                                           100% { color: red; }
                                                         }
                                                       </style>
-                                                      
+                                                       {% endif %}
                                                         </td>
                                                     </tr>
                                                     </tr>  

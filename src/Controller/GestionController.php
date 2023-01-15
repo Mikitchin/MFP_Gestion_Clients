@@ -87,14 +87,26 @@ class GestionController extends AbstractController
         }
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+
             $demande = new DemandeRdv();
+            // $demande_etat = new DemandeRdv();
             $user = $this->getUser();
-            // $etat = $repo_etat->findOneBy(['id' => 6]);
-            $demande = $repo->findBy(array('users' => $user));
-            // $etat = $demande->getId();
+            $etat = 0;
+            // $etat_comp = $repo_etat->findOneBy(['id' => 6]);
+            $demandes = $repo->findBy(array('users' => $user));
+            foreach ($demandes as $demande) {
+                $etat = $demande->getEtatDemandes()->getId();
+                //faire quelque chose avec $etat
+                // if ($etat = $etat_comp) {
+                //     $etat_termine = $etat;
+                // }
+                // dd($etat);
+            }
+
+
             return $this->render('usager/home.html.twig',  [
-                'demande' => $demande,
-                // 'etat' => $etat,
+                'demande' => $demandes,
+                'etat_termine' => $etat,
             ]);
         }
     }

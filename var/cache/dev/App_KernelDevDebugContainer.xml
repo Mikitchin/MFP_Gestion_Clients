@@ -7315,6 +7315,14 @@
         <argument key="repo" type="service_closure" id="App\Repository\DemandeRdvRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.4NSHq7x" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="repo" type="service_closure" id="App\Repository\DemandeRdvRepository"/>
+        <argument key="repo_etat" type="service_closure" id="App\Repository\EtatDemandeRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.qV1Yx19" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7361,7 +7369,7 @@
         <argument key="repo" type="service_closure" id="App\Repository\EvaluationRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.X1QsD3b" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.QpOg3.B" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\DashboardController::configureUserMenu" type="service_closure" id=".service_locator.st3ASTR"/>
@@ -7437,7 +7445,7 @@
         <argument key="App\Controller\DemandeRdvController::formAction" type="service_closure" id=".service_locator.tsK83DC"/>
         <argument key="App\Controller\DemandeRdvController::index" type="service_closure" id=".service_locator.hnd4LD3"/>
         <argument key="App\Controller\DemandeRdvController::search_demande" type="service_closure" id=".service_locator.R93McDc"/>
-        <argument key="App\Controller\GestionController::index" type="service_closure" id=".service_locator.R93McDc"/>
+        <argument key="App\Controller\GestionController::index" type="service_closure" id=".service_locator.4NSHq7x"/>
         <argument key="App\Controller\GsController::annule_demande_gest" type="service_closure" id=".service_locator.rsagtYC"/>
         <argument key="App\Controller\GsController::ges_dem" type="service_closure" id=".service_locator.R93McDc"/>
         <argument key="App\Controller\GsController::ges_treat_demande" type="service_closure" id=".service_locator.rsagtYC"/>
@@ -7447,6 +7455,7 @@
         <argument key="App\Controller\SecurityController::resetPass" type="service_closure" id=".service_locator.I__DjQ_"/>
         <argument key="App\Controller\UsagerController::homeu" type="service_closure" id=".service_locator.1zJuFcm"/>
         <argument key="App\Controller\UsagerController::satisfaction_usager" type="service_closure" id=".service_locator.pY1BDOQ"/>
+        <argument key="App\Controller\WelcomeController::accueil" type="service_closure" id=".service_locator.hnd4LD3"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -7524,7 +7533,7 @@
         <argument key="App\Controller\DemandeRdvController:formAction" type="service_closure" id=".service_locator.tsK83DC"/>
         <argument key="App\Controller\DemandeRdvController:index" type="service_closure" id=".service_locator.hnd4LD3"/>
         <argument key="App\Controller\DemandeRdvController:search_demande" type="service_closure" id=".service_locator.R93McDc"/>
-        <argument key="App\Controller\GestionController:index" type="service_closure" id=".service_locator.R93McDc"/>
+        <argument key="App\Controller\GestionController:index" type="service_closure" id=".service_locator.4NSHq7x"/>
         <argument key="App\Controller\GsController:annule_demande_gest" type="service_closure" id=".service_locator.rsagtYC"/>
         <argument key="App\Controller\GsController:ges_dem" type="service_closure" id=".service_locator.R93McDc"/>
         <argument key="App\Controller\GsController:ges_treat_demande" type="service_closure" id=".service_locator.rsagtYC"/>
@@ -7534,6 +7543,7 @@
         <argument key="App\Controller\SecurityController:resetPass" type="service_closure" id=".service_locator.I__DjQ_"/>
         <argument key="App\Controller\UsagerController:homeu" type="service_closure" id=".service_locator.1zJuFcm"/>
         <argument key="App\Controller\UsagerController:satisfaction_usager" type="service_closure" id=".service_locator.pY1BDOQ"/>
+        <argument key="App\Controller\WelcomeController:accueil" type="service_closure" id=".service_locator.hnd4LD3"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -8521,12 +8531,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.X1QsD3b"/>
+      <argument type="service" id=".service_locator.QpOg3.B"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.X1QsD3b"/>
+      <argument type="service" id=".service_locator.QpOg3.B"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9512,7 +9522,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.X1QsD3b"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.QpOg3.B"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9546,7 +9556,7 @@
     <service id=".service_locator.kvo3BSP" alias=".service_locator.ayoIM4d"/>
     <service id=".service_locator.QS5ik0Z" alias=".service_locator.I__DjQ_"/>
     <service id=".service_locator.3aMRVbL" alias=".service_locator.pY1BDOQ"/>
-    <service id=".service_locator.X2iwCZJ" alias=".service_locator.X1QsD3b"/>
+    <service id=".service_locator.YQ3vHNm" alias=".service_locator.QpOg3.B"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.EqHadfy" alias=".service_locator.UZUnCUp"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -9618,6 +9628,7 @@
     <service id=".service_locator.mIUt.An" alias=".service_locator.7WRA4Cu"/>
     <service id=".service_locator.B6lnqVv" alias=".service_locator.u_xJerL"/>
     <service id=".service_locator.AOacMhj" alias=".service_locator.tsK83DC"/>
+    <service id=".service_locator.TWwFAuX" alias=".service_locator.4NSHq7x"/>
     <service id=".service_locator.oQEaC2b" alias=".service_locator.qV1Yx19"/>
     <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>
     <service id=".service_locator.rjRoSgH" alias=".service_locator.ayoIM4d"/>
