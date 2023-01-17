@@ -7,7 +7,7 @@
  <main>
     <article class="containerxd article">
       <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
-      <p class="article-subtitle">ECRAN DE CONSULTATION DES DEMANDES DE RENDEZ-VOUS</p>     
+      <p class="article-subtitle">ECRAN DE CONSULTATION DES REQUÊTES</p>     
         
                                       
      <!-- ROW OPEN -->
@@ -21,10 +21,10 @@
                                     {{ form_start(form) }}
                                             <div class="form-row">
                                                 <div class="col-xl-6 mb-3">
-                                                    <label for="validationCustom01" class="redcolor">CODE RENDEZ VOUS</label>
+                                                    <label for="validationCustom01" class="redcolor">CODE REQUÊTE</label>
                                                     {# <input type="text" class="form-control" id="validationCustom01" value=""> #}
                                                  {{ form_widget(form.codeDde, { 'attr':
-                                                 {'placeholder': 'Entrer le code de rendez-vous'}}) }}
+                                                 {'placeholder': 'Entrer le code de la requête' }}) }}
                                                 
                                                 </div>
                                                 
@@ -41,7 +41,7 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Liste des demandes de rendez-vous</h3>
+                                        <h3 class="card-title">Liste des requêtes</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive" style="">
