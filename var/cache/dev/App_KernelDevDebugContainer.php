@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerDepfJjr\App_KernelDevDebugContainer([
     'container.build_hash' => 'DepfJjr',
-    'container.build_id' => 'cf89f536',
-    'container.build_time' => 1673535511,
+    'container.build_id' => 'a9cb8b4f',
+    'container.build_time' => 1674488452,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerDepfJjr');

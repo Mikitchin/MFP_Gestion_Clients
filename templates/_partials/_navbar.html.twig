@@ -20,21 +20,19 @@
             <span>Accueil</span>
           </a>
         </li>
-        <li>
+        <li class="menu-deroulant">
               <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded  icon">filter_list</span>
 
                 <span title="Afficher la liste des demandes de rendez-vous">Liste requêtes</span>
               </a>
+              <ul class="sous-menu">
+                <li><a href="{{ path('app_demande_rdv') }}">Demandes de rendez-vous</a></li>
+                <li><a href="{{ path('app_liste_rdv') }}">Demandes d'informations </a></li>
+                <li><a href="{{ path('app_liste_rdv') }}">Recclamations</a></li>
+
+            </ul>
         </li>
-
-         <li>
-          <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
-            <span class="material-symbols-rounded  icon">Leaderboard</span>
-
-            <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
-          </a>
-        </li> 
 
         <li class="menu-deroulant">
           <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
@@ -46,6 +44,14 @@
                 <li><a href="{{ path('app_demande_rdv') }}">Soumettre une requête</a></li>
                 <li><a href="{{ path('app_liste_rdv') }}">Mes requêtes</a></li>
             </ul>
+        </li> 
+
+        <li>
+          <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
+            <span class="material-symbols-rounded  icon">Leaderboard</span>
+
+            <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
+          </a>
         </li> 
      
         <ul class="user-action-list">

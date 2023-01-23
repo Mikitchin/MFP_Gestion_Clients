@@ -56,4 +56,14 @@ class UsagerController extends AbstractController
             'demande' => $demande,
         ]);
     }
+
+    #[Route('/infos-service', name: 'app_infos')]
+    public function infos(): Response
+    {
+
+        return $this->render(
+            'usager/infos-services.html.twig'
+
+        );
+    }
 }

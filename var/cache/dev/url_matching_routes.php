@@ -48,6 +48,7 @@ return [
         '/info-recept-sup' => [[['_route' => 'app_inforecep', '_controller' => 'App\\Controller\\SuperviseurController::inforecep'], null, null, null, false, false, null]],
         '/resultat-traitement' => [[['_route' => 'app_result-traite', '_controller' => 'App\\Controller\\UsagerController::homeu'], null, null, null, false, false, null]],
         '/evaluation' => [[['_route' => 'app_satisfaction', '_controller' => 'App\\Controller\\UsagerController::satisfaction_usager'], null, null, null, false, false, null]],
+        '/infos-service' => [[['_route' => 'app_infos', '_controller' => 'App\\Controller\\UsagerController::infos'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_cruchome', '_controller' => 'App\\Controller\\WelcomeController::accueil'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

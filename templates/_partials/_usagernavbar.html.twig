@@ -20,25 +20,38 @@
               </a>
             </li>
             
-            <li>
+            <li class="menu-deroulant">
               <a href="{{ path('app_demande_rdv') }}" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded icon">today</span>
 
                 <span title="Prise de rendez-vous pour les usagers clients">Soumettre une requête</span>
               </a>
+              <ul class="sous-menu">
+                <li><a href="{{ path('app_demande_rdv') }}">Demande de rendez-vous</a></li>
+                <li><a href="{{ path('app_liste_rdv') }}">Demande d'informations </a></li>
+                <li><a href="{{ path('app_liste_rdv') }}">Réclamations</a></li>
+              </ul>
             </li>
          
             <li>
               <a href="{{ path('app_liste_rdv') }}" class="navbarxd-link icon-box">
-                <span class="material-symbols-rounded icon">today</span>
+                <span class="material-symbols-rounded icon">list</span>
 
                 <span title="Afficher la liste de mes demandes de rendez-vous">Mes requêtes</span>
               </a>
-            </li>            
-       
+            </li>   
+                 
           </ul>
-
           <ul class="user-action-list">
+          <li>
+              <a href="{{ path('app_infos') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded icon">info</span>
+
+                <span title="Afficher la liste de mes demandes de rendez-vous">Services offerts</span>
+              </a>
+            </li>   
+
+          
 
             <li>
               <a href="#" class="notification icon-box">

@@ -60,5 +60,6 @@ return [
     'app_inforecep' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::inforecep'], [], [['text', '/info-recept-sup']], [], [], []],
     'app_result-traite' => [[], ['_controller' => 'App\\Controller\\UsagerController::homeu'], [], [['text', '/resultat-traitement']], [], [], []],
     'app_satisfaction' => [[], ['_controller' => 'App\\Controller\\UsagerController::satisfaction_usager'], [], [['text', '/evaluation']], [], [], []],
+    'app_infos' => [[], ['_controller' => 'App\\Controller\\UsagerController::infos'], [], [['text', '/infos-service']], [], [], []],
     'app_cruchome' => [[], ['_controller' => 'App\\Controller\\WelcomeController::accueil'], [], [['text', '/']], [], [], []],
 ];
