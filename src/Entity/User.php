@@ -70,7 +70,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-        $this->privilege = new ArrayCollection();
+        // $this->privilege = new ArrayCollection();
         $this->demandeRdvs = new ArrayCollection();
     }
 
