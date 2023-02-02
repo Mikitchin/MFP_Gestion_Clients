@@ -266,4 +266,30 @@ class AgentController extends AbstractController
 
         ]);
     }
+
+    #[Route('/destinataire-controle', name: 'app_destinataire')]
+
+    public function destinataire_verif(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+
+        $demandeSearch = new DemandeSearch();
+        $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+        $form->handleRequest($request);
+        $demande = [];
+        $demande = $repo->findOneByFieldAccueil_2();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $code = $demandeSearch->getCodeDde();
+            if ($code != "")
+                $demande = $repo->findBy(['codeDde' => $code]);
+        }
+
+        return $this->render('agent/controle.html.twig', [
+            'form' => $form->createView(),
+            'demande' => $demande,
+            // 'demande' => $paginator,
+            // 'previous' => $offset - DemandeRdvRepository::PAGINATOR_PER_PAGE,
+            // 'next' => min(count($paginator), $offset + DemandeRdvRepository::PAGINATOR_PER_PAGE),
+        ]);
+    }
 }

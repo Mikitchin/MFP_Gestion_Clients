@@ -122,4 +122,15 @@ class DemandeRdvRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findOneByFieldAccueil_2(string $etatDemandes = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 8);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
 }

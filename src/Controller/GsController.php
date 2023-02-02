@@ -52,7 +52,7 @@ class GsController extends AbstractController
         $entityManager->persist($demande);
         $entityManager->flush();
         // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous honoré)
-        $etatDemandes = $response->findOneBy(['id' => 6]);
+        $etatDemandes = $response->findOneBy(['id' => 8]);
         // dd($etatDemandes);
         $form = $this->createForm(TraiteGestFormType::class, $demande);
 
