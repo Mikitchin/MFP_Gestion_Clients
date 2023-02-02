@@ -26,8 +26,8 @@
                                                         <th>Code </th>
                                                         {# <th>Matricule</th> #}
                                                         <th>Motif de la requête</th>
-                                                        <th>Date rdv</th>
-                                                        <th>Heure </th>
+                                                        <th>Date de la demande</th>
+                                                        {# <th>Heure </th> #}
                                                         {# <th>Heure <br>de départ</th> #}
                                                         {# <th><span class="redcolor">Etat</span></th> #}
                                                         <th>Actions</th>
@@ -41,7 +41,7 @@
                                                         {# <td>{{ demande.users.matricule }}</td> #}
                                                         <td>{{ demande.codeMotif}}</td>
                                                         <td>{{ demande.dateDemande | date('d/m/y') }}</td>
-                                                        <td>{{ demande.heureRdv }}</td>
+                                                        {# <td>{{ demande.heureRdv }}</td> #}
                                                         {# <td>{{ demande.etat }}</td> #}
                                                         {# <td>09H00</td>
                                                         <td>RDV pris</td> #}
@@ -80,7 +80,7 @@
                                                                 </li> #}
                                                                 <li>
                                                                 <div class="meta-box icon-box">
-                                                                    <a href="{{ path('delete_demande', {'id': demande.id}) }}" class="navbar-link active icon-box">
+                                                                    <a href="{{ path('delete_demande', {'id': demande.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')" class="navbar-link active icon-box">
                                                                     <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
                                                                     </a>
                                                                 </div>

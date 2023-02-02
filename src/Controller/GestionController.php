@@ -28,7 +28,7 @@ class GestionController extends AbstractController
             ]);
         }
 
-        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_GEST')) {
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_GEST_1')) {
 
 
             $demandeSearch = new DemandeSearch();
@@ -54,6 +54,33 @@ class GestionController extends AbstractController
             ]);
         }
 
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_GEST_2')) {
+
+
+            $demandeSearch = new DemandeSearch();
+            $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+            $form->handleRequest($request);
+            $demande = [];
+            // $demande = $repo->findAll();
+            // $code = $this->getCodeDde();
+            $demande = $repo->findOneByFieldGest_2();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $code = $demandeSearch->getCodeDde();
+                if ($code != "")
+                    $demande = $repo->findBy(['codeDde' => $code]);
+            }
+
+            return $this->render('gestionnaire/index.html.twig', [
+                'form' => $form->createView(),
+                'demande' => $demande,
+
+            ]);
+            return $this->render('gestionnaire/index.html.twig', [
+                'controller_name' => 'GestionController',
+            ]);
+        }
+
+
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_SUPERVISEUR')) {
             return $this->render('superviseur/home_sup.html.twig', [
                 'controller_name' => 'GestionController',
@@ -61,6 +88,9 @@ class GestionController extends AbstractController
         }
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_AGENT_ACCUEIL')) {
+            // $demande = new DemandeRdv();
+            // $offset = max(0, $request->query->getInt('offset', 0));
+            // $paginator = $repo->getDemandeRdvPaginator($demande, $offset);
 
             $demandeSearch = new DemandeSearch();
             $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
@@ -77,7 +107,9 @@ class GestionController extends AbstractController
             return $this->render('agent/index.html.twig', [
                 'form' => $form->createView(),
                 'demande' => $demande,
-
+                // 'demande' => $paginator,
+                // 'previous' => $offset - DemandeRdvRepository::PAGINATOR_PER_PAGE,
+                // 'next' => min(count($paginator), $offset + DemandeRdvRepository::PAGINATOR_PER_PAGE),
             ]);
         }
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_CHEF_SERVICE')) {

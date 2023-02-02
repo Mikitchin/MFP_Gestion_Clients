@@ -24,7 +24,7 @@
                                                 </div>
                                                 <div class="col-xl-6 mb-3">
                                                     <label>Date de la visite :</label>
-                                                        {{ form_widget(form.dateDemande) }}
+                                                        {{ form_widget(form.dateRdv) }}
                                                     {# <textarea class="form-control mb-4" placeholder="" rows="2" name="details" readonly></textarea> #}
                                                 </div>
                                             </div>
@@ -56,8 +56,9 @@
                                         </div>
                                         <div class="col-xl-3 mb-3">
                                     {# <a class="btn btn-danger text-dark" href="#">Bloquer</a> #}
-                                         <a class="btn btn-success text-white d-flex align-items-center" href="{{ path('app_ac_transfert', {'id': demande.id}) }}">
+                                         <a class="btn btn-success text-white d-flex align-items-center" href="{{ path('app_transfert', {'id': demande.id}) }}">
                                         <span class="mx-auto">Transférer</span></a>  
+                                         {# app_ac_transfert #}
                                         </div>
                                         <div class="col-xl-3 mb-3">
                                     {# <a class="btn btn-danger text-dark" href="#">Bloquer</a> #}

@@ -63,6 +63,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'users', targetEntity: DemandeRdv::class)]
     private Collection $demandeRdvs;
 
+    #[ORM\Column]
+    private ?bool $fonctionnaire = null;
+
     // #[ORM\Column(type: 'string', length: 100)]
     // private $resetToken;
     // #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
@@ -317,5 +320,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     //     return $this;
     // }
+
+    public function isFonctionnaire(): ?bool
+    {
+        return $this->fonctionnaire;
+    }
+
+    public function setFonctionnaire(bool $fonctionnaire): self
+    {
+        $this->fonctionnaire = $fonctionnaire;
+
+        return $this;
+    }
 
 }

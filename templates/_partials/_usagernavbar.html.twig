@@ -20,25 +20,33 @@
               </a>
             </li>
             
-            <li class="menu-deroulant">
+            <li>
               <a href="{{ path('app_demande_rdv') }}" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded icon">today</span>
 
                 <span title="Prise de rendez-vous pour les usagers clients">Soumettre une requête</span>
               </a>
-              <ul class="sous-menu">
-                <li><a href="{{ path('app_demande_rdv') }}">Demande de rendez-vous</a></li>
-                <li><a href="{{ path('app_liste_rdv') }}">Demande d'informations </a></li>
-                <li><a href="{{ path('app_liste_rdv') }}">Réclamations</a></li>
-              </ul>
+              
             </li>
          
             <li>
-              <a href="{{ path('app_liste_rdv') }}" class="navbarxd-link icon-box">
+              <a href="{{ path('app_reclamation') }}" class="navbarxd-link icon-box">
+                <span class="material-symbols-rounded icon">question_answer</span>
+
+                <span title="Afficher la liste de mes demandes de rendez-vous">Réclamation</span>
+              </a>
+            </li>  
+
+            <li class="menu-deroulant">
+              <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded icon">list</span>
 
                 <span title="Afficher la liste de mes demandes de rendez-vous">Mes requêtes</span>
               </a>
+              <ul class="sous-menu">
+                <li><a href="{{ path('app_liste_reclame') }}">Liste des réclamations</a></li>
+                <li><a href="{{ path('app_liste_rdv') }}">Liste des requêtes </a></li>
+              </ul>
             </li>   
                  
           </ul>
@@ -47,12 +55,10 @@
               <a href="{{ path('app_infos') }}" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded icon">info</span>
 
-                <span title="Afficher la liste de mes demandes de rendez-vous">Services offerts</span>
+                <span title="Afficher la liste de mes demandes de rendez-vous">Informations</span>
               </a>
-            </li>   
-
+          </li>   
           
-
             <li>
               <a href="#" class="notification icon-box">
                 <span class="material-symbols-rounded icon" title="Les notifications">notifications</span>

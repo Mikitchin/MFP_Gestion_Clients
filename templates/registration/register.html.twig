@@ -49,12 +49,12 @@
                                                                 </div>
 
                                                                 <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.nom, {'label': 'Nom d\'utilisateur', 'attr':
+                                                                {{ form_row(registrationForm.nom, {'label': 'Nom', 'attr':
                                                                 {'placeholder': 'Nom d\'utilisateur ...'}}) }}
                                                                 </div>
                                                                 <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.prenom, {'label': 'Prenom d\'utilisateur', 'attr':
-                                                                {'placeholder': 'Prenom d\'utilisateur ...'}}) }}
+                                                                {{ form_row(registrationForm.prenom, {'label': 'Prénom', 'attr':
+                                                                {'placeholder': 'Entrez votre prénom ...'}}) }}
                                                                 </div>
 
                                                             <div class=" row mb-4">
@@ -67,6 +67,10 @@
                                                             <div class=" row mb-4">
                                                                 {{ form_row(registrationForm.lieuNaissance, {'label': 'Lieu de naissance', 'attr':
                                                                 {'placeholder': 'Lieu de naissance'}}) }}
+                                                                </div>
+
+                                                                <div class=" row mb-4">
+                                                                {{ form_row(registrationForm.fonctionnaire, {'label': 'Êtes-vous un Fonctionnaire ?'}) }}
                                                                 </div>
 
                                                                 <div class=" row mb-4">

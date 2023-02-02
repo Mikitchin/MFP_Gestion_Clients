@@ -61,6 +61,15 @@ class DemandeRdv
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $observationGest = null;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateRdv = null;
+
+    #[ORM\Column]
+    private ?bool $nature = null;
+
+    #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
+    private ?UniteAdmin $direction = null;
+
 
     // public function computeSlug(SluggerInterface $slugger)
     // {
@@ -73,6 +82,7 @@ class DemandeRdv
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->dateModifDde = new \DateTimeImmutable();
+        $this->dateDemande = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -242,5 +252,41 @@ class DemandeRdv
     public function __toString(): string
     {
         return $this->getCodeDde();
+    }
+
+    public function getDateRdv(): ?\DateTimeInterface
+    {
+        return $this->dateRdv;
+    }
+
+    public function setDateRdv(?\DateTimeInterface $dateRdv): self
+    {
+        $this->dateRdv = $dateRdv;
+
+        return $this;
+    }
+
+    public function isNature(): ?bool
+    {
+        return $this->nature;
+    }
+
+    public function setNature(bool $nature): self
+    {
+        $this->nature = $nature;
+
+        return $this;
+    }
+
+    public function getDirection(): ?UniteAdmin
+    {
+        return $this->direction;
+    }
+
+    public function setDirection(?UniteAdmin $direction): self
+    {
+        $this->direction = $direction;
+
+        return $this;
     }
 }

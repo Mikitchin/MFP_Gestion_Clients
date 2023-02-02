@@ -94,7 +94,7 @@ class DemandeRdvController extends AbstractController
     }
 
     #[Route('/delete/{id}', name: 'delete_demande')]
-    public function delete_demande(DemandeRdv $demande, Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
+    public function delete_demande(DemandeRdv $demande, Request $request, EntityManagerInterface $entityManager): Response
     {
         $entityManager->remove($demande);
         $entityManager->flush();

@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ReclamationRepository;
+use DateTime;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ReclamationRepository;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReclamationRepository::class)]
 class Reclamation
@@ -13,82 +17,240 @@ class Reclamation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?bool $fonctionnaire = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $codeDde = null;
 
-    #[ORM\Column(length: 16)]
-    private ?string $sexe = null;
+    // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    // private ?\DateTimeInterface $dateDde = null;
 
-    #[ORM\ManyToOne(inversedBy: 'objet')]
-    private ?Structure $structure = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $dateDemande = null;
 
-    #[ORM\ManyToOne(inversedBy: 'objet')]
-    private ?MotifRdv $objet = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateModifDde = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $motif = null;
+    // #[ORM\Column(type: 'string', length: 255, unique: true)]
+    // private ?string $slug = null;
+
+    #[ORM\ManyToOne(inversedBy: 'demande_rdv')]
+    private ?MotifRdv $codeMotif = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $descriptDde = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
+
+    #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
+    private ?User $users = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $heureRdv = null;
+
+    #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
+    private ?EtatDemande $etatDemandes = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $observationAc = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $observationGest = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $fileName = null;
+
+
+    // public function computeSlug(SluggerInterface $slugger)
+    // {
+    //     if (!$this->slug || '-' === $this->slug) {
+    //         $this->slug = (string) $slugger->slug((string) $this)->lower();
+    //     }
+    // }
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+        $this->dateModifDde = new \DateTimeImmutable();
+        $this->dateDemande = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function isFonctionnaire(): ?bool
+    public function getCodeDde(): ?string
     {
-        return $this->fonctionnaire;
+        return $this->codeDde;
+        // Générer un code de la demande
+
     }
 
-    public function setFonctionnaire(bool $fonctionnaire): self
+    public function setCodeDde(string $codeDde): self
     {
-        $this->fonctionnaire = $fonctionnaire;
+        $this->codeDde = $codeDde;
 
         return $this;
     }
 
-    public function getSexe(): ?string
+    // public function getDateDde(): ?\DateTimeInterface
+    // {
+    //     return $this->dateDde;
+    // }
+
+    // public function setDateDde(\DateTimeInterface $dateDde): self
+    // {
+    //     $this->dateDde = $dateDde;
+
+    //     return $this;
+    // }
+
+
+    public function getDateDemande(): ?\DateTimeInterface
     {
-        return $this->sexe;
+        return $this->dateDemande;
     }
 
-    public function setSexe(string $sexe): self
+    public function setDateDemande(\DateTimeInterface $dateDemande): self
     {
-        $this->sexe = $sexe;
+        $this->dateDemande = $dateDemande;
 
         return $this;
     }
 
-    public function getStructure(): ?Structure
+    public function getDateModifDde(): ?\DateTimeInterface
     {
-        return $this->structure;
+        return $this->dateModifDde;
     }
 
-    public function setStructure(?Structure $structure): self
+    public function setDateModifDde(?\DateTimeInterface $dateModifDde): self
     {
-        $this->structure = $structure;
+        $this->dateModifDde = $dateModifDde;
 
         return $this;
     }
 
-    public function getObjet(): ?MotifRdv
+    // public function getSlug(): ?string
+    // {
+    //     return $this->slug;
+    // }
+
+    // public function setSlug(string $slug): self
+    // {
+    //     $this->slug = $slug;
+
+    //     return $this;
+    // }
+
+    public function getCodeMotif(): ?MotifRdv
     {
-        return $this->objet;
+        return $this->codeMotif;
     }
 
-    public function setObjet(?MotifRdv $objet): self
+    public function setCodeMotif(?MotifRdv $codeMotif): self
     {
-        $this->objet = $objet;
+        $this->codeMotif = $codeMotif;
 
         return $this;
     }
 
-    public function getMotif(): ?string
+    public function getDescriptDde(): ?string
     {
-        return $this->motif;
+        return $this->descriptDde;
     }
 
-    public function setMotif(string $motif): self
+    public function setDescriptDde(?string $descriptDde): self
     {
-        $this->motif = $motif;
+        $this->descriptDde = $descriptDde;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt ?? new DateTime();
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUsers(): ?User
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?User $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    public function getHeureRdv(): ?string
+    {
+        return $this->heureRdv;
+    }
+
+    public function setHeureRdv(?string $heureRdv): self
+    {
+        $this->heureRdv = $heureRdv;
+
+        return $this;
+    }
+
+    public function getEtatDemandes(): ?EtatDemande
+    {
+        return $this->etatDemandes;
+    }
+
+    public function setEtatDemandes(?EtatDemande $etatDemandes): self
+    {
+        $this->etatDemandes = $etatDemandes;
+
+        return $this;
+    }
+
+    public function getObservationAc(): ?string
+    {
+        return $this->observationAc;
+    }
+
+    public function setObservationAc(?string $observationAc): self
+    {
+        $this->observationAc = $observationAc;
+
+        return $this;
+    }
+
+    public function getObservationGest(): ?string
+    {
+        return $this->observationGest;
+    }
+
+    public function setObservationGest(?string $observationGest): self
+    {
+        $this->observationGest = $observationGest;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getCodeDde();
+    }
+
+    public function getFileName(): ?string
+    {
+        return $this->fileName;
+    }
+
+    public function setFileName(?string $fileName): self
+    {
+        $this->fileName = $fileName;
 
         return $this;
     }

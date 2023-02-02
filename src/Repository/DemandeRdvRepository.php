@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\DemandeRdv;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @extends ServiceEntityRepository<DemandeRdv>
@@ -16,9 +17,24 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class DemandeRdvRepository extends ServiceEntityRepository
 {
+    public const PAGINATOR_PER_PAGE = 10;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, DemandeRdv::class);
+    }
+
+    public function getDemandeRdvPaginator(DemandeRdv $demande, int $offset): Paginator
+    {
+        $query = $this->createQueryBuilder('c')
+            ->andWhere('c.demande = :demande')
+            ->setParameter('demande', $demande)
+            ->orderBy('c.createdAt', 'DESC')
+            ->setMaxResults(self::PAGINATOR_PER_PAGE)
+            ->setFirstResult($offset)
+            ->getQuery();
+
+        return new Paginator($query);
     }
 
     public function save(DemandeRdv $entity, bool $flush = false): void
@@ -65,7 +81,27 @@ class DemandeRdvRepository extends ServiceEntityRepository
     {
         $queryBuilder =  $this->createQueryBuilder('d')
             ->where('d.etatDemandes = :etatDemandes')
-            ->setParameter('etatDemandes', 2);
+            ->setParameter('etatDemandes', 2)
+            ->andWhere('d.direction = :direction')
+            ->setParameter('direction', 1);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+
+        // ->where($queryBuilder->expr()->andX(
+        //     $queryBuilder->expr()->neq('e.code', 2),
+        //     $queryBuilder->expr()->neq('e.code', 3)
+        // ));
+    }
+
+    public function findOneByFieldGest_2(string $etatDemandes = null, string $etatDemande = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 2)
+            ->andWhere('d.direction = :direction')
+            ->setParameter('direction', 2);
 
         return $queryBuilder
             ->getQuery()

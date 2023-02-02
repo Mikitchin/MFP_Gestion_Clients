@@ -20,6 +20,8 @@ return [
         '/stats-rdv' => [[['_route' => 'app_statsrdv', '_controller' => 'App\\Controller\\AgentController::srdv'], null, null, null, false, false, null]],
         '/prise_de_rdv_agent_d_accueil' => [[['_route' => 'app_rdv_agt', '_controller' => 'App\\Controller\\AgentController::rdv_agt'], null, null, null, false, false, null]],
         '/list_rdv_agent' => [[['_route' => 'app_lst_dem_agt', '_controller' => 'App\\Controller\\AgentController::lst_dem_agt'], null, null, null, false, false, null]],
+        '/demande/agent-accueil' => [[['_route' => 'app_demande_rdv_agt', '_controller' => 'App\\Controller\\AgentController::agent_accueil_rdv'], null, null, null, false, false, null]],
+        '/agent-accueil/liste-demande' => [[['_route' => 'app_liste_rdv_agt', '_controller' => 'App\\Controller\\AgentController::demande'], null, null, null, false, false, null]],
         '/espace_chef_de_service' => [[['_route' => 'app_cshome', '_controller' => 'App\\Controller\\CsController::index'], null, null, null, false, false, null]],
         '/cs-demandes' => [[['_route' => 'app_csdem', '_controller' => 'App\\Controller\\CsController::lstdem'], null, null, null, false, false, null]],
         '/cs-traitement' => [[['_route' => 'app_cstreat', '_controller' => 'App\\Controller\\CsController::listtreat'], null, null, null, false, false, null]],
@@ -37,6 +39,9 @@ return [
         '/liste-des-demandes-de-rendez-vous' => [[['_route' => 'app_ges_dem', '_controller' => 'App\\Controller\\GsController::ges_dem'], null, null, null, false, false, null]],
         '/visualisation-des-rdv-en-traitements' => [[['_route' => 'app_ges_treat', '_controller' => 'App\\Controller\\GsController::ges_treat'], null, null, null, false, false, null]],
         '/statistiques-des-traitements' => [[['_route' => 'app_ges_stat', '_controller' => 'App\\Controller\\GsController::ges_stat'], null, null, null, false, false, null]],
+        '/reclamation' => [[['_route' => 'app_reclamation', '_controller' => 'App\\Controller\\ReclamationController::index'], null, null, null, false, false, null]],
+        '/liste-reclamation' => [[['_route' => 'app_liste_reclame', '_controller' => 'App\\Controller\\ReclamationController::reclamation'], null, null, null, false, false, null]],
+        '/rechercher-reclamation' => [[['_route' => 'app_search_reclame', '_controller' => 'App\\Controller\\ReclamationController::search_reclame'], null, null, null, false, false, null]],
         '/inscription' => [[['_route' => 'app_inscription', '_controller' => 'App\\Controller\\RegistrationController::inscription'], null, null, null, false, false, null]],
         '/connexion' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::connexion'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
@@ -73,21 +78,31 @@ return [
                         .'|demande\\-rdv/([^/]++)(*:209)'
                         .'|gestionnaire/([^/]++)(*:238)'
                     .')'
-                    .'|nsferer\\-demande\\-rdv/([^/]++)(*:277)'
+                    .'|nsfer(?'
+                        .'|er\\-demande\\-rdv/([^/]++)(*:280)'
+                        .'|t\\-demande/([^/]++)(*:307)'
+                    .')'
                 .')'
-                .'|/annule\\-demande/([^/]++)(*:311)'
+                .'|/annule\\-demande/([^/]++)(*:342)'
                 .'|/d(?'
                     .'|e(?'
-                        .'|mande/edit/([^/]++)(*:347)'
-                        .'|lete/([^/]++)(*:368)'
+                        .'|mande/(?'
+                            .'|agent\\-accueil\\-edit/([^/]++)(*:397)'
+                            .'|edit/([^/]++)(*:418)'
+                        .')'
+                        .'|lete(?'
+                            .'|/([^/]++)(*:443)'
+                            .'|\\-reclamation/([^/]++)(*:473)'
+                        .')'
                     .')'
                     .'|ata(?'
-                        .'|\\-modif/([^/]++)(*:399)'
-                        .'|/([^/]++)(*:416)'
+                        .'|\\-modif/([^/]++)(*:505)'
+                        .'|/([^/]++)(*:522)'
                     .')'
                 .')'
-                .'|/cancel\\-demande/([^/]++)(*:451)'
-                .'|/oubli\\-pass/([^/]++)(*:480)'
+                .'|/cancel\\-demande/([^/]++)(*:557)'
+                .'|/reclamation/edit/([^/]++)(*:591)'
+                .'|/oubli\\-pass/([^/]++)(*:620)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -100,14 +115,18 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         209 => [[['_route' => 'app_ges_infotreat', '_controller' => 'App\\Controller\\AgentController::ges_infotreat'], ['id'], null, null, false, true, null]],
         238 => [[['_route' => 'app_ges_trait', '_controller' => 'App\\Controller\\GsController::ges_treat_demande'], ['id'], null, null, false, true, null]],
-        277 => [[['_route' => 'app_ac_transfert', '_controller' => 'App\\Controller\\AgentController::ac_transferer'], ['id'], null, null, false, true, null]],
-        311 => [[['_route' => 'app_annule_demande', '_controller' => 'App\\Controller\\AgentController::annule_demande_Ac'], ['id'], null, null, false, true, null]],
-        347 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, true, null]],
-        368 => [[['_route' => 'delete_demande', '_controller' => 'App\\Controller\\DemandeRdvController::delete_demande'], ['id'], null, null, false, true, null]],
-        399 => [[['_route' => 'app_data', '_controller' => 'App\\Controller\\DemandeRdvController::dataAction'], ['id'], null, null, false, true, null]],
-        416 => [[['_route' => 'app_data_form', '_controller' => 'App\\Controller\\DemandeRdvController::formAction'], ['id'], null, null, false, true, null]],
-        451 => [[['_route' => 'app_cancel_demande', '_controller' => 'App\\Controller\\GsController::annule_demande_gest'], ['id'], null, null, false, true, null]],
-        480 => [
+        280 => [[['_route' => 'app_ac_transfert', '_controller' => 'App\\Controller\\AgentController::ac_transferer'], ['id'], null, null, false, true, null]],
+        307 => [[['_route' => 'app_transfert', '_controller' => 'App\\Controller\\AgentController::transfert_demande'], ['id'], null, null, false, true, null]],
+        342 => [[['_route' => 'app_annule_demande', '_controller' => 'App\\Controller\\AgentController::annule_demande_Ac'], ['id'], null, null, false, true, null]],
+        397 => [[['_route' => 'edit_demande_rdv_agt', '_controller' => 'App\\Controller\\AgentController::agent_accueil_rdv'], ['id'], null, null, false, true, null]],
+        418 => [[['_route' => 'edit_demande_rdv', '_controller' => 'App\\Controller\\DemandeRdvController::index'], ['id'], null, null, false, true, null]],
+        443 => [[['_route' => 'delete_demande', '_controller' => 'App\\Controller\\DemandeRdvController::delete_demande'], ['id'], null, null, false, true, null]],
+        473 => [[['_route' => 'delete_reclamation', '_controller' => 'App\\Controller\\ReclamationController::delete_reclame'], ['id'], null, null, false, true, null]],
+        505 => [[['_route' => 'app_data', '_controller' => 'App\\Controller\\DemandeRdvController::dataAction'], ['id'], null, null, false, true, null]],
+        522 => [[['_route' => 'app_data_form', '_controller' => 'App\\Controller\\DemandeRdvController::formAction'], ['id'], null, null, false, true, null]],
+        557 => [[['_route' => 'app_cancel_demande', '_controller' => 'App\\Controller\\GsController::annule_demande_gest'], ['id'], null, null, false, true, null]],
+        591 => [[['_route' => 'edit_reclamation', '_controller' => 'App\\Controller\\ReclamationController::index'], ['id'], null, null, false, true, null]],
+        620 => [
             [['_route' => 'reset_pass', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

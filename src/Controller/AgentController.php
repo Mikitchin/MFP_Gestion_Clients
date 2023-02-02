@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\DemandeRdv;
 use App\Entity\DemandeSearch;
+use App\Form\DemandeFormType;
 use App\Form\TraiteAcFormType;
 use App\Form\DemandeSearchType;
+use App\Form\TransfertFormType;
 use App\Repository\DemandeRdvRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\EtatDemandeRepository;
@@ -155,5 +157,113 @@ class AgentController extends AbstractController
 
         // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
         return $this->redirectToRoute('app_home');
+    }
+    #[Route('/demande/agent-accueil', name: 'app_demande_rdv_agt')]
+    #[Route('/demande/agent-accueil-edit/{id}', name: 'edit_demande_rdv_agt')]
+
+    public function agent_accueil_rdv(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $reponse, EntityManagerInterface $entityManager): Response
+    {
+
+        if (!$demande) {
+            $demande = new DemandeRdv();
+
+            // On met à jour l'état de la demande (Rendez-vous pris)
+            $etat = $reponse->findOneBy(['id' => 1]);
+
+            $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
+            $lastId = $id_rdv->getId();
+            if (!$lastId) {
+                $lastId = 1;
+            }
+
+            // Script de la nomenclature du code de rendez-vous !
+            $j = new \Datetime();
+            $result = $j->format('dmY');
+            $b = "RDV_" . $result . "_" . $lastId;
+
+            $user_cnt = $this->getUser();
+        }
+
+        //Contrôle avant modification 
+
+        $form = $this->createForm(DemandeFormType::class, $demande);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$demande->getId()) {
+                // $demande->setCreatedAt = new \Datetime();
+                $demande->setCodeDde($b);
+                $demande->setUsers($user_cnt);
+                $demande->setEtatDemandes($etat);
+            }
+
+
+
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
+
+            // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('agent/rdv_form.html.twig', [
+            'demande_form' => $form->createView(),
+            'editMode' => $demande->getId() !== null,
+        ]);
+    }
+
+    #[Route('/agent-accueil/liste-demande', name: 'app_liste_rdv_agt')]
+    public function demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
+    {
+        $demande = new DemandeRdv();
+        $user = $this->getUser();
+        $demande = $repo->findBy(array('users' => $user));
+        // $demande = $repo->findAll();
+
+        // dd($demandes);
+
+        return $this->render('agent/rdv_liste.html.twig', [
+            'demande' => $demande,
+
+        ]);
+    }
+
+    #[Route('/transfert-demande/{id}', name: 'app_transfert')]
+
+    public function transfert_demande(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous en cours de traitement !)
+        // Mesure transitoire
+        $etat = $response->findOneBy(['id' => 5]);
+        $demande->setEtatDemandes($etat);
+
+        $entityManager->persist($demande);
+        $entityManager->flush();
+        // dd($etatDemandes);
+
+        $etatDemandes = $response->findOneBy(['id' => 6]);
+        $form = $this->createForm(TransfertFormType::class, $demande);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $demande->setEtatDemandes($etatDemandes);
+
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'La demande a été traitée avec succès !');
+
+            // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('agent/info_transfert.html.twig', [
+            'form' => $form->createView(),
+            'demande' => $demande,
+
+        ]);
     }
 }

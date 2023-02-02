@@ -1,0 +1,58 @@
+{% extends 'cs_base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+
+<main>
+    <article class="containerxd article">
+
+      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+ 
+
+    
+    <div class="card-input">
+
+    {{ form_start(form) }}
+      <div class="form-row align-items-end">
+      <div class="col">
+      {{ form_row(form.codeDde) }}
+
+      </div>
+      <div class="col">
+      <div class="form-group">
+      <button type="submit" class="btn-success">Rechercher</button>
+      </div>
+      </div>
+      </div>
+    {{ form_end(form) }}
+
+   {% if reclame %}
+   <table id="reclame" class="table table-striped">
+  <thead>
+  <tr>
+  <th>Code de la réclamation</th>
+  <th>Date de la réclamation</th>
+  <th>Description de la réclamation</th>
+  </tr>
+ 
+  </thead>
+  {% for reclame in reclame %}
+  <tr class = "table-success">
+      <td> {{reclame.codeDde}} </td>
+      <td> {{reclame.dateDemande | date('d/m/y')}} </td>
+      <td> {{reclame.descriptDde}} </td>
+
+  </tr>
+{% endfor %}
+   {% else %}
+   <h3> Aucun résultat obtenu</h3>
+  {% endif %}
+  </table>
+</div>
+</article>
+</main>
+
+{% endblock %}
+

@@ -20,7 +20,7 @@ class WelcomeController extends AbstractController
         $demandes = $repo->findAll();
         foreach ($demandes as $demande) {
             $now = new \DateTime();
-            $date = $demande->getDateDemande();
+            $date = $demande->getDateRdv();
             if ($now > $date) {
                 $etatDemandes = $reponse->findOneBy(['id' => 4]);
 

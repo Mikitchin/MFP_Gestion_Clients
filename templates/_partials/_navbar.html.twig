@@ -1,6 +1,6 @@
 <header class="headerxd" data-header>
 <div class="containerxd">
-  <a href="#" class="logo" title="Accueil"><img src="{{ asset('images/foncpubli1.png') }}" class="logo" alt="logo"></a>
+  <a href="{{ path('app_home') }}" class="logo" title="Accueil"><img src="{{ asset('images/foncpubli1.png') }}" class="logo" alt="logo"></a>
 
     <button class="menu-toggle-btn icon-box" data-menu-toggle-btn aria-label="Toggle Menu">
     <span class="material-symbols-rounded  icon">menu</span>
@@ -20,19 +20,22 @@
             <span>Accueil</span>
           </a>
         </li>
-        <li class="menu-deroulant">
+        <li>
               <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded  icon">filter_list</span>
 
-                <span title="Afficher la liste des demandes de rendez-vous">Liste requêtes</span>
+                <span title="Afficher la liste des demandes de rendez-vous">Liste des requêtes</span>
               </a>
-              <ul class="sous-menu">
-                <li><a href="{{ path('app_demande_rdv') }}">Demandes de rendez-vous</a></li>
-                <li><a href="{{ path('app_liste_rdv') }}">Demandes d'informations </a></li>
-                <li><a href="{{ path('app_liste_rdv') }}">Recclamations</a></li>
-
-            </ul>
+              
         </li>
+
+        <li>
+          <a href="{{ path('app_demande_rdv') }}" class="navbarxd-link icon-box">
+            <span class="material-symbols-rounded  icon">Leaderboard</span>
+
+            <span title="Afficher les statistiques des demandes de rendez-vous">Réclamation</span>
+          </a>
+        </li> 
 
         <li class="menu-deroulant">
           <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
@@ -41,19 +44,19 @@
             <span title="Gérer mes demandes de rendez-vous">Espace personnel</span>
           </a>
             <ul class="sous-menu">
-                <li><a href="{{ path('app_demande_rdv') }}">Soumettre une requête</a></li>
-                <li><a href="{{ path('app_liste_rdv') }}">Mes requêtes</a></li>
+                <li><a href="{{ path('app_demande_rdv_agt') }}">Soumettre une requête</a></li>
+                <li><a href="{{ path('app_liste_rdv_agt') }}">Mes requêtes</a></li>
             </ul>
         </li> 
-
+        <ul class="user-action-list">
         <li>
           <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
             <span class="material-symbols-rounded  icon">Leaderboard</span>
 
-            <span title="Afficher les statistiques des demandes de rendez-vous">Statistiques</span>
+            <span title="Afficher les statistiques des demandes de rendez-vous">Dossiers traités</span>
           </a>
         </li> 
-     
+      </ul>
         <ul class="user-action-list">
 
           <li>
@@ -141,7 +144,7 @@
   
         {% endif %}
 
-         {% if is_granted('ROLE_GEST') %}
+         {% if is_granted('ROLE_GEST_1') %}
        <ul class="navbarxd-list">
        <li>
           <a href="{{ path('app_home') }}" class="navbarxd-link activexd icon-box">
@@ -202,6 +205,70 @@
           </ul>
 
         {% endif %}
+
+        {% if is_granted('ROLE_GEST_2') %}
+        <ul class="navbarxd-list">
+        <li>
+           <a href="{{ path('app_home') }}" class="navbarxd-link activexd icon-box">
+             <span class="material-symbols-rounded  icon">grid_view</span>
+ 
+             <span>Accueil</span>
+           </a>
+         </li>  
+             <li>
+               <a href="{{ path('app_ges_dem') }}" class="navbarxd-link icon-box">
+                 <span class="material-symbols-rounded  icon">filter_list</span>
+ 
+                 <span title="Affichage des demandes de rendez-vous">Liste des requêtes</span>
+               </a>
+             </li>
+ 
+             <li>
+               <a href="{{ path('app_ges_treat') }}" class="navbarxd-link icon-box">
+                 <span class="material-symbols-rounded  icon">settings_suggest</span>
+ 
+                 <span title="Suivre le traitement des demandes de rendez-vous">Traitements des requêtes</span>
+               </a>
+             </li>
+ 
+             <li>
+               <a href="{{ path('app_ges_stat') }}" class="navbarxd-link icon-box">
+                 <span class="material-symbols-rounded  icon">settings_suggest</span>
+ 
+                 <span title="Afficher de traitement des demandes de rendez-vous">Statistiques</span>
+               </a>
+             </li>            
+ 
+           </ul>
+ 
+           <ul class="user-action-list">
+ 
+             <li>
+               <a href="#" class="notification icon-box">
+                 <span class="material-symbols-rounded  icon" title="Les notifications">notifications</span>
+               </a>
+             </li>
+ 
+             <li>
+               <a href="#" class="headerxd-profile">
+ 
+                 <figure class="profile-avatar">
+                   <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
+                 </figure>
+ 
+                 <div>
+                  <p class="profile-title">{{ app.user.userIdentifier }}</p>
+                  <p class="profile-subtitle">Gestionnaire</p>                
+                 </div>
+ 
+               </a>
+             </li>
+ 
+           </ul>
+ 
+         {% endif %}
+
+
         {% if is_granted('ROLE_CHEF_SERVICE') %}
         <ul class="navbarxd-list">
        <li>
