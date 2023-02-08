@@ -34,9 +34,13 @@ class MotifRdv
     #[ORM\OneToMany(mappedBy: 'codeMotif', targetEntity: DemandeRdv::class)]
     private Collection $descriptionDde;
 
+    #[ORM\OneToMany(mappedBy: 'objet', targetEntity: Reclamation::class)]
+    private Collection $objet;
+
     public function __construct()
     {
         $this->descriptionDde = new ArrayCollection();
+        $this->objet = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -137,5 +141,35 @@ class MotifRdv
     public function __toString(): string
     {
         return $this->getMotif();
+    }
+
+    /**
+     * @return Collection<int, Reclamation>
+     */
+    public function getObjet(): Collection
+    {
+        return $this->objet;
+    }
+
+    public function addObjet(Reclamation $objet): self
+    {
+        if (!$this->objet->contains($objet)) {
+            $this->objet->add($objet);
+            $objet->setObjet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeObjet(Reclamation $objet): self
+    {
+        if ($this->objet->removeElement($objet)) {
+            // set the owning side to null (unless already changed)
+            if ($objet->getObjet() === $this) {
+                $objet->setObjet(null);
+            }
+        }
+
+        return $this;
     }
 }

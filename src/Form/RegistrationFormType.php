@@ -14,8 +14,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -71,6 +73,19 @@ class RegistrationFormType extends AbstractType
                 ]
             ])
 
+            ->add('fonctionnaire', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => true,
+                    'Non' => false,
+                ],
+
+                'expanded' => true,
+                'multiple' => false,
+                'label_attr' => [
+                    'class' => 'd-flex',
+                ],
+            ])
+
             ->add('fonction', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
@@ -98,27 +113,32 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Acceptez-vous nos conditions ?.',
                     ]),
                 ],
+                'label' => 'Accepter nos conditions'
             ])
-            ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'mapped' => false,
-                'attr' => [
-                    'autocomplete' => 'new-password',
-                    'class' => 'form-control'
+            ->add(
+                'password',
+                RepeatedType::class,
+                [
+                    'type' => PasswordType::class,
+                    'invalid_message' => 'Les mots de passe ne correspondent pas.',
+                    'options' => ['attr' => ['class' => 'password-field']],
+                    'required' => true,
+                    'first_options'  => [
+                        'label' => 'Mot de passe',
+                        'attr' => [
+                            'class' => 'form-control'
+                        ]
+                    ],
+                    'second_options' => [
+                        'label' => 'Confirmation du mot de passe',
+                        'attr' => [
+                            'class' => 'form-control'
+                        ]
+                    ],
+
+
                 ],
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Entrer votre mot de passe',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit avoir au minimum {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
-            ]);
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void

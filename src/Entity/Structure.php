@@ -24,9 +24,13 @@ class Structure
     #[ORM\OneToMany(mappedBy: 'structure', targetEntity: User::class)]
     private Collection $users;
 
+    #[ORM\OneToMany(mappedBy: 'structure', targetEntity: Reclamation::class)]
+    private Collection $objet;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->objet = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -91,5 +95,35 @@ class Structure
     public function __toString(): string
     {
         return $this->getLibelle();
+    }
+
+    /**
+     * @return Collection<int, Reclamation>
+     */
+    public function getObjet(): Collection
+    {
+        return $this->objet;
+    }
+
+    public function addObjet(Reclamation $objet): self
+    {
+        if (!$this->objet->contains($objet)) {
+            $this->objet->add($objet);
+            $objet->setStructure($this);
+        }
+
+        return $this;
+    }
+
+    public function removeObjet(Reclamation $objet): self
+    {
+        if ($this->objet->removeElement($objet)) {
+            // set the owning side to null (unless already changed)
+            if ($objet->getStructure() === $this) {
+                $objet->setStructure(null);
+            }
+        }
+
+        return $this;
     }
 }

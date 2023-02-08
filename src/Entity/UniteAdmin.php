@@ -24,9 +24,13 @@ class UniteAdmin
     #[ORM\OneToMany(mappedBy: 'codeDir', targetEntity: MotifRdv::class)]
     private Collection $motifRdvs;
 
+    #[ORM\OneToMany(mappedBy: 'direction', targetEntity: DemandeRdv::class)]
+    private Collection $demandeRdvs;
+
     public function __construct()
     {
         $this->motifRdvs = new ArrayCollection();
+        $this->demandeRdvs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,5 +90,39 @@ class UniteAdmin
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, DemandeRdv>
+     */
+    public function getDemandeRdvs(): Collection
+    {
+        return $this->demandeRdvs;
+    }
+
+    public function addDemandeRdv(DemandeRdv $demandeRdv): self
+    {
+        if (!$this->demandeRdvs->contains($demandeRdv)) {
+            $this->demandeRdvs->add($demandeRdv);
+            $demandeRdv->setDirection($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDemandeRdv(DemandeRdv $demandeRdv): self
+    {
+        if ($this->demandeRdvs->removeElement($demandeRdv)) {
+            // set the owning side to null (unless already changed)
+            if ($demandeRdv->getDirection() === $this) {
+                $demandeRdv->setDirection(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString(): string
+    {
+        return $this->getLibelleDir();
     }
 }

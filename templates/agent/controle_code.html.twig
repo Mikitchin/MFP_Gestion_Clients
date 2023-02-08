@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+ <main>
+    <article class="containerxd article">
+
+      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+
+      <p class="article-subtitle">Formulaire de contrôle du code de la requête.</p>
+
+     
+
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="col-xl-3 mb-3">
+                <label>Code :</label>
+            {{ form_widget(form.codeRdv) }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-xl-3 mb-3">
+            <button class="btn btn-primary" type="submit">Vérifier le code de la requête</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+       
+        {% if demande %}
+    <span class="redcolor">Vérification du code de la requête !</span>
+
+        {% else %}
+    <span class="redcolor">Entrer un code valide</span>
+        {% endif %}
+
+    </article>
+  </main>
+{% endblock %}

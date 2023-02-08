@@ -54,7 +54,7 @@
     
         {# <body> #}
             <!-- START NAVBAR -->
-            <nav id="navbar" class="navbar navbar-expand-lg nav-light fixed-top sticky">
+            {# <nav id="navbar" class="navbar navbar-expand-lg nav-light fixed-top sticky">
                 <div class="container">
                     <a class="navbar-brand" href="">
                         <span class="logo-light-mode">
@@ -77,14 +77,14 @@
                         </ul>
     
                         <ul class="list-inline menu-social mb-0 ps-lg-4 ms-2">
-                            <li class="list-inline-item"><a href="" class="btn btn-primary">Connexion</a></li>
+                            <li class="list-inline-item"><a href="{{ path('app_login') }}" class="btn btn-primary">Connexion</a></li>
                         </ul>
                     </div>
                     <!--end collapse-->
                 </div>
                 <!--end container-->
             </nav>
-            <!-- END NAVBAR -->
+            <!-- END NAVBAR --> #}
     
             <!-- Start -->
             <section class="bg-home d-flex align-items-center" data-jarallax='{"speed": 0.5}' style="background: url('images/bg.jpg');">
@@ -93,11 +93,18 @@
                     <div class="row">
                         <div class="col">
                             <div class="title-heading">
-                                <h1 class="heading text-white title-dark mb-4">BIENVENUE AU CENTRE <br>DES RELATIONS <br>DES USAGERS-CLIENTS</h1>
+                                <h1 class="heading text-white title-dark mb-4">BIENVENUE AU CENTRE <br>DE RELATION <br>USAGERS-CLIENTS</h1>
                                 <p class="para-desc text-white-50">Un point de contact privilégié avec les usagers-clients<br> du Ministère de la Fonction Publique</p>
-                                <div class="mt-4 pt-2">
-                                    <a href="#" class="btn btn-primary m-1">Créer un compte</a>
-                                    <a href="#" class="btn btn-primary m-1">Connexion</a>                                 
+                                    <div class="form-row">
+                                    <div class="col-xl-3 mb-3">
+                                    <a href="{{ path('app_login') }}" class="btn btn-primary m-1 d-flex align-items-center">
+                                <span class="mx-auto">Connexion</span></a></a>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                    <div class="col-xl-3 mb-3">
+                                    <a href="{{ path('app_inscription') }}" class="btn btn-primary m-1 d-flex align-items-center">
+                                <span class="mx-auto">Créer un compte</span></a>                                 
                                 </div>
                             </div>
                         </div><!--end col-->

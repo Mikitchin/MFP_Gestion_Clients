@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+ <main>
+    <article class="containerxd article">
+      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
+      <p class="article-subtitle">ECRAN DE CONSULTATION DES INFORMATIONS SUR LE TRAITEMENT DE LA RECLAMATION</p>
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Traitement</h3>
+                </div>
+                <div class="card-body">
+                         {{ form_start(form) }}
+                        {# <div class="form-row">
+
+                            <div class="col-xl-6 mb-3">
+                                    <label>Nature de la requête :</label>
+                                    {{ form_widget(form.nature) }}
+                            </div>
+                        </div> #}
+                        <div class="form-row">
+                            <div class="col-xl-6 mb-3">
+                                <label>Objet de la réclamation:</label>
+                                    {{ form_widget(form.codeMotif) }}
+                                {# <input type="text" class="form-control" id="" name="motif_visite" value="" readonly> #}
+                            </div>
+                        </div>
+                                               
+                        
+                        {# <div class="col-xl-6 mb-3">
+                            <label class="redcolor">Traitement au poste</label>
+                            <input type="checkbox" value=""> 
+                        </div> #}
+                        <div class="form-row">
+                            <div class="col-xl-6 mb-6">
+                                <label>Motif de la réclamation :</label>
+                                    {{ form_widget(form.descriptDde) }} 
+                                {# <textarea class="form-control mb-4" placeholder="" rows="2" name="observation" readonly></textarea> #}
+                            </div>
+                        </div> 
+                            {# <div class="col-xl-6 mb-6">
+                                <label>Heure rendez-vous :</label>
+                                    {{ form_widget(form.heureRdv) }}
+                                
+                            </div> #}
+                        
+                        <div class="form-row">
+                            <div class="col-xl-6 mb-5">
+                                <label>Observation de l'agent d'accueil :</label>
+                                {{ form_widget(form.observationAc) }}
+                            </div> 
+                        </div> 
+                        <div class="form-row">
+                        <div class="col-xl-3 mb-3">
+                            <button type="submit" class="btn btn-primary">Valider</button>  
+                        </div>
+                        <div class="col-xl-3 mb-3">
+                    {# <a class="btn btn-danger text-dark" href="#">Bloquer</a> #}
+                            <a class="btn btn-warning text-white d-flex align-items-center" href="{{ path('app_valid_rdv', {'id': reclame.id}) }}">
+                        <span class="mx-auto">Rendez-vous</span></a>  
+                            {# app_ac_transfert #}
+                        </div>
+                        <div class="col-xl-3 mb-3">
+                    {# <a class="btn btn-danger text-dark" href="#">Bloquer</a> #}
+                            <a class="btn btn-success text-white d-flex align-items-center" href="{{ path('app_transfert', {'id': reclame.id}) }}">
+                        <span class="mx-auto">Transférer</span></a>  
+                            {# app_ac_transfert #}
+                        </div>
+                        <div class="col-xl-3 mb-3">
+                    {# <a class="btn btn-danger text-dark" href="#">Bloquer</a> #}
+                        <a class="btn btn-danger text-dark d-flex align-items-center" href="{{ path('app_annule_demande', {'id': reclame.id}) }}">
+                        <span class="mx-auto">Annuler</span></a>  
+                            </div>
+                        </div>              
+                        {{ form_end(form) }}        
+                        </div>
+                    </div>
+                </div>
+                {# <div class="col-lg-12 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Imputation</h3>
+                        </div>
+                <div class="card-body">
+                            <div class=" row mb-4">
+                                <label class="col-md-2 form-label">Direction / Service:</label>
+                                <div class="col-md-4">
+                                    <select name="motif" class="form-control form-select" data-bs-placeholder="Sélectionner un motif">
+                                        <option value="" selected>Sélectionner une Direction / Service</option>
+                                        <option value="">Direction 1</option>
+                                        <option value="">Direction 2</option>
+                                        <option value="">Service 1</option>                                        
+                                    </select>
+                                </div>
+                            </div>
+                    </div> #}
+                            
+                        </div>
+                    </div>
+                    
+                    {# <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Statut</h3>
+                                    </div>
+                                    <div class="card-body">
+                                            <div class="form-row">
+                                <div class="col-xl-4 mb-3">
+                                    <label>Début Traitement :</label>
+                                    <input type="text" class="form-control" id="" readonly value="01/01/2022">
+                                </div>
+                                <div class="col-xl-4 mb-3">
+                                    <label>Fin Traitement :</label>
+                                    <input type="text" class="form-control" id="" readonly value="02/01/2022">
+                                </div>
+                                <div class="col-xl-4 mb-3">
+                                    <label>Durée du Traitement:</label>
+                                    <input type="text" class="form-control" id="" readonly value="02/01/2022">
+                                </div>                                                
+                            </div>
+                            
+                    </div>
+                </div>
+            </div> #}
+        </div>   
+       
+    </div>
+</div>                
+      
+
+    </article>
+  </main>
+
+{% endblock %}

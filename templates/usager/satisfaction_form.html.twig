@@ -1,0 +1,78 @@
+{% extends 'cs_base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+<main>
+    <article class="containerxd article">
+
+      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+
+      <p class="article-subtitle">ENQUETE DE SATISFACTION</p>
+
+     
+      {# <form class="demandeForm" method="post" enctype="multipart/form-data"> #}
+       {{ form_start(form) }}
+
+            {# <!-- Row -->
+            <div class="row">
+                <div class="col-xl-6 col-lg-12">
+                    <div class="card">
+                        <div class="card-headerxd">
+                            <h4 class="card-titlexd">enquête de satisfaction ! </h4>
+                        </div> #}
+                        <div class="card-body">
+                                <div class=" row mb-4">
+                                    <label class="col-md-3 form-label">Etes-vous satisfait du traitement de votre demande ? </label>
+                                    <div class="col-md-9"> 
+
+                                    {{ form_widget(form.satisfaction) }}
+                                        
+                                    </div>
+           
+                                </div>
+                               
+                        <div class=" row mb-4">
+                            <label class="col-md-3 form-label">Indiquez vos points d’insatisfaction. :</label>
+                            <div class="col-md-9">   
+                                {{ form_widget(form.impression) }}   
+                                
+                            </div>
+                        </div>
+                        {# <textarea class="form-control mb-4" placeholder="" rows="2" name="autre_motif"></textarea> #}
+                            {# </div>
+                        </div>             
+                        </div>
+                        </div>
+                </div>
+                        <div class="col-xl-6 col-lg-12">
+                            <div class="card">
+                                <div class="card-headerxd">
+                                    <h4 class="card-titlexd"></h4>
+                                </div>
+                                <div class="card-body">  #}             
+                        <div class=" row mb-4">
+                                <label class="col-md-3 form-label">Etes-vous satisfait du service ? :</label>
+                                <div class="col-md-9"> 
+                                {{ form_widget(form.satisfactionSce) }}
+                                 </div>
+                        </div>
+                            <div class=" row mb-4">
+                                <label class="col-md-3 form-label">Indiquez vos points d’insatisfaction :</label>
+                                <div class="col-md-9"> 
+                                    {{ form_widget(form.impressionSce) }}
+                                   
+                                </div>
+                            </div> 
+                        </div>
+               {#     </div>
+                </div>
+            </div> #}
+            <button type="submit" class="btn btn-success">Enregistrer</button>
+            <!-- Row -->
+        {# </form>  #}
+        {{ form_end(form) }}
+
+    </article>
+</main>
+{% endblock %}

@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class DemandeRdvType extends AbstractType
@@ -17,30 +18,36 @@ class DemandeRdvType extends AbstractType
     {
         $builder
             ->add('codeDde')
-            ->add('dateDemande', DateType::class, [
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-                'attr' => [
-                    'class' => 'form-control'
+            // ->add('dateDemande', DateType::class, [
+            //     'widget' => 'single_text',
+            //     'format' => 'yyyy-MM-dd',
+            //     'attr' => [
+            //         'class' => 'form-control'
 
-                ]
-            ])
-            ->add('dateModifDde', DateType::class, [
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-                'attr' => [
-                    'class' => 'form-control'
+            //     ]
+            // ])
+            // ->add('heureRdv', ChoiceType::class, [
+            //     'choices' => array(
+            //         '8h00' => '8h00',
+            //         '9h00' => '9h00',
+            //         '10h00' => '10h00',
+            //         '11h00' => '11h00',
+            //         '12h00' => '12h00',
+            //         '14h00' => '14h00',
+            //         '15h00' => '15h00',
+            //         '16h00' => '16h00'
+            //     )
 
-                ]
-            ])
+            // ])
             ->add('descriptDde', TextareaType::class, [
-                'attr' => ['class' => 'tinymce'],
+                'attr' => ['class' => 'form-control'],
             ])
             // ->add('createdAt')
             ->add('codeMotif', EntityType::class, [
                 'class' => MotifRdv::class,
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'label' => 'Motif de la demande de rendez-vous'
 
                 ]
             ]);
