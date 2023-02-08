@@ -42,7 +42,7 @@ class DemandeRdvController extends AbstractController
             // Script de la nomenclature du code de rendez-vous !
             $j = new \Datetime();
             $result = $j->format('dmY');
-            $b = "RDV_" . $result . "_" . $lastId;
+            $b = "REQ_" . $result . "_" . $lastId;
 
             $user_cnt = $this->getUser();
         }

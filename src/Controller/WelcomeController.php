@@ -14,23 +14,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class WelcomeController extends AbstractController
 {
     #[Route('/', name: 'app_cruchome')]
-    public function accueil(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $reponse, EntityManagerInterface $entityManager): Response
-    {
+    public function accueil(
+        DemandeRdv $demande = null,
+        Request $request,
+        DemandeRdvRepository $repo,
+        EtatDemandeRepository $reponse,
+        EntityManagerInterface $entityManager
+    ): Response {
         // $etat_comp = $repo_etat->findOneBy(['id' => 6]);
-        $demandes = $repo->findAll();
-        foreach ($demandes as $demande) {
-            $now = new \DateTime();
-            $date = $demande->getDateRdv();
-            if ($now > $date) {
-                $etatDemandes = $reponse->findOneBy(['id' => 4]);
+        // $demandes = $repo->findAll();
+        // foreach ($demandes as $demande) {
+        //     $now = new \DateTime();
+        //     $date = $demande->getDateRdv();
+        //     if ($now > $date) {
+        //         $etatDemandes = $reponse->findOneBy(['id' => 4]);
 
-                $demande->setEtatDemandes($etatDemandes);
+        //         $demande->setEtatDemandes($etatDemandes);
 
-                $entityManager->persist($demande);
-                $entityManager->flush();
-            }
-            // dd($etat);
-        }
+        //         $entityManager->persist($demande);
+        //         $entityManager->flush();
+        // }
+        // dd($etat);
+        // }
         return $this->render('welcome.html.twig', [
             'controller_name' => 'WelcomeController',
         ]);

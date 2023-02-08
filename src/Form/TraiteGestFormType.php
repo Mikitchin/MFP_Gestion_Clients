@@ -18,15 +18,15 @@ class TraiteGestFormType extends AbstractType
     {
         $builder
 
-            ->add('dateDemande', DateType::class, [
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-                'attr' => [
-                    'class' => 'form-control',
-                    'readonly' => true
-                ],
+            // ->add('dateDemande', DateType::class, [
+            //     'widget' => 'single_text',
+            //     'format' => 'yyyy-MM-dd',
+            //     'attr' => [
+            //         'class' => 'form-control',
+            //         'readonly' => true
+            //     ],
 
-            ])
+            // ])
             ->add('codeMotif', EntityType::class, [
                 'class' => MotifRdv::class,
                 'attr' => [
@@ -42,24 +42,24 @@ class TraiteGestFormType extends AbstractType
                 ],
 
             ])
-            ->add('heureRdv', ChoiceType::class, [
-                'choices' => array(
-                    '8h00' => '8h00',
-                    '9h00' => '9h00',
-                    '10h00' => '10h00',
-                    '11h00' => '11h00',
-                    '12h00' => '12h00',
-                    '14h00' => '14h00',
-                    '15h00' => '15h00',
-                    '16h00' => '16h00'
-                ),
-                'attr' => [
-                    'class' => 'form-control',
+            // ->add('heureRdv', ChoiceType::class, [
+            //     'choices' => array(
+            //         '8h00' => '8h00',
+            //         '9h00' => '9h00',
+            //         '10h00' => '10h00',
+            //         '11h00' => '11h00',
+            //         '12h00' => '12h00',
+            //         '14h00' => '14h00',
+            //         '15h00' => '15h00',
+            //         '16h00' => '16h00'
+            //     ),
+            //     'attr' => [
+            //         'class' => 'form-control',
 
-                ],
+            //     ],
 
 
-            ])
+            // ])
 
             ->add('observationGest', TextareaType::class, [
                 'attr' => ['class' => 'form-control'],

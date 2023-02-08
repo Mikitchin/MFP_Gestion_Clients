@@ -40,7 +40,16 @@ class ReclamationRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function findReclaAccueil(string $etatDemandes = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 1);
 
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
     //    /**
     //     * @return Reclamation[] Returns an array of Reclamation objects
     //     */

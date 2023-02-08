@@ -8,9 +8,11 @@ use App\Form\DemandeFormType;
 use App\Form\TraiteAcFormType;
 use App\Form\DemandeSearchType;
 use App\Form\TransfertFormType;
+use App\Form\RendezVousAcFormType;
 use App\Repository\DemandeRdvRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\EtatDemandeRepository;
+use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -269,13 +271,13 @@ class AgentController extends AbstractController
 
     #[Route('/destinataire-controle', name: 'app_destinataire')]
 
-    public function destinataire_verif(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    public function destinataire_verif(DemandeRdv $demande = Null, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
-
+        $demande = new DemandeRdv();
         $demandeSearch = new DemandeSearch();
         $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
         $form->handleRequest($request);
-        $demande = [];
+        // $demande = [];
         $demande = $repo->findOneByFieldAccueil_2();
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -290,6 +292,43 @@ class AgentController extends AbstractController
             // 'demande' => $paginator,
             // 'previous' => $offset - DemandeRdvRepository::PAGINATOR_PER_PAGE,
             // 'next' => min(count($paginator), $offset + DemandeRdvRepository::PAGINATOR_PER_PAGE),
+        ]);
+    }
+
+    #[Route('/validation-rdv/{id}', name: 'app_valid_rdv')]
+
+    public function rdv_valid(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous en cours de traitement !)
+        // Mesure transitoire
+        $etat = $response->findOneBy(['id' => 5]);
+        $demande->setEtatDemandes($etat);
+
+        $entityManager->persist($demande);
+        $entityManager->flush();
+        // dd($etatDemandes);
+
+        $etatDemandes = $response->findOneBy(['id' => 9]);
+        $form = $this->createForm(RendezVousAcFormType::class, $demande);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $demande->setEtatDemandes($etatDemandes);
+
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'La demande a été traitée avec succès !');
+
+            // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('agent/info_rendez_vous.html.twig', [
+            'form' => $form->createView(),
+            'demande' => $demande,
+
         ]);
     }
 }

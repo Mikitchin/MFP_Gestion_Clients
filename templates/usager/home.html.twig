@@ -26,11 +26,12 @@
                                                         <th>Code de la requête</th>
                                                         {# <th>Matricule</th> #}
                                                         <th>Motif de la requête</th>
-                                                        <th>Date du rendez-vous</th>
-                                                        <th>Heure </th>
+                                                        <th>Date de soumission</th>
+                                                        <th>Date rdv</th>
+                                                        <th>Heure rdv</th>
                                                         {# <th>Heure <br>de départ</th> #}
                                                         {# <th><span class="redcolor">Etat</span></th> #}
-                                                        <th>Etat de la requête</th>
+                                                        <th>Etat </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -41,7 +42,8 @@
                                                         {# <td>{{ demande.users.matricule }}</td> #}
                                                         <td>{{ demande.codeMotif}}</td>
                                                         {# <td>{{ demande.dateRdv | date('d/m/y') }}</td> #}
-                                                        <td>{{ demande.heureRdv }}</td>
+                                                        <td>{{ demande.dateDemande | date('d/m/y')}}</td>
+                                                        <td>{{ demande.dateRdv | date('d/m/y') }}</td>
                                                         <td>{{ demande.heureRdv }}</td>
                                                         {# <td>{{ demande.etat }}</td> #}
                                                         {# <td>09H00</td>

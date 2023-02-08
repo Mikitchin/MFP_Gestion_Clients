@@ -37,7 +37,7 @@ class GestionController extends AbstractController
             $demande = [];
             // $demande = $repo->findAll();
             // $code = $this->getCodeDde();
-            $demande = $repo->findOneByFieldGest();
+            $demande = $repo->findFieldGest();
             if ($form->isSubmitted() && $form->isValid()) {
                 $code = $demandeSearch->getCodeDde();
                 if ($code != "")

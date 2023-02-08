@@ -20,22 +20,26 @@
             <span>Accueil</span>
           </a>
         </li>
-        <li>
+        <li class="menu-deroulant">
               <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
                 <span class="material-symbols-rounded  icon">filter_list</span>
 
                 <span title="Afficher la liste des demandes de rendez-vous">Liste des requêtes</span>
               </a>
+              <ul class="sous-menu">
+                <li><a href="{{ path('app_home') }}">Liste demande RDV</a></li>
+                <li><a href="{{ path('app_reclamation') }}">Liste des Réclamations</a></li>
+            </ul>
               
         </li>
 
-        <li>
+        {# <li>
           <a href="{{ path('app_demande_rdv') }}" class="navbarxd-link icon-box">
             <span class="material-symbols-rounded  icon">Leaderboard</span>
 
             <span title="Afficher les statistiques des demandes de rendez-vous">Réclamation</span>
           </a>
-        </li> 
+        </li>  #}
 
         <li class="menu-deroulant">
           <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
@@ -45,12 +49,13 @@
           </a>
             <ul class="sous-menu">
                 <li><a href="{{ path('app_demande_rdv_agt') }}">Soumettre une requête</a></li>
+                <li><a href="{{ path('app_reclamation_agent') }}">Faire une Réclamation</a></li>
                 <li><a href="{{ path('app_liste_rdv_agt') }}">Mes requêtes</a></li>
             </ul>
         </li> 
         <ul class="user-action-list">
         <li>
-          <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
+          <a href="{{ path('app_destinataire') }}" class="navbarxd-link icon-box">
             <span class="material-symbols-rounded  icon">Leaderboard</span>
 
             <span title="Afficher les statistiques des demandes de rendez-vous">Dossiers traités</span>

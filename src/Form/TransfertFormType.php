@@ -43,6 +43,10 @@ class TransfertFormType extends AbstractType
                 ],
 
             ])
+            ->add('observationGest', TextareaType::class, [
+                'attr' => ['class' => 'form-control'],
+
+            ])
 
             ->add('observationAc', TextareaType::class, [
                 'attr' => ['class' => 'form-control'],
