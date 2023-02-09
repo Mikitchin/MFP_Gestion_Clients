@@ -22,11 +22,11 @@
                                                         {{ form_widget(form.codeMotif) }}
                                                     {# <input type="text" class="form-control" id="" name="motif_visite" value="" readonly> #}
                                                 </div>
-                                                <div class="col-xl-6 mb-3">
+                                                {# <div class="col-xl-6 mb-3">
                                                     <label>Date de la visite :</label>
-                                                        {{ form_widget(form.dateDemande) }}
+                                                        {{ form_widget(form.dateDemande) }} #}
                                                     {# <textarea class="form-control mb-4" placeholder="" rows="2" name="details" readonly></textarea> #}
-                                                </div>
+                                                {# </div> #}
                                             </div>
                                             <div class="form-row">
                                                 {# <div class="col-xl-6 mb-3">
@@ -38,12 +38,14 @@
                                                         {{ form_widget(form.descriptDde) }}
                                                     {# <textarea class="form-control mb-4" placeholder="" rows="2" name="observation" readonly></textarea> #}
                                                 </div>
+                                            </div> 
+                                            <div class="form-row">
                                                 <div class="col-xl-6 mb-6">
-                                                    <label>Heure rendez-vous :</label>
-                                                        {{ form_widget(form.heureRdv) }}
+                                                    <label>Observation de l'Agent d'accueil :</label>
+                                                        {{ form_widget(form.observationAc) }}
                                                     {# <textarea class="form-control mb-4" placeholder="" rows="2" name="observation" readonly></textarea> #}
                                                 </div>
-                                            </div>  
+                                            </div> 
                                             <div class="form-row">
                                             
                                             <div class="col-xl-6 mb-5">

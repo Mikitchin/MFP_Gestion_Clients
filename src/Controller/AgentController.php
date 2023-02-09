@@ -160,6 +160,7 @@ class AgentController extends AbstractController
         // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
         return $this->redirectToRoute('app_home');
     }
+
     #[Route('/demande/agent-accueil', name: 'app_demande_rdv_agt')]
     #[Route('/demande/agent-accueil-edit/{id}', name: 'edit_demande_rdv_agt')]
 

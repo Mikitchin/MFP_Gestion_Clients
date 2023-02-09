@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class ReclamationController extends AbstractController
 {
-    #[Route('/reclamation', name: 'app_reclamation')]
+    #[Route('/reclamation/formulaire', name: 'app_reclamation_form')]
     #[Route('/reclamation/edit/{id}', name: 'edit_reclamation')]
 
     public function index(
@@ -261,5 +261,23 @@ class ReclamationController extends AbstractController
             'reclame' => $reclame,
 
         ]);
+    }
+
+    #[Route('/annule-reclamation/{id}', name: 'app_annule_reclamation')]
+
+    public function annule_reclamation_Ac(Reclamation $reclame, Request $request, ReclamationRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (état terminé)
+        $etatDemandes = $response->findOneBy(['id' => 1]);
+
+        $reclame->setEtatDemandes($etatDemandes);
+
+        $entityManager->persist($reclame);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'La réclamation a été annulée !');
+
+        // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+        return $this->redirectToRoute('app_reclamation');
     }
 }
