@@ -120,7 +120,7 @@ class RegistrationFormType extends AbstractType
                 RepeatedType::class,
                 [
                     'type' => PasswordType::class,
-                    'invalid_message' => 'Les mots de passe ne correspondent pas.',
+                    'invalid_message' => '<span style="color:red;">Les mots de passe ne correspondent pas.</span>',
                     'options' => ['attr' => ['class' => 'password-field']],
                     'required' => true,
                     'first_options'  => [

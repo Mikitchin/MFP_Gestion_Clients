@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\UserRepository;
+use Symfony\Component\Mailer\Mailer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,13 +40,13 @@ class SecurityController extends AbstractController
         throw new \LogicException('This method can be blank.');
     }
 
-    #[Route('/oubli-pass', name: 'forgotten_password')]
+    #[Route('/oubli-pass', name: 'app_forgotten_password')]
     public function forgottenPassword(
         Request $request,
         UserRepository $usersRepository,
         TokenGeneratorInterface $tokenGenerator,
         EntityManagerInterface $entityManager,
-        SendMailService $mail
+        \Swift_Mailer $mailer
     ): Response {
 
         $form = $this->createForm(ResetPasswordRequestFormType::class);
@@ -53,46 +54,65 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // On récupère les données
+            $donnees = $form->getData();
+
             //On va chercher l'utilisateur par son email
-            $user = $usersRepository->findOneByEmail($form->get('email')->getData());
+            $user = $usersRepository->findOneByEmail($donnees['email']);
 
             // On vérifie si on a un utilisateur
-            if ($user) {
-                // On génère un token de réinitialisation
-                $token = $tokenGenerator->generateToken();
-                $user->setResetToken($token);
-                $entityManager->persist($user);
-                $entityManager->flush();
+            if ($user == null) {
+                // On envoie une alerte disant que l'adresse e-mail est inconnue
+                $this->addFlash('danger', 'Cette adresse e-mail est inconnue');
 
-                // On génère un lien de réinitialisation du mot de passe
-                $url = $this->generateUrl('reset_pass', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
-
-                // On crée les données du mail
-                $context = compact('url', 'user');
-
-                // Envoi du mail
-                $mail->send(
-                    'no-reply@e-commerce.fr',
-                    $user->getEmail(),
-                    'Réinitialisation de mot de passe',
-                    'password_reset',
-                    $context
-                );
-
-                $this->addFlash('success', 'Email envoyé avec succès');
+                // On retourne sur la page de connexion
                 return $this->redirectToRoute('app_login');
             }
-            // $user est null
-            $this->addFlash('danger', 'Un problème est survenu');
+
+            // On génère un token de réinitialisation
+            $token = $tokenGenerator->generateToken();
+
+            // On essaie d'écrire le token en base de données
+            try {
+                $user->setResetToken($token);
+                // $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
+            } catch (\Exception $e) {
+                $this->addFlash('warning', $e->getMessage());
+                return $this->redirectToRoute('app_login');
+            }
+
+            // On génère un lien de réinitialisation du mot de passe
+            $url = $this->generateUrl('app_reset_pass', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
+
+            // On crée les données du mail
+            $message = (new \Swift_Message('Mot de passe oublié'))
+                ->setFrom('votre@adresse.fr')
+                ->setTo($user->getEmail())
+                ->setBody(
+                    "Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Nouvelle-Techno.fr. 
+                    Veuillez cliquer sur le lien suivant : " . $url,
+                    'text/html'
+                );
+
+            // Envoi du mail
+            $mailer->send($message);
+
+            // On crée le message flash de confirmation
+            $this->addFlash('message', 'E-mail de réinitialisation du mot de passe envoyé !');
+
+            // On redirige vers la page de login
             return $this->redirectToRoute('app_login');
         }
+
 
         return $this->render('security/reset_password_request.html.twig', [
             'requestPassForm' => $form->createView()
         ]);
     }
 
-    #[Route('/oubli-pass/{token}', name: 'reset_pass')]
+    #[Route('/reset_pass/{token}', name: 'app_reset_pass')]
     public function resetPass(
         string $token,
         Request $request,
@@ -101,41 +121,66 @@ class SecurityController extends AbstractController
         UserPasswordHasherInterface $passwordHasher
     ): Response {
         // On vérifie si on a ce token dans la base
-        $user = $userRepository->findOneByResetToken($token);
+        $user = $userRepository->findOneBy(['reset_token' => $token]);
 
         // On vérifie si l'utilisateur existe
 
-        if ($user) {
-            $form = $this->createForm(ResetPasswordFormType::class);
-
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                // On efface le token
-                $user->setResetToken('');
-
-
-                // On enregistre le nouveau mot de passe en le hashant
-                $user->setPassword(
-                    $passwordHasher->hashPassword(
-                        $user,
-                        $form->get('password')->getData()
-                    )
-                );
-                $entityManager->persist($user);
-                $entityManager->flush();
-
-                $this->addFlash('success', 'Mot de passe changé avec succès');
-                return $this->redirectToRoute('app_login');
-            }
-
-            return $this->render('security/reset_password.html.twig', [
-                'passForm' => $form->createView()
-            ]);
+        if ($user === null) {
+            // On affiche une erreur
+            $this->addFlash('danger', 'Token inconnu');
+            return $this->redirectToRoute('app_login');
         }
 
+        // Si le formulaire est envoyé en méthode post
+        if ($request->isMethod('POST')) {
+            // On supprime le token
+            $user->setResetToken(null);
+
+            // On chiffre le mot de passe
+            $user->setPassword($passwordHasher->hashPassword($user, $request->request->get('password')));
+
+            // On stocke
+            // $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Mot de passe changé avec succès');
+
+            // On redirige vers la page de connexion
+            return $this->redirectToRoute('app_login');
+        } else {
+            // Si on n'a pas reçu les données, on affiche le formulaire
+            return $this->render('security/reset_password.html.twig', ['token' => $token]);
+        }
+        // $form = $this->createForm(ResetPasswordFormType::class);
+
+        // $form->handleRequest($request);
+
+        // if ($form->isSubmitted() && $form->isValid()) {
+        //     // On efface le token
+        //     $user->setResetToken('');
+
+
+        // On enregistre le nouveau mot de passe en le hashant
+        // $user->setPassword(
+        //     $passwordHasher->hashPassword(
+        //         $user,
+        //         $form->get('password')->getData()
+        //     )
+        // );
+        // $entityManager->persist($user);
+        // $entityManager->flush();
+
+
+        //     }
+
+        //     return $this->render('security/reset_password.html.twig', [
+        //         'passForm' => $form->createView()
+        //     ]);
+        // }
+
         // Si le token est invalide on redirige vers le login
-        $this->addFlash('danger', 'Jeton invalide');
-        return $this->redirectToRoute('app_login');
+        // $this->addFlash('danger', 'Jeton invalide');
+        // return $this->redirectToRoute('app_login');
     }
 }
