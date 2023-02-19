@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
@@ -46,7 +48,7 @@ class SecurityController extends AbstractController
         UserRepository $usersRepository,
         TokenGeneratorInterface $tokenGenerator,
         EntityManagerInterface $entityManager,
-        \Swift_Mailer $mailer
+        MailerInterface $mailer
     ): Response {
 
         $form = $this->createForm(ResetPasswordRequestFormType::class);
@@ -87,11 +89,11 @@ class SecurityController extends AbstractController
             $url = $this->generateUrl('app_reset_pass', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
 
             // On crée les données du mail
-            $message = (new \Swift_Message('Mot de passe oublié'))
-                ->setFrom('votre@adresse.fr')
-                ->setTo($user->getEmail())
-                ->setBody(
-                    "Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Nouvelle-Techno.fr. 
+            $message = (new Email())
+                ->from('djogatien@gmail.com')
+                ->to($user->getEmail())
+                ->text(
+                    "Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site du centre de relation Usagers-Clients. 
                     Veuillez cliquer sur le lien suivant : " . $url,
                     'text/html'
                 );
