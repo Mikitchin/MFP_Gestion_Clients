@@ -111,7 +111,7 @@ return [
                 .'|/cancel\\-demande/([^/]++)(*:650)'
                 .'|/re(?'
                     .'|clamation/edit/([^/]++)(*:687)'
-                    .'|set_pass/([^/]++)(*:712)'
+                    .'|set\\-pass/([^/]++)(*:713)'
                 .')'
             .')/?$}sDu',
     ],
@@ -139,7 +139,7 @@ return [
         617 => [[['_route' => 'app_valid_rdv', '_controller' => 'App\\Controller\\AgentController::rdv_valid'], ['id'], null, null, false, true, null]],
         650 => [[['_route' => 'app_cancel_demande', '_controller' => 'App\\Controller\\GsController::annule_demande_gest'], ['id'], null, null, false, true, null]],
         687 => [[['_route' => 'edit_reclamation', '_controller' => 'App\\Controller\\ReclamationController::indexAg'], ['id'], null, null, false, true, null]],
-        712 => [
+        713 => [
             [['_route' => 'app_reset_pass', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

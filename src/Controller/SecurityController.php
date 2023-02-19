@@ -2,16 +2,17 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Mime\Email;
 use App\Repository\UserRepository;
 use Symfony\Component\Mailer\Mailer;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Form\ResetPasswordRequestFormType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
@@ -63,7 +64,7 @@ class SecurityController extends AbstractController
             $user = $usersRepository->findOneByEmail($donnees['email']);
 
             // On vérifie si on a un utilisateur
-            if ($user == null) {
+            if (!$user) {
                 // On envoie une alerte disant que l'adresse e-mail est inconnue
                 $this->addFlash('danger', 'Cette adresse e-mail est inconnue');
 
@@ -90,12 +91,15 @@ class SecurityController extends AbstractController
 
             // On crée les données du mail
             $message = (new Email())
-                ->from('djogatien@gmail.com')
+                ->from('ouattara.mailler@gmail.com')
                 ->to($user->getEmail())
-                ->text(
+                // ->to('djogatien.ouattara@gmail.com')
+
+                ->html(
                     "Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site du centre de relation Usagers-Clients. 
-                    Veuillez cliquer sur le lien suivant : " . $url,
-                    'text/html'
+                    Veuillez cliquer sur le lien suivant : "
+                        . $url
+                    // 'text/html'
                 );
 
             // Envoi du mail
@@ -114,7 +118,7 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    #[Route('/reset_pass/{token}', name: 'app_reset_pass')]
+    #[Route('/reset-pass/{token}', name: 'app_reset_pass')]
     public function resetPass(
         string $token,
         Request $request,
@@ -123,11 +127,11 @@ class SecurityController extends AbstractController
         UserPasswordHasherInterface $passwordHasher
     ): Response {
         // On vérifie si on a ce token dans la base
-        $user = $userRepository->findOneBy(['reset_token' => $token]);
+        $user = $userRepository->findOneBy(['resetToken' => $token]);
 
         // On vérifie si l'utilisateur existe
 
-        if ($user === null) {
+        if (!$user) {
             // On affiche une erreur
             $this->addFlash('danger', 'Token inconnu');
             return $this->redirectToRoute('app_login');

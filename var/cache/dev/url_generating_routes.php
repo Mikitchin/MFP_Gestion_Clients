@@ -67,7 +67,7 @@ return [
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::connexion'], [], [['text', '/connexion']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'app_forgotten_password' => [[], ['_controller' => 'App\\Controller\\SecurityController::forgottenPassword'], [], [['text', '/oubli-pass']], [], [], []],
-    'app_reset_pass' => [['token'], ['_controller' => 'App\\Controller\\SecurityController::resetPass'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/reset_pass']], [], [], []],
+    'app_reset_pass' => [['token'], ['_controller' => 'App\\Controller\\SecurityController::resetPass'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/reset-pass']], [], [], []],
     'app_suphome' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::index'], [], [['text', '/superviseur']], [], [], []],
     'app_lstdem' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::lstdem'], [], [['text', '/demande-sup']], [], [], []],
     'app_listtreat' => [[], ['_controller' => 'App\\Controller\\SuperviseurController::listtreat'], [], [['text', '/traitement-sup']], [], [], []],
