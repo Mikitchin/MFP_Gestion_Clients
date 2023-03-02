@@ -41,7 +41,7 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Liste des requêtes</h3>
+                                        <h3 class="card-title">Requêtes en attente de traitement.</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive" style="">
@@ -51,8 +51,8 @@
                                                     <tr>
                                                         {# <th>N°</th> #}
                                                         {# <th>Code rendez-vous</th> #}
-                                                        <th>Matricule</th>
-                                                        <th>Nom <br>et prénom(s)</th>
+                                                        <th>Code de la requête</th>
+                                                        {# <th>Nom <br>et prénom(s)</th> #}
                                                         <th>Date de la demande</th>
                                                         {# <th>Heure </th> #}
                                                         {# <th>Heure <br>de départ</th> #}
@@ -64,10 +64,10 @@
                                                   {% for demande in demande %}
                                                     <tr class="table-default">
                                                         {# <td>1</td> #}
-                                                        {# <td>{{ demande.codeDde }}</td> #}
-                                                        <td>{{ demande.users.matricule }}</td>
-                                                        <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td>
-                                                        <td>{{ demande.dateDemande | date('d/m/y') }}</td>
+                                                        <td>{{ demande.codeDde }}</td>
+                                                        {# <td>{{ demande.users.matricule }}</td>
+                                                        <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td> #}
+                                                        <td>{{ demande.dateDemande | date('d/m/Y') }}</td>
                                                         {# <td>{{ demande.heureRdv }}</td> #}
                                                         {# <td>{{ demande.etat }}</td> #}
                                                         {# <td>09H00</td>
@@ -105,13 +105,13 @@
                                                                     </a>
                                                                 </div>
                                                                 </li> #}
-                                                                <li>
+                                                                {# <li>
                                                                 <div class="meta-box icon-box">
                                                                     <a href="{{ path('app_data_form', {'id': demande.id}) }}" class="navbar-link active icon-box">
                                                                     <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
                                                                     </a>
                                                                 </div>
-                                                                </li>
+                                                                </li> #}
                                                             </ul>
                                                         </td>
                                                     </tr>
@@ -126,9 +126,9 @@
                                             <thead>
                                                 <tr>
                                                     {# <th>N°</th> #}
-                                                    {# <th>Code rendez-vous</th> #}
-                                                    <th>Matricule</th>
-                                                    <th>Nom <br>et prénom(s)</th>
+                                                    <th>Code de la requête</th>
+                                                    {# <th>Matricule</th> #}
+                                                    {# <th>Nom <br>et prénom(s)</th> #}
                                                     <th>Date de la demande</th>
                                                     {# <th>Heure </th> #}
                                                     {# <th>Heure <br>de départ</th> #}
@@ -140,9 +140,9 @@
                                               {% for demande in demande %}
                                                 <tr class="table-default">
                                                     {# <td>1</td> #}
-                                                    {# <td>{{ demande.codeDde }}</td> #}
-                                                    <td>{{ demande.users.matricule }}</td>
-                                                    <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td>
+                                                    <td>{{ demande.codeDde }}</td>
+                                                    {# <td>{{ demande.users.matricule }}</td>
+                                                    <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td> #}
                                                     <td>{{ demande.dateDemande|date('d/m/Y') }}</td>
                                                     {# <td>{{ demande.heureRdv }}</td> #}
                                                     {# <td>{{ demande.etat }}</td> #}

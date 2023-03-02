@@ -35,22 +35,26 @@ class RegistrationFormType extends AbstractType
 
             ->add('nom', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre nom"
                 ]
             ])
             ->add('prenom', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre prénom"
                 ]
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre Email"
                 ]
             ])
             ->add('matricule', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre matricule"
                 ]
             ])
             ->add('dateNaissance', DateType::class, [
@@ -69,7 +73,8 @@ class RegistrationFormType extends AbstractType
 
             ->add('lieuNaissance', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre lieu de naissance"
                 ]
             ])
 
@@ -88,21 +93,37 @@ class RegistrationFormType extends AbstractType
 
             ->add('fonction', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre fonction"
                 ]
             ])
 
             ->add('ville', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre ville "
+                ]
+            ])
+
+            ->add('commune', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre commune "
+                ]
+            ])
+
+            ->add('quartier', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre quartier "
                 ]
             ])
 
 
-
             ->add('contact', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Entrer votre contact"
                 ]
             ])
             // ->add('structure')
@@ -110,29 +131,31 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'Acceptez-vous nos conditions ?.',
+                        'message' => 'Je ne suis pas un robot.',
                     ]),
                 ],
-                'label' => 'Accepter nos conditions'
+                'label' => 'Je ne suis pas un robot.'
             ])
             ->add(
                 'password',
                 RepeatedType::class,
                 [
                     'type' => PasswordType::class,
-                    'invalid_message' => '<span style="color:red;">Les mots de passe ne correspondent pas.</span>',
+                    'invalid_message' => 'Les mots de passe ne correspondent pas.',
                     'options' => ['attr' => ['class' => 'password-field']],
                     'required' => true,
                     'first_options'  => [
                         'label' => 'Mot de passe',
                         'attr' => [
-                            'class' => 'form-control'
+                            'class' => 'form-control',
+                            'placeholder' => "Entrer votre mot de passe"
                         ]
                     ],
                     'second_options' => [
                         'label' => 'Confirmation du mot de passe',
                         'attr' => [
-                            'class' => 'form-control'
+                            'class' => 'form-control',
+                            'placeholder' => "Confirmer votre mot de passe"
                         ]
                     ],
 

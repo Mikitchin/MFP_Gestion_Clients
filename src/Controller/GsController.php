@@ -25,11 +25,15 @@ class GsController extends AbstractController
     #[Route('/liste-des-demandes-de-rendez-vous', name: 'app_ges_dem')]
     public function ges_dem(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
         $demandeRdv = new DemandeRdv();
         $demandeRdv = $repo->findAll();
 
         return $this->render('gestionnaire/demandes.html.twig', [
             'demandeRdv' => $demandeRdv,
+            'user' => $user,
         ]);
     }
 
@@ -45,6 +49,8 @@ class GsController extends AbstractController
     // public function ges_infotreat(): Response
     public function ges_treat_demande(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
 
         $etat = $response->findOneBy(['id' => 5]);
         $demande->setEtatDemandes($etat);
@@ -73,7 +79,7 @@ class GsController extends AbstractController
         return $this->render('gestionnaire/info_traitement_gs.html.twig', [
             'form' => $form->createView(),
             'demande' => $demande,
-
+            'user' => $user
         ]);
     }
 
@@ -89,6 +95,9 @@ class GsController extends AbstractController
 
     public function annule_demande_gest(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
         // Récupérons l'id pour la mise à jour de l'état de l'agent (état terminé)
         $etatDemandes = $response->findOneBy(['id' => 2]);
 

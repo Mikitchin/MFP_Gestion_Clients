@@ -25,6 +25,7 @@ class UsagerController extends AbstractController
 
         return $this->render('usager/notification_demande.html.twig', [
             'demande' => $demande,
+            'user' => $user,
 
         ]);
     }
@@ -33,6 +34,9 @@ class UsagerController extends AbstractController
 
     public function satisfaction_usager(Request $request, EvaluationRepository $repo, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
         $demande = new Evaluation();
         $form = $this->createForm(EvaluationFormType::class, $demande);
 
@@ -54,6 +58,7 @@ class UsagerController extends AbstractController
         return $this->render('usager/satisfaction_form.html.twig', [
             'form' => $form->createView(),
             'demande' => $demande,
+            'user' => $user,
         ]);
     }
 

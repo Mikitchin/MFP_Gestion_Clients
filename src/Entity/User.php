@@ -69,6 +69,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $resetToken = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Commune = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $quartier = null;
+
     // #[ORM\Column(type: 'string', length: 100)]
     // private $resetToken;
     // #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
@@ -344,6 +350,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setResetToken(?string $resetToken): self
     {
         $this->resetToken = $resetToken;
+
+        return $this;
+    }
+
+    public function getCommune(): ?string
+    {
+        return $this->Commune;
+    }
+
+    public function setCommune(?string $Commune): self
+    {
+        $this->Commune = $Commune;
+
+        return $this;
+    }
+
+    public function getQuartier(): ?string
+    {
+        return $this->quartier;
+    }
+
+    public function setQuartier(?string $quartier): self
+    {
+        $this->quartier = $quartier;
 
         return $this;
     }

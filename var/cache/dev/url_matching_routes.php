@@ -48,9 +48,9 @@ return [
         '/inscription' => [[['_route' => 'app_inscription', '_controller' => 'App\\Controller\\RegistrationController::inscription'], null, null, null, false, false, null]],
         '/connexion' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::connexion'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/oubli-pass' => [[['_route' => 'app_forgotten_password', '_controller' => 'App\\Controller\\SecurityController::forgottenPassword'], null, null, null, false, false, null]],
+        '/pass-oublie' => [[['_route' => 'app_forgotten_password', '_controller' => 'App\\Controller\\SecurityController::forgottenPassword'], null, null, null, false, false, null]],
         '/superviseur' => [[['_route' => 'app_suphome', '_controller' => 'App\\Controller\\SuperviseurController::index'], null, null, null, false, false, null]],
-        '/demande-sup' => [[['_route' => 'app_lstdem', '_controller' => 'App\\Controller\\SuperviseurController::lstdem'], null, null, null, false, false, null]],
+        '/demande-mod' => [[['_route' => 'app_dem_modif', '_controller' => 'App\\Controller\\SuperviseurController::lstdem'], null, null, null, false, false, null]],
         '/traitement-sup' => [[['_route' => 'app_listtreat', '_controller' => 'App\\Controller\\SuperviseurController::listtreat'], null, null, null, false, false, null]],
         '/statistiques-sup' => [[['_route' => 'app_statsrdvsup', '_controller' => 'App\\Controller\\SuperviseurController::statsrdvsup'], null, null, null, false, false, null]],
         '/info-recept-sup' => [[['_route' => 'app_inforecep', '_controller' => 'App\\Controller\\SuperviseurController::inforecep'], null, null, null, false, false, null]],
@@ -113,6 +113,7 @@ return [
                     .'|clamation/edit/([^/]++)(*:687)'
                     .'|set\\-pass/([^/]++)(*:713)'
                 .')'
+                .'|/modification\\-mot\\-de\\-passe/([^/]++)(*:760)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -139,8 +140,9 @@ return [
         617 => [[['_route' => 'app_valid_rdv', '_controller' => 'App\\Controller\\AgentController::rdv_valid'], ['id'], null, null, false, true, null]],
         650 => [[['_route' => 'app_cancel_demande', '_controller' => 'App\\Controller\\GsController::annule_demande_gest'], ['id'], null, null, false, true, null]],
         687 => [[['_route' => 'edit_reclamation', '_controller' => 'App\\Controller\\ReclamationController::indexAg'], ['id'], null, null, false, true, null]],
-        713 => [
-            [['_route' => 'app_reset_pass', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null],
+        713 => [[['_route' => 'app_reset_pass', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null]],
+        760 => [
+            [['_route' => 'app_modif_password', '_controller' => 'App\\Controller\\RegistrationController::modifPassword'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use App\Repository\UserRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SuperviseurController extends AbstractController
 {
@@ -16,11 +19,13 @@ class SuperviseurController extends AbstractController
         ]);
     }
 
-    #[Route('/demande-sup', name: 'app_lstdem')]
-    public function lstdem(): Response
+    #[Route('/demande-mod', name: 'app_dem_modif')]
+    public function lstdem(User $user = Null, UserRepository $repo, Request $request): Response
     {
-        return $this->render('superviseur/demandes.html.twig', [
-            'controller_name' => 'SuperviseurController',
+        $user = new User();
+        $user = $this->getUser();
+        return $this->render('base.html.twig', [
+            'user' => $user,
         ]);
     }
 

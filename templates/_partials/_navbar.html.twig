@@ -5,10 +5,10 @@
     <button class="menu-toggle-btn icon-box" data-menu-toggle-btn aria-label="Toggle Menu">
     <span class="material-symbols-rounded  icon">menu</span>
   </button>
-
+{% if app.user %}
   <nav class="navbarxd">
     <div class="containerxd">
-
+    
     {% if is_granted('ROLE_AGENT_ACCUEIL') %}
 
       <ul class="navbarxd-list">
@@ -27,8 +27,8 @@
                 <span title="Afficher la liste des demandes de rendez-vous">Liste des requêtes</span>
               </a>
               <ul class="sous-menu">
-                <li><a href="{{ path('app_home') }}">Liste demande RDV</a></li>
-                <li><a href="{{ path('app_reclamation') }}">Liste des Réclamations</a></li>
+                <li><a href="{{ path('app_home') }}">Demandes à traitées</a></li>
+                <li><a href="{{ path('app_reclamation') }}">Réclamations à traitées</a></li>
             </ul>
               
         </li>
@@ -89,31 +89,71 @@
     {% endif %}
 
     {% if is_granted('ROLE_SUPERVISEUR') %}
-      <ul class="navbarxd-list">
-       <li>
-          <a href="{{ path('app_suphome') }}" class="navbarxd-link activexd icon-box">
-            <span class="material-symbols-rounded  icon">grid_view</span>
+    <ul class="navbarxd-list">
 
-            <span>Accueil</span>
+    {# <li>
+      <a href="{{ path('app_home') }}" class="navbarxd-link activexd icon-box">
+        <span class="material-symbols-rounded  icon">grid_view</span>
+
+        <span>Accueil</span>
+      </a>
+    </li> #}
+    <li class="menu-deroulant">
+          <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
+            <span class="material-symbols-rounded  icon">Leaderboard</span>
+
+            <span title="Liste des demandes de rendez-vous">Espace CRUC</span>
           </a>
-        </li>  
-        <li>
-          <a href="{{ path('app_createrdv') }}" class="navbarxd-link icon-box">
-            <span class="material-symbols-rounded  icon">today</span>
+          <ul class="sous-menu">
+            <li><a href="{{ path('app_home') }}">Requêtes en cours</a></li>
+            <li><a href="{{ path('app_reclamation') }}">Réclamations en cours</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li ><a href="{{ path('app_demande_rdv_agt') }}">Requêtes traitées</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li ><a href="{{ path('app_demande_rdv_agt') }}">Prise de Rendez-vous</a></li>
 
-            <span title="Prise de rendez-vous pour les usagers clients">Soumettre une requête</span>
+        </ul>
+          
+    </li>
+    <li class="menu-deroulant">
+          <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
+            <span class="material-symbols-rounded  icon">filter_list</span>
+
+            <span title="Afficher la liste des demandes de rendez-vous">Espace DPA</span>
           </a>
-        </li>
+          <ul class="sous-menu">
+            <li><a href="{{ path('app_ges_dem') }}">Requêtes en cours</a></li>
+            <li><a href="{{ path('app_reclamation') }}">Réclamations en cours</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a href="{{ path('app_reclamation_agent') }}">Requêtes traitées</a></li>
+        </ul>
+          
+    </li>
 
-        <li>
-          <a href="{{ path('app_listrdv') }}" class="navbarxd-link icon-box">
-            <span class="material-symbols-rounded  icon">today</span>
+    {# <li>
+      <a href="{{ path('app_demande_rdv') }}" class="navbarxd-link icon-box">
+        <span class="material-symbols-rounded  icon">Leaderboard</span>
 
-            <span title="Afficher la liste des demandes de rendez-vous">Liste des requêtes</span>
-          </a>
-        </li>
+        <span title="Afficher les statistiques des demandes de rendez-vous">Réclamation</span>
+      </a>
+    </li>  #}
+    
 
-        <li>
+    <li class="menu-deroulant">
+      <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">
+        <span class="material-symbols-rounded  icon">today</span>
+
+        <span title="Gestion de rendez-vous">Espace personnel</span>
+      </a>
+        <ul class="sous-menu">
+            <li><a href="{{ path('app_demande_rdv_agt') }}">Soumettre une requête</a></li>
+            <li><a href="{{ path('app_reclamation_agent') }}">Faire une Réclamation</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a href="{{ path('app_liste_rdv_agt') }}">Mes requêtes</a></li>
+        </ul>
+    </li> 
+    
+          <li>
           <a href="{{ path('app_statsrdv') }}" class="navbarxd-link icon-box">
             <span class="material-symbols-rounded  icon">Leaderboard</span>
 
@@ -121,7 +161,7 @@
           </a>
         </li> 
 
-      
+      </ul>
         <ul class="user-action-list">
 
           <li>
@@ -130,11 +170,10 @@
               </a>
           </li>
 
-          <li>
-              <a href="#" class="headerxd-profile">
-
+          <li class="menu-deroulant">
+            <a href="{{ path('app_home') }}" class="navbarxd-link icon-box">              
               <figure class="profile-avatar">
-              <img src="{{ asset('images/avatar-1.jpg') }}" alt="Gomé Cyrille" width="32" height="32">
+              <img src="{{ asset('images/avatar-1.jpg') }}" alt="Utilisateur connecté" width="32" height="32">
               </figure>
 
               <div>
@@ -143,6 +182,10 @@
               </div>
 
               </a>
+              <ul class="sous-menu">
+                <li><a class="dropdown-item" href="{{ path('app_modif_password', {'id': user.id}) }}">Changer de mot de passe</a></li>
+                
+              </ul>
           </li>
 
         </ul>
@@ -333,9 +376,10 @@
           </a>
         </li>
       </ul>
-      
+    
     </div>
+  
   </nav>
-
+{% endif %}
 </div>
 </header>
