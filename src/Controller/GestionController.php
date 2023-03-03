@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\DemandeRdv;
 use App\Entity\DemandeSearch;
+use App\Entity\EtatDemande;
 use App\Form\DemandeSearchType;
 use App\Repository\DemandeRdvRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -38,7 +39,7 @@ class GestionController extends AbstractController
             $demande = [];
             // $demande = $repo->findAll();
             // $code = $this->getCodeDde();
-            $demande = $repo->findFieldGest();
+            $demande = $repo->findOneByFieldGest();
             if ($form->isSubmitted() && $form->isValid()) {
                 $code = $demandeSearch->getCodeDde();
                 if ($code != "")
@@ -49,9 +50,6 @@ class GestionController extends AbstractController
                 'form' => $form->createView(),
                 'demande' => $demande,
                 'user' => $user,
-            ]);
-            return $this->render('gestionnaire/index.html.twig', [
-                'controller_name' => 'GestionController',
             ]);
         }
 
@@ -77,11 +75,31 @@ class GestionController extends AbstractController
                 'demande' => $demande,
                 'user' => $user
             ]);
-            return $this->render('gestionnaire/index.html.twig', [
-                'controller_name' => 'GestionController',
-            ]);
         }
 
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_GEST_3')) {
+
+            // Récupérer l'utilisateur courant
+            $user = $this->getUser();
+            $demandeSearch = new DemandeSearch();
+            $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+            $form->handleRequest($request);
+            $demande = [];
+            // $demande = $repo->findAll();
+            // $code = $this->getCodeDde();
+            $demande = $repo->findOneByFieldGest_3();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $code = $demandeSearch->getCodeDde();
+                if ($code != "")
+                    $demande = $repo->findBy(['codeDde' => $code]);
+            }
+
+            return $this->render('gestionnaire/index.html.twig', [
+                'form' => $form->createView(),
+                'demande' => $demande,
+                'user' => $user
+            ]);
+        }
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_SUPERVISEUR')) {
             $demandeSearch = new DemandeSearch();
@@ -89,7 +107,8 @@ class GestionController extends AbstractController
             $form->handleRequest($request);
             $demande = [];
             $demande = $repo->findOneByFieldAccueil();
-            $demande_gest = $repo->findOneByFieldAccueil_2();
+            // $demande_gest = $repo->findOneByFieldAccueil_2();
+            // $demande_gest_1 = $repo->findFieldGest();
             // Récupérer l'utilisateur courant
             $user = $this->getUser();
 
@@ -102,8 +121,9 @@ class GestionController extends AbstractController
             return $this->render('superviseur/index.html.twig', [
                 'form' => $form->createView(),
                 'demande' => $demande,
-                'demande_gest' => $demande_gest,
+                // 'demande_gest' => $demande_gest,
                 'user' => $user,
+                // 'demande_gest_1' => $demande_gest_1,
                 // 'demande' => $paginator,
                 // 'previous' => $offset - DemandeRdvRepository::PAGINATOR_PER_PAGE,
                 // 'next' => min(count($paginator), $offset + DemandeRdvRepository::PAGINATOR_PER_PAGE),
@@ -111,6 +131,21 @@ class GestionController extends AbstractController
         }
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_AGENT_ACCUEIL')) {
+
+            $etatDemandes = new EtatDemande();
+
+            $demandes = $repo->findAll();
+            $etatNouveau = $repo_etat->findOneBy(['id' => 1]);
+
+            foreach ($demandes as $demande) {
+                $etatActuel = $demande->getEtatDemandes();
+
+                if ($etatActuel->getId() == 5) {
+                    $demande->setEtatDemandes($etatNouveau);
+                    $entityManager->persist($demande);
+                }
+            }
+            $entityManager->flush();
             // $demande = new DemandeRdv();
             // $offset = max(0, $request->query->getInt('offset', 0));
             // $paginator = $repo->getDemandeRdvPaginator($demande, $offset);

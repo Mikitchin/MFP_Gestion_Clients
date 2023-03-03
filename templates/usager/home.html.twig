@@ -21,21 +21,24 @@
                                       
                                             <table class="table border text-nowrap text-md-nowrap mb-0">
                                                 <thead>
+                                                  {% for demande in demande %}
                                                     <tr>
                                                         {# <th>N°</th> #}
                                                         <th>Code de la requête</th>
                                                         {# <th>Matricule</th> #}
                                                         <th>Motif de la requête</th>
                                                         <th>Date de soumission</th>
+                                                        {% if demande.dateRdv %}
                                                         <th>Date rdv</th>
                                                         <th>Heure rdv</th>
+                                                        {% endif %}
                                                         {# <th>Heure <br>de départ</th> #}
                                                         {# <th><span class="redcolor">Etat</span></th> #}
                                                         <th>Etat </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                  {% for demande in demande %}
+                                                  
                                                     <tr class="table-default">
                                                         {# <td>1</td> #}
                                                         <td>{{ demande.codeDde }}</td>
@@ -43,8 +46,10 @@
                                                         <td>{{ demande.codeMotif}}</td>
                                                         {# <td>{{ demande.dateRdv | date('d/m/y') }}</td> #}
                                                         <td>{{ demande.dateDemande | date('d/m/Y')}}</td>
+                                                        {% if demande.dateRdv %}
                                                         <td>{{ demande.dateRdv | date('d/m/Y') }}</td>
                                                         <td>{{ demande.heureRdv }}</td>
+                                                        {% endif %}
                                                         {# <td>{{ demande.etat }}</td> #}
                                                         {# <td>09H00</td>
                                                         <td>RDV pris</td> #}

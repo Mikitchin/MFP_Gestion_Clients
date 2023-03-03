@@ -67,7 +67,7 @@
                                                         <td>{{ reclame.codeDde }}</td>
                                                         {# <td>{{ reclame.users.matricule }}</td>
                                                         <td>{{ reclame.users.nom ~ " " ~ reclame.users.prenom}}</td> #}
-                                                        <td>{{ reclame.dateDemande | date('d/m/y') }}</td>
+                                                        <td>{{ reclame.dateDemande | date('d/m/Y') }}</td>
                                                         {# <td>{{ demande.heureRdv }}</td> #}
                                                         {# <td>{{ demande.etat }}</td> #}
                                                         {# <td>09H00</td>
@@ -142,8 +142,8 @@
                                                     {# <td>1</td> #}
                                                     <td>{{ reclame.codeDde }}</td>
                                                     {# <td>{{ reclame.users.matricule }}</td> #}
-                                                    <td>{{ reclame.users.nom ~ " " ~ reclame.users.prenom}}</td>
-                                                    {# <td>{{ reclame.dateDemande|date('d/m/Y') }}</td> #}
+                                                    {# <td>{{ reclame.users.nom ~ " " ~ reclame.users.prenom}}</td> #}
+                                                    <td>{{ reclame.dateDemande|date('d/m/Y') }}</td>
                                                     {# <td>{{ demande.heureRdv }}</td> #}
                                                     {# <td>{{ demande.etat }}</td> #}
                                                     {# <td>09H00</td>
@@ -174,13 +174,13 @@
                                                             </div>
                                                             </li>
 
-                                                            <li>
+                                                            {# <li> #}
                                                             {# <div class="meta-box icon-box">
                                                                 <a href="#" class="navbar-link active icon-box">
                                                                 <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
                                                                 </a>
                                                             </div> #}
-                                                            </li>
+                                                            {# </li> #}
                                                             {# <li>
                                                             <div class="meta-box icon-box">
                                                                 <a href="{{ path('app_data_form', {'id': reclame.id}) }}" class="navbar-link active icon-box">

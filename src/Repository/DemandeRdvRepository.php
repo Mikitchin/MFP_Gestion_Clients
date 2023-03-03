@@ -112,6 +112,20 @@ class DemandeRdvRepository extends ServiceEntityRepository
         //     $queryBuilder->expr()->neq('e.code', 3)
         // ));
     }
+
+    public function findOneByFieldGest_3(string $etatDemandes = null, string $etatDemande = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 2)
+            ->andWhere('d.direction = :direction')
+            ->setParameter('direction', 3);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findOneByFieldAccueil(string $etatDemandes = null): array
     {
         $queryBuilder =  $this->createQueryBuilder('d')
@@ -128,6 +142,29 @@ class DemandeRdvRepository extends ServiceEntityRepository
         $queryBuilder =  $this->createQueryBuilder('d')
             ->where('d.etatDemandes = :etatDemandes')
             ->setParameter('etatDemandes', 8);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+    // Repository pour le superviseur
+    public function findSupRequeteByField(string $etatDemandes = null, string $etatDemande = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 2);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+
+    // Repository pour le superviseur
+    public function findSupValidRdvByField(string $etatDemandes = null, string $etatDemande = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 2);
 
         return $queryBuilder
             ->getQuery()

@@ -210,8 +210,6 @@ class AgentController extends AbstractController
                 $demande->setEtatDemandes($etat);
             }
 
-
-
             $entityManager->persist($demande);
             $entityManager->flush();
 
@@ -260,7 +258,7 @@ class AgentController extends AbstractController
         $entityManager->flush();
         // dd($etatDemandes);
 
-        $etatDemandes = $response->findOneBy(['id' => 6]);
+        $etatDemandes = $response->findOneBy(['id' => 2]);
         $form = $this->createForm(TransfertFormType::class, $demande);
 
         $form->handleRequest($request);
@@ -329,7 +327,7 @@ class AgentController extends AbstractController
         $entityManager->flush();
         // dd($etatDemandes);
 
-        $etatDemandes = $response->findOneBy(['id' => 9]);
+        $etatDemandes = $response->findOneBy(['id' => 7]);
         $form = $this->createForm(RendezVousAcFormType::class, $demande);
 
         $form->handleRequest($request);

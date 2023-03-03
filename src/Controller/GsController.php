@@ -3,10 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\DemandeRdv;
+use App\Entity\Reclamation;
+use App\Entity\DemandeSearch;
+use App\Form\DemandeSearchType;
 use App\Form\TraiteGestFormType;
+use App\Form\TraiteGestReclamFormType;
 use App\Repository\DemandeRdvRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\EtatDemandeRepository;
+use App\Repository\ReclamationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -52,7 +57,7 @@ class GsController extends AbstractController
         // Récupérer l'utilisateur courant
         $user = $this->getUser();
 
-        $etat = $response->findOneBy(['id' => 5]);
+        $etat = $response->findOneBy(['id' => 10]);
         $demande->setEtatDemandes($etat);
 
         $entityManager->persist($demande);
@@ -107,6 +112,149 @@ class GsController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success', 'La demande a été transférée avec succès !');
+
+        // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+        return $this->redirectToRoute('app_home');
+    }
+
+    #[Route('/gestionnaire-reclamation', name: 'app_gest_reclamation')]
+    public function gest_reclame(Reclamation $reclame = Null, Request $request, EntityManagerInterface $entityManager, ReclamationRepository $repo): Response
+    {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
+        $reclame = new Reclamation();
+        $demandeSearch = new DemandeSearch();
+        $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+        $form->handleRequest($request);
+        $reclame = [];
+        $reclame = $repo->findRecByFieldGest();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $code = $demandeSearch->getCodeDde();
+            if ($code != "")
+                $reclame = $repo->findBy(['codeDde' => $code]);
+        }
+
+        return $this->render('gestionnaire/index_agent_reclamation.html.twig', [
+            'form' => $form->createView(),
+            'reclame' => $reclame,
+            'user' => $user,
+
+        ]);
+    }
+
+    #[Route('/gestionnaire-reclamation-dgapce', name: 'app_gest_reclamation_dir_2')]
+    public function gest_dir_deux_reclame(Reclamation $reclame = Null, Request $request, EntityManagerInterface $entityManager, ReclamationRepository $repo): Response
+    {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
+        $reclame = new Reclamation();
+        $demandeSearch = new DemandeSearch();
+        $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+        $form->handleRequest($request);
+        $reclame = [];
+        $reclame = $repo->findRecByFieldGest_2();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $code = $demandeSearch->getCodeDde();
+            if ($code != "")
+                $reclame = $repo->findBy(['codeDde' => $code]);
+        }
+
+        return $this->render('gestionnaire/index_agent_reclamation.html.twig', [
+            'form' => $form->createView(),
+            'reclame' => $reclame,
+            'user' => $user,
+
+        ]);
+    }
+
+    #[Route('/gestionnaire-reclamation-drh', name: 'app_gest_reclamation_dir_3')]
+    public function gest_dir_3_reclame(Reclamation $reclame = Null, Request $request, EntityManagerInterface $entityManager, ReclamationRepository $repo): Response
+    {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
+        $reclame = new Reclamation();
+        $demandeSearch = new DemandeSearch();
+        $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
+        $form->handleRequest($request);
+        $reclame = [];
+        $reclame = $repo->findRecByFieldGest_3();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $code = $demandeSearch->getCodeDde();
+            if ($code != "")
+                $reclame = $repo->findBy(['codeDde' => $code]);
+        }
+
+        return $this->render('gestionnaire/index_agent_reclamation.html.twig', [
+            'form' => $form->createView(),
+            'reclame' => $reclame,
+            'user' => $user,
+
+        ]);
+    }
+
+    #[Route('/traitement-reclamation-gest/{id}', name: 'app_trait_reclamation_gest')]
+
+    public function trait_reclamation_gest(Reclamation $reclame, Request $request, ReclamationRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous en cours de traitement !)
+        // Mesure transitoire
+        $etat = $response->findOneBy(['id' => 10]);
+        $reclame->setEtatDemandes($etat);
+
+        $entityManager->persist($reclame);
+        $entityManager->flush();
+        // dd($etatDemandes);
+
+        $etatDemandes = $response->findOneBy(['id' => 8]);
+        $form = $this->createForm(TraiteGestReclamFormType::class, $reclame);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $reclame->setEtatDemandes($etatDemandes);
+
+            $entityManager->persist($reclame);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'La demande a été traitée avec succès !');
+
+            // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('gestionnaire/traitement_info_rec_gest.html.twig', [
+            'form' => $form->createView(),
+            'reclame' => $reclame,
+            'user' => $user,
+
+        ]);
+    }
+
+    #[Route('/annule-reclamation_gest/{id}', name: 'app_annule_reclamation_gest')]
+
+    public function annule_reclamation_gest(Reclamation $reclame, Request $request, ReclamationRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (état terminé)
+        $etatDemandes = $response->findOneBy(['id' => 2]);
+
+        $reclame->setEtatDemandes($etatDemandes);
+
+        $entityManager->persist($reclame);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'La réclamation a été annulée !');
 
         // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
         return $this->redirectToRoute('app_home');

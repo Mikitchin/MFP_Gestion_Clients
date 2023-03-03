@@ -1,0 +1,226 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+
+ <main>
+    <article class="containerxd article">
+      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION USAGERS-CLIENTS (CRUC)</h2>
+      <p class="article-subtitle">ECRAN DE CONSULTATION DES REQUÊTES</p>     
+        
+                                      
+     <!-- ROW OPEN -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Recherche</h3>
+                                    </div>
+                                    <div class="card-body">
+                                    {{ form_start(form) }}
+                                            <div class="form-row">
+                                                <div class="col-xl-6 mb-3">
+                                                    <label for="validationCustom01" class="redcolor">CODE REQUÊTE</label>
+                                                    {# <input type="text" class="form-control" id="validationCustom01" value=""> #}
+                                                 {{ form_widget(form.codeDde, { 'attr':
+                                                 {'placeholder': 'Entrer le code de la requête' }}) }}
+                                                
+                                                </div>
+                                                
+                                            </div>
+                                                                    
+                                                                                    
+                                            <button class="btn btn-primary" type="submit">RECHERCHER</button>
+                                    {{ form_end(form) }}
+                                    </div>
+                                    
+  
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Liste des requêtes traitées par les DPA</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive" style="">
+                                        {% if reclame %}
+                                            <table class="table border text-nowrap text-md-nowrap mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        {# <th>N°</th> #}
+                                                        <th>Code de la requête/th>
+                                                        {# <th>Matricule</th>
+                                                        <th>Nom <br>et prénom(s)</th> #}
+                                                        <th>Date de la requête</th>
+                                                        {# <th>Direction </th> #}
+                                                        {# <th>Heure <br>de départ</th> #}
+                                                        {# <th><span class="redcolor">Etat</span></th> #}
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  {% for reclame in reclame %}
+                                                    <tr class="table-default">
+                                                        {# <td>1</td> #}
+                                                        <td>{{ reclame.codeDde }}</td>
+                                                        {# <td>{{ reclame.users.matricule }}</td>
+                                                        <td>{{ reclame.users.nom ~ " " ~ reclame.users.prenom}}</td> #}
+                                                        <td>{{ reclame.dateDemande | date('d/m/Y') }}</td>
+                                                        {# <td>{{ reclame.direction }}</td> #}
+                                                        {# <td>{{ demande.etat }}</td> #}
+                                                        {# <td>09H00</td>
+                                                        <td>RDV pris</td> #}
+                                                        <td>
+                                                            <ul class="online">
+                                                                <li>
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="{{ path('app_trait_reclamation', {'id': reclame.id}) }}" class="navbar-link active icon-box">
+                                                                    <span title="Accepter" class="material-symbols-rounded  icon">done</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li>
+
+                                                                {# <li>
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="#" class="navbar-link active icon-box">
+                                                                    <span title="Transférer" class="material-symbols-rounded  icon">send</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li> #}
+
+                                                                <li>    
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="{{ path('app_data_form', {'id': reclame.id}) }}" class="navbar-link active icon-box">
+                                                                    <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li>
+
+                                                                {# <li>
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="#" class="navbar-link active icon-box">
+                                                                    <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li> #}
+                                                                {# <li>
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="{{ path('app_data_form', {'id': reclame.id}) }}" class="navbar-link active icon-box">
+                                                                    <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li> #}
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    </tr>  
+                                                  {% endfor %}                                                 
+                                                </tbody>
+                                            </table>
+
+                                            {% else %}
+
+                                            <table class="table border text-nowrap text-md-nowrap mb-0">
+                                            <thead>
+                                                <tr>
+                                                    {# <th>N°</th> #}
+                                                    <th>Code de la requête</th>
+                                                    {# <th>Matricule</th>
+                                                    <th>Nom <br>et prénom(s)</th> #}
+                                                    <th>Date de la requête</th>
+                                                    {# <th>Direction </th> #}
+                                                    {# <th>Heure <br>de départ</th> #}
+                                                    {# <th><span class="redcolor">Etat</span></th> #}
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                              {% for reclame in reclame %}
+                                                <tr class="table-default">
+                                                    {# <td>1</td> #}
+                                                    <td>{{ reclame.codeDde }}</td>
+                                                    {# <td>{{ reclame.users.matricule }}</td> #}
+                                                    {# <td>{{ reclame.users.nom ~ " " ~ reclame.users.prenom}}</td> #}
+                                                    <td>{{ reclame.dateDemande|date('d/m/Y') }}</td>
+                                                    {# <td>{{ reclame.direction }}</td> #}
+                                                    {# <td>{{ demande.etat }}</td> #}
+                                                    {# <td>09H00</td>
+                                                    <td>RDV pris</td> #}
+                                                    <td>
+                                                        <ul class="online">
+                                                            <li>
+                                                            <div class="meta-box icon-box">
+                                                                <a href="{{ path('app_trait_reclamation') }}" class="navbar-link active icon-box">
+                                                                <span title="Accepter" class="material-symbols-rounded  icon">done</span>
+                                                                </a>
+                                                            </div>
+                                                            </li>
+
+                                                            {# <li>
+                                                            <div class="meta-box icon-box">
+                                                                <a href="#" class="navbar-link active icon-box">
+                                                                <span title="Transférer" class="material-symbols-rounded  icon">send</span>
+                                                                </a>
+                                                            </div>
+                                                            </li> #}
+
+                                                            <li>
+                                                            <div class="meta-box icon-box">
+                                                                <a href="{{ path('app_data_form', {'id': reclame.id}) }}" class="navbar-link active icon-box">
+                                                                <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
+                                                                </a>
+                                                            </div>
+                                                            </li>
+
+                                                            {# <li> #}
+                                                            {# <div class="meta-box icon-box">
+                                                                <a href="#" class="navbar-link active icon-box">
+                                                                <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
+                                                                </a>
+                                                            </div> #}
+                                                            {# </li> #}
+                                                            {# <li>
+                                                            <div class="meta-box icon-box">
+                                                                <a href="{{ path('app_data_form', {'id': reclame.id}) }}" class="navbar-link active icon-box">
+                                                                <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
+                                                                </a>
+                                                            </div>
+                                                            </li> #}
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                </tr>  
+                                              {% endfor %}                                                 
+                                            </tbody>
+                                          {% endif %}
+                                        </table>
+                                    {# ----------------PAGINATION------------------------- #}
+                                        {# {% if previous >= 0 %}
+                                        <a href="{{ path('app_home', { id: demande.id, offset: previous }) }}">Previous</a>
+                                       {% endif %}
+                                       {% if next < demande|length %}
+                                      <a href="{{ path('app_home', { id: demande.id, offset: next }) }}">Next</a>
+                                        {% endif %} 
+                                    ------------------------------------------------------#}
+
+                                        </div>
+                                    </div>
+                                    {% if reclame|length > 0 %}
+                                    <div class="text-center"><a href="#">{{ reclame | length }} réclamation (s) en attente de traitement !</a></div>
+                                    {# {% endif %} #}
+
+                                    {% else %}
+                                    <div>Vous n'avez pas de reclamation(s) en attente.</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ROW CLOSED -->
+                        
+    </article>
+
+  </main>
+
+{% endblock %}
