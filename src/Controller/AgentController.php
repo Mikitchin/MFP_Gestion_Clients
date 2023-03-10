@@ -63,10 +63,11 @@ class AgentController extends AbstractController
 
     #[Route('/stats-rdv', name: 'app_statsrdv')]
 
-    public function srdv(): Response
+    public function srdv(Request $request): Response
     {
+        $user = $this->getUser();
         return $this->render('agent/stats.html.twig', [
-            'controller_name' => 'AgentController',
+            'user' => $user,
         ]);
     }
 

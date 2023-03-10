@@ -49,7 +49,7 @@
             <span title="Gérer mes demandes de rendez-vous">Espace personnel</span>
           </a>
             <ul class="sous-menu">
-                <li><a href="{{ path('app_demande_rdv_agt') }}">Soumettre une requête</a></li>
+                <li><a href="{{ path('app_demande_rdv_agt') }}">Formuler une demande</a></li>
                 <li><a href="{{ path('app_reclamation_agent') }}">Faire une Réclamation</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a href="{{ path('app_liste_rdv_agt') }}">Suivi des requêtes</a></li>
@@ -81,7 +81,7 @@
 
             <div>
              <p class="profile-title">{{ app.user.userIdentifier }}</p>
-             <p class="profile-subtitle">Agent d'Accueil</p>                
+             <p class="profile-subtitle">Agent du CRUC</p>                
             </div>
             </a>
 
@@ -107,7 +107,7 @@
             <span title="Liste des demandes de rendez-vous">Espace CRUC</span>
           </a>
           <ul class="sous-menu">
-            <li><a href="{{ path('app_home') }}">Requêtes en cours</a></li>
+            <li><a href="{{ path('app_home') }}">Demandes en cours</a></li>
             <li><a href="{{ path('app_reclamation') }}">Réclamations en cours</a></li>
             <li><hr class="dropdown-divider"></li>
             <li ><a href="{{ path('app_sup_requete_traite_cruc') }}">Requêtes traitées</a></li>
@@ -124,7 +124,7 @@
             <span title="Afficher la liste des demandes de rendez-vous">Espace DPA</span>
           </a>
           <ul class="sous-menu">
-            <li><a href="{{ path('app_sup_requete') }}">Requêtes en cours</a></li>
+            <li><a href="{{ path('app_sup_requete') }}">Demandes en cours</a></li>
             <li><a href="{{ path('app_sup_reclamation') }}">Réclamations en cours</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a href="{{ path('app_sup_requete_traite_dpa') }}">Requêtes traitées</a></li>

@@ -55,7 +55,8 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => "Entrer votre matricule"
-                ]
+                ],
+                'required' => false,
             ])
             ->add('dateNaissance', DateType::class, [
                 'widget' => 'single_text',

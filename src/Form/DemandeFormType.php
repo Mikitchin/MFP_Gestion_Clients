@@ -21,8 +21,8 @@ class DemandeFormType extends AbstractType
             // ->add('codeDde')
             ->add('nature', ChoiceType::class, [
                 'choices' => [
-                    'Demande de rendez-vous   -' => true,
-                    '  Information' => false,
+                    'Demande de rdv' => true,
+                    'Demande d\'information' => false,
                 ],
 
                 'expanded' => true,
