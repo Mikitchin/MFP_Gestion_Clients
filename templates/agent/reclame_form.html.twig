@@ -1,0 +1,69 @@
+{% extends 'cs_base.html.twig' %}
+
+{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+
+{% block body %}
+<main>
+    <article class="containerxd article">
+
+      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+
+      <p class="article-subtitle">Formulaire de soumission de réclamation des usagers clients !</p>
+
+     
+      {# <form class="demandeForm" method="post" enctype="multipart/form-data"> #}
+       {{ form_start(reclame_form) }}
+
+            <!-- Row -->
+            <div class="row">
+                <div class="col-xl-6 col-lg-12">
+                    <div class="card">
+                        <div class="card-headerxd">
+                            <h4 class="card-titlexd">Nouvelle réclamation</h4>
+                        </div>
+                        <div class="card-body">
+                            
+                                <div class=" row mb-4">
+                                    <label class="col-md-3 form-label">Objet :</label>
+                                    <div class="col-md-9">
+
+                                    {{ form_widget(reclame_form.codeMotif) }}
+                                        
+                                    </div>
+                                </div>
+                               
+                        <div class=" row mb-4">
+                            <label class="col-md-3 form-label">Motif de la réclamation:</label>
+                            <div class="col-md-9">
+                                {{ form_widget(reclame_form.descriptDde) }}       
+                        {# <textarea class="form-control mb-4" placeholder="" rows="2" name="autre_motif"></textarea> #}
+                            </div>
+                        </div>  
+                        <div class=" row mb-4">
+                            <label for="demande_form_fichier">Upload fichier 2 Mo MAX</label>
+                            {# <input type="file" id="demande_form_fichier" name="demande_form[fichier]" /> #}
+                            {{ form_widget(reclame_form.fichier) }}
+                        </div>   
+                    </div>
+                </div>
+            </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">
+        {% if editMode %}
+        Enregistrer les modifications
+        {% else %}
+        Enregistrer
+        {% endif %}
+    </button>
+    <input type="hidden" id="reclame_form__token" name="reclame_form[_token]" value="DwqsEanxc48jofxsqbGBVLQBqlVJ_Tg4u9-BL1Hjgac" />
+
+            <!-- Row -->
+        {# </form>  #}
+        {{ form_end(reclame_form) }}
+
+    </article>
+</main>
+{% endblock %}

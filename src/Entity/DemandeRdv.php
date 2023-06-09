@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\DemandeRdvRepository;
@@ -32,9 +34,6 @@ class DemandeRdv
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateModifDde = null;
 
-    // #[ORM\Column(nullable: true)]
-    // private ?int $etatDemande = null;
-
     // #[ORM\Column(type: 'string', length: 255, unique: true)]
     // private ?string $slug = null;
 
@@ -50,6 +49,28 @@ class DemandeRdv
     #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
     private ?User $users = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $heureRdv = null;
+
+    #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
+    private ?EtatDemande $etatDemandes = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $observationAc = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $observationGest = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateRdv = null;
+
+    #[ORM\Column]
+    private ?bool $nature = null;
+
+    #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
+    private ?UniteAdmin $direction = null;
+
+
     // public function computeSlug(SluggerInterface $slugger)
     // {
     //     if (!$this->slug || '-' === $this->slug) {
@@ -60,6 +81,8 @@ class DemandeRdv
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->dateModifDde = new \DateTimeImmutable();
+        $this->dateDemande = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -117,18 +140,6 @@ class DemandeRdv
 
         return $this;
     }
-
-    // public function getEtatDemande(): ?int
-    // {
-    //     return $this->etatDemande;
-    // }
-
-    // public function setEtatDemande(?int $etatDemande): self
-    // {
-    //     $this->etatDemande = $etatDemande;
-
-    //     return $this;
-    // }
 
     // public function getSlug(): ?string
     // {
@@ -190,8 +201,92 @@ class DemandeRdv
         return $this;
     }
 
+    public function getHeureRdv(): ?string
+    {
+        return $this->heureRdv;
+    }
+
+    public function setHeureRdv(?string $heureRdv): self
+    {
+        $this->heureRdv = $heureRdv;
+
+        return $this;
+    }
+
+    public function getEtatDemandes(): ?EtatDemande
+    {
+        return $this->etatDemandes;
+    }
+
+    public function setEtatDemandes(?EtatDemande $etatDemandes): self
+    {
+        $this->etatDemandes = $etatDemandes;
+
+        return $this;
+    }
+
+    public function getObservationAc(): ?string
+    {
+        return $this->observationAc;
+    }
+
+    public function setObservationAc(?string $observationAc): self
+    {
+        $this->observationAc = $observationAc;
+
+        return $this;
+    }
+
+    public function getObservationGest(): ?string
+    {
+        return $this->observationGest;
+    }
+
+    public function setObservationGest(?string $observationGest): self
+    {
+        $this->observationGest = $observationGest;
+
+        return $this;
+    }
+
     public function __toString(): string
     {
-        return $this->getId();
+        return $this->getCodeDde();
+    }
+
+    public function getDateRdv(): ?\DateTimeInterface
+    {
+        return $this->dateRdv;
+    }
+
+    public function setDateRdv(?\DateTimeInterface $dateRdv): self
+    {
+        $this->dateRdv = $dateRdv;
+
+        return $this;
+    }
+
+    public function isNature(): ?bool
+    {
+        return $this->nature;
+    }
+
+    public function setNature(bool $nature): self
+    {
+        $this->nature = $nature;
+
+        return $this;
+    }
+
+    public function getDirection(): ?UniteAdmin
+    {
+        return $this->direction;
+    }
+
+    public function setDirection(?UniteAdmin $direction): self
+    {
+        $this->direction = $direction;
+
+        return $this;
     }
 }

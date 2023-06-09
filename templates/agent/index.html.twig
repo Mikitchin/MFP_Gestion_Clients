@@ -6,271 +6,221 @@
 
  <main>
     <article class="containerxd article">
+      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
+      <p class="article-subtitle">ECRAN DE CONSULTATION DES REQUÊTES</p>     
+        
+                                      
+     <!-- ROW OPEN -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Recherche</h3>
+                                    </div>
+                                    <div class="card-body">
+                                    {{ form_start(form) }}
+                                            <div class="form-row">
+                                                <div class="col-xl-6 mb-3">
+                                                    <label for="validationCustom01" class="redcolor">CODE REQUÊTE</label>
+                                                    {# <input type="text" class="form-control" id="validationCustom01" value=""> #}
+                                                 {{ form_widget(form.codeDde, { 'attr':
+                                                 {'placeholder': 'Entrer le code de la requête' }}) }}
+                                                
+                                                </div>
+                                                
+                                            </div>
+                                                                    
+                                                                                    
+                                            <button class="btn btn-primary" type="submit">RECHERCHER</button>
+                                    {{ form_end(form) }}
+                                    </div>
+                                    
+  
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Requêtes en attente de traitement.</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive" style="">
+                                        {% if demande %}
+                                            <table class="table border text-nowrap text-md-nowrap mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        {# <th>N°</th> #}
+                                                        {# <th>Code rendez-vous</th> #}
+                                                        <th>Code de la requête</th>
+                                                        {# <th>Nom <br>et prénom(s)</th> #}
+                                                        <th>Date de la demande</th>
+                                                        {# <th>Heure </th> #}
+                                                        {# <th>Heure <br>de départ</th> #}
+                                                        {# <th><span class="redcolor">Etat</span></th> #}
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  {% for demande in demande %}
+                                                    <tr class="table-default">
+                                                        {# <td>1</td> #}
+                                                        <td>{{ demande.codeDde }}</td>
+                                                        {# <td>{{ demande.users.matricule }}</td>
+                                                        <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td> #}
+                                                        <td>{{ demande.dateDemande | date('d/m/Y') }}</td>
+                                                        {# <td>{{ demande.heureRdv }}</td> #}
+                                                        {# <td>{{ demande.etat }}</td> #}
+                                                        {# <td>09H00</td>
+                                                        <td>RDV pris</td> #}
+                                                        <td>
+                                                            <ul class="online">
+                                                                <li>
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="{{ path('app_ges_infotreat', {'id': demande.id}) }}" class="navbar-link active icon-box">
+                                                                    <span title="Accepter" class="material-symbols-rounded  icon">done</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li>
 
-      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+                                                                {# <li>
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="#" class="navbar-link active icon-box">
+                                                                    <span title="Transférer" class="material-symbols-rounded  icon">send</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li> #}
 
-      <p class="article-subtitle">Bienvenue !</p>
+                                                                <li>    
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="{{ path('app_data_form', {'id': demande.id}) }}" class="navbar-link active icon-box">
+                                                                    <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li>
 
-     
-      <!-- 
-        - #RDV
-      -->
+                                                                {# <li>
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="#" class="navbar-link active icon-box">
+                                                                    <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li> #}
+                                                                {# <li>
+                                                                <div class="meta-box icon-box">
+                                                                    <a href="{{ path('app_data_form', {'id': demande.id}) }}" class="navbar-link active icon-box">
+                                                                    <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
+                                                                    </a>
+                                                                </div>
+                                                                </li> #}
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    </tr>  
+                                                  {% endfor %}                                                 
+                                                </tbody>
+                                            </table>
 
-      <section class="tasks">
+                                            {% else %}
 
-        <div class="section-title-wrapper">
-          <h2 class="section-title">Liste des demandes de rendez-vous</h2>
+                                            <table class="table border text-nowrap text-md-nowrap mb-0">
+                                            <thead>
+                                                <tr>
+                                                    {# <th>N°</th> #}
+                                                    <th>Code de la requête</th>
+                                                    {# <th>Matricule</th> #}
+                                                    {# <th>Nom <br>et prénom(s)</th> #}
+                                                    <th>Date de la demande</th>
+                                                    {# <th>Heure </th> #}
+                                                    {# <th>Heure <br>de départ</th> #}
+                                                    {# <th><span class="redcolor">Etat</span></th> #}
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                              {% for demande in demande %}
+                                                <tr class="table-default">
+                                                    {# <td>1</td> #}
+                                                    <td>{{ demande.codeDde }}</td>
+                                                    {# <td>{{ demande.users.matricule }}</td>
+                                                    <td>{{ demande.users.nom ~ " " ~ demande.users.prenom}}</td> #}
+                                                    <td>{{ demande.dateDemande|date('d/m/Y') }}</td>
+                                                    {# <td>{{ demande.heureRdv }}</td> #}
+                                                    {# <td>{{ demande.etat }}</td> #}
+                                                    {# <td>09H00</td>
+                                                    <td>RDV pris</td> #}
+                                                    <td>
+                                                        <ul class="online">
+                                                            <li>
+                                                            <div class="meta-box icon-box">
+                                                                <a href="{{ path('app_ges_infotreat') }}" class="navbar-link active icon-box">
+                                                                <span title="Accepter" class="material-symbols-rounded  icon">done</span>
+                                                                </a>
+                                                            </div>
+                                                            </li>
 
-          <button class="btn btn-link icon-box">
-            <span>Voir tout</span>
+                                                            {# <li>
+                                                            <div class="meta-box icon-box">
+                                                                <a href="#" class="navbar-link active icon-box">
+                                                                <span title="Transférer" class="material-symbols-rounded  icon">send</span>
+                                                                </a>
+                                                            </div>
+                                                            </li> #}
 
-            <span class="material-symbols-rounded  icon" aria-hidden="true">arrow_forward</span>
-          </button>
-        </div>
+                                                            <li>
+                                                            <div class="meta-box icon-box">
+                                                                <a href="{{ path('app_data_form', {'id': demande.id}) }}" class="navbar-link active icon-box">
+                                                                <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
+                                                                </a>
+                                                            </div>
+                                                            </li>
 
-        <ul class="tasks-list">
+                                                            <li>
+                                                            {# <div class="meta-box icon-box">
+                                                                <a href="#" class="navbar-link active icon-box">
+                                                                <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
+                                                                </a>
+                                                            </div> #}
+                                                            </li>
+                                                            {# <li>
+                                                            <div class="meta-box icon-box">
+                                                                <a href="{{ path('app_data_form', {'id': demande.id}) }}" class="navbar-link active icon-box">
+                                                                <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
+                                                                </a>
+                                                            </div>
+                                                            </li> #}
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                </tr>  
+                                              {% endfor %}                                                 
+                                            </tbody>
+                                          {% endif %}
+                                        </table>
+                                    {# ----------------PAGINATION------------------------- #}
+                                        {# {% if previous >= 0 %}
+                                        <a href="{{ path('app_home', { id: demande.id, offset: previous }) }}">Previous</a>
+                                       {% endif %}
+                                       {% if next < demande|length %}
+                                      <a href="{{ path('app_home', { id: demande.id, offset: next }) }}">Next</a>
+                                        {% endif %} 
+                                    ------------------------------------------------------#}
 
-          <li class="tasks-item">
-            <div class="card task-card">
+                                        </div>
+                                    </div>
+                                    {% if demande|length > 0 %}
+                                    <div class="text-center"><a href="#">{{ demande | length }} demandes en attente de traitement !</a></div>
+                                    {# {% endif %} #}
 
-              <div class="card-input">
-                <label for="task-1" class="task-label">
-                  Motif 1 de la demande de rendez-vous
-                </label>
-              </div>
-
-              <div class="card-badge cyan radius-pill">Date et Heure</div>
-
-              <ul class="card-meta-list">
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Accepter" class="material-symbols-rounded  icon">done</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Transférer" class="material-symbols-rounded  icon">send</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbar-link activexd icon-box">
-                      <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
-                    </a>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-          </li>
-
-          <li class="tasks-item">
-            <div class="card task-card">
-
-              <div class="card-input">
-                <label for="task-1" class="task-label">
-                  Motif 2 de la demande de rendez-vous
-                </label>
-              </div>
-
-              <div class="card-badge cyan radius-pill">Date et Heure</div>
-
-              <ul class="card-meta-list">
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Accepter" class="material-symbols-rounded  icon">done</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Transférer" class="material-symbols-rounded  icon">send</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
-                    </a>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-          </li>
-
-          <li class="tasks-item">
-            <div class="card task-card">
-
-              <div class="card-input">
-                <label for="task-1" class="task-label">
-                  Motif 3 de la demande de rendez-vous
-                </label>
-              </div>
-
-              <div class="card-badge cyan radius-pill">Date et Heure</div>
-
-              <ul class="card-meta-list">
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Accepter" class="material-symbols-rounded  icon">done</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Transférer" class="material-symbols-rounded  icon">send</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
-                    </a>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-          </li>
-
-          <li class="tasks-item">
-            <div class="card task-card">
-
-              <div class="card-input">
-                <label for="task-1" class="task-label">
-                  Motif 4 de la demande de rendez-vous
-                </label>
-              </div>
-
-              <div class="card-badge cyan radius-pill">Date et Heure</div>
-
-              <ul class="card-meta-list">
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Accepter" class="material-symbols-rounded  icon">done</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Transférer" class="material-symbols-rounded  icon">send</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Modifier" class="material-symbols-rounded  icon">edit</span>
-                    </a>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Alerter" class="material-symbols-rounded  icon">Notifications</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="meta-box icon-box">
-                    <a href="#" class="navbarxd-link activexd icon-box">
-                      <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
-                    </a>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-          </li>
-
-          
-
-        </ul>
-
-        <button class="btn btn-primary" data-load-more>
-          <span class="spiner"></span>
-
-          <span>Charger plus</span>
-        </button>
-
-      </section>
-
+                                    {% else %}
+                                    <div>Vous n'avez pas de demandes en attente.</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ROW CLOSED -->
+                        
     </article>
+
   </main>
 
 {% endblock %}
