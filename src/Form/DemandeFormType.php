@@ -33,6 +33,7 @@ class DemandeFormType extends AbstractType
             ])
             ->add('codeMotif', EntityType::class, [
                 'class' => MotifRdv::class,
+                'placeholder' => 'Choisir le motif de la demande',
                 'attr' => [
                     'class' => 'form-control'
 
