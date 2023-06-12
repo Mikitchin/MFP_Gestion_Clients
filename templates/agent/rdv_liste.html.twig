@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+{% block title %}CRUC – Centre de Relation Usager-Client{% endblock %}
 
 {% block body %}
 
  <main>
     <article class="containerxd article">
-      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
+      <h2 class="h2 article-title">LOGICIEL DE GESTION DE LA RELATION USAGER-CLIENT (LOGIREC)</h2>
       <p class="article-subtitle">ECRAN DE CONSULTATION DES REQUÊTES</p>     
         
                                       
@@ -23,7 +23,7 @@
                                                 <thead>
                                                     <tr>
                                                         {# <th>N°</th> #}
-                                                        <th>Code </th>
+                                                        <th>Code de la requête</th>
                                                         {# <th>Matricule</th> #}
                                                         <th>Motif de la requête</th>
                                                         <th>Date de la demande</th>
@@ -78,13 +78,13 @@
                                                                     </a>
                                                                 </div>
                                                                 </li> #}
-                                                                <li>
+                                                                {# <li>
                                                                 <div class="meta-box icon-box">
                                                                     <a href="{{ path('delete_demande', {'id': demande.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')" class="navbar-link active icon-box">
                                                                     <span title="Annuler" class="material-symbols-rounded  icon">Cancel</span>
                                                                     </a>
                                                                 </div>
-                                                                </li>
+                                                                </li> #}
                                                             </ul>
                                                         </td>
                                                     </tr>

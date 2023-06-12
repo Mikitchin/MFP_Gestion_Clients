@@ -63,10 +63,11 @@ class AgentController extends AbstractController
 
     #[Route('/stats-rdv', name: 'app_statsrdv')]
 
-    public function srdv(): Response
+    public function srdv(Request $request): Response
     {
+        $user = $this->getUser();
         return $this->render('agent/stats.html.twig', [
-            'controller_name' => 'AgentController',
+            'user' => $user,
         ]);
     }
 
@@ -92,6 +93,9 @@ class AgentController extends AbstractController
 
     public function ges_infotreat(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
         // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous en cours de traitement !)
         // Mesure transitoire
         $etat = $response->findOneBy(['id' => 5]);
@@ -121,6 +125,7 @@ class AgentController extends AbstractController
         return $this->render('agent/info_traitement.html.twig', [
             'form' => $form->createView(),
             'demande' => $demande,
+            'user' => $user,
 
         ]);
     }
@@ -129,6 +134,8 @@ class AgentController extends AbstractController
 
     public function ac_transferer(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
         // Récupérons l'id pour la mise à jour de l'état de l'agent (état terminé)
         $etatDemandes = $response->findOneBy(['id' => 2]);
 
@@ -147,6 +154,8 @@ class AgentController extends AbstractController
 
     public function annule_demande_Ac(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
         // Récupérons l'id pour la mise à jour de l'état de l'agent (état terminé)
         $etatDemandes = $response->findOneBy(['id' => 1]);
 
@@ -160,11 +169,14 @@ class AgentController extends AbstractController
         // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
         return $this->redirectToRoute('app_home');
     }
+
     #[Route('/demande/agent-accueil', name: 'app_demande_rdv_agt')]
     #[Route('/demande/agent-accueil-edit/{id}', name: 'edit_demande_rdv_agt')]
 
     public function agent_accueil_rdv(DemandeRdv $demande = null, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $reponse, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
 
         if (!$demande) {
             $demande = new DemandeRdv();
@@ -173,10 +185,13 @@ class AgentController extends AbstractController
             $etat = $reponse->findOneBy(['id' => 1]);
 
             $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
-            $lastId = $id_rdv->getId();
-            if (!$lastId) {
+
+            if ($id_rdv !== null) {
+                $lastId = $id_rdv->getId();
+            } else {
                 $lastId = 1;
             }
+
 
             // Script de la nomenclature du code de rendez-vous !
             $j = new \Datetime();
@@ -199,8 +214,6 @@ class AgentController extends AbstractController
                 $demande->setEtatDemandes($etat);
             }
 
-
-
             $entityManager->persist($demande);
             $entityManager->flush();
 
@@ -213,6 +226,7 @@ class AgentController extends AbstractController
         return $this->render('agent/rdv_form.html.twig', [
             'demande_form' => $form->createView(),
             'editMode' => $demande->getId() !== null,
+            'user' => $user,
         ]);
     }
 
@@ -228,6 +242,7 @@ class AgentController extends AbstractController
 
         return $this->render('agent/rdv_liste.html.twig', [
             'demande' => $demande,
+            'user' => $user
 
         ]);
     }
@@ -236,6 +251,8 @@ class AgentController extends AbstractController
 
     public function transfert_demande(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
         // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous en cours de traitement !)
         // Mesure transitoire
         $etat = $response->findOneBy(['id' => 5]);
@@ -245,7 +262,7 @@ class AgentController extends AbstractController
         $entityManager->flush();
         // dd($etatDemandes);
 
-        $etatDemandes = $response->findOneBy(['id' => 6]);
+        $etatDemandes = $response->findOneBy(['id' => 2]);
         $form = $this->createForm(TransfertFormType::class, $demande);
 
         $form->handleRequest($request);
@@ -265,6 +282,7 @@ class AgentController extends AbstractController
         return $this->render('agent/info_transfert.html.twig', [
             'form' => $form->createView(),
             'demande' => $demande,
+            'user' => $user,
 
         ]);
     }
@@ -273,6 +291,8 @@ class AgentController extends AbstractController
 
     public function destinataire_verif(DemandeRdv $demande = Null, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
         $demande = new DemandeRdv();
         $demandeSearch = new DemandeSearch();
         $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
@@ -289,6 +309,7 @@ class AgentController extends AbstractController
         return $this->render('agent/controle.html.twig', [
             'form' => $form->createView(),
             'demande' => $demande,
+            'user' => $user
             // 'demande' => $paginator,
             // 'previous' => $offset - DemandeRdvRepository::PAGINATOR_PER_PAGE,
             // 'next' => min(count($paginator), $offset + DemandeRdvRepository::PAGINATOR_PER_PAGE),
@@ -299,6 +320,8 @@ class AgentController extends AbstractController
 
     public function rdv_valid(DemandeRdv $demande, Request $request, DemandeRdvRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
         // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous en cours de traitement !)
         // Mesure transitoire
         $etat = $response->findOneBy(['id' => 5]);
@@ -308,7 +331,7 @@ class AgentController extends AbstractController
         $entityManager->flush();
         // dd($etatDemandes);
 
-        $etatDemandes = $response->findOneBy(['id' => 9]);
+        $etatDemandes = $response->findOneBy(['id' => 7]);
         $form = $this->createForm(RendezVousAcFormType::class, $demande);
 
         $form->handleRequest($request);
@@ -328,6 +351,7 @@ class AgentController extends AbstractController
         return $this->render('agent/info_rendez_vous.html.twig', [
             'form' => $form->createView(),
             'demande' => $demande,
+            'user' => $user,
 
         ]);
     }

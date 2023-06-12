@@ -59,6 +59,9 @@ class Reclamation
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $fileName = null;
 
+    #[ORM\ManyToOne]
+    private ?UniteAdmin $direction = null;
+
 
     // public function computeSlug(SluggerInterface $slugger)
     // {
@@ -251,6 +254,18 @@ class Reclamation
     public function setFileName(?string $fileName): self
     {
         $this->fileName = $fileName;
+
+        return $this;
+    }
+
+    public function getDirection(): ?UniteAdmin
+    {
+        return $this->direction;
+    }
+
+    public function setDirection(?UniteAdmin $direction): self
+    {
+        $this->direction = $direction;
 
         return $this;
     }

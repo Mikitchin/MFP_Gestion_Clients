@@ -21,8 +21,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 180, unique: true)]
-    private ?string $matricule = null;
 
     #[ORM\Column(type: 'json')]
     private array $roles = [];
@@ -66,6 +64,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $fonctionnaire = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $resetToken = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Commune = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $quartier = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $matricule = null;
+
+    #[ORM\OneToMany(mappedBy: 'userAgent', targetEntity: DemandeRdv::class)]
+    private Collection $demandeRdvAgent;
+
     // #[ORM\Column(type: 'string', length: 100)]
     // private $resetToken;
     // #[ORM\ManyToMany(targetEntity: Roles::class, inversedBy: 'users')]
@@ -75,6 +88,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // $this->privilege = new ArrayCollection();
         $this->demandeRdvs = new ArrayCollection();
+        $this->demandeRdvAgent = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -82,17 +96,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
-    public function getMatricule(): ?string
-    {
-        return $this->matricule;
-    }
 
-    public function setMatricule(string $matricule): self
-    {
-        $this->matricule = $matricule;
-
-        return $this;
-    }
 
     /**
      * A visual identifier that represents this user.
@@ -333,4 +337,81 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
+
+        return $this;
+    }
+
+    public function getCommune(): ?string
+    {
+        return $this->Commune;
+    }
+
+    public function setCommune(?string $Commune): self
+    {
+        $this->Commune = $Commune;
+
+        return $this;
+    }
+
+    public function getQuartier(): ?string
+    {
+        return $this->quartier;
+    }
+
+    public function setQuartier(?string $quartier): self
+    {
+        $this->quartier = $quartier;
+
+        return $this;
+    }
+
+    public function getMatricule(): ?string
+    {
+        return $this->matricule;
+    }
+
+    public function setMatricule(?string $matricule): self
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DemandeRdv>
+     */
+    public function getDemandeRdvAgent(): Collection
+    {
+        return $this->demandeRdvAgent;
+    }
+
+    public function addDemandeRdvAgent(DemandeRdv $demandeRdvAgent): self
+    {
+        if (!$this->demandeRdvAgent->contains($demandeRdvAgent)) {
+            $this->demandeRdvAgent->add($demandeRdvAgent);
+            $demandeRdvAgent->setUserAgent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDemandeRdvAgent(DemandeRdv $demandeRdvAgent): self
+    {
+        if ($this->demandeRdvAgent->removeElement($demandeRdvAgent)) {
+            // set the owning side to null (unless already changed)
+            if ($demandeRdvAgent->getUserAgent() === $this) {
+                $demandeRdvAgent->setUserAgent(null);
+            }
+        }
+
+        return $this;
+    }
 }

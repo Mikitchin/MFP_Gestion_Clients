@@ -60,6 +60,10 @@ class TraiteGestFormType extends AbstractType
 
 
             // ])
+            ->add('observationAc', TextareaType::class, [
+                'attr' => ['class' => 'form-control'],
+
+            ])
 
             ->add('observationGest', TextareaType::class, [
                 'attr' => ['class' => 'form-control'],

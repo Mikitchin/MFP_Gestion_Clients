@@ -50,6 +50,67 @@ class ReclamationRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    // Repository pour le gestionnaire numéro 1
+    public function findRecByFieldGest(string $etatDemandes = null, string $etatDemande = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 2)
+            ->andWhere('d.direction = :direction')
+            ->setParameter('direction', 1);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+
+        // ->where($queryBuilder->expr()->andX(
+        //     $queryBuilder->expr()->neq('e.code', 2),
+        //     $queryBuilder->expr()->neq('e.code', 3)
+        // ));
+    }
+
+    // Repository pour le gestionnaire numéro 1
+    public function findRecByFieldGest_2(string $etatDemandes = null, string $etatDemande = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 2)
+            ->andWhere('d.direction = :direction')
+            ->setParameter('direction', 2);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+
+    // Repository pour le gestionnaire numéro 1
+    public function findRecByFieldGest_3(string $etatDemandes = null, string $etatDemande = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 2)
+            ->andWhere('d.direction = :direction')
+            ->setParameter('direction', 3);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+
+    // Repository pour le superviseur
+    public function findSupByField(string $etatDemandes = null, string $etatDemande = null): array
+    {
+        $queryBuilder =  $this->createQueryBuilder('d')
+            ->where('d.etatDemandes = :etatDemandes')
+            ->setParameter('etatDemandes', 2);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+
+
     //    /**
     //     * @return Reclamation[] Returns an array of Reclamation objects
     //     */

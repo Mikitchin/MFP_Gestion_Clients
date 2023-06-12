@@ -34,17 +34,20 @@ class DemandeRdvController extends AbstractController
             $etat = $reponse->findOneBy(['id' => 1]);
 
             $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
-            $lastId = $id_rdv->getId();
-            if (!$lastId) {
+           
+            if ($id_rdv !== null) {
+                $lastId = $id_rdv->getId();
+            } else {
                 $lastId = 1;
             }
-
+            
+            
             // Script de la nomenclature du code de rendez-vous !
             $j = new \Datetime();
             $result = $j->format('dmY');
             $b = "REQ_" . $result . "_" . $lastId;
 
-            $user_cnt = $this->getUser();
+            $user = $this->getUser();
         }
 
         //Contrôle avant modification 
@@ -56,11 +59,9 @@ class DemandeRdvController extends AbstractController
             if (!$demande->getId()) {
                 // $demande->setCreatedAt = new \Datetime();
                 $demande->setCodeDde($b);
-                $demande->setUsers($user_cnt);
+                $demande->setUsers($user);
                 $demande->setEtatDemandes($etat);
             }
-
-
 
             $entityManager->persist($demande);
             $entityManager->flush();
@@ -74,6 +75,7 @@ class DemandeRdvController extends AbstractController
         return $this->render('usager/rdv_form.html.twig', [
             'demande_form' => $form->createView(),
             'editMode' => $demande->getId() !== null,
+            'user' => $user,
         ]);
     }
 
@@ -89,6 +91,7 @@ class DemandeRdvController extends AbstractController
 
         return $this->render('usager/rdv_liste.html.twig', [
             'demande' => $demande,
+            'user' => $user,
 
         ]);
     }
@@ -110,6 +113,8 @@ class DemandeRdvController extends AbstractController
     #[Route('/recherche-demande', name: 'app_search')]
     public function search_demande(Request $request, EntityManagerInterface $entityManager, DemandeRdvRepository $repo): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
         $demandeSearch = new DemandeSearch();
         $form = $this->createForm(DemandeSearchType::class, $demandeSearch);
         $form->handleRequest($request);
@@ -123,7 +128,8 @@ class DemandeRdvController extends AbstractController
 
         return $this->render('usager/demande_search.html.twig', [
             'form' => $form->createView(),
-            'demande' => $demande
+            'demande' => $demande,
+            'user' => $user,
         ]);
     }
 
@@ -135,6 +141,8 @@ class DemandeRdvController extends AbstractController
         if (!$data) {
             $data = new DemandeRdv();
         }
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
         // Vérifiez si le code est valide ici
 
         // Récupérez les données de la base de données
@@ -157,6 +165,7 @@ class DemandeRdvController extends AbstractController
 
         return $this->render('agent/demande_modif_ac.html.twig', [
             'demande_form' => $form->createView(),
+            'user' => $user
             // 'data' => $data,
 
         ]);
@@ -169,6 +178,8 @@ class DemandeRdvController extends AbstractController
     public function formAction(Request $request, DemandeRdv $demande = null, DemandeRdvRepository $repo, EntityManagerInterface $entityManager): Response
     {
 
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
 
         $form = $this->createForm(ControleCodeFormType::class);
         $form->handleRequest($request);
@@ -187,6 +198,7 @@ class DemandeRdvController extends AbstractController
         return $this->render('agent/controle_code.html.twig', [
             'form' => $form->createView(),
             'demande' => $demande,
+            'user' => $user,
 
         ]);
     }

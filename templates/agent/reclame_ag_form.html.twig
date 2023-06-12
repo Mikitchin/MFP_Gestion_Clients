@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+{% block title %}CRUC – Centre de Relation Usager-Client{% endblock %}
 
 {% block body %}
 <main>
     <article class="containerxd article">
 
-      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+      <h2 class="h2 article-title">LOGICIEL DE GESTION DE LA RELATION USAGER-CLIENT (LOGIREC)</h2>
 
-      <p class="article-subtitle">Formulaire de soumission de réclamation des usagers clients !</p>
+      <p class="article-subtitle">Formulaire de soumission de réclamation de l'Usager-Client</p>
 
      
       {# <form class="demandeForm" method="post" enctype="multipart/form-data"> #}
@@ -40,7 +40,7 @@
                             </div>
                         </div>  
                         <div class=" row mb-4">
-                            <label for="demande_form_fichier">Upload fichier 3 Mo MAX</label>
+                            <label for="demande_form_fichier">Upload fichier 2 Mo MAX</label>
                             {# <input type="file" id="demande_form_fichier" name="demande_form[fichier]" /> #}
                             {{ form_widget(reclame_form.fichier) }}
                         </div>   

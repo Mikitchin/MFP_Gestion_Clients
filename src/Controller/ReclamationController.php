@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class ReclamationController extends AbstractController
 {
-    #[Route('/reclamation', name: 'app_reclamation')]
+    #[Route('/reclamation/formulaire', name: 'app_reclamation_form')]
     #[Route('/reclamation/edit/{id}', name: 'edit_reclamation')]
 
     public function index(
@@ -47,7 +47,7 @@ class ReclamationController extends AbstractController
             $result = $j->format('dmY');
             $b = "REC_" . $result . "_" . $lastId;
 
-            $user_cnt = $this->getUser();
+            $user = $this->getUser();
         }
 
         //Contrôle avant modification 
@@ -59,7 +59,7 @@ class ReclamationController extends AbstractController
             if (!$reclame->getId()) {
                 // $demande->setCreatedAt = new \Datetime();
                 $reclame->setCodeDde($b);
-                $reclame->setUsers($user_cnt);
+                $reclame->setUsers($user);
                 $reclame->setEtatDemandes($etat);
             }
             if ($fichier = $form['fichier']->getData()) {
@@ -85,6 +85,7 @@ class ReclamationController extends AbstractController
         return $this->render('usager/reclame_form.html.twig', [
             'reclame_form' => $form->createView(),
             'editMode' => $reclame->getId() !== null,
+            'user' => $user,
         ]);
     }
 
@@ -100,21 +101,29 @@ class ReclamationController extends AbstractController
 
         return $this->render('usager/reclamation_liste.html.twig', [
             'reclame' => $reclame,
-
+            'user' => $user
         ]);
     }
 
     #[Route('/delete-reclamation/{id}', name: 'delete_reclamation')]
     public function delete_reclame(Reclamation $reclame, Request $request, EntityManagerInterface $entityManager, ReclamationRepository $repo): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
         $entityManager->remove($reclame);
         $entityManager->flush();
-        return $this->render('usager/reclame_del.html.twig');
+        return $this->render('usager/reclame_del.html.twig', [
+            'user' => $user,
+        ]);
     }
 
     #[Route('/rechercher-reclamation', name: 'app_search_reclame')]
     public function search_reclame(Request $request, EntityManagerInterface $entityManager, ReclamationRepository $repo): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
         $reclameSearch = new DemandeSearch();
         $form = $this->createForm(DemandeSearchType::class, $reclameSearch);
         $form->handleRequest($request);
@@ -128,7 +137,8 @@ class ReclamationController extends AbstractController
 
         return $this->render('usager/search_reclame.html.twig', [
             'form' => $form->createView(),
-            'reclame' => $reclame
+            'reclame' => $reclame,
+            'user' => $user,
         ]);
     }
 
@@ -159,7 +169,7 @@ class ReclamationController extends AbstractController
             $result = $j->format('dmY');
             $b = "REC_" . $result . "_" . $lastId;
 
-            $user_cnt = $this->getUser();
+            $user = $this->getUser();
         }
 
         //Contrôle avant modification 
@@ -171,7 +181,7 @@ class ReclamationController extends AbstractController
             if (!$reclame->getId()) {
                 // $demande->setCreatedAt = new \Datetime();
                 $reclame->setCodeDde($b);
-                $reclame->setUsers($user_cnt);
+                $reclame->setUsers($user);
                 $reclame->setEtatDemandes($etat);
             }
             if ($fichier = $form['fichier']->getData()) {
@@ -197,12 +207,15 @@ class ReclamationController extends AbstractController
         return $this->render('agent/reclame_ag_form.html.twig', [
             'reclame_form' => $form->createView(),
             'editMode' => $reclame->getId() !== null,
+            'user' => $user,
         ]);
     }
 
     #[Route('/home-reclamation', name: 'app_reclamation')]
     public function reclame(Reclamation $reclame = Null, Request $request, EntityManagerInterface $entityManager, ReclamationRepository $repo): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
 
         $reclame = new Reclamation();
         $demandeSearch = new DemandeSearch();
@@ -220,6 +233,7 @@ class ReclamationController extends AbstractController
         return $this->render('agent/index_agent_reclamation.html.twig', [
             'form' => $form->createView(),
             'reclame' => $reclame,
+            'user' => $user,
             // 'demande' => $paginator,
             // 'previous' => $offset - DemandeRdvRepository::PAGINATOR_PER_PAGE,
             // 'next' => min(count($paginator), $offset + DemandeRdvRepository::PAGINATOR_PER_PAGE),
@@ -230,6 +244,9 @@ class ReclamationController extends AbstractController
 
     public function trait_reclamation(Reclamation $reclame, Request $request, ReclamationRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
     {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
         // Récupérons l'id pour la mise à jour de l'état de l'agent (Rendez-vous en cours de traitement !)
         // Mesure transitoire
         $etat = $response->findOneBy(['id' => 5]);
@@ -259,7 +276,29 @@ class ReclamationController extends AbstractController
         return $this->render('agent/traitement_info_rec.html.twig', [
             'form' => $form->createView(),
             'reclame' => $reclame,
+            'user' => $user,
 
         ]);
+    }
+
+    #[Route('/annule-reclamation/{id}', name: 'app_annule_reclamation')]
+
+    public function annule_reclamation_Ac(Reclamation $reclame, Request $request, ReclamationRepository $repo, EtatDemandeRepository $response, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérer l'utilisateur courant
+        $user = $this->getUser();
+
+        // Récupérons l'id pour la mise à jour de l'état de l'agent (état terminé)
+        $etatDemandes = $response->findOneBy(['id' => 1]);
+
+        $reclame->setEtatDemandes($etatDemandes);
+
+        $entityManager->persist($reclame);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'La réclamation a été annulée !');
+
+        // return $this->redirectToRoute('demande_add', ['id' => $demande->getId()]);
+        return $this->redirectToRoute('app_reclamation');
     }
 }

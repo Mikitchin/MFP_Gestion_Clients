@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+{% block title %}CRUC – Centre de Relation Usager-Client{% endblock %}
 
 {% block body %}
 
  <main>
     <article class="containerxd article">
-      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
+      <h2 class="h2 article-title">LOGICIEL DE GESTION DE LA RELATION USAGER-CLIENT (LOGIREC)</h2>
       <p class="article-subtitle">ECRAN DE CONSULTATION DES INFORMATIONS SUR LE TRAITEMENT DE LA RECLAMATION</p>
       <div class="row">
         <div class="col-lg-12 col-md-12">
@@ -73,7 +73,7 @@
                         </div>
                         <div class="col-xl-3 mb-3">
                     {# <a class="btn btn-danger text-dark" href="#">Bloquer</a> #}
-                        <a class="btn btn-danger text-dark d-flex align-items-center" href="{{ path('app_annule_demande', {'id': reclame.id}) }}">
+                        <a class="btn btn-danger text-dark d-flex align-items-center" href="{{ path('app_annule_reclamation', {'id': reclame.id}) }}">
                         <span class="mx-auto">Annuler</span></a>  
                             </div>
                         </div>              
