@@ -2,17 +2,27 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Bienvenue !{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+       <!-- Feuilles de styles -->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/skin-modes.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% block stylesheets %} {% endblock %}
+                <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+
+  <!-- Fichiers JS -->
+      <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/apexcharts.js')}}" defer></script>
+      <script src="{{ asset('assets/js/jquery.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/feather.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/app.js')}}" defer></script>
+        {% block javascripts %} {% endblock %}
+              <script src="{{ asset('assets/js/script.js')}}" defer></script>
+
     </head>
     <body>
         {% include "_partials/_usagernavbar.html.twig" %}

@@ -6,13 +6,23 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+       <!-- Feuilles de styles -->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/skin-modes.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% block stylesheets %} {% endblock %}
+                <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+
+  <!-- Fichiers JS -->
+      <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/apexcharts.js')}}" defer></script>
+      <script src="{{ asset('assets/js/jquery.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/feather.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/app.js')}}" defer></script>
+        {% block javascripts %} {% endblock %}
+              <script src="{{ asset('assets/js/script.js')}}" defer></script>
+
     </head>
     <body>
        
@@ -32,56 +42,56 @@
                     <div class="wrap-login100 p-6">
                         {# <form class="login100-form validate-form"> #}
                             <span class="login100-form-title pb-5">
-                                CRUC - Authentification
+                                LOGIREC - Authentification
                             </span>
 
-                                                    {# include du formulaire de connexion #}
-                                                    
-                                                    <form method="post">
-                                                    
-                                                    {% if error %}
-                                                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                                                    {% endif %}
-                                        
-                                                    {% if app.user %}
-                                                        <div class="mb-3">
-                                                            Vous êtes connecté(e) comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-                                                        </div>
-                                                    {% endif %}
-                                                        <div class="panel panel-primary">
-                                                                                
-                                                        <div class="panel-body tabs-menu-body p-0 pt-5">
-                                                        <div class="tab-content">
-                                                            <div class="tab-pane active" id="tab5">
-                                        
-                                                            <label for="inputEmail">Email</label>
-                                                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                                                            <label for="inputPassword">Mot de passe</label>
-                                                            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-                                        
-                                                            <input type="hidden" name="_csrf_token"
-                                                                value="{{ csrf_token('authenticate') }}"
-                                                            >
-                                        
-                                                            <div class="text-end pt-4">
-                                                                <p class="mb-0"><a href="{{ path('app_forgotten_password') }}" class="text-primary ms-1">Mot de passe oubli&eacute; ?</a></p>
-                                                            </div>
-                                                                      
-                                                            <button class="btn btn-green mt-3" type="submit">
-                                                                Se connecter
-                                                            </button> 
-                                                             
-                                                            <div class="text-center pt-3">
-                                                            <p class="text-dark mb-0">Pas de compte ?<a href="{{ path('app_inscription') }}" class="text-primary ms-1">S'inscrire</a></p>
-                                                            </div>
-                                                           
-                                                        </div>                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                    </form>     
-                                                    
+                                {# include du formulaire de connexion #}
                                 
+                                <form method="post">
+                                
+                                {% if error %}
+                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+                    
+                                {% if app.user %}
+                                    <div class="mb-3">
+                                        Vous êtes connecté(e) comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                    </div>
+                                {% endif %}
+                                    <div class="panel panel-primary">
+                                                            
+                                    <div class="panel-body tabs-menu-body p-0 pt-5">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab5">
+                    
+                                        <label for="inputEmail">Email</label>
+                                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                                        <label for="inputPassword">Mot de passe</label>
+                                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    
+                                        <input type="hidden" name="_csrf_token"
+                                            value="{{ csrf_token('authenticate') }}"
+                                        >
+                    
+                                        <div class="text-end pt-4">
+                                            <p class="mb-0"><a href="{{ path('app_forgotten_password') }}" class="text-primary ms-1">Mot de passe oubli&eacute; ?</a></p>
+                                        </div>
+                                                    
+                                        <button class="btn btn-green mt-3" type="submit">
+                                            Se connecter
+                                        </button> 
+                                            
+                                        <div class="text-center pt-3">
+                                        <p class="text-dark mb-0">Pas de compte ?<a href="{{ path('app_inscription') }}" class="text-primary ms-1">S'inscrire</a></p>
+                                        </div>
+                                        
+                                    </div>                                        
+                                </div>
+                            </div>
+                        </div>
+                                </form>     
+                                
+            
                     </div>
                 </div>
                 <!-- CONTAINER CLOSED -->

@@ -63,10 +63,11 @@ class AgentController extends AbstractController
 
     #[Route('/stats-rdv', name: 'app_statsrdv')]
 
-    public function srdv(): Response
+    public function srdv(Request $request): Response
     {
+        $user = $this->getUser();
         return $this->render('agent/stats.html.twig', [
-            'controller_name' => 'AgentController',
+            'user' => $user,
         ]);
     }
 
@@ -184,10 +185,13 @@ class AgentController extends AbstractController
             $etat = $reponse->findOneBy(['id' => 1]);
 
             $id_rdv = $repo->findOneBy([], ['id' => 'desc']);
-            $lastId = $id_rdv->getId();
-            if (!$lastId) {
+
+            if ($id_rdv !== null) {
+                $lastId = $id_rdv->getId();
+            } else {
                 $lastId = 1;
             }
+
 
             // Script de la nomenclature du code de rendez-vous !
             $j = new \Datetime();

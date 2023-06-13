@@ -6,144 +6,145 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+       <!-- Feuilles de styles -->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/skin-modes.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% block stylesheets %} {% endblock %}
+                <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+
+  <!-- Fichiers JS -->
+      <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/apexcharts.js')}}" defer></script>
+      <script src="{{ asset('assets/js/jquery.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/feather.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/app.js')}}" defer></script>
+        {% block javascripts %} {% endblock %}
+              <script src="{{ asset('assets/js/script.js')}}" defer></script>
+
+        
     </head>
     <body>
+ 
+  {% block body %}
+
 {% form_theme registrationForm 'bootstrap_5_layout.html.twig' %}        
 
 <div class="container-login100">
                     <div class="text-center">
                         <img src="{{ asset('images/foncpubli.png') }}" class="header-brand-img" alt="">
                     </div>
-                </div>
+</div>
 <div class="container-login100">
-            <div class="wrap-login100 p-6">
-                {# <form class="login100-form validate-form"> #}
-                    
-                    <div class="panel panel-primary">
-                        
-                        <div class="panel-body tabs-menu-body p-0 pt-5">
-                            <div class="tab-content">           
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                            <h4 class="card-title">CRUC - INSCRIPTION</h4>
+    <div class="wrap-login100 p-6">
+        {# <form class="login100-form validate-form"> #}
+            
+        <div class="panel panel-primary">
+            
+            <div class="panel-body tabs-menu-body p-0 pt-5">
+                <div class="tab-content">           
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                <h4 class="card-title">LOGIREC - INSCRIPTION</h4>
+                                    </div>
+                                    
+                                        <div class="card-body">
+                                                                                                    
+                                        {{ form_start(registrationForm) }}
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.structure, {'label': 'Structure', 'attr': {'placeholder': 'Structure'}}) }}
+                                                </div>
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.nom, {'label': 'Nom', 'attr': {'placeholder': 'Nom'}})}}
+                                                </div>
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.contact, {'label': 'Contact', 'attr': {'placeholder': 'Entrer votre contact'}}) }}
                                                 </div>
                                                 
-                                                    <div class="card-body">
-                                                        {# <form class="form-horizontal"> #}
-                                                            
-                                                             {{ form_start(registrationForm) }}
-                                                            {# <fieldset class="mb-3">
-                                                                <legend>Mon identité</legend>
-                                                                 #}
-                                                                    <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.structure, {'label': 'Structure', 'attr':
-                                                                {'placeholder': 'Structure'}}) }}
-                                                                </div>
-
-                                                                <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.nom, {'label': 'Nom', 'attr':
-                                                                {'placeholder': 'Nom '}}) }}
-                                                                </div>
-                                                                <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.prenom, {'label': 'Prénom(s)', 'attr':
-                                                                {'placeholder': 'Prénom(s) '}}) }}
-                                                                </div>
-
-                                                            <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.dateNaissance, {'label': 'Date de naissance', 'attr':
-                                                                {'placeholder': 'Entrer votre matricule'}})  }}
-                                                                {# {{ form_row(registrationForm.structure, {'label': 'Entrer votre structure', 'attr':
-                                                                {'placeholder': 'Structure ...'}})  }} #}
-                                                            </div>
-
-                                                            <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.lieuNaissance, {'label': 'Lieu de naissance', 'attr':
-                                                                {'placeholder': 'Lieu de naissance'}}) }}
-                                                                </div>
-
-                                                                <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.fonctionnaire, {'label': 'Êtes-vous un Fonctionnaire ?'}) }}
-                                                                </div>
-
-                                                                <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.fonction, {'label': 'Fonction', 'attr':
-                                                                {'placeholder': 'Fonction'}}) }}
-                                                                </div>
-                                                                
-
-                                                             {# </fieldset> #}
-                                                             {# <fieldset class="mb-3"> #}
-                                                             {# <legend>Mes coordonnées</legend> #}
-                                                            <div class=" row mb-4">
-                                                            {{ form_row(registrationForm.matricule, {'label': 'Matricule', 'attr':
-                                                            {'placeholder': 'Entrer votre matricule'}})  }}
-                                                        </div>
-                                                        <div class=" row mb-4">
-                                                        {{ form_row(registrationForm.contact, {'label': 'Contact', 'attr':
-                                                        {'placeholder': 'Entrer votre contact'}})  }}
-                                                        </div>
-                                                        <div class=" row mb-4">
-                                                            {{ form_row(registrationForm.email, {'label': 'Adresse E-mail', 'attr':
-                                                            {'placeholder': 'Adresse email '}})  }}
-                                                        </div>
-                                                        
-                                                        <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.ville, {'label': 'Ville', 'attr':
-                                                                {'placeholder': 'Ville'}}) }}
-                                                        </div>
-
-                                                        <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.commune, {'label': 'Commune', 'attr':
-                                                                {'placeholder': 'Votre commune'}}) }}
-                                                        </div>
-
-                                                        <div class=" row mb-4">
-                                                                {{ form_row(registrationForm.quartier, {'label': 'Quartier', 'attr':
-                                                                {'placeholder': 'Votre quartier'}}) }}
-                                                        </div>
-                                                            {# </fieldset> #}
-                                                            
-                                                        <div class=" row mb-4">
-                                                            {{ form_row(registrationForm.password.first,{'label': 'Mot de passe', 'attr':
-                                                            {'placeholder': 'Mot de passe ...'}}) }}
-                                                            {# {{ form_row(registrationForm.confirm_plainPassword, {'label': 'Confirmation du mot de passe', 'attr':
-                                                            {'placeholder': 'Répétez votre mot de passe ....'}}) }} #}
-                                                        </div>
-                                                        <div class=" row mb-4">
-                                                            {{ form_row(registrationForm.password.second,{'label': 'Confirmation du mot de passe', 'attr':
-                                                            {'placeholder': 'Confirmation du mot de passe'}}) }}
-                                                            {# {{ form_row(registrationForm.confirm_plainPassword, {'label': 'Confirmation du mot de passe', 'attr':
-                                                            {'placeholder': 'Répétez votre mot de passe ....'}}) }} #}
-                                                        </div>
-                                                            <div class=" row mb-4">
-                                                            {{ form_row(registrationForm.agreeTerms) }}
-                                                        </div>
-                                                        <div class=" row mb-4">
-                                                            <button type="submit" class="btn btn-success text-align: center">Inscription</button>
-                                                        </div>
-                                                        
-                                                {{ form_end(registrationForm) }}
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.dateNaissance, {'label': 'Date de naissance', 'attr': {'placeholder': 'Entrer votre matricule'}}) }}
+                                                </div>
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.ville, {'label': 'Ville', 'attr': {'placeholder': 'Ville'}}) }}
+                                                </div>
+                                                <div id="fonctionnaire-field" style="display: block">
+                                                    {{ form_row(registrationForm.fonctionnaire, {'label': 'Êtes-vous un fonctionnaire ?', 'attr': {'placeholder': 'Fonctionnaire'}} ) }}
+                                                </div>
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.password.first, {'label': 'Mot de passe', 'attr': {'placeholder': 'Mot de passe ...'}}) }}
+                                                </div>
                                                 
-                                        
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.fonction, {'label': 'Fonction', 'attr': {'placeholder': 'Fonction'}}) }}
+                                                </div>
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.prenom, {'label': 'Prénom(s)', 'attr': {'placeholder': 'Prénom(s)'}}) }}
+                                                </div>
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.email, {'label': 'Adresse E-mail', 'attr': {'placeholder': 'Adresse email'}}) }}
+                                                </div>
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.lieuNaissance, {'label': 'Lieu de naissance', 'attr': {'placeholder': 'Lieu de naissance'}}) }}
+                                                </div>
+                                                
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.commune, {'label': 'Commune', 'attr': {'placeholder': 'Votre commune'}}) }}
+                                                </div>
+                                                {# <div class="mb-4">
+                                                    {{ form_row(registrationForm.quartier, {'label': 'Quartier', 'attr': {'placeholder': 'Votre quartier'}}) }}
+                                                </div> #}
+                                                {# {% if registrationForm.fonctionnaire.vars.value == true %} #}
+                                                <div id="matricule-field" style="display: block;">
+                                                    {{ form_row(registrationForm.matricule, {'label': 'Matricule', 'attr': {'placeholder': 'Entrer votre matricule'}}) }}
+                                                </div>
+                                                {# {% endif %} #}
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.password.second, {'label': 'Confirmer mot de passe', 'attr': {'placeholder': 'Confirmer mot de passe'}}) }}
                                                 </div>
                                             </div>
-                                            
-                                        </div>    
-                                        <!-- End Row -->
-                                    </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-4">
+                                                    {{ form_row(registrationForm.agreeTerms) }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-4">
+                                                    <button type="submit" class="btn btn-success text-align: center">Inscription</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                      {{ form_end(registrationForm) }}         
+                        
                                 </div>
                             </div>
-                        {# </form> #}
+                            
+                        </div>    
+                        <!-- End Row -->
                     </div>
-</div>                        
+                </div>
+            </div>
+    </div>
+</div>    
+
+ 
+{% endblock %}
+
 </body>
+
 </html>

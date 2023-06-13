@@ -70,6 +70,9 @@ class DemandeRdv
     #[ORM\ManyToOne(inversedBy: 'demandeRdvs')]
     private ?UniteAdmin $direction = null;
 
+    #[ORM\ManyToOne(inversedBy: 'demandeRdvAgent')]
+    private ?User $userAgent = null;
+
 
     // public function computeSlug(SluggerInterface $slugger)
     // {
@@ -286,6 +289,18 @@ class DemandeRdv
     public function setDirection(?UniteAdmin $direction): self
     {
         $this->direction = $direction;
+
+        return $this;
+    }
+
+    public function getUserAgent(): ?User
+    {
+        return $this->userAgent;
+    }
+
+    public function setUserAgent(?User $userAgent): self
+    {
+        $this->userAgent = $userAgent;
 
         return $this;
     }

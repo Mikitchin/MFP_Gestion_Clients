@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+{% block title %}CRUC – Centre de Relation Usager-Client{% endblock %}
 
 {% block body %}
 
  <main>
     <article class="containerxd article">
-      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
-      <p class="article-subtitle">ECRAN DE CONSULTATION DES REQUÊTES</p>     
+      <h2 class="h2 article-title">LOGICIEL DE GESTION DE LA RELATION USAGER-CLIENT (LOGIREC)</h2>
+      <p class="article-subtitle">ECRAN DE CONSULTATION </p>     
         
                                       
      <!-- ROW OPEN -->
@@ -21,7 +21,7 @@
                                     {{ form_start(form) }}
                                             <div class="form-row">
                                                 <div class="col-xl-6 mb-3">
-                                                    <label for="validationCustom01" class="redcolor">CODE REQUÊTE</label>
+                                                    <label for="validationCustom01" class="redcolor">CODE </label>
                                                     {# <input type="text" class="form-control" id="validationCustom01" value=""> #}
                                                  {{ form_widget(form.codeDde, { 'attr':
                                                  {'placeholder': 'Entrer le code de la requête' }}) }}

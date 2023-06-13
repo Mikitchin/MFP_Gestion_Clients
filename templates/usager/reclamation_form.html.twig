@@ -1,14 +1,14 @@
 {% extends 'cs_base.html.twig' %}
 
-{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+{% block title %}CRUC – Centre de Relation Usager-Client{% endblock %}
 
 {% block body %}
 <main>
     <article class="containerxd article">
 
-      <h2 class="h2 article-title">Système de Gestion du Centre de Relation des Usagers Clients (CRUC)</h2>
+      <h2 class="h2 article-title">LOGICIEL DE GESTION DE LA RELATION USAGER-CLIENT (LOGIREC)</h2>
 
-      <p class="article-subtitle">Formulaire de soumission de requêtes pour les usagers clients !</p>
+      <p class="article-subtitle">Formulaire de soumission des requêtes pour l'Usager-Client </p>
 
      
       {# <form class="demandeForm" method="post" enctype="multipart/form-data"> #}
@@ -32,7 +32,7 @@
                                 </div>
                                
                         <div class=" row mb-4">
-                            <label class="col-md-3 form-label">Motif de la demande :</label>
+                            <label class="col-md-3 form-label">Motif :</label>
                             <div class="col-md-9">
                                 {{ form_widget(demande_form.descriptDde) }}       
                         {# <textarea class="form-control mb-4" placeholder="" rows="2" name="autre_motif"></textarea> #}

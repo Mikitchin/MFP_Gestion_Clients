@@ -1,12 +1,12 @@
 {% extends 'cs_base.html.twig' %}
 
-{% block title %}CRUC – Centre de Relation des Usagers Clients{% endblock %}
+{% block title %}CRUC – Centre de Relation Usager-Client{% endblock %}
 
 {% block body %}
 
  <main>
     <article class="containerxd article">
-      <h2 class="h2 article-title">SYSTEME DE GESTION DU CENTRE DE RELATION DES USAGERS CLIENTS (CRUC)</h2>
+      <h2 class="h2 article-title">LOGICIEL DE GESTION DE LA RELATION USAGER-CLIENT (LOGIREC)</h2>
       <p class="article-subtitle">ECRAN DE CONSULTATION DES REQUÊTES</p>     
         
                                       
@@ -14,7 +14,7 @@
                           <div class="col-lg-12 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                      <h3 class="card-title">Liste des requêtes </h3>
+                                      <h3 class="card-title">Liste des demandes en cours de traitement </h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive" style="">
@@ -24,9 +24,9 @@
                                                   {% for demande in demande %}
                                                     <tr>
                                                         {# <th>N°</th> #}
-                                                        <th>Code de la requête</th>
+                                                        <th>Code </th>
                                                         {# <th>Matricule</th> #}
-                                                        <th>Motif de la requête</th>
+                                                        <th>Motif </th>
                                                         <th>Date de soumission</th>
                                                         {% if demande.dateRdv %}
                                                         <th>Date rdv</th>
