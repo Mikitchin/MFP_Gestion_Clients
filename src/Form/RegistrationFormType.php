@@ -56,7 +56,7 @@ class RegistrationFormType extends AbstractType
                 'placeholder' => "Entrer votre Email"
             ]
         ])
-        ->add('matricule', HiddenType::class, [
+        ->add('matricule', TextType::class, [
             'attr' => [
                 'class' => 'form-control',
                 'placeholder' => "Entrer votre matricule"

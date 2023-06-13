@@ -6,16 +6,23 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+       <!-- Feuilles de styles -->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/skin-modes.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% block stylesheets %} {% endblock %}
+                <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
 
-        {% block javascripts %}
-       
-        {{ encore_entry_script_tags('app') }}
-       
-            
-        {% endblock %}
+
+  <!-- Fichiers JS -->
+      <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/apexcharts.js')}}" defer></script>
+      <script src="{{ asset('assets/js/jquery.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/feather.min.js')}}" defer></script>
+      <script src="{{ asset('assets/js/app.js')}}" defer></script>
+        {% block javascripts %} {% endblock %}
+              <script src="{{ asset('assets/js/script.js')}}" defer></script>
+
         
     </head>
     <body>
@@ -28,7 +35,7 @@
                     <div class="text-center">
                         <img src="{{ asset('images/foncpubli.png') }}" class="header-brand-img" alt="">
                     </div>
-                </div>
+</div>
 <div class="container-login100">
     <div class="wrap-login100 p-6">
         {# <form class="login100-form validate-form"> #}
@@ -67,7 +74,7 @@
                                                     {{ form_row(registrationForm.ville, {'label': 'Ville', 'attr': {'placeholder': 'Ville'}}) }}
                                                 </div>
                                                 <div id="fonctionnaire-field" style="display: block">
-                                                    {{ form_row(registrationForm.fonctionnaire, {'attr': {'id': 'fonctionnaire-radio'}} ) }}
+                                                    {{ form_row(registrationForm.fonctionnaire, {'label': 'Êtes-vous un fonctionnaire ?', 'attr': {'placeholder': 'Fonctionnaire'}} ) }}
                                                 </div>
                                                 <div class="mb-4">
                                                     {{ form_row(registrationForm.password.first, {'label': 'Mot de passe', 'attr': {'placeholder': 'Mot de passe ...'}}) }}
@@ -138,24 +145,6 @@
  
 {% endblock %}
 
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-    let fonctionnaireRadio = document.querySelector('registration_form_fonctionnaire_0');
-    let matriculeField = document.querySelector('registration_form_matricule');
-
-    function updateMatVisibility() {
-        if (fonctionnaireRadio.checked) {
-            matriculeField.parentNode.style.display = 'block';
-        } else {
-            matriculeField.parentNode.style.display = 'none';
-        }
-    }
-
-    fonctionnaireRadio.addEventListener('change', updateMatVisibility);
-    updateMatVisibility();
-});
-
-    </script>
 </body>
 
 </html>
